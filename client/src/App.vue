@@ -28,11 +28,17 @@
         <div v-if="$vuetify.breakpoint.xsOnly">
           <br />
 
-          <v-list-item>
+          <v-list-item v-if="isLoggedIn">
             <v-list-item-content>
               <v-list-item-title>
-                <span v-if="isLoggedIn" class="text-button">LOGOUT</span>
-                <span v-else class="text-button">LOGIN</span>
+                <span class="text-button">LOGOUT</span>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item v-else to="/login">
+            <v-list-item-content>
+              <v-list-item-title>
+                <span class="text-button">ADMIN</span>
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -75,15 +81,17 @@
         ></v-img>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title class="ml-2">
-        <h2 class="white--text">AMIA</h2>
+      <v-toolbar-title>
+        <v-btn text @click="goHome()">
+          <h1 class="white--text">AMIA</h1>
+        </v-btn>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <div v-if="$vuetify.breakpoint.smAndUp">
         <v-btn color="white" text>ABOUT</v-btn>
-        <v-btn class="mr-5" color="white" text>ADMIN</v-btn>
+        <v-btn class="mr-5" color="white" text to="/login">ADMIN</v-btn>
 
         <v-btn
           @click="toggleTheme()"
@@ -133,6 +141,14 @@ export default {
   },
 
   methods: {
+    goHome() {
+      this.$router.push('/')
+    },
+
+    goToLogin() {
+      this.$router.push('/login')
+    },
+
     toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
       localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString())

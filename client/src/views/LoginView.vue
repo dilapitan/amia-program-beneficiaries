@@ -37,7 +37,13 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn @click="login()" color="primary">Login</v-btn>
+                <v-btn
+                  @click="login()"
+                  color="primary"
+                  :disabled="loading"
+                  :loading="loading"
+                  >Login</v-btn
+                >
               </v-card-actions>
             </v-card>
           </v-col>
@@ -61,16 +67,25 @@ export default {
     ],
     password: '',
     passwordRules: [(v) => !!v || 'Password is required'],
+    loading: false,
   }),
 
   methods: {
     login() {
-      this.$store.dispatch('setLoginAction', {
-        email: this.email,
-        password: this.password,
-      })
-      // this.email = ''
-      // this.password = ''
+      this.loading = true
+
+      // TODO: LoginService
+      setTimeout(() => {
+        this.$store.dispatch('setLoginAction', {
+          email: this.email,
+          password: this.password,
+        })
+
+        this.email = ''
+        this.password = ''
+        this.loading = false
+        this.$router.push('/')
+      }, 1000)
     },
   },
 }

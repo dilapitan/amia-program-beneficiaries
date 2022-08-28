@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer
+      v-if="isLoggedIn || $vuetify.breakpoint.xsOnly"
       color="background"
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -16,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item to="/add">
+        <v-list-item v-if="isLoggedIn" to="/add">
           <v-icon class="mr-2">mdi-account-plus</v-icon>
           <v-list-item-content>
             <v-list-item-title>
@@ -71,7 +72,11 @@
       elevation="1"
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"> </v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        v-if="isLoggedIn || $vuetify.breakpoint.xsOnly"
+        @click.stop="drawer = !drawer"
+      >
+      </v-app-bar-nav-icon>
 
       <v-app-bar-nav-icon>
         <v-img

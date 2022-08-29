@@ -29,7 +29,7 @@
         <div v-if="$vuetify.breakpoint.xsOnly">
           <br />
 
-          <v-list-item v-if="isLoggedIn">
+          <v-list-item v-if="isLoggedIn" @click="logout()">
             <v-list-item-content>
               <v-list-item-title>
                 <span class="text-button">LOGOUT</span>
@@ -96,7 +96,17 @@
 
       <div v-if="$vuetify.breakpoint.smAndUp">
         <v-btn color="white" text>ABOUT</v-btn>
-        <v-btn class="mr-5" color="white" text to="/login">ADMIN</v-btn>
+
+        <v-btn
+          v-if="isLoggedIn"
+          @click="logout()"
+          class="mr-5"
+          color="white"
+          text
+        >
+          LOGOUT
+        </v-btn>
+        <v-btn v-else class="mr-5" color="white" text to="/login">ADMIN</v-btn>
 
         <v-btn
           @click="toggleTheme()"
@@ -137,11 +147,18 @@ export default {
     // Set the drawer Opened for Large screens immediately, Closed for medium and below.
     if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
     else this.drawer = false
+
+    const token = localStorage.getItem('token')
+    const credentials = JSON.parse(token)
+
+    if (credentials !== null) {
+      this.$store.dispatch('setLoginAction', credentials)
+    }
   },
 
   computed: {
     isLoggedIn() {
-      return this.$store.state.user
+      return Boolean(this.$store.state.user)
     },
   },
 
@@ -152,6 +169,12 @@ export default {
 
     goToLogin() {
       this.$router.push('/login')
+    },
+
+    logout() {
+      this.$store.dispatch('setLoginAction', null)
+      localStorage.removeItem('token')
+      this.$router.push('/').catch(() => {})
     },
 
     toggleTheme() {

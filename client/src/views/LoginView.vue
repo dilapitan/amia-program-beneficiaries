@@ -76,10 +76,16 @@ export default {
 
       // TODO: LoginService
       setTimeout(() => {
-        this.$store.dispatch('setLoginAction', {
+        const TOKEN = 'sample_token'
+        const credentials = {
           email: this.email,
           password: this.password,
-        })
+          token: TOKEN,
+        }
+
+        this.$store.dispatch('setLoginAction', credentials)
+
+        localStorage.setItem('token', JSON.stringify(credentials))
 
         this.email = ''
         this.password = ''

@@ -12,13 +12,11 @@ export default new Vuex.Store({
   getters: {},
   mutations: {
     [SET_LOGIN](state, credentials) {
-      console.log('credentials:', credentials)
       state.user = credentials
     },
   },
   actions: {
     setLoginAction({ commit }, payload) {
-      console.log('payload:', payload)
       commit('SET_LOGIN', payload)
     },
   },

@@ -29,7 +29,7 @@
         <div v-if="$vuetify.breakpoint.xsOnly">
           <br />
 
-          <v-list-item v-if="isLoggedIn" @click="logout()">
+          <v-list-item v-if="isLoggedIn" @click="logout()" to="#">
             <v-list-item-content>
               <v-list-item-title>
                 <span class="text-button">LOGOUT</span>

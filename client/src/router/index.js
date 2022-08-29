@@ -4,6 +4,16 @@ import BeneficiariesView from '../views/BeneficiariesView.vue'
 
 Vue.use(VueRouter)
 
+function guardRoutes(to, from, next) {
+  let isLoggedIn = localStorage.getItem('token')
+
+  if (isLoggedIn) {
+    next()
+  } else {
+    next('/unauthorized')
+  }
+}
+
 const routes = [
   {
     path: '/',
@@ -22,27 +32,27 @@ const routes = [
   {
     path: '/add',
     name: 'AddBeneficiaryView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    beforeEnter: guardRoutes,
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/AddBeneficiaryView.vue'),
   },
   {
     path: '/login',
     name: 'LoginView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/LoginView.vue'),
   },
   {
+    path: '/unauthorized',
+    name: 'UnauthorizedPageView',
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ '../views/UnauthorizedPageView.vue'
+      ),
+  },
+  {
     path: '*',
     name: 'PageNotFound',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/PageNotFoundView.vue'),
   },

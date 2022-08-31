@@ -31,7 +31,6 @@ export default {
       },
 
       // 1. Farmer's Basic Information
-
       {
         text: '(1.1) Region/Province',
         sortable: false,
@@ -52,7 +51,6 @@ export default {
       },
 
       // 2. Socio-Demographic Information
-
       { text: '(2.1) Age', sortable: false, value: 'age' },
       { text: '(2.2) Gender', sortable: false, value: 'gender' },
       { text: '(2.3) Civil Status', sortable: false, value: 'civilStatus' },

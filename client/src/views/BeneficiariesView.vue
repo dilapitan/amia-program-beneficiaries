@@ -290,6 +290,64 @@ export default {
         sortable: false,
         value: 'estimatedGrossIncomePerCropping',
       },
+
+      // 5. Technical Knowledge/Perception of Climate Change and Its Impacts
+      {
+        text: '(5.1) Attended Agricultural-related Trainings',
+        sortable: false,
+        value: 'attendedAgriculturalRelatedTrainings',
+      },
+      {
+        text: '(5.2) Total Number of Trainings Attended',
+        sortable: false,
+        value: 'totalNumberOfTrainingsAttended',
+      },
+      {
+        text: '(5.3) Source of Information Related to Improving Agricultural Production',
+        sortable: false,
+        value: 'sourceOfInformationRelatedToImprovingAgriculturalProduction',
+      },
+      {
+        text: '(5.4) Source of Information Related to Improving Agricultural Product Processing',
+        sortable: false,
+        value:
+          'sourceOfInformationRelatedToImprovingAgriculturalProductProcessing',
+      },
+      {
+        text: '(5.5) Source of Climate and Weather Information',
+        sortable: false,
+        value: 'sourceOfClimateAndWeatherInformation',
+      },
+      {
+        text: '(5.6) Observed Any Long-term Changes in Climate (temperature/rainfall) over the last 20-30 years',
+        sortable: false,
+        value: 'observedAnyLongTermChangesInClimentOverTheLast20To30Years',
+      },
+      {
+        text: '(5.7) Haha',
+        sortable: false,
+        value: 'haha',
+      },
+      {
+        text: '(5.8) Haha',
+        sortable: false,
+        value: 'haha',
+      },
+      {
+        text: '(5.9) Haha',
+        sortable: false,
+        value: 'haha',
+      },
+      {
+        text: '(5.10) Haha',
+        sortable: false,
+        value: 'haha',
+      },
+      {
+        text: '(5.11) Haha',
+        sortable: false,
+        value: 'haha',
+      },
     ],
     beneficiaries: [],
   }),

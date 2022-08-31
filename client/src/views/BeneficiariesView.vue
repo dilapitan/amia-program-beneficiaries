@@ -324,29 +324,118 @@ export default {
         value: 'observedAnyLongTermChangesInClimentOverTheLast20To30Years',
       },
       {
-        text: '(5.7) Haha',
+        text: '(5.7.1) Long-term Changes in Climate for the Last 20-30 years for Temperature',
         sortable: false,
-        value: 'haha',
+        value: 'longtermChangesInClimateForTheLast20To30YearsForTemperature',
       },
       {
-        text: '(5.8) Haha',
+        text: '(5.7.2) Long-term Changes in Climate for the Last 20-30 years for Amount of Rainfaill',
         sortable: false,
-        value: 'haha',
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForAmountOfRainfaill',
       },
       {
-        text: '(5.9) Haha',
+        text: '(5.7.3) Long-term Changes in Climate for the Last 20-30 years for Rainfall Timing',
         sortable: false,
-        value: 'haha',
+        value: 'longtermChangesInClimateForTheLast20To30YearsForRainfallTiming',
       },
       {
-        text: '(5.10) Haha',
+        text: '(5.7.4) Long-term Changes in Climate for the Last 20-30 years for Rainful Intensity',
         sortable: false,
-        value: 'haha',
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForRainfulIntensity',
       },
       {
-        text: '(5.11) Haha',
+        text: '(5.7.5) Long-term Changes in Climate for the Last 20-30 years for Rainfall Duration',
         sortable: false,
-        value: 'haha',
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForRainfallDuration',
+      },
+      {
+        text: '(5.7.6) Long-term Changes in Climate for the Last 20-30 years for Number of Weather Events',
+        sortable: false,
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForNumberOfWeatherEvents',
+      },
+      {
+        text: '(5.7.7) Long-term Changes in Climate for the Last 20-30 years for Number of Hot Days',
+        sortable: false,
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForNumberOfHotDays',
+      },
+      {
+        text: '(5.7.8) Long-term Changes in Climate for the Last 20-30 years for Number of Rainy Days',
+        sortable: false,
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForNumberOfRainyDays',
+      },
+      {
+        text: '(5.7.9) Long-term Changes in Climate for the Last 20-30 years for Occurence of Pests And Diseases in Crops',
+        sortable: false,
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForOccurenceOfPestsAndDiseasesInCrops',
+      },
+      {
+        text: '(5.7.10) Long-term Changes in Climate for the Last 20-30 years for Occurence of Pests And Diseases in Livestock',
+        sortable: false,
+        value:
+          'longtermChangesInClimateForTheLast20To30YearsForOccurenceOfPestsAndDiseasesInLivestock',
+      },
+      {
+        text: '(5.7.11) Observed any change in the Onset of Dry Season',
+        sortable: false,
+        value: 'observedAnyChangeInTheOnsetOfDrySeason',
+      },
+      {
+        text: '(5.7.12) Observed any change in the Onset of Wet Season',
+        sortable: false,
+        value: 'observedAnyChangeInTheOnsetOfWetSeason',
+      },
+      {
+        text: '(5.8.1) Description of Change in Temperature',
+        sortable: false,
+        value: 'descriptionOfChangeInTemperature',
+      },
+      {
+        text: '(5.8.2) Description of Change in Rainfall Duration',
+        sortable: false,
+        value: 'descriptionOfChangeInRainfallDuration',
+      },
+      {
+        text: '(5.8.3) Description of Change in Number of Weather Events',
+        sortable: false,
+        value: 'descriptionOfChangeInNumberOfWeatherEvents',
+      },
+      {
+        text: '(5.8.4) Description of Change in Rainfall Intensity',
+        sortable: false,
+        value: 'descriptionOfChangeInRainfallIntensity',
+      },
+      {
+        text: '(5.8.5) Description of Change in Rainfall Duration',
+        sortable: false,
+        value: 'descriptionOfChangeInRainfallDuration',
+      },
+      {
+        text: '(5.9) Observed Main Effects/Impacts (Negative) of Long-term Changes in Climate - I',
+        sortable: false,
+        value: 'observedMainEffectsOrImpactsOfLongTermChangesInClimate1',
+      },
+      {
+        text: '(5.9) Observed Main Effects/Impacts (Negative) of Long-term Changes in Climate - II',
+        sortable: false,
+        value: 'observedMainEffectsOrImpactsOfLongTermChangesInClimate2',
+      },
+      {
+        text: '(5.10) Observed Main Opportunities (Positive Effects/Impacts) of These Long-term Changes in Climate over the last 20-30 years',
+        sortable: false,
+        value:
+          'observedMainOpportunitiesOfLongTermChangesInClimateOverTheLast20To30Years',
+      },
+      {
+        text: '(5.11) Other Changes that seriously affect faming and overall livelihood',
+        sortable: false,
+        value: 'otherChangesThatSeriouslyAffectFarmingAndOverallLivelihood',
       },
     ],
     beneficiaries: [],

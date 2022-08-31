@@ -178,6 +178,118 @@ export default {
         sortable: false,
         value: 'landHolding',
       },
+
+      // 4. Farm Activities
+      {
+        text: '(4.1) Agricultural Activities',
+        sortable: false,
+        value: 'agriculturalActivities',
+      },
+      {
+        text: '(4.2) Crops Produced',
+        sortable: false,
+        value: 'cropsProduced',
+      },
+      {
+        text: '(4.3) Land Area Devoted For Crop Production (ha)',
+        sortable: false,
+        value: 'landAreaDevotedForCropProduction',
+      },
+      {
+        text: '(4.4) Livestock Raised/Produced',
+        sortable: false,
+        value: 'livestockRaisedOrProduced',
+      },
+      {
+        text: '(4.5) Land Area Devoted For Livestock Production (ha)',
+        sortable: false,
+        value: 'landAreaDevotedForLivestockProduction',
+      },
+      {
+        text: '(4.6) Species grown for Aquaculture',
+        sortable: false,
+        value: 'speciesGrownForAquaculture',
+      },
+      {
+        text: '(4.7) Land Area Devoted for Aquaculture (ha)',
+        sortable: false,
+        value: 'landAreaDevotedForAquaculture',
+      },
+      {
+        text: '(4.8) Source of Water for Aquaculture',
+        sortable: false,
+        value: 'sourceOfWaterForAquaculture',
+      },
+      {
+        text: '(4.9) Cropping Pattern',
+        sortable: false,
+        value: 'croppingPattern',
+      },
+      {
+        text: '(4.10) Crop Calendar - Jan',
+        sortable: false,
+        value: 'cropCalendarJan',
+      },
+      {
+        text: '(4.10) Crop Calendar - Feb',
+        sortable: false,
+        value: 'cropCalendarFeb',
+      },
+      {
+        text: '(4.10) Crop Calendar - Mar',
+        sortable: false,
+        value: 'cropCalendarMar',
+      },
+      {
+        text: '(4.10) Crop Calendar - Apr',
+        sortable: false,
+        value: 'cropCalendarApr',
+      },
+      {
+        text: '(4.10) Crop Calendar - May',
+        sortable: false,
+        value: 'cropCalendarMay',
+      },
+      {
+        text: '(4.10) Crop Calendar - Jun',
+        sortable: false,
+        value: 'cropCalendarJun',
+      },
+      {
+        text: '(4.10) Crop Calendar - Jul',
+        sortable: false,
+        value: 'cropCalendarJul',
+      },
+      {
+        text: '(4.10) Crop Calendar - Aug',
+        sortable: false,
+        value: 'cropCalendarAug',
+      },
+      {
+        text: '(4.10) Crop Calendar - Sep',
+        sortable: false,
+        value: 'cropCalendarSep',
+      },
+      {
+        text: '(4.10) Crop Calendar - Oct',
+        sortable: false,
+        value: 'cropCalendarOct',
+      },
+      {
+        text: '(4.10) Crop Calendar - Nov',
+        sortable: false,
+        value: 'cropCalendarNov',
+      },
+      {
+        text: '(4.10) Crop Calendar - Dec',
+        sortable: false,
+        value: 'cropCalendarDec',
+      },
+      {
+        text: '(4.11) Estimated Gross Income Per Cropping (PhP)',
+        sortable: false,
+        value: 'estimatedGrossIncomePerCropping',
+      },
     ],
     beneficiaries: [],
   }),

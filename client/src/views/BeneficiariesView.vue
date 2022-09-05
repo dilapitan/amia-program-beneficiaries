@@ -32,7 +32,6 @@ export default {
   data: () => ({
     headers: [
       // { text: 'Actions', value: 'actions', sortable: false },
-
       // {
       //   text: 'Survey No.',
       //   value: 'surveyNo0',
@@ -40,7 +39,6 @@ export default {
       //   width: '110px',
       // },
       // { text: 'Date', sortable: false, value: 'date', align: 'center' },
-
       // {
       //   text: 'Interview Start',
       //   sortable: false,
@@ -48,7 +46,6 @@ export default {
       //   align: 'center',
       //   value: 'interviewStart',
       // },
-
       // {
       //   text: 'Interview End',
       //   sortable: false,
@@ -63,7 +60,6 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 1. Farmer's Basic Information
       // {
       //   text: '(1.1) Region/Province',
@@ -79,7 +75,6 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // {
       //   text: '(1.3) Barangay',
       //   sortable: false,
@@ -87,7 +82,6 @@ export default {
       //   align: 'center',
       //   value: 'barangay',
       // },
-
       // {
       //   text: '(1.4) Name of Farmer',
       //   sortable: false,
@@ -95,7 +89,6 @@ export default {
       //   align: 'center',
       //   value: 'nameOfFarmer',
       // },
-
       // {
       //   text: '(1.5) Contact No.',
       //   sortable: false,
@@ -110,9 +103,7 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 2. Socio-Demographic Information
-
       // {
       //   text: '(2.1) Age',
       //   sortable: false,
@@ -120,7 +111,6 @@ export default {
       //   width: '90px',
       //   align: 'center',
       // },
-
       // {
       //   text: '(2.2) Gender',
       //   sortable: false,
@@ -128,7 +118,6 @@ export default {
       //   width: '100px',
       //   align: 'center',
       // },
-
       // {
       //   text: '(2.3) Civil Status',
       //   sortable: false,
@@ -136,7 +125,6 @@ export default {
       //   width: '130px',
       //   align: 'center',
       // },
-
       // {
       //   text: '(2.4) Religion',
       //   sortable: false,
@@ -144,7 +132,6 @@ export default {
       //   width: '120px',
       //   align: 'center',
       // },
-
       // {
       //   text: '(2.5) Beloning To',
       //   sortable: false,
@@ -222,7 +209,6 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 3. Farm Description
       // {
       //   text: '(3.1) Total Area of Agricultural Land (ha)',
@@ -322,7 +308,6 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 4. Farm Activities
       // {
       //   text: '(4.1) Agricultural Activities',
@@ -401,7 +386,6 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 5. Technical Knowledge/Perception of Climate Change and Its Impacts
       // {
       //   text: '(5.1) Attended Agricultural-related Trainings',
@@ -769,183 +753,266 @@ export default {
       //   width: '200px',
       //   align: 'center',
       // },
-
       // // 6. Farmer's Adaptation Practices
+      // {
+      //   text: '(6.1) Made adjustments in Livelihood in Response to the Perceived Changes in Rainfall and Temperature over the last 10 years',
+      //   sortable: false,
+      //   value:
+      //     'madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years',
+      //   width: '450px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.2) Changes/Adjustments Made In Farming in Response to Long-term shifts in Temperature and Rainfall',
+      //   sortable: false,
+      //   value:
+      //     'changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall',
+      //   width: '400px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.3) Additional Adaptation Measures Being Considered in the Future',
+      //   sortable: false,
+      //   value: 'additionalAdaptationMeasuresBeingConsideredInTheFuture',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.4) Receive Any External Support for Adaptation Measures',
+      //   sortable: false,
+      //   value: 'receivedAnyExternalSupportForAdaptationMeasures',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.1) Form of Financial Support received',
+      //   sortable: false,
+      //   value: 'formOfFinancialSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.2) Form of Material Support received',
+      //   sortable: false,
+      //   value: 'formOfMaterialSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.3) Form of Extension Services Support received',
+      //   sortable: false,
+      //   value: 'formOfExtensionServicesSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.4) Form of Farming Fishing Advisories Based On Weather and Climate Support received',
+      //   sortable: false,
+      //   value:
+      //     'FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.5) Form of Infrastructure Support received',
+      //   sortable: false,
+      //   value: 'formOfInfrastructureSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.5.6) Form of Other Support received',
+      //   sortable: false,
+      //   value: 'formOfOtherSupportReceived',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.6) Most Beneficial Support Services',
+      //   sortable: false,
+      //   value: 'mostBeneficialSupportServices',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.1) Low Education Level Constraint **',
+      //   sortable: false,
+      //   value: 'lowEducationLevelConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.2) Limited Access to Information Constraint **',
+      //   sortable: false,
+      //   value: 'limitedAccessToInformationConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.3) Lack of Extension Services Constraint **',
+      //   sortable: false,
+      //   value: 'lackOfExtensionServicesConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.4) CRA Options Not Compatible With Community Norms and Values Constraint **',
+      //   sortable: false,
+      //   value: 'craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.5) Inadequate Capital Constraint **',
+      //   sortable: false,
+      //   value: 'inadequateCapitalConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.6) No Access to Water for Irrigation Constraint **',
+      //   sortable: false,
+      //   value: 'noAccessToWaterForIrrigationConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.7) No Access to Credit Constraint **',
+      //   sortable: false,
+      //   value: 'noAccessToCreditConstraintConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.8) Longer Time Required to See Results Constraint **',
+      //   sortable: false,
+      //   value: 'longerTimeRequiredToSeeResultsConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.9) Old Age Constraint **',
+      //   sortable: false,
+      //   value: 'oldAgeConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.10) Land Tenure/Land Ownership Issues Constraint **',
+      //   sortable: false,
+      //   value: 'landTenureOrLandOwnershipIssuesConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.11) Land Topography Not Suitable Constraint **',
+      //   sortable: false,
+      //   value: 'landTopographyNotSuitableConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.12) Labor Intensive/Non-availability of Labor Constraint **',
+      //   sortable: false,
+      //   value: 'laborIntensiveOrNonAvailabilityOfLaborConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.13) Infertile Soil Constraint **',
+      //   sortable: false,
+      //   value: 'infertileSoilConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(6.7.14) Other Constraint **',
+      //   sortable: false,
+      //   value: 'OtherConstraint',
+      //   width: '150px',
+      //   align: 'center',
+      // },
+
+      // 7. Institutional Characteristics
+
       {
-        text: '(6.1) Made adjustments in Livelihood in Response to the Perceived Changes in Rainfall and Temperature over the last 10 years',
+        text: '(7.1) Present in Community: Access to Agirculture/Fisheries R&D Institutions',
         sortable: false,
         value:
-          'madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years',
-        width: '450px',
+          'presentInCommunityAccessToAgricultureOrFisheriesRnDInstitutions',
+        width: '150px',
         align: 'center',
       },
       {
-        text: '(6.2) Changes/Adjustments Made In Farming in Response to Long-term shifts in Temperature and Rainfall',
+        text: '(7.2) Present in Community: Access to Credit',
+        sortable: false,
+        value: 'presentInCommunityAccessToCredit',
+        width: '150px',
+        align: 'center',
+      },
+      {
+        text: '(7.3) Present in Community: Laboratory Facilities',
+        sortable: false,
+        value: 'presentInCommunityLaboratoryFacilities',
+        width: '150px',
+        align: 'center',
+      },
+      {
+        text: '(7.4) Present in Community: Education and Health Facilities',
+        sortable: false,
+        value: 'presentInCommunityEducationAndHealthFacilities',
+        width: '150px',
+        align: 'center',
+      },
+      {
+        text: `(7.5) Present in Community: Farmers' Groups, Associations, Cooperatives; Non-Government Organizations; Irrigator's Associations`,
         sortable: false,
         value:
-          'changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall',
-        width: '400px',
-        align: 'center',
-      },
-      {
-        text: '(6.3) Additional Adaptation Measures Being Considered in the Future',
-        sortable: false,
-        value: 'additionalAdaptationMeasuresBeingConsideredInTheFuture',
+          'presentInCommunityFarmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations',
         width: '150px',
         align: 'center',
       },
       {
-        text: '(6.4) Receive Any External Support for Adaptation Measures',
+        text: '(7.6) Present in Community: Marketing System',
         sortable: false,
-        value: 'receivedAnyExternalSupportForAdaptationMeasures',
+        value: 'presentInCommunityMarketingSystem',
         width: '150px',
         align: 'center',
       },
       {
-        text: '(6.5.1) Form of Financial Support received',
+        text: '(7.7) Present in Community: Presence of Agricultural Processing Facilities',
         sortable: false,
-        value: 'formOfFinancialSupportReceived',
+        value: 'presentInCommunityPresenceOfAgriculturalProcessingFacilities',
         width: '150px',
         align: 'center',
       },
       {
-        text: '(6.5.2) Form of Material Support received',
+        text: '(7.8) Present in Community: Irrigation',
         sortable: false,
-        value: 'formOfMaterialSupportReceived',
+        value: 'presentInCommunityIrrigation',
         width: '150px',
         align: 'center',
       },
       {
-        text: '(6.5.3) Form of Extension Services Support received',
+        text: '(7.9) Present in Community: Farming Equipment',
         sortable: false,
-        value: 'formOfExtensionServicesSupportReceived',
+        value: 'presentInCommunityFarmingEquipment',
         width: '150px',
         align: 'center',
       },
       {
-        text: '(6.5.4) Form of Farming Fishing Advisories Based On Weather and Climate Support received',
+        text: '(7.10) Present in Community: Others',
         sortable: false,
-        value:
-          'FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived',
+        value: 'presentInCommunityOthers',
         width: '150px',
         align: 'center',
       },
+
+      // 8. Issues/Concerns/Problems in Farming
       {
-        text: '(6.5.5) Form of Infrastructure Support received',
+        text: '(8) Issues/Concerns/Problems in Farming',
         sortable: false,
-        value: 'formOfInfrastructureSupportReceived',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.5.6) Form of Other Support received',
-        sortable: false,
-        value: 'formOfOtherSupportReceived',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.6) Most Beneficial Support Services',
-        sortable: false,
-        value: 'mostBeneficialSupportServices',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.1) Low Education Level Constraint **',
-        sortable: false,
-        value: 'lowEducationLevelConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.2) Limited Access to Information Constraint **',
-        sortable: false,
-        value: 'limitedAccessToInformationConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.3) Lack of Extension Services Constraint **',
-        sortable: false,
-        value: 'lackOfExtensionServicesConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.4) CRA Options Not Compatible With Community Norms and Values Constraint **',
-        sortable: false,
-        value: 'craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.5) Inadequate Capital Constraint **',
-        sortable: false,
-        value: 'inadequateCapitalConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.6) No Access to Water for Irrigation Constraint **',
-        sortable: false,
-        value: 'noAccessToWaterForIrrigationConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.7) No Access to Credit Constraint **',
-        sortable: false,
-        value: 'noAccessToCreditConstraintConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.8) Longer Time Required to See Results Constraint **',
-        sortable: false,
-        value: 'longerTimeRequiredToSeeResultsConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.9) Old Age Constraint **',
-        sortable: false,
-        value: 'oldAgeConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.10) Land Tenure/Land Ownership Issues Constraint **',
-        sortable: false,
-        value: 'landTenureOrLandOwnershipIssuesConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.11) Land Topography Not Suitable Constraint **',
-        sortable: false,
-        value: 'landTopographyNotSuitableConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.12) Labor Intensive/Non-availability of Labor Constraint **',
-        sortable: false,
-        value: 'laborIntensiveOrNonAvailabilityOfLaborConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.13) Infertile Soil Constraint **',
-        sortable: false,
-        value: 'infertileSoilConstraint',
-        width: '150px',
-        align: 'center',
-      },
-      {
-        text: '(6.7.14) Other Constraint **',
-        sortable: false,
-        value: 'OtherConstraint',
+        value: 'issuesOrConcernsOrProblemsInFarming',
         width: '150px',
         align: 'center',
       },

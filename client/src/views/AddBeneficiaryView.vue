@@ -17,6 +17,7 @@
               :style="{ width: '70px' }"
               dense
               clearable
+              v-model="surveyNo"
             ></v-text-field>
           </div>
         </v-col>
@@ -28,8 +29,8 @@
 
           <div>
             <v-menu
-              ref="menu"
-              v-model="menu"
+              ref="dateMenu"
+              v-model="dateMenu"
               :close-on-content-click="false"
               :return-value.sync="date"
               transition="scale-transition"
@@ -48,10 +49,10 @@
               </template>
               <v-date-picker v-model="date" no-title scrollable>
                 <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="menu = false">
+                <v-btn text color="primary" @click="dateMenu = false">
                   Cancel
                 </v-btn>
-                <v-btn text color="primary" @click="$refs.menu.save(date)">
+                <v-btn text color="primary" @click="$refs.dateMenu.save(date)">
                   OK
                 </v-btn>
               </v-date-picker>
@@ -69,6 +70,7 @@
               :style="{ width: '70px' }"
               dense
               clearable
+              v-model="interviewStart"
             ></v-text-field>
           </div>
         </v-col>
@@ -83,6 +85,7 @@
               :style="{ width: '70px' }"
               dense
               clearable
+              v-model="interviewEnd"
             ></v-text-field>
           </div>
         </v-col>
@@ -95,7 +98,11 @@
           </div>
 
           <div>
-            <v-text-field dense clearable></v-text-field>
+            <v-text-field
+              dense
+              clearable
+              v-model="nameOfInterviewer"
+            ></v-text-field>
           </div>
         </v-col>
       </v-row>
@@ -108,10 +115,15 @@ export default {
   name: 'AddBeneficiaryView',
 
   data: () => ({
+    // 0. General Info - data variables
+    surveyNo: null,
     date: null,
-    menu: false,
-    modal: false,
-    menu2: false,
+    interviewStart: null,
+    interviewEnd: null,
+    nameOfInterviewer: null,
+
+    // 0. General Info - UI variables
+    dateMenu: false,
   }),
 }
 </script>

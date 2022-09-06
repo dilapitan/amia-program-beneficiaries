@@ -325,7 +325,7 @@
             </v-row>
           </div>
           <br />
-          <v-btn @click="addHouseholdMember()" color="primary" small>
+          <v-btn @click="addHouseholdMember()" color="primary" small outlined>
             ADD MORE MEMBER
           </v-btn>
         </div>
@@ -374,6 +374,18 @@
             </div>
           </v-col>
         </v-row>
+
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.9) Languages/Dialects spoken:</div>
+
+          <div>
+            <v-text-field
+              dense
+              clearable
+              v-model="languagesOrDialectsSpoken"
+            ></v-text-field>
+          </div>
+        </div>
       </div>
     </v-card>
   </div>
@@ -420,6 +432,7 @@ export default {
     yearsOfFarmingExperience: null,
     highestEducationalAttainment: null,
     highestEducationalAttainmentSpecify: null,
+    languagesOrDialectsSpoken: null,
 
     // 2. Socio-demographic Information - UI variables
     genderOptions: ['Female', 'Male', 'LGBTQ+', 'Prefer not to say'],

@@ -343,6 +343,37 @@
             ></v-text-field>
           </div>
         </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">
+            (2.8) Highest Educational Attainment:
+          </div>
+
+          <div>
+            <v-select
+              :items="highestEducationalAttainmentOptions"
+              label="Select option"
+              v-model="highestEducationalAttainment"
+            ></v-select>
+          </div>
+        </div>
+
+        <v-row
+          v-if="highestEducationalAttainment === 'Others'"
+          class="ml-3"
+          :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+        >
+          <v-col cols="12" sm="6" md="3">
+            <div>
+              <v-text-field
+                dense
+                clearable
+                v-model="highestEducationalAttainmentSpecify"
+                label="Please specify"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -387,6 +418,8 @@ export default {
       },
     ],
     yearsOfFarmingExperience: null,
+    highestEducationalAttainment: null,
+    highestEducationalAttainmentSpecify: null,
 
     // 2. Socio-demographic Information - UI variables
     genderOptions: ['Female', 'Male', 'LGBTQ+', 'Prefer not to say'],
@@ -396,6 +429,13 @@ export default {
       'Person with Disability',
       'Indigenous People',
       '4Ps beneficiary (including household members)',
+    ],
+    highestEducationalAttainmentOptions: [
+      'Elementary Graduate',
+      'High School Graduate',
+      'College Graduate',
+      'Vocational Course Graduate',
+      'Others',
     ],
   }),
 

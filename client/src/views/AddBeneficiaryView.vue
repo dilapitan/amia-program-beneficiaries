@@ -308,15 +308,25 @@
                 ></v-text-field>
               </v-col>
               <v-col v-if="index !== 0" cols="12" sm="1">
-                <v-icon @click="removeHouseholdMember(index)" color="primary">
-                  mdi-cancel
-                </v-icon>
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-icon
+                      @click="removeHouseholdMember(index)"
+                      color="primary"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      mdi-cancel
+                    </v-icon>
+                  </template>
+                  <span>Remove Household Member</span>
+                </v-tooltip>
               </v-col>
             </v-row>
           </div>
           <br />
           <v-btn @click="addHouseholdMember()" color="primary" small>
-            ADD
+            ADD MORE MEMBER
           </v-btn>
         </div>
 

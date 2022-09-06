@@ -5,7 +5,7 @@
       This is where you can add a new beneficiary to the list.
     </p>
     <br />
-    <v-card class="pa-2" color="middleground" flat height="100%">
+    <v-card class="pa-5" color="middleground" flat height="100%">
       <!-- 0 General -->
       <v-row>
         <v-col class="d-flex align-baseline" cols="12" sm="6" md="3">
@@ -15,7 +15,7 @@
 
           <div>
             <v-text-field
-              :style="{ width: '70px' }"
+              class="small-number-input"
               dense
               clearable
               v-model="surveyNo"
@@ -68,7 +68,7 @@
 
           <div>
             <v-text-field
-              :style="{ width: '70px' }"
+              class="small-number-input"
               dense
               clearable
               v-model="interviewStart"
@@ -83,7 +83,7 @@
 
           <div>
             <v-text-field
-              :style="{ width: '70px' }"
+              class="small-number-input"
               dense
               clearable
               v-model="interviewEnd"
@@ -118,55 +118,145 @@
 
       <br />
 
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.1) Region/Province:</div>
+      <div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.1) Region/Province:</div>
 
-        <div>
-          <v-text-field
-            dense
-            clearable
-            v-model="regionOrProvince"
-          ></v-text-field>
+          <div>
+            <v-text-field
+              dense
+              clearable
+              v-model="regionOrProvince"
+            ></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.2) City/Municipality:</div>
+
+          <div>
+            <v-text-field
+              dense
+              clearable
+              v-model="cityOrMunicipality"
+            ></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.3) Barangay:</div>
+
+          <div>
+            <v-text-field dense clearable v-model="barangay"></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.4) Name of Farmer:</div>
+
+          <div>
+            <v-text-field dense clearable v-model="nameOfFarmer"></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.5) Contact No:</div>
+
+          <div>
+            <v-text-field dense clearable v-model="contactNo"></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(1.6) Farmer's Code No:</div>
+
+          <div>
+            <v-text-field
+              dense
+              clearable
+              v-model="farmersCodeNo"
+            ></v-text-field>
+          </div>
         </div>
       </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.2) City/Municipality:</div>
 
-        <div>
-          <v-text-field
-            dense
-            clearable
-            v-model="cityOrMunicipality"
-          ></v-text-field>
-        </div>
-      </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.3) Barangay:</div>
+      <br />
+      <v-divider></v-divider>
+      <br />
 
-        <div>
-          <v-text-field dense clearable v-model="barangay"></v-text-field>
-        </div>
-      </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.4) Name of Farmer:</div>
+      <!-- 2 Socio-demographic Information -->
 
-        <div>
-          <v-text-field dense clearable v-model="nameOfFarmer"></v-text-field>
-        </div>
-      </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.5) Contact No:</div>
+      <h3>II. SOCIO-DEMOGRAPHIC INFORMATION</h3>
 
-        <div>
-          <v-text-field dense clearable v-model="contactNo"></v-text-field>
-        </div>
-      </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.6) Farmer's Code No:</div>
+      <br />
 
-        <div>
-          <v-text-field dense clearable v-model="farmersCodeNo"></v-text-field>
+      <div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.1) Age:</div>
+
+          <div>
+            <v-text-field
+              class="small-number-input"
+              dense
+              clearable
+              v-model="age"
+            ></v-text-field>
+          </div>
         </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.2) Gender:</div>
+
+          <div>
+            <v-select
+              class="middle-length-select"
+              :items="genderOptions"
+              label="Select option"
+            ></v-select>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.3) Civil Status:</div>
+
+          <div>
+            <v-select
+              class="middle-length-select"
+              :items="civilStatusOptions"
+              label="Select option"
+            ></v-select>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.4) Religion:</div>
+
+          <div>
+            <v-text-field dense clearable v-model="religion"></v-text-field>
+          </div>
+        </div>
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">
+            (2.5) Belongs to the following sector:
+          </div>
+
+          <div>
+            <v-select
+              :items="belongingToOptions"
+              label="Select option"
+              v-model="belongingTo"
+            ></v-select>
+          </div>
+        </div>
+
+        <v-row
+          v-if="belongingTo === 'Indigenous People'"
+          class="ml-3"
+          :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+        >
+          <v-col cols="12" sm="6" md="3">
+            <div>
+              <v-text-field
+                dense
+                clearable
+                v-model="belongingToSpecify"
+                label="Please specify"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -187,13 +277,41 @@ export default {
     // 0. General Info - UI variables
     dateMenu: false,
 
-    // 1. Farmer's Basic Information
+    // 1. Farmer's Basic Information - data variables
     regionOrProvince: null,
     cityOrMunicipality: null,
     barangay: null,
     nameOfFarmer: null,
     contactNo: null,
     farmersCodeNo: null,
+
+    // 2. Socio-demographic Information - data variables
+    age: null,
+    gender: null,
+    civilStatus: null,
+    religion: null,
+    belongingTo: null,
+    belongingToSpecify: null,
+
+    // 2. Socio-demographic Information - UI variables
+    genderOptions: ['Female', 'Male', 'LGBTQ+', 'Prefer not to say'],
+    civilStatusOptions: ['Single', 'Married', 'Widow/Widower', 'Separated'],
+    belongingToOptions: [
+      'Senior Citizen',
+      'Person with Disability',
+      'Indigenous People',
+      '4Ps beneficiary (including household members)',
+    ],
   }),
 }
 </script>
+
+<style scoped>
+.small-number-input {
+  width: 70px;
+}
+
+.middle-length-select {
+  width: 200px;
+}
+</style>

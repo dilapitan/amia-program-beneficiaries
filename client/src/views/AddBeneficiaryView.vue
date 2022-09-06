@@ -257,6 +257,82 @@
             </div>
           </v-col>
         </v-row>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="12">
+          <div class="mr-2 text-body-2">
+            (2.6) Household Members (farmer not included):
+          </div>
+        </div>
+
+        <div class="mt-3 ml-5">
+          <div
+            v-for="(householdMember, index) in householdMembers"
+            :key="index"
+          >
+            <v-row class="d-flex align-baseline">
+              <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
+              <v-col cols="12" sm="3">
+                <v-text-field
+                  class="mr-4"
+                  dense
+                  clearable
+                  v-model="householdMember.name"
+                  label="Name"
+                ></v-text-field
+              ></v-col>
+              <v-col cols="12" sm="2">
+                <v-text-field
+                  class="mr-4 small-number-input"
+                  dense
+                  clearable
+                  v-model="householdMember.age"
+                  label="Age"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="2">
+                <v-text-field
+                  class="mr-4"
+                  dense
+                  clearable
+                  v-model="householdMember.gender"
+                  label="Gender"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="3">
+                <v-text-field
+                  class="long-input"
+                  dense
+                  clearable
+                  v-model="householdMember.relationToTheRespondent"
+                  label="Relation to Respondent"
+                ></v-text-field>
+              </v-col>
+              <v-col v-if="index !== 0" cols="12" sm="1">
+                <v-icon @click="removeHouseholdMember(index)" color="primary">
+                  mdi-cancel
+                </v-icon>
+              </v-col>
+            </v-row>
+          </div>
+          <br />
+          <v-btn @click="addHouseholdMember()" color="primary" small>
+            ADD
+          </v-btn>
+        </div>
+
+        <br />
+
+        <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+          <div class="mr-2 text-body-2">(2.7) Years of Farming Experience:</div>
+
+          <div>
+            <v-text-field
+              dense
+              clearable
+              v-model="yearsOfFarmingExperience"
+            ></v-text-field>
+          </div>
+        </div>
       </div>
     </v-card>
   </div>
@@ -292,6 +368,15 @@ export default {
     religion: null,
     belongingTo: null,
     belongingToSpecify: null,
+    householdMembers: [
+      {
+        name: null,
+        age: null,
+        gender: null,
+        relationToTheRespondent: null,
+      },
+    ],
+    yearsOfFarmingExperience: null,
 
     // 2. Socio-demographic Information - UI variables
     genderOptions: ['Female', 'Male', 'LGBTQ+', 'Prefer not to say'],
@@ -303,12 +388,29 @@ export default {
       '4Ps beneficiary (including household members)',
     ],
   }),
+
+  methods: {
+    addHouseholdMember() {
+      this.householdMembers.push({
+        name: null,
+        age: null,
+        gender: null,
+        relationToTheRespondent: null,
+      })
+    },
+    removeHouseholdMember(index) {
+      this.householdMembers.splice(index, 1)
+    },
+  },
 }
 </script>
 
 <style scoped>
 .small-number-input {
   width: 70px;
+}
+.long-input {
+  width: 200px;
 }
 
 .middle-length-select {

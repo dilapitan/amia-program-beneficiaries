@@ -468,6 +468,79 @@
             </div>
           </div>
         </div>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
+            (2.12) Average Gross Monthly Income of Household (PhP):
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-select
+              :items="averageGrossMonthlyIncomeOfHouseholdOptions"
+              label="Select option"
+              v-model="averageGrossMonthlyIncomeOfHousehold"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
+            (2.13) Average Gross Monthly Farm Income (PhP):
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-select
+              :items="averageGrossMonthlyFarmIncomeOptions"
+              label="Select option"
+              v-model="averageGrossMonthlyFarmIncome"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
+            (2.14) Membership in a Farmer Group/Association/Organization:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="membershipInAFarmerGroupOrAssociationOrOrganization"
+              :label="
+                membershipInAFarmerGroupOrAssociationOrOrganization
+                  ? 'Yes'
+                  : 'No'
+              "
+            ></v-switch>
+            <v-text-field
+              class="ma-0 pa-0 mb-2"
+              v-if="membershipInAFarmerGroupOrAssociationOrOrganization"
+              dense
+              clearable
+              v-model="
+                membershipInAFarmerGroupOrAssociationOrOrganizationSpecify
+              "
+              label="Please specify"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
+            (2.15) Enrolled in Registry System for Basic Sectors In Agriculture
+            (RSBSA):
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="enrolledInRegistrySystemForBasicSectorsInAgriculture"
+              :label="
+                enrolledInRegistrySystemForBasicSectorsInAgriculture
+                  ? 'Yes'
+                  : 'No'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -521,6 +594,11 @@ export default {
     otherSourcesOfIncomeRegularJobSpecify: null,
     otherSourcesOfIncomeOwnBusinessSpecify: null,
     otherSourcesOfIncomeOthersSpecify: null,
+    averageGrossMonthlyIncomeOfHousehold: null,
+    averageGrossMonthlyFarmIncome: null,
+    membershipInAFarmerGroupOrAssociationOrOrganization: false,
+    membershipInAFarmerGroupOrAssociationOrOrganizationSpecify: null,
+    enrolledInRegistrySystemForBasicSectorsInAgriculture: false,
 
     // 2. Socio-demographic Information - UI variables
     genderOptions: ['Female', 'Male', 'LGBTQ+', 'Prefer not to say'],
@@ -581,6 +659,24 @@ export default {
         id: 'Others',
         selected: false,
       },
+    ],
+    averageGrossMonthlyIncomeOfHouseholdOptions: [
+      '≤ 10,000',
+      '10,001 - 20,000',
+      '20,001 - 30,000',
+      '30,001 - 40,000',
+      '40,001 - 50,000',
+      '50,001 - 60,000',
+      '> 60,000',
+    ],
+    averageGrossMonthlyFarmIncomeOptions: [
+      '≤ 10,000',
+      '10,001 - 20,000',
+      '20,001 - 30,000',
+      '30,001 - 40,000',
+      '40,001 - 50,000',
+      '50,001 - 60,000',
+      '> 60,000',
     ],
   }),
 

@@ -542,6 +542,134 @@
           </v-col>
         </v-row>
       </div>
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <!-- 3 Farm Description -->
+
+      <h3>III. FARM DESCRIPTION</h3>
+
+      <br />
+
+      <div>
+        <v-row>
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.1) Total Area of Agricultural Land (ha):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="totalAreaOfAgriculturalLand"
+              ></v-text-field>
+            </div>
+          </v-col>
+
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.2) Total Area of Forestry Land (ha):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="totalAreaOfForestryLand"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.3) Total Cultivated Area (ha):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="totalCultivatedArea"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.4) Distance from Home to Farm (km):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="distanceFromHomeToFarm"
+              ></v-text-field>
+            </div>
+          </v-col>
+
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.5) Distance from Land to Water Source (km):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="distanceFromLandToWaterSource"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="8">
+            <div class="mr-2 text-body-2">
+              (3.6) Distance from Market Nearest Paved (concrete/asphalt) road
+              (km):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="distanceFromMarketNearestPavedRoad"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+            <div class="mr-2 text-body-2">
+              (3.7) Distance from Market/Trading Post (km):
+            </div>
+
+            <div>
+              <v-text-field
+                class="small-number-input"
+                dense
+                clearable
+                v-model="distanceFromMarketOrTradingPost"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
     </v-card>
   </div>
 </template>
@@ -678,6 +806,17 @@ export default {
       '50,001 - 60,000',
       '> 60,000',
     ],
+
+    // 3. Farm Description - data variables
+    totalAreaOfAgriculturalLand: null,
+    totalAreaOfForestryLand: null,
+    totalCultivatedArea: null,
+    distanceFromHomeToFarm: null,
+    distanceFromLandToWaterSource: null,
+    distanceFromMarketNearestPavedRoad: null,
+    distanceFromMarketOrTradingPost: null,
+
+    // 3. Farm Description - UI variables
   }),
 
   methods: {

@@ -1045,6 +1045,37 @@
             </div>
           </v-col>
         </v-row>
+
+        <v-row>
+          <v-col
+            class="d-flex align-baseline flex-wrap"
+            cols="12"
+            sm="6"
+            md="10"
+          >
+            <div class="mr-2 text-body-2">
+              (4.11) Estimated Gross Income Per Cropping (PhP):
+            </div>
+
+            <div :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }">
+              <v-text-field
+                class="mr-4"
+                label="1st Cropping"
+                dense
+                clearable
+                v-model="estimatedGrossIncomePerCroppingFirstCropping"
+              ></v-text-field>
+            </div>
+            <div>
+              <v-text-field
+                label="2nd Cropping"
+                dense
+                clearable
+                v-model="estimatedGrossIncomePerCroppingFirstCropping"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -1253,6 +1284,8 @@ export default {
     sourceOfWaterForAquaculture: null,
     croppingPattern: null,
     croppingPatternSpecify: null,
+    estimatedGrossIncomePerCroppingFirstCropping: null,
+    estimatedGrossIncomePerCroppingSecondCropping: null,
 
     // 4. Farm Activities - UI variables
     agriculturalActivitiesOptions: [

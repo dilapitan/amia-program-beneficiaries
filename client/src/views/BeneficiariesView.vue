@@ -384,9 +384,16 @@ export default {
         align: 'center',
       },
       {
-        text: '(4.11) Estimated Gross Income Per Cropping (PhP)',
+        text: '(4.11) Estimated Gross Income Per Cropping (PhP) - 1st Cropping',
         sortable: false,
-        value: 'estimatedGrossIncomePerCropping',
+        value: 'estimatedGrossIncomePerCroppingFirstCropping',
+        width: '200px',
+        align: 'center',
+      },
+      {
+        text: '(4.11) Estimated Gross Income Per Cropping (PhP) - 2nd Cropping',
+        sortable: false,
+        value: 'estimatedGrossIncomePerCroppingSecondCropping',
         width: '200px',
         align: 'center',
       },

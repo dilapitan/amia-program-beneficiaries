@@ -774,6 +774,249 @@
           </div>
         </div>
       </div>
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <!-- 4 Farm Activities -->
+
+      <h3>IV. FARM ACTIVITIES</h3>
+
+      <br />
+
+      <div>
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="4" md="2" class="mr-2 text-body-2">
+            (4.1) Agricultural Activities:
+          </v-col>
+        </v-row>
+
+        <div>
+          <div
+            :class="{ 'ml-3': $vuetify.breakpoint.smAndUp }"
+            v-for="(
+              agriculturalActivities, index
+            ) in agriculturalActivitiesOptions"
+            :key="index"
+          >
+            <v-row>
+              <v-col class="mr-2 ma-0 pa-0">
+                <v-checkbox
+                  @click="
+                    addAgriculturalActivities(agriculturalActivities, index)
+                  "
+                  v-model="agriculturalActivities.selected"
+                  :label="agriculturalActivities.id"
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+
+            <div
+              class="ml-2"
+              v-if="
+                agriculturalActivities.selected &&
+                agriculturalActivities.id === 'Crop Production'
+              "
+            >
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">(4.2) Crops Produced:</div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="cropsProduced"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.3) Land Area Devoted For Crop Production (ha):
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="landAreaDevotedForCropProduction"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+            </div>
+
+            <div
+              class="ml-2"
+              v-if="
+                agriculturalActivities.selected &&
+                agriculturalActivities.id === 'Livestock Production'
+              "
+            >
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.4) Livestock Raised/Produced:
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="livestockRaisedOrProduced"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.5) Land Area Devoted For Livestock Production (ha):
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="landAreaDevotedForLivestockProduction"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+            </div>
+
+            <div
+              class="ml-2"
+              v-if="
+                agriculturalActivities.selected &&
+                agriculturalActivities.id === 'Aquaculture'
+              "
+            >
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.6) Species grown for Aquaculture:
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="speciesGrownForAquaculture"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.7) Land Area Devoted for Aquaculture (ha):
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="landAreaDevotedForAquaculture"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="8"
+                  class="ma-0 pa-0 d-flex align-baseline flex-wrap"
+                >
+                  <div class="mr-2 text-body-2">
+                    (4.8) Source of Water for Aquaculture:
+                  </div>
+
+                  <div>
+                    <v-text-field
+                      :class="{ 'mt-3': $vuetify.breakpoint.smAndDown }"
+                      dense
+                      clearable
+                      v-model="sourceOfWaterForAquaculture"
+                      label="Please specify"
+                    ></v-text-field>
+                  </div>
+                </v-col>
+              </v-row>
+            </div>
+
+            <v-row
+              v-if="
+                agriculturalActivities.selected &&
+                agriculturalActivities.id === 'Agri-based Product Development'
+              "
+              class="ml-3"
+              :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+            >
+              <v-col cols="12" sm="6" md="3">
+                <div>
+                  <v-text-field
+                    dense
+                    clearable
+                    v-model="agriBasedProductDevelopmentSpecify"
+                    label="Please specify"
+                  ></v-text-field>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+        </div>
+      </div>
     </v-card>
   </div>
 </template>
@@ -968,9 +1211,65 @@ export default {
       'Small, sometimes fragmented (1-2 ha)',
       'Large, consolidated (>2 ha)',
     ],
+
+    // 4. Farm Activities - data variables
+    agriculturalActivities: [],
+    agriBasedProductDevelopmentSpecify: null,
+    cropsProduced: null,
+    landAreaDevotedForCropProduction: null,
+    livestockRaisedOrProduced: null,
+    landAreaDevotedForLivestockProduction: null,
+    speciesGrownForAquaculture: null,
+    landAreaDevotedForAquaculture: null,
+    sourceOfWaterForAquaculture: null,
+
+    // 4. Farm Activities - UI variables
+    agriculturalActivitiesOptions: [
+      {
+        id: 'Crop Production',
+        selected: false,
+      },
+      {
+        id: 'Livestock Production',
+        selected: false,
+      },
+      {
+        id: 'Aquaculture',
+        selected: false,
+      },
+      {
+        id: 'Agri-based Product Development',
+        selected: false,
+      },
+    ],
   }),
 
   methods: {
+    addAgriculturalActivities(agriculturalActivities, index) {
+      console.log('agriculturalActivities:', agriculturalActivities)
+      if (agriculturalActivities.selected)
+        this.agriculturalActivities.push(agriculturalActivities)
+      else {
+        this.agriculturalActivities.splice(index, 1)
+
+        if (agriculturalActivities.id === 'Crop Production') {
+          this.cropsProduced = null
+          this.landAreaDevotedForCropProduction = null
+        } else if (agriculturalActivities.id === 'Livestock Production') {
+          this.livestockRaisedOrProduced = null
+          this.landAreaDevotedForLivestockProduction = null
+        } else if (agriculturalActivities.id === 'Aquaculture') {
+          this.speciesGrownForAquaculture = null
+          this.landAreaDevotedForAquaculture = null
+          this.sourceOfWaterForAquaculture = null
+        } else if (
+          agriculturalActivities.id === 'Agri-based Product Development'
+        ) {
+          this.agriBasedProductDevelopmentSpecify = null
+        }
+      }
+    },
+
     addHouseholdMember() {
       this.householdMembers.push({
         name: null,

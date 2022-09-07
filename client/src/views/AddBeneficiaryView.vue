@@ -669,6 +669,50 @@
             </div>
           </v-col>
         </v-row>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.8) Irrigation Source:</div>
+
+          <div>
+            <v-select
+              :items="irrigationSourceOptions"
+              label="Select option"
+              v-model="irrigationSource"
+            ></v-select>
+          </div>
+        </div>
+
+        <v-row
+          v-if="irrigationSource === 'Others'"
+          class="ml-3"
+          :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+        >
+          <v-col cols="12" sm="6" md="3">
+            <div>
+              <v-text-field
+                dense
+                clearable
+                v-model="irrigationSourceOthersSpecify"
+                label="Please specify"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.9) Months Without Rain:</div>
+
+          <div>
+            <v-combobox
+              v-model="monthsWithoutRain"
+              :items="months"
+              label="Select options"
+              multiple
+              outlined
+              dense
+            ></v-combobox>
+          </div>
+        </div>
       </div>
     </v-card>
   </div>
@@ -688,6 +732,20 @@ export default {
 
     // 0. General Info - UI variables
     dateMenu: false,
+    months: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
 
     // 1. Farmer's Basic Information - data variables
     regionOrProvince: null,
@@ -815,8 +873,23 @@ export default {
     distanceFromLandToWaterSource: null,
     distanceFromMarketNearestPavedRoad: null,
     distanceFromMarketOrTradingPost: null,
+    irrigationSource: null,
+    irrigationSourceOthersSpecify: null,
+    monthsWithoutRain: [],
 
     // 3. Farm Description - UI variables
+    irrigationSourceOptions: [
+      'NIA (National Irrigation Administration)',
+      `CIA (Communal Irrigator's Association)`,
+      'Spring',
+      'SWIP (Small Wter Impounding Projects)',
+      'STW (Shallow Tube Well)',
+      'SFR (Small Farm Reservoir)',
+      'Rainfall',
+      'Electric Pump',
+      'Diversion of Water from Dams',
+      'Others',
+    ],
   }),
 
   methods: {

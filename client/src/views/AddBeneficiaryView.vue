@@ -713,6 +713,66 @@
             ></v-combobox>
           </div>
         </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.10) Position in the Landscape:</div>
+
+          <div>
+            <v-select
+              :items="positionInTheLandscapeOptions"
+              label="Select option"
+              v-model="positionInTheLandscape"
+            ></v-select>
+          </div>
+        </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.11) Location of Farm:</div>
+
+          <div>
+            <v-select
+              :items="locationOfFarmOptions"
+              label="Select option"
+              v-model="locationOfFarm"
+            ></v-select>
+          </div>
+        </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.12) Land Tenure:</div>
+
+          <div>
+            <v-select
+              :items="landTenureOptions"
+              label="Select option"
+              v-model="landTenure"
+            ></v-select>
+          </div>
+        </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.13) Tenancy:</div>
+
+          <div>
+            <v-select
+              :items="tenancyOptions"
+              label="Select option"
+              v-model="tenancy"
+            ></v-select>
+          </div>
+        </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(3.14) Land Holding:</div>
+
+          <div>
+            <v-select
+              :items="landHoldingOptions"
+              label="Select option"
+              v-model="landHolding"
+            ></v-select>
+          </div>
+        </div>
       </div>
     </v-card>
   </div>
@@ -876,6 +936,11 @@ export default {
     irrigationSource: null,
     irrigationSourceOthersSpecify: null,
     monthsWithoutRain: [],
+    positionInTheLandscape: null,
+    locationOfFarm: null,
+    landTenure: null,
+    tenancy: null,
+    landHolding: null,
 
     // 3. Farm Description - UI variables
     irrigationSourceOptions: [
@@ -889,6 +954,19 @@ export default {
       'Electric Pump',
       'Diversion of Water from Dams',
       'Others',
+    ],
+    positionInTheLandscapeOptions: [
+      'Top slope',
+      'Middle slope',
+      'Bottom slope',
+    ],
+    locationOfFarmOptions: ['Lowland', 'Upland', 'Coastal'],
+    landTenureOptions: ['Private Ownership', 'Tenancy', 'State ownership'],
+    tenancyOptions: ['Cash tenancy', 'Labor tenancy', 'Share Cropping'],
+    landHoldingOptions: [
+      'Small, fragmented (<1 ha)',
+      'Small, sometimes fragmented (1-2 ha)',
+      'Large, consolidated (>2 ha)',
     ],
   }),
 

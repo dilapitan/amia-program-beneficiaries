@@ -1016,6 +1016,35 @@
             </v-row>
           </div>
         </div>
+
+        <div class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <div class="mr-2 text-body-2">(4.9) Cropping Pattern:</div>
+
+          <div>
+            <v-select
+              :items="croppingPatternOptions"
+              label="Select option"
+              v-model="croppingPattern"
+            ></v-select>
+          </div>
+        </div>
+
+        <v-row
+          v-if="croppingPattern === 'Others'"
+          class="ml-3"
+          :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+        >
+          <v-col cols="12" sm="6" md="3">
+            <div>
+              <v-text-field
+                dense
+                clearable
+                v-model="croppingPatternSpecify"
+                label="Please specify"
+              ></v-text-field>
+            </div>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -1222,6 +1251,8 @@ export default {
     speciesGrownForAquaculture: null,
     landAreaDevotedForAquaculture: null,
     sourceOfWaterForAquaculture: null,
+    croppingPattern: null,
+    croppingPatternSpecify: null,
 
     // 4. Farm Activities - UI variables
     agriculturalActivitiesOptions: [
@@ -1242,11 +1273,16 @@ export default {
         selected: false,
       },
     ],
+    croppingPatternOptions: [
+      'Monocropping',
+      'Crop Rotation',
+      'Inter-cropping',
+      'Others',
+    ],
   }),
 
   methods: {
     addAgriculturalActivities(agriculturalActivities, index) {
-      console.log('agriculturalActivities:', agriculturalActivities)
       if (agriculturalActivities.selected)
         this.agriculturalActivities.push(agriculturalActivities)
       else {
@@ -1297,6 +1333,17 @@ export default {
 
     removeHouseholdMember(index) {
       this.householdMembers.splice(index, 1)
+    },
+  },
+
+  watch: {
+    croppingPattern() {
+      if (this.croppingPattern !== 'Others') this.croppingPatternSpecify = null
+    },
+
+    irrigationSource() {
+      if (this.irrigationSource !== 'Others')
+        this.irrigationSourceOthersSpecify = null
     },
   },
 }

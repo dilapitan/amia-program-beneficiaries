@@ -377,9 +377,16 @@ export default {
         align: 'center',
       },
       {
-        text: '(4.10) Crop Calendar',
+        text: '(4.10) Crop Calendar - Crop 1',
         sortable: false,
-        value: 'cropCalendar',
+        value: 'cropCalendarCrop1',
+        width: '350px',
+        align: 'center',
+      },
+      {
+        text: '(4.10) Crop Calendar - Crop 2',
+        sortable: false,
+        value: 'cropCalendarCrop2',
         width: '350px',
         align: 'center',
       },

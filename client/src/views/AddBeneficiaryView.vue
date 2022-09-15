@@ -1219,6 +1219,20 @@
           </v-col>
         </v-row>
       </div>
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <!-- 4 Farm Activities -->
+
+      <h3>
+        V. TECHNICAL KNOWLEDGE/PERCEPTION OF CLIMATE CHANGE AND ITS IMPACTS
+      </h3>
+
+      <br />
+
+      <div>V.</div>
     </v-card>
   </div>
 </template>
@@ -1463,6 +1477,10 @@ export default {
       'Others',
     ],
     addCrop2: false,
+
+    // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - data variables
+
+    // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
   }),
 
   methods: {

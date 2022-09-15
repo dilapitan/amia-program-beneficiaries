@@ -1051,67 +1051,141 @@
 
         <div :class="{ 'ml-6': $vuetify.breakpoint.smAndUp }">
           <br />
-          <p class="text-body-2 font-weight-bold">Crop 1:</p>
 
-          <v-row class="d-flex align-baseline">
-            <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
-              <p class="text-body-2">Land Preparation:</p>
-            </v-col>
-            <v-col class="ma-0 pa-0" cols="12" sm="4">
-              <v-combobox
-                v-model="cropCalendarCrop1LandPreparation"
-                :items="months"
-                label="Select month(s)"
-                multiple
-                dense
-              ></v-combobox>
-            </v-col>
-          </v-row>
+          <div>
+            <p class="text-body-2 font-weight-bold">Crop 1:</p>
 
-          <v-row class="d-flex align-baseline">
-            <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
-              <p class="text-body-2">Planting:</p>
-            </v-col>
-            <v-col class="ma-0 pa-0" cols="12" sm="4">
-              <v-combobox
-                v-model="cropCalendarCrop1Planting"
-                :items="months"
-                label="Select month(s)"
-                multiple
-                dense
-              ></v-combobox>
-            </v-col>
-          </v-row>
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Land Preparation:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop1LandPreparation"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
 
-          <v-row class="d-flex align-baseline">
-            <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
-              <p class="text-body-2">Growing:</p>
-            </v-col>
-            <v-col class="ma-0 pa-0" cols="12" sm="4">
-              <v-combobox
-                v-model="cropCalendarCrop1Growing"
-                :items="months"
-                label="Select month(s)"
-                multiple
-                dense
-              ></v-combobox>
-            </v-col>
-          </v-row>
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Planting:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop1Planting"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
 
-          <v-row class="d-flex align-baseline">
-            <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
-              <p class="text-body-2">Harvesting:</p>
-            </v-col>
-            <v-col class="ma-0 pa-0" cols="12" sm="4">
-              <v-combobox
-                v-model="cropCalendarCrop1Harvesting"
-                :items="months"
-                label="Select month(s)"
-                multiple
-                dense
-              ></v-combobox>
-            </v-col>
-          </v-row>
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Growing:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop1Growing"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Harvesting:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop1Harvesting"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+          </div>
+
+          <br />
+
+          <v-switch
+            v-model="addCrop2"
+            :label="addCrop2 ? 'Remove Crop 2' : 'Add Crop 2'"
+          ></v-switch>
+
+          <div v-if="addCrop2">
+            <p class="text-body-2 font-weight-bold">Crop 2:</p>
+
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Land Preparation:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop2LandPreparation"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Planting:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop2Planting"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Growing:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop2Growing"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+
+            <v-row class="d-flex align-baseline">
+              <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
+                <p class="text-body-2">Harvesting:</p>
+              </v-col>
+              <v-col class="ma-0 pa-0" cols="12" sm="4">
+                <v-combobox
+                  v-model="cropCalendarCrop2Harvesting"
+                  :items="months"
+                  label="Select month(s)"
+                  multiple
+                  dense
+                ></v-combobox>
+              </v-col>
+            </v-row>
+          </div>
         </div>
 
         <v-row>
@@ -1388,6 +1462,7 @@ export default {
       'Inter-cropping',
       'Others',
     ],
+    addCrop2: false,
   }),
 
   methods: {
@@ -1453,6 +1528,15 @@ export default {
     irrigationSource() {
       if (this.irrigationSource !== 'Others')
         this.irrigationSourceOthersSpecify = null
+    },
+
+    addCrop2() {
+      if (!this.addCrop2) {
+        this.cropCalendarCrop2LandPreparation = []
+        this.cropCalendarCrop2Planting = []
+        this.cropCalendarCrop2Growing = []
+        this.cropCalendarCrop2Harvesting = []
+      }
     },
   },
 }

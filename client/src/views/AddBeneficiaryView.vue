@@ -1232,7 +1232,20 @@
 
       <br />
 
-      <div>V.</div>
+      <div>
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.1) Attended Agricultural-related Trainings:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="attendedAgriculturalRelatedTrainings"
+              :label="attendedAgriculturalRelatedTrainings ? 'Yes' : 'No'"
+            ></v-switch>
+          </v-col>
+        </v-row>
+      </div>
     </v-card>
   </div>
 </template>
@@ -1479,7 +1492,7 @@ export default {
     addCrop2: false,
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - data variables
-
+    attendedAgriculturalRelatedTrainings: false,
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
   }),
 

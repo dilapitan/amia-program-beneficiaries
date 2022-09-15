@@ -1245,6 +1245,77 @@
             ></v-switch>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.2) Total Number of Trainings Attended:
+          </v-col>
+
+          <v-col cols="12" sm="2" md="4">
+            <v-text-field
+              class="small-number-input"
+              dense
+              clearable
+              v-model="totalNumberOfTrainingsAttended"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.3) Source of Information Related to Improving Agricultural
+            Production:
+          </v-col>
+          <v-col class="ma-0 pa-0" cols="12" sm="4">
+            <v-combobox
+              v-model="
+                sourceOfInformationRelatedToImprovingAgriculturalProduction
+              "
+              :items="sourceOfInformationOptions"
+              label="Select options"
+              multiple
+              dense
+            ></v-combobox>
+          </v-col>
+        </v-row>
+
+        <v-row :class="{ 'ml-5': $vuetify.breakpoint.smAndUp }">
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-if="
+                sourceOfInformationRelatedToImprovingAgriculturalProduction.includes(
+                  'Others'
+                )
+              "
+              dense
+              clearable
+              v-model="
+                sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify
+              "
+              label="Please specify"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.4) Source of Information Related to Improving Agricultural
+            Product Processing:
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.5) Source of Climate and Weather Information:
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.6) Observed Any Long-term Changes in Climate
+            (temperature/rainfall):
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -1277,6 +1348,23 @@ export default {
       'October',
       'November',
       'December',
+    ],
+    sourceOfInformationOptions: [
+      'TV',
+      'Radio',
+      'Internet',
+      'Flyers',
+      'Social Media',
+      'Newspaper',
+      'Agricultural Technicians (LGU)',
+      'Seed Companies',
+      'Traders',
+      `Cooperatives and Farmers' Association`,
+      'Co-Farmers',
+      'Brgy. Officials',
+      'Friends and Relatives',
+      'Agrichemical Suppliers',
+      'Others',
     ],
 
     // 1. Farmer's Basic Information - data variables
@@ -1493,6 +1581,16 @@ export default {
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - data variables
     attendedAgriculturalRelatedTrainings: false,
+    totalNumberOfTrainingsAttended: null,
+    sourceOfInformationRelatedToImprovingAgriculturalProduction: [],
+    sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify: null,
+    sourceOfInformationRelatedToImprovingAgriculturalProductProcessing: [],
+    sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify:
+      null,
+    sourceOfClimateAndWeatherInformation: [],
+    sourceOfClimateAndWeatherInformationSpecify: null,
+    observedAnyLongTermChangesInClimate: null,
+
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
   }),
 
@@ -1546,6 +1644,27 @@ export default {
       }
     },
 
+    addSourceOfInformationRelatedToImprovingAgriculturalProduction(
+      source,
+      index
+    ) {
+      if (source.selected) {
+        this.sourceOfInformationRelatedToImprovingAgriculturalProduction.push(
+          source
+        )
+      } else {
+        this.sourceOfInformationRelatedToImprovingAgriculturalProduction(
+          index,
+          1
+        )
+
+        if (source.id === 'Others') {
+          this.sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify =
+            null
+        }
+      }
+    },
+
     removeHouseholdMember(index) {
       this.householdMembers.splice(index, 1)
     },
@@ -1568,6 +1687,16 @@ export default {
         this.cropCalendarCrop2Growing = []
         this.cropCalendarCrop2Harvesting = []
       }
+    },
+
+    sourceOfInformationRelatedToImprovingAgriculturalProduction() {
+      if (
+        !this.sourceOfInformationRelatedToImprovingAgriculturalProduction.includes(
+          'Others'
+        )
+      )
+        this.sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify =
+          null
     },
   },
 }

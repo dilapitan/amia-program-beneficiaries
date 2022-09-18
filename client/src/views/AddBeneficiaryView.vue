@@ -1578,6 +1578,76 @@
             ></v-select>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.8.1) Description of Change in Temperature:
+          </v-col>
+
+          <v-col cols="12" sm="3">
+            <v-select
+              :items="descriptionOfChangesInClimateOptions"
+              label="Select option"
+              v-model="descriptionOfChangeInTemperature"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.8.2) Description of Change in Rainfall Duration:
+          </v-col>
+
+          <v-col cols="12" sm="3">
+            <v-select
+              :items="descriptionOfChangesInClimateOptions"
+              label="Select option"
+              v-model="descriptionOfChangeInRainfallDuration"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.8.3) Description of Change in Rainfall Timing:
+          </v-col>
+
+          <v-col cols="12" sm="3">
+            <v-select
+              :items="descriptionOfChangesInClimateOptions"
+              label="Select option"
+              v-model="descriptionOfChangeInRainfallTiming"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.8.4) Description of Change in Rainfall Intensity:
+          </v-col>
+
+          <v-col cols="12" sm="3">
+            <v-select
+              :items="descriptionOfChangesInClimateOptions"
+              label="Select option"
+              v-model="descriptionOfChangeInRainfallIntensity"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.8.5) Description of Change in Number of Weather Events:
+          </v-col>
+
+          <v-col cols="12" sm="3">
+            <v-select
+              :items="descriptionOfChangesInClimateOptions"
+              label="Select option"
+              v-model="descriptionOfChangeInNumberOfWeatherEvents"
+            ></v-select>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -1896,6 +1966,12 @@ export default {
     perceivedEffectsOrImpactsOfOthers: null,
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
+    descriptionOfChangesInClimateOptions: [
+      'Extreme',
+      'Many',
+      'Limited',
+      'Very Limited/Few',
+    ],
   }),
 
   methods: {

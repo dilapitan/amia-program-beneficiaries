@@ -549,9 +549,9 @@ export default {
         align: 'center',
       },
       {
-        text: '(5.8.3) Description of Change in Number of Weather Events',
+        text: '(5.8.3) Description of Change in Rainfall Timing',
         sortable: false,
-        value: 'descriptionOfChangeInNumberOfWeatherEvents',
+        value: 'descriptionOfChangeInRainfallTiming',
         width: '200px',
         align: 'center',
       },
@@ -563,9 +563,9 @@ export default {
         align: 'center',
       },
       {
-        text: '(5.8.5) Description of Change in Rainfall Duration',
+        text: '(5.8.5) Description of Change in Number of Weather Events',
         sortable: false,
-        value: 'descriptionOfChangeInRainfallDuration',
+        value: 'descriptionOfChangeInNumberOfWeatherEvents',
         width: '200px',
         align: 'center',
       },

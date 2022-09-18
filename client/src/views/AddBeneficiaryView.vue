@@ -1719,6 +1719,16 @@ export default {
       }
     },
 
+    mainSourceOfIncome() {
+      if (
+        this.mainSourceOfIncome === 'Regular Job' ||
+        this.mainSourceOfIncome === 'Own Business' ||
+        this.mainSourceOfIncome === 'Others'
+      ) {
+        this.mainSourceOfIncomeSpecify = null
+      }
+    },
+
     sourceOfInformationRelatedToImprovingAgriculturalProduction() {
       if (
         !this.sourceOfInformationRelatedToImprovingAgriculturalProduction.includes(

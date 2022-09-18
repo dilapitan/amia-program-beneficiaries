@@ -1368,11 +1368,213 @@
             (temperature/rainfall):
           </v-col>
 
-          <v-col cols="12" sm="4">
+          <v-col cols="12" sm="2">
             <v-select
               :items="generalThreeChoice"
               label="Select option"
               v-model="observedAnyLongTermChangesInClimate"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.1) Long-term Changes in Climate for Temperature *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForTemperature"
+              :label="
+                longtermChangesInClimateForTemperature ? 'Increase' : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.2) Long-term Changes in Climate for Amount of Rainfaill *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForAmountOfRainfaill"
+              :label="
+                longtermChangesInClimateForAmountOfRainfaill
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.3) Long-term Changes in Climate for Rainfall Timing *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForRainfallTiming"
+              :label="
+                longtermChangesInClimateForRainfallTiming
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.4) Long-term Changes in Climate for Rainful Intensity *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForRainfulIntensity"
+              :label="
+                longtermChangesInClimateForRainfulIntensity
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.5) Long-term Changes in Climate for Rainfall Duration *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForRainfallDuration"
+              :label="
+                longtermChangesInClimateForRainfallDuration
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.6) Long-term Changes in Climate for Number of Weather Events *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForNumberOfWeatherEvents"
+              :label="
+                longtermChangesInClimateForNumberOfWeatherEvents
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.7) Long-term Changes in Climate for Number of Hot Days *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForNumberOfHotDays"
+              :label="
+                longtermChangesInClimateForNumberOfHotDays
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.8) Long-term Changes in Climate for Number of Rainy Days *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="longtermChangesInClimateForNumberOfRainyDays"
+              :label="
+                longtermChangesInClimateForNumberOfRainyDays
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.9) Long-term Changes in Climate for Occurence of Pests And
+            Diseases in Crops *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="
+                longtermChangesInClimateForOccurenceOfPestsAndDiseasesInCrops
+              "
+              :label="
+                longtermChangesInClimateForOccurenceOfPestsAndDiseasesInCrops
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.10) Long-term Changes in Climate for Occurence of Pests And
+            Diseases in Livestock *:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="
+                longtermChangesInClimateForOccurenceOfPestsAndDiseasesInLivestock
+              "
+              :label="
+                longtermChangesInClimateForOccurenceOfPestsAndDiseasesInLivestock
+                  ? 'Increase'
+                  : 'Decrease'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.11) Observed any change in the Onset of Dry Season:
+          </v-col>
+
+          <v-col cols="12" sm="2">
+            <v-select
+              :items="generalThreeChoice"
+              label="Select option"
+              v-model="observedAnyChangeInTheOnsetOfDrySeason"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (5.7.12) Observed any change in the Onset of Wet Season:
+          </v-col>
+
+          <v-col cols="12" sm="2">
+            <v-select
+              :items="generalThreeChoice"
+              label="Select option"
+              v-model="observedAnyChangeInTheOnsetOfWetSeason"
             ></v-select>
           </v-col>
         </v-row>
@@ -1651,16 +1853,16 @@ export default {
     sourceOfClimateAndWeatherInformation: [],
     sourceOfClimateAndWeatherInformationSpecify: null,
     observedAnyLongTermChangesInClimate: null,
-    longtermChangesInClimateForTemperature: null,
-    longtermChangesInClimateForAmountOfRainfaill: null,
-    longtermChangesInClimateForRainfallTiming: null,
-    longtermChangesInClimateForRainfulIntensity: null,
-    longtermChangesInClimateForRainfallDuration: null,
-    longtermChangesInClimateForNumberOfWeatherEvents: null,
-    longtermChangesInClimateForNumberOfHotDays: null,
-    longtermChangesInClimateForNumberOfRainyDays: null,
-    longtermChangesInClimateForOccurenceOfPestsAndDiseasesInCrops: null,
-    longtermChangesInClimateForOccurenceOfPestsAndDiseasesInLivestock: null,
+    longtermChangesInClimateForTemperature: false,
+    longtermChangesInClimateForAmountOfRainfaill: false,
+    longtermChangesInClimateForRainfallTiming: false,
+    longtermChangesInClimateForRainfulIntensity: false,
+    longtermChangesInClimateForRainfallDuration: false,
+    longtermChangesInClimateForNumberOfWeatherEvents: false,
+    longtermChangesInClimateForNumberOfHotDays: false,
+    longtermChangesInClimateForNumberOfRainyDays: false,
+    longtermChangesInClimateForOccurenceOfPestsAndDiseasesInCrops: false,
+    longtermChangesInClimateForOccurenceOfPestsAndDiseasesInLivestock: false,
     observedAnyChangeInTheOnsetOfDrySeason: null,
     observedAnyChangeInTheOnsetOfWetSeason: null,
     descriptionOfChangeInTemperature: null,

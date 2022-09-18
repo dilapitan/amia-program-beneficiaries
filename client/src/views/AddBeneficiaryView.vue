@@ -1302,6 +1302,36 @@
             (5.4) Source of Information Related to Improving Agricultural
             Product Processing:
           </v-col>
+
+          <v-col class="ma-0 pa-0" cols="12" sm="4">
+            <v-combobox
+              v-model="
+                sourceOfInformationRelatedToImprovingAgriculturalProductProcessing
+              "
+              :items="sourceOfInformationOptions"
+              label="Select options"
+              multiple
+              dense
+            ></v-combobox>
+          </v-col>
+        </v-row>
+
+        <v-row :class="{ 'ml-5': $vuetify.breakpoint.smAndUp }">
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-if="
+                sourceOfInformationRelatedToImprovingAgriculturalProductProcessing.includes(
+                  'Others'
+                )
+              "
+              dense
+              clearable
+              v-model="
+                sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify
+              "
+              label="Please specify"
+            ></v-text-field>
+          </v-col>
         </v-row>
 
         <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
@@ -1696,6 +1726,16 @@ export default {
         )
       )
         this.sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify =
+          null
+    },
+
+    sourceOfInformationRelatedToImprovingAgriculturalProductProcessing() {
+      if (
+        !this.sourceOfInformationRelatedToImprovingAgriculturalProductProcessing.includes(
+          'Others'
+        )
+      )
+        this.sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify =
           null
     },
   },

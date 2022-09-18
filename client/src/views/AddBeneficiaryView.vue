@@ -1367,6 +1367,14 @@
             (5.6) Observed Any Long-term Changes in Climate
             (temperature/rainfall):
           </v-col>
+
+          <v-col cols="12" sm="4">
+            <v-select
+              :items="generalThreeChoice"
+              label="Select option"
+              v-model="observedAnyLongTermChangesInClimate"
+            ></v-select>
+          </v-col>
         </v-row>
       </div>
     </v-card>
@@ -1418,6 +1426,7 @@ export default {
       'Agrichemical Suppliers',
       'Others',
     ],
+    generalThreeChoice: ['Yes', 'No', `I don't know`],
 
     // 1. Farmer's Basic Information - data variables
     regionOrProvince: null,

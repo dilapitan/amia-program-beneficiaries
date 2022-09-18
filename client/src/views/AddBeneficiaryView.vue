@@ -1338,6 +1338,28 @@
           <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
             (5.5) Source of Climate and Weather Information:
           </v-col>
+
+          <v-col class="ma-0 pa-0" cols="12" sm="4">
+            <v-combobox
+              v-model="sourceOfClimateAndWeatherInformation"
+              :items="sourceOfInformationOptions"
+              label="Select options"
+              multiple
+              dense
+            ></v-combobox>
+          </v-col>
+        </v-row>
+
+        <v-row :class="{ 'ml-5': $vuetify.breakpoint.smAndUp }">
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-if="sourceOfClimateAndWeatherInformation.includes('Others')"
+              dense
+              clearable
+              v-model="sourceOfClimateAndWeatherInformationSpecify"
+              label="Please specify"
+            ></v-text-field>
+          </v-col>
         </v-row>
 
         <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
@@ -1747,6 +1769,12 @@ export default {
       )
         this.sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify =
           null
+    },
+
+    sourceOfClimateAndWeatherInformation() {
+      if (!this.sourceOfClimateAndWeatherInformation.includes('Others')) {
+        this.sourceOfClimateAndWeatherInformationSpecify = null
+      }
     },
   },
 }

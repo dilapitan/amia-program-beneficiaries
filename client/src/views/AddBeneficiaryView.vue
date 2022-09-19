@@ -2770,6 +2770,11 @@ export default {
         },
       ]
     },
+
+    perceivedEffectsOrImpactsOfOthersList() {
+      this.perceivedEffectsOrImpactsOfOthers =
+        this.perceivedEffectsOrImpactsOfOthersList
+    },
   },
 }
 </script>

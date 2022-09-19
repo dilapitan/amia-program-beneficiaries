@@ -2187,6 +2187,176 @@
             ></v-textarea>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" class="mr-2 text-body-2">
+            (5.11) Drivers of Change and Vulnerability:
+          </v-col>
+        </v-row>
+
+        <div
+          :class="{
+            'ml-5': $vuetify.breakpoint.xsOnly,
+            'ml-10': $vuetify.breakpoint.smAndUp,
+          }"
+        >
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="driversOfChangeAndVulnerabilityOfLandDegredationBool"
+                label="(5.11.1) Drivers of Change and Vulnerability of: Land Degradation (Soil Nutrient Depletion)"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="driversOfChangeAndVulnerabilityOfLandDegredationBool"
+                dense
+                v-model="driversOfChangeAndVulnerabilityOfLandDegredation"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool
+                "
+                label="(5.11.2) Drivers of Change and Vulnerability of: Unexpexcted Changes in Input Prices"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool
+                "
+                dense
+                v-model="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool
+                "
+                label="(5.11.3) Drivers of Change and Vulnerability of: Unexpected Changes in Product Prices"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool
+                "
+                dense
+                v-model="
+                  driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool
+                "
+                label="(5.11.4) Drivers of Change and Vulnerability of: Risks for Diseases and Pests Affecting Crops and Animals"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool
+                "
+                dense
+                v-model="
+                  driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="driversOfChangeAndVulnerabilityOfOthersBool"
+                label="(5.11.5) Drivers of Change and Vulnerability of: Others"
+              ></v-checkbox>
+            </v-col>
+          </v-row>
+
+          <v-row v-if="driversOfChangeAndVulnerabilityOfOthersBool">
+            <v-col cols="12">
+              <div
+                v-for="(
+                  item, index
+                ) in driversOfChangeAndVulnerabilityOfOthersList"
+                :key="index"
+              >
+                <v-row class="d-flex align-baseline">
+                  <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
+                  <v-col cols="12" sm="3">
+                    <v-text-field
+                      class="mr-4"
+                      dense
+                      clearable
+                      v-model="item.effectsOrImpact"
+                      label="Effect or Impact"
+                    ></v-text-field
+                  ></v-col>
+                  <v-col cols="12" sm="2">
+                    <v-select
+                      :items="fivePointScale"
+                      dense
+                      v-model="item.rate"
+                      label="Rate"
+                    ></v-select>
+                  </v-col>
+                  <v-col v-if="index !== 0" cols="12" sm="1">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                          @click="
+                            removeDriversOfChangeAndVulnerabilityOfOthers(index)
+                          "
+                          color="primary"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          mdi-cancel
+                        </v-icon>
+                      </template>
+                      <span>Remove</span>
+                    </v-tooltip>
+                  </v-col>
+                </v-row>
+              </div>
+              <br />
+              <v-btn
+                @click="adddriversOfChangeAndVulnerabilityOfOthers()"
+                color="primary"
+                small
+                outlined
+              >
+                ADD
+              </v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </v-card>
   </div>
@@ -2511,6 +2681,12 @@ export default {
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover: null,
     perceivedEffectsOrImpactsOfOthers: null,
     observedMainOpportunitiesOfLongTermChangesInClimate: null,
+    driversOfChangeAndVulnerabilityOfLandDegredation: null,
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices: null,
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices: null,
+    driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
+      null,
+    driversOfChangeAndVulnerabilityOfOthers: null,
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
     descriptionOfChangesInClimateOptions: [
@@ -2542,6 +2718,17 @@ export default {
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool: false,
     perceivedEffectsOrImpactsOfOthersBool: false,
     perceivedEffectsOrImpactsOfOthersList: [
+      {
+        effectsOrImpact: null,
+        rate: null,
+      },
+    ],
+    driversOfChangeAndVulnerabilityOfLandDegredationBool: false,
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool: false,
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool: false,
+    driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool: false,
+    driversOfChangeAndVulnerabilityOfOthersBool: false,
+    driversOfChangeAndVulnerabilityOfOthersList: [
       {
         effectsOrImpact: null,
         rate: null,
@@ -2590,6 +2777,13 @@ export default {
       })
     },
 
+    adddriversOfChangeAndVulnerabilityOfOthers() {
+      this.driversOfChangeAndVulnerabilityOfOthersList.push({
+        effectsOrImpact: null,
+        rate: null,
+      })
+    },
+
     addOtherSourceOfIncome(otherSourceOfIncome, index) {
       if (otherSourceOfIncome.selected)
         this.otherSourcesOfIncome.push(otherSourceOfIncome)
@@ -2633,6 +2827,10 @@ export default {
 
     removePerceivedEffectsOrImpactsOfOthers(index) {
       this.perceivedEffectsOrImpactsOfOthersList.splice(index, 1)
+    },
+
+    removeDriversOfChangeAndVulnerabilityOfOthers(index) {
+      this.driversOfChangeAndVulnerabilityOfOthersList.splice(index, 1)
     },
   },
 
@@ -2789,9 +2987,40 @@ export default {
       ]
     },
 
+    driversOfChangeAndVulnerabilityOfOthersBool() {
+      this.driversOfChangeAndVulnerabilityOfOthers = null
+      this.driversOfChangeAndVulnerabilityOfOthersList = [
+        {
+          effectsOrImpact: null,
+          rate: null,
+        },
+      ]
+    },
+
     perceivedEffectsOrImpactsOfOthersList() {
       this.perceivedEffectsOrImpactsOfOthers =
         this.perceivedEffectsOrImpactsOfOthersList
+    },
+
+    driversOfChangeAndVulnerabilityOfOthersList() {
+      this.driversOfChangeAndVulnerabilityOfOthers =
+        this.driversOfChangeAndVulnerabilityOfOthersList
+    },
+
+    driversOfChangeAndVulnerabilityOfLandDegredationBool() {
+      this.driversOfChangeAndVulnerabilityOfLandDegredation = null
+    },
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool() {
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices =
+        null
+    },
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool() {
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices =
+        null
+    },
+    driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool() {
+      this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals =
+        null
     },
   },
 }

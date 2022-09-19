@@ -2104,6 +2104,71 @@
               ></v-select>
             </v-col>
           </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfOthersBool"
+                label="(5.9.22) Perceived Effects/Impacts of: Others"
+              ></v-checkbox>
+            </v-col>
+          </v-row>
+
+          <v-row v-if="perceivedEffectsOrImpactsOfOthersBool">
+            <v-col cols="12">
+              <div
+                v-for="(item, index) in perceivedEffectsOrImpactsOfOthersList"
+                :key="index"
+              >
+                <v-row class="d-flex align-baseline">
+                  <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
+                  <v-col cols="12" sm="3">
+                    <v-text-field
+                      class="mr-4"
+                      dense
+                      clearable
+                      v-model="item.effectsOrImpact"
+                      label="Effect or Impact"
+                    ></v-text-field
+                  ></v-col>
+                  <v-col cols="12" sm="2">
+                    <v-select
+                      :items="fivePointScale"
+                      dense
+                      v-model="item.rate"
+                      label="Rate"
+                    ></v-select>
+                  </v-col>
+                  <v-col v-if="index !== 0" cols="12" sm="1">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                          @click="
+                            removePerceivedEffectsOrImpactsOfOthers(index)
+                          "
+                          color="primary"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          mdi-cancel
+                        </v-icon>
+                      </template>
+                      <span>Remove</span>
+                    </v-tooltip>
+                  </v-col>
+                </v-row>
+              </div>
+              <br />
+              <v-btn
+                @click="addPerceivedEffectsOrImpactsOfOthers()"
+                color="primary"
+                small
+                outlined
+              >
+                ADD
+              </v-btn>
+            </v-col>
+          </v-row>
         </div>
       </div>
     </v-card>
@@ -2457,6 +2522,13 @@ export default {
     perceivedEffectsOrImpactsOfRuralUrbanMigrationBool: false,
     perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool: false,
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool: false,
+    perceivedEffectsOrImpactsOfOthersBool: false,
+    perceivedEffectsOrImpactsOfOthersList: [
+      {
+        effectsOrImpact: null,
+        rate: null,
+      },
+    ],
   }),
 
   methods: {
@@ -2490,6 +2562,13 @@ export default {
         age: null,
         gender: null,
         relationToTheRespondent: null,
+      })
+    },
+
+    addPerceivedEffectsOrImpactsOfOthers() {
+      this.perceivedEffectsOrImpactsOfOthersList.push({
+        effectsOrImpact: null,
+        rate: null,
       })
     },
 
@@ -2532,6 +2611,10 @@ export default {
 
     removeHouseholdMember(index) {
       this.householdMembers.splice(index, 1)
+    },
+
+    removePerceivedEffectsOrImpactsOfOthers(index) {
+      this.perceivedEffectsOrImpactsOfOthersList.splice(index, 1)
     },
   },
 
@@ -2676,6 +2759,16 @@ export default {
 
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool() {
       this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover = null
+    },
+
+    perceivedEffectsOrImpactsOfOthersBool() {
+      this.perceivedEffectsOrImpactsOfOthers = null
+      this.perceivedEffectsOrImpactsOfOthersList = [
+        {
+          effectsOrImpact: null,
+          rate: null,
+        },
+      ]
     },
   },
 }

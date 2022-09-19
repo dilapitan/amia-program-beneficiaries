@@ -2170,6 +2170,23 @@
             </v-col>
           </v-row>
         </div>
+
+        <v-row cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" class="mr-2 text-body-2">
+            (5.10) Observed Main Opportunities (Positive Effects/Impacts) of
+            These Long-term Changes in Climate *:
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="12" sm="6">
+            <v-textarea
+              filled
+              clearable
+              v-model="observedMainOpportunitiesOfLongTermChangesInClimate"
+            ></v-textarea>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -2493,6 +2510,7 @@ export default {
     perceivedEffectsOrImpactsOfSiltationOfWaterBodies: null,
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover: null,
     perceivedEffectsOrImpactsOfOthers: null,
+    observedMainOpportunitiesOfLongTermChangesInClimate: null,
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
     descriptionOfChangesInClimateOptions: [

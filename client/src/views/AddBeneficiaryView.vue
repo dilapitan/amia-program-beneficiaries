@@ -1648,6 +1648,37 @@
             ></v-select>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" class="mr-2 text-body-2">
+            (5.9) Perceived Effects/Impacts of Long-term Changes in Climate:
+          </v-col>
+        </v-row>
+
+        <div
+          :class="{
+            'ml-5': $vuetify.breakpoint.xsOnly,
+            'ml-10': $vuetify.breakpoint.smAndUp,
+          }"
+        >
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool"
+                label="(5.9.1) Change in timing of rains"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfChangeInTimingOfRains"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </v-card>
   </div>
@@ -1699,6 +1730,13 @@ export default {
       'Others',
     ],
     generalThreeChoice: ['Yes', 'No', `I don't know`],
+    fivePointScale: [
+      '1 - Very Severe [Disastrous]',
+      '2 - Severe [Critical]',
+      '3 - Significant',
+      '4 - Somewhat Significant',
+      '5 - Irrelevant',
+    ],
 
     // 1. Farmer's Basic Information - data variables
     regionOrProvince: null,
@@ -1972,6 +2010,27 @@ export default {
       'Limited',
       'Very Limited/Few',
     ],
+    perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool: false,
+    perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool: false,
+    perceivedEffectsOrImpactsOfReducedCroppingSeasonBool: false,
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool: false,
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool: false,
+    perceivedEffectsOrImpactsOfPostharvestLossesBool: false,
+    perceivedEffectsOrImpactsOfPestInvasionBool: false,
+    perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool: false,
+    perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool: false,
+    perceivedEffectsOrImpactsOfLackOfPotableWaterBool: false,
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool: false,
+    perceivedEffectsOrImpactsOfErosionsBool: false,
+    perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool: false,
+    perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool: false,
+    perceivedEffectsOrImpactsOfDeathOfLivestockBool: false,
+    perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool: false,
+    perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool: false,
+    perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool: false,
+    perceivedEffectsOrImpactsOfRuralUrbanMigrationBool: false,
+    perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool: false,
+    perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool: false,
   }),
 
   methods: {

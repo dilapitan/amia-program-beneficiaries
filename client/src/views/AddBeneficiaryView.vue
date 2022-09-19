@@ -1678,6 +1678,432 @@
               ></v-select>
             </v-col>
           </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool
+                "
+                label="(5.9.2) Perceived Effects/Impacts of: Abrupt Change in Seasons/Changes in Growing Season"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfReducedCroppingSeasonBool"
+                label="(5.9.3) Perceived Effects/Impacts of: Reduced Cropping (Growing) Season"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfReducedCroppingSeasonBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfReducedCroppingSeason"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool
+                "
+                label="(5.9.4) Perceived Effects/Impacts of: Increased Frequency Of Drought and Crop Failure"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool
+                "
+                label="(5.9.5) Perceived Effects/Impacts of: Increased Frequency Of Floods and Farm Destructions"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfPostharvestLossesBool"
+                label="(5.9.6) Perceived Effects/Impacts of: Postharvest Losses"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfPostharvestLossesBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfPostharvestLosses"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfPestInvasionBool"
+                label="(5.9.7) Perceived Effects/Impacts of: Pest Invasion"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfPestInvasionBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfPestInvasion"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool
+                "
+                label="(5.9.8) Perceived Effects/Impacts of: Prevalence of Pests and Diseases"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool"
+                label="(5.9.9) Perceived Effects/Impacts of: Poverty and Food Shortages"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfPovertyAndFoodShortages"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfLackOfPotableWaterBool"
+                label="(5.9.10) Perceived Effects/Impacts of: Lack of Potable Water (Drinking)"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfLackOfPotableWaterBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfLackOfPotableWater"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool
+                "
+                label="(5.9.11) Perceived Effects/Impacts of: ReducedVolumeOfIrrigationWater"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfErosionsBool"
+                label="(5.9.12) Perceived Effects/Impacts of: Erosions"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfErosionsBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfErosions"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool
+                "
+                label="(5.9.13) Perceived Effects/Impacts of: Extinction of Fishes and Aquatic Life"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool
+                "
+                label="(5.9.14) Perceived Effects/Impacts of: ExtinctionOfSomeCropsAndCropVarieties"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfDeathOfLivestockBool"
+                label="(5.9.15) Perceived Effects/Impacts of: Death of Livestock"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfDeathOfLivestockBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfDeathOfLivestock"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool
+                "
+                label="(5.9.16) Perceived Effects/Impacts of: Decreased Livestock Production"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfDecreasedLivestockProduction
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool
+                "
+                label="(5.9.17) Perceived Effects/Impacts of: Rising Cost of Farming and Fishing"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool
+                "
+                label="(5.9.18) Perceived Effects/Impacts of: Destruction of Farm Roads and Homes"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfRuralUrbanMigrationBool"
+                label="(5.9.19) Perceived Effects/Impacts of: Rural-Urban Migration"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfRuralUrbanMigrationBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfRuralUrbanMigration"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool"
+                label="(5.9.20) Perceived Effects/Impacts of: Siltation of Water Bodies"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool"
+                dense
+                v-model="perceivedEffectsOrImpactsOfSiltationOfWaterBodies"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool
+                "
+                label="(5.9.21) Perceived Effects/Impacts of: Disappearance of Vegetation Cover"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="fivePointScale"
+                v-if="
+                  perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool
+                "
+                dense
+                v-model="
+                  perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
         </div>
       </div>
     </v-card>
@@ -2162,6 +2588,94 @@ export default {
       if (!this.sourceOfClimateAndWeatherInformation.includes('Others')) {
         this.sourceOfClimateAndWeatherInformationSpecify = null
       }
+    },
+
+    perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool() {
+      this.perceivedEffectsOrImpactsOfChangeInTimingOfRains = null
+    },
+
+    perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool() {
+      this.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfReducedCroppingSeasonBool() {
+      this.perceivedEffectsOrImpactsOfReducedCroppingSeason = null
+    },
+
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool() {
+      this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool() {
+      this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfPostharvestLossesBool() {
+      this.perceivedEffectsOrImpactsOfPostharvestLosses = null
+    },
+
+    perceivedEffectsOrImpactsOfPestInvasionBool() {
+      this.perceivedEffectsOrImpactsOfPestInvasion = null
+    },
+
+    perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool() {
+      this.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases = null
+    },
+
+    perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool() {
+      this.perceivedEffectsOrImpactsOfPovertyAndFoodShortages = null
+    },
+
+    perceivedEffectsOrImpactsOfLackOfPotableWaterBool() {
+      this.perceivedEffectsOrImpactsOfLackOfPotableWater = null
+    },
+
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool() {
+      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater = null
+    },
+
+    perceivedEffectsOrImpactsOfErosionsBool() {
+      this.perceivedEffectsOrImpactsOfErosions = null
+    },
+
+    perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool() {
+      this.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife = null
+    },
+
+    perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool() {
+      this.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfDeathOfLivestockBool() {
+      this.perceivedEffectsOrImpactsOfDeathOfLivestock = null
+    },
+
+    perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool() {
+      this.perceivedEffectsOrImpactsOfDecreasedLivestockProduction = null
+    },
+
+    perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool() {
+      this.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing = null
+    },
+
+    perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool() {
+      this.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes = null
+    },
+
+    perceivedEffectsOrImpactsOfRuralUrbanMigrationBool() {
+      this.perceivedEffectsOrImpactsOfRuralUrbanMigration = null
+    },
+
+    perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool() {
+      this.perceivedEffectsOrImpactsOfSiltationOfWaterBodies = null
+    },
+
+    perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool() {
+      this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover = null
     },
   },
 }

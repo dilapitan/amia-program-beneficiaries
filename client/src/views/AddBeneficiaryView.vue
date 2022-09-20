@@ -2428,6 +2428,140 @@
             ></v-text-field>
           </v-col>
         </v-row>
+
+        <v-row cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" class="mr-2 text-body-2">
+            (6.3) Additional Adaptation Measures Being Considered in the Future:
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="12" sm="6">
+            <v-textarea
+              filled
+              clearable
+              v-model="additionalAdaptationMeasuresBeingConsideredInTheFuture"
+            ></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (6.4) Receive Any External Support for Adaptation Measures:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="receivedAnyExternalSupportForAdaptationMeasures"
+              :label="
+                receivedAnyExternalSupportForAdaptationMeasures ? 'Yes' : 'No'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+
+        <div
+          v-if="receivedAnyExternalSupportForAdaptationMeasures"
+          :class="{
+            'ml-5': $vuetify.breakpoint.xsOnly,
+            'ml-10': $vuetify.breakpoint.smAndUp,
+          }"
+        >
+          <v-row>
+            <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+              <div class="mr-2 text-body-2">
+                If yes, in what form does the support come?
+              </div>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.1) Form of Financial Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="formOfFinancialSupportReceived"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.2) Form of Material Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="formOfMaterialSupportReceived"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.3) Form of Extension Services Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="formOfExtensionServicesSupportReceived"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.4) Form of Farming Fishing Advisories Based On Weather and
+              Climate Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="
+                  FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
+                "
+              ></v-text-field>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.5) Form of Infrastructure Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="formOfInfrastructureSupportReceived"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex align-baseline">
+            <v-col class="mr-2 text-body-2" cols="12" sm="3">
+              (6.5.6) Form of Other Support received:
+            </v-col>
+
+            <v-col cols="12" sm="8">
+              <v-text-field
+                dense
+                clearable
+                v-model="formOfOtherSupportReceived"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </v-card>
   </div>
@@ -3185,6 +3319,18 @@ export default {
     driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool() {
       this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals =
         null
+    },
+
+    receivedAnyExternalSupportForAdaptationMeasures() {
+      if (!this.receivedAnyExternalSupportForAdaptationMeasures) {
+        this.formOfFinancialSupportReceived = null
+        this.formOfMaterialSupportReceived = null
+        this.formOfExtensionServicesSupportReceived = null
+        this.FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived =
+          null
+        this.formOfInfrastructureSupportReceived = null
+        this.formOfOtherSupportReceived = null
+      }
     },
   },
 }

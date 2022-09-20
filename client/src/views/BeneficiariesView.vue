@@ -777,14 +777,16 @@ export default {
       {
         text: '(6.1) Made adjustments in Livelihood in Response to the Perceived Changes in Rainfall and Temperature over the last 10 years',
         sortable: false,
-        value: '_6.1',
+        value:
+          'madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years',
         width: '450px',
         align: 'center',
       },
       {
         text: '(6.2) Changes/Adjustments Made In Farming in Response to Long-term shifts in Temperature and Rainfall',
         sortable: false,
-        value: '_6.2',
+        value:
+          'changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall',
         width: '400px',
         align: 'center',
       },

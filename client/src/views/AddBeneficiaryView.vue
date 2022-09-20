@@ -2389,6 +2389,45 @@
             ></v-switch>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (6.2) Changes/Adjustments Made In Farming in Response to Long-term
+            shifts in Temperature and Rainfall:
+          </v-col>
+
+          <v-col cols="12" sm="10">
+            <v-combobox
+              v-model="
+                changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall
+              "
+              :items="
+                changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallList
+              "
+              label="Select options"
+              multiple
+              dense
+            ></v-combobox>
+          </v-col>
+        </v-row>
+
+        <v-row :class="{ 'ml-5': $vuetify.breakpoint.smAndUp }">
+          <v-col cols="12" sm="4">
+            <v-text-field
+              v-if="
+                changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.includes(
+                  'Others'
+                )
+              "
+              dense
+              clearable
+              v-model="
+                changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify
+              "
+              label="Please specify"
+            ></v-text-field>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -2771,7 +2810,7 @@ export default {
     madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
       null,
     changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
-      null,
+      [],
     additionalAdaptationMeasuresBeingConsideredInTheFuture: null,
     receivedAnyExternalSupportForAdaptationMeasures: null,
     formOfFinancialSupportReceived: null,
@@ -2797,6 +2836,58 @@ export default {
     OtherConstraint: null,
 
     // 6. Farmer's Adaptation Practices - UI variables
+    changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify:
+      null,
+    changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallList:
+      [
+        'Planting of unconventional food sources',
+        'Use of water harvesting technologies',
+        'Use of drip irrigation',
+        'Availing of crop insurance',
+        'Use of alternate wetting and drying irrigation',
+        'Implementation of soil conservation techniques',
+        'Implementation of water conservation techniques',
+        'Use of alternative feeding for animals',
+        'Use of Biogas and composting/farm waste mgt',
+        'Use of organic fertilizer',
+        'Wind brakers, terracing, hedgerows',
+        'Change from crop to livestock farming system',
+        'Implementation of pasture management techniques',
+        'Practicing diversified farming',
+        'Practicing integrated farming',
+        'Use of drought/flood/pest-resilient seeds',
+        'Use of inter cropping/crop diversification',
+        'Use of integrated crop management (IPM)',
+        'Use of different varieties and crop types',
+        'Planting of drought/flood-tolerant/resistant crops',
+        'Following early warning system',
+        'Practicing of backyard gardening',
+        'Irrigation water impounding',
+        'Processing or preservation of food',
+        'Engagement in off-farm employment',
+        'Seeking information, networking with others',
+        'Implementation of nutrient management techniques (crops)',
+        'Agroforestry – growing together of timber and agri crops',
+        'Practicing new planting pattern ',
+        'Processing animal manure into fertilizer',
+        'Implementation of rotation cropping',
+        'Use of microbial inoculants',
+        'Use of biopesticides',
+        'Mulching',
+        'Protected gardening',
+        'Hydroponics',
+        'Finding new and other sources of water',
+        'Reduce number of livestock',
+        'Relocation/migration to areas safe from climate risks',
+        'Attending trainings provided by ATI',
+        'Use of climate- and weather-informed advisories as guide in farm/fishing practices',
+        'Migration to urban area',
+        'Finding off-farm job',
+        'Leasing land',
+        'Stockpiling of food',
+        'Large financial investment in new land (expansion in other areas)',
+        'Others',
+      ],
   }),
 
   methods: {
@@ -2950,6 +3041,16 @@ export default {
       if (!this.sourceOfClimateAndWeatherInformation.includes('Others')) {
         this.sourceOfClimateAndWeatherInformationSpecify = null
       }
+    },
+
+    changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall() {
+      if (
+        !this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.includes(
+          'Others'
+        )
+      )
+        this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify =
+          null
     },
 
     perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool() {

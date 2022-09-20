@@ -2643,7 +2643,7 @@
           }"
         >
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="4" md="4" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="lowEducationLevelConstraintBool"
                 label="(6.7.1) Low Education Level Constraint **"
@@ -2661,7 +2661,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="limitedAccessToInformationConstraintBool"
                 label="(6.7.2) Limited Access to Information Constraint **"
@@ -2679,7 +2679,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="lackOfExtensionServicesConstraintBool"
                 label="(6.7.3) Lack of Extension Services Constraint **"
@@ -2721,7 +2721,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="inadequateCapitalConstraintBool"
                 label="(6.7.5) Inadequate Capital Constraint **"
@@ -2739,7 +2739,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="noAccessToWaterForIrrigationConstraintBool"
                 label="(6.7.6) No Access to Water for Irrigation Constraint **"
@@ -2757,7 +2757,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="noAccessToCreditConstraintConstraintBool"
                 label="(6.7.7) No Access to Credit Constraint **"
@@ -2775,7 +2775,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="6" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="longerTimeRequiredToSeeResultsConstraintBool"
                 label="(6.7.8) Longer Time Required to See Results Constraint **"
@@ -2793,7 +2793,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="oldAgeConstraintBool"
                 label="(6.7.9) Old Age Constraint **"
@@ -2811,7 +2811,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="6" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="landTenureOrLandOwnershipIssuesConstraintBool"
                 label="(6.7.10) Land Tenure/Land Ownership Issues Constraint **"
@@ -2829,7 +2829,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="landTopographyNotSuitableConstraintBool"
                 label="(6.7.11) Land Topography Not Suitable Constraint **"
@@ -2847,7 +2847,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="6" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
                 label="(6.7.12) Labor Intensive/Non-availability of Labor Constraint **"
@@ -2865,7 +2865,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="infertileSoilConstraintBool"
                 label="(6.7.13) Infertile Soil Constraint **"
@@ -2883,7 +2883,7 @@
           </v-row>
 
           <v-row class="d-flex">
-            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
+            <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
               <v-checkbox
                 v-model="otherConstraintBool"
                 label="(6.7.14) Other Constraint **"

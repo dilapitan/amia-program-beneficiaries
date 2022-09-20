@@ -948,7 +948,7 @@ export default {
       {
         text: '(6.7.14) Other Constraint **',
         sortable: false,
-        value: 'OtherConstraint',
+        value: 'otherConstraint',
         width: '150px',
         align: 'center',
       },

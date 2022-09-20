@@ -2943,6 +2943,18 @@
           </v-row>
         </div>
       </div>
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <!-- 7 Institutional Characteristics -->
+
+      <h3>VII. INSTITUTIONAL CHARACTERISTICS</h3>
+
+      <br />
+
+      <div>Hello</div>
     </v-card>
   </div>
 </template>

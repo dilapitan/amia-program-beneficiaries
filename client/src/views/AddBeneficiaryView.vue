@@ -2347,7 +2347,7 @@
               </div>
               <br />
               <v-btn
-                @click="adddriversOfChangeAndVulnerabilityOfOthers()"
+                @click="addDriversOfChangeAndVulnerabilityOfOthers()"
                 color="primary"
                 small
                 outlined
@@ -2562,6 +2562,73 @@
             </v-col>
           </v-row>
         </div>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (6.6) Most Beneficial Support Services:
+          </v-col>
+        </v-row>
+
+        <v-row
+          :class="{
+            'ml-10': $vuetify.breakpoint.smAndUp,
+            'ml-5': $vuetify.breakpoint.xsOnly,
+          }"
+        >
+          <v-col cols="12">
+            <div
+              v-for="(item, index) in mostBeneficialSupportServicesList"
+              :key="index"
+            >
+              <v-row class="d-flex align-baseline">
+                <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
+                <v-col cols="12" sm="5">
+                  <v-text-field
+                    class="mr-4"
+                    dense
+                    clearable
+                    v-model="item.mostBeneficialSupportService"
+                    label="Support services considered as most beneficial"
+                  ></v-text-field
+                ></v-col>
+                <v-col cols="12" sm="5">
+                  <v-text-field
+                    class="mr-4"
+                    dense
+                    clearable
+                    v-model="item.reasonWhyMostBeneficialSupportService"
+                    label="Reasons why support service is beneficial"
+                  ></v-text-field
+                ></v-col>
+
+                <v-col v-if="index !== 0" cols="12" sm="1">
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-icon
+                        @click="removeMostBeneficialSupportServices(index)"
+                        color="primary"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        mdi-cancel
+                      </v-icon>
+                    </template>
+                    <span>Remove</span>
+                  </v-tooltip>
+                </v-col>
+              </v-row>
+            </div>
+            <br />
+            <v-btn
+              @click="addMostBeneficialSupportServices()"
+              color="primary"
+              small
+              outlined
+            >
+              ADD
+            </v-btn>
+          </v-col>
+        </v-row>
       </div>
     </v-card>
   </div>
@@ -3022,6 +3089,12 @@ export default {
         'Large financial investment in new land (expansion in other areas)',
         'Others',
       ],
+    mostBeneficialSupportServicesList: [
+      {
+        mostBeneficialSupportService: null,
+        reasonWhyMostBeneficialSupportService: null,
+      },
+    ],
   }),
 
   methods: {
@@ -3065,7 +3138,14 @@ export default {
       })
     },
 
-    adddriversOfChangeAndVulnerabilityOfOthers() {
+    addMostBeneficialSupportServices() {
+      this.mostBeneficialSupportServicesList.push({
+        mostBeneficialSupportService: null,
+        reasonWhyMostBeneficialSupportService: null,
+      })
+    },
+
+    addDriversOfChangeAndVulnerabilityOfOthers() {
       this.driversOfChangeAndVulnerabilityOfOthersList.push({
         effectsOrImpact: null,
         rate: null,
@@ -3119,6 +3199,10 @@ export default {
 
     removeDriversOfChangeAndVulnerabilityOfOthers(index) {
       this.driversOfChangeAndVulnerabilityOfOthersList.splice(index, 1)
+    },
+
+    removeMostBeneficialSupportServices(index) {
+      this.mostBeneficialSupportServicesList.splice(index, 1)
     },
   },
 

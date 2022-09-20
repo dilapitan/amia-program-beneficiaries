@@ -3759,6 +3759,12 @@ export default {
     },
     otherConstraintBool() {
       this.otherConstraint = null
+      this.otherConstraintList = [
+        {
+          mainConstraintsOrDifficulties: null,
+          rate: null,
+        },
+      ]
     },
 
     driversOfChangeAndVulnerabilityOfOthersBool() {

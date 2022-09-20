@@ -1224,7 +1224,7 @@
       <v-divider></v-divider>
       <br />
 
-      <!-- 4 Farm Activities -->
+      <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
 
       <h3>
         V. TECHNICAL KNOWLEDGE/PERCEPTION OF CLIMATE CHANGE AND ITS IMPACTS
@@ -2358,6 +2358,38 @@
           </v-row>
         </div>
       </div>
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <!-- 6 Farmer's Adaptation Practices -->
+
+      <h3>VI. FARMER'S ADAPTATION PRACTICES</h3>
+
+      <br />
+
+      <div>
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" md="4" class="mr-2 text-body-2">
+            (6.1) Made adjustments in Livelihood in Response to the Perceived
+            Changes in Rainfall and Temperature over the last 10 years:
+          </v-col>
+
+          <v-col cols="12" sm="6" md="6">
+            <v-switch
+              v-model="
+                madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years
+              "
+              :label="
+                madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years
+                  ? 'Yes'
+                  : 'No'
+              "
+            ></v-switch>
+          </v-col>
+        </v-row>
+      </div>
     </v-card>
   </div>
 </template>
@@ -2734,6 +2766,37 @@ export default {
         rate: null,
       },
     ],
+
+    // 6. Farmer's Adaptation Practices - Data variables
+    madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
+      null,
+    changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
+      null,
+    additionalAdaptationMeasuresBeingConsideredInTheFuture: null,
+    receivedAnyExternalSupportForAdaptationMeasures: null,
+    formOfFinancialSupportReceived: null,
+    formOfMaterialSupportReceived: null,
+    formOfExtensionServicesSupportReceived: null,
+    FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
+    formOfInfrastructureSupportReceived: null,
+    formOfOtherSupportReceived: null,
+    mostBeneficialSupportServices: null,
+    lowEducationLevelConstraint: null,
+    limitedAccessToInformationConstraint: null,
+    lackOfExtensionServicesConstraint: null,
+    craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint: null,
+    inadequateCapitalConstraint: null,
+    noAccessToWaterForIrrigationConstraint: null,
+    noAccessToCreditConstraintConstraint: null,
+    longerTimeRequiredToSeeResultsConstraint: null,
+    oldAgeConstraint: null,
+    landTenureOrLandOwnershipIssuesConstraint: null,
+    landTopographyNotSuitableConstraint: null,
+    laborIntensiveOrNonAvailabilityOfLaborConstraint: null,
+    infertileSoilConstraint: null,
+    OtherConstraint: null,
+
+    // 6. Farmer's Adaptation Practices - UI variables
   }),
 
   methods: {

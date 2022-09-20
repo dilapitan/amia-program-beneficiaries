@@ -2629,6 +2629,319 @@
             </v-btn>
           </v-col>
         </v-row>
+
+        <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+          <v-col cols="12" sm="5" class="mr-2 text-body-2">
+            (6.7) Main constraints/difficulties in changing farming ways:
+          </v-col>
+        </v-row>
+
+        <div
+          :class="{
+            'ml-5': $vuetify.breakpoint.xsOnly,
+            'ml-10': $vuetify.breakpoint.smAndUp,
+          }"
+        >
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="lowEducationLevelConstraintBool"
+                label="(6.7.1) Low Education Level Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="lowEducationLevelConstraintBool"
+                dense
+                v-model="lowEducationLevelConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="limitedAccessToInformationConstraintBool"
+                label="(6.7.2) Limited Access to Information Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="limitedAccessToInformationConstraintBool"
+                dense
+                v-model="limitedAccessToInformationConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="lackOfExtensionServicesConstraintBool"
+                label="(6.7.3) Lack of Extension Services Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="lackOfExtensionServicesConstraintBool"
+                dense
+                v-model="lackOfExtensionServicesConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool
+                "
+                label="(6.7.4) CRA Options Not Compatible With Community Norms and Values Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="
+                  craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool
+                "
+                dense
+                v-model="
+                  craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
+                "
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="inadequateCapitalConstraintBool"
+                label="(6.7.5) Inadequate Capital Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="inadequateCapitalConstraintBool"
+                dense
+                v-model="inadequateCapitalConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="noAccessToWaterForIrrigationConstraintBool"
+                label="(6.7.6) No Access to Water for Irrigation Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="noAccessToWaterForIrrigationConstraintBool"
+                dense
+                v-model="noAccessToWaterForIrrigationConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="noAccessToCreditConstraintConstraintBool"
+                label="(6.7.7) No Access to Credit Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="noAccessToCreditConstraintConstraintBool"
+                dense
+                v-model="noAccessToCreditConstraintConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="longerTimeRequiredToSeeResultsConstraintBool"
+                label="(6.7.8) Longer Time Required to See Results Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="longerTimeRequiredToSeeResultsConstraintBool"
+                dense
+                v-model="longerTimeRequiredToSeeResultsConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="oldAgeConstraintBool"
+                label="(6.7.9) Old Age Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="oldAgeConstraintBool"
+                dense
+                v-model="oldAgeConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="landTenureOrLandOwnershipIssuesConstraintBool"
+                label="(6.7.10) Land Tenure/Land Ownership Issues Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="landTenureOrLandOwnershipIssuesConstraintBool"
+                dense
+                v-model="landTenureOrLandOwnershipIssuesConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="landTopographyNotSuitableConstraintBool"
+                label="(6.7.11) Land Topography Not Suitable Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="landTopographyNotSuitableConstraintBool"
+                dense
+                v-model="landTopographyNotSuitableConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
+                label="(6.7.12) Labor Intensive/Non-availability of Labor Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
+                dense
+                v-model="laborIntensiveOrNonAvailabilityOfLaborConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="8" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="infertileSoilConstraintBool"
+                label="(6.7.13) Infertile Soil Constraint **"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-select
+                :items="threePointScale"
+                v-if="infertileSoilConstraintBool"
+                dense
+                v-model="infertileSoilConstraint"
+                label="Rate"
+              ></v-select>
+            </v-col>
+          </v-row>
+
+          <v-row class="d-flex">
+            <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="otherConstraintBool"
+                label="(6.7.14) Other Constraint **"
+              ></v-checkbox>
+            </v-col>
+          </v-row>
+
+          <v-row v-if="otherConstraintBool">
+            <v-col cols="12">
+              <div v-for="(item, index) in otherConstraintList" :key="index">
+                <v-row class="d-flex align-baseline">
+                  <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
+                  <v-col cols="12" sm="4">
+                    <v-text-field
+                      class="mr-4"
+                      dense
+                      clearable
+                      v-model="item.mainConstraintsOrDifficulties"
+                      label="Main Constraint/Difficulties"
+                    ></v-text-field
+                  ></v-col>
+                  <v-col cols="12" sm="2">
+                    <v-select
+                      :items="threePointScale"
+                      dense
+                      v-model="item.rate"
+                      label="Rate"
+                    ></v-select>
+                  </v-col>
+                  <v-col v-if="index !== 0" cols="12" sm="1">
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-icon
+                          @click="removeOtherConstraint(index)"
+                          color="primary"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          mdi-cancel
+                        </v-icon>
+                      </template>
+                      <span>Remove</span>
+                    </v-tooltip>
+                  </v-col>
+                </v-row>
+              </div>
+              <br />
+              <v-btn
+                @click="addOtherConstraint()"
+                color="primary"
+                small
+                outlined
+              >
+                ADD
+              </v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </div>
     </v-card>
   </div>
@@ -2680,6 +2993,11 @@ export default {
       'Others',
     ],
     generalThreeChoice: ['Yes', 'No', `I don't know`],
+    threePointScale: [
+      '1 - Very Important',
+      '2 - Important',
+      '3 - Not Important',
+    ],
     fivePointScale: [
       '1 - Very Severe [Disastrous]',
       '2 - Severe [Critical]',
@@ -3034,7 +3352,7 @@ export default {
     landTopographyNotSuitableConstraint: null,
     laborIntensiveOrNonAvailabilityOfLaborConstraint: null,
     infertileSoilConstraint: null,
-    OtherConstraint: null,
+    otherConstraint: null,
 
     // 6. Farmer's Adaptation Practices - UI variables
     changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify:
@@ -3095,6 +3413,26 @@ export default {
         reasonWhyMostBeneficialSupportService: null,
       },
     ],
+    lowEducationLevelConstraintBool: false,
+    limitedAccessToInformationConstraintBool: false,
+    lackOfExtensionServicesConstraintBool: false,
+    craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool: false,
+    inadequateCapitalConstraintBool: false,
+    noAccessToWaterForIrrigationConstraintBool: false,
+    noAccessToCreditConstraintConstraintBool: false,
+    longerTimeRequiredToSeeResultsConstraintBool: false,
+    oldAgeConstraintBool: false,
+    landTenureOrLandOwnershipIssuesConstraintBool: false,
+    landTopographyNotSuitableConstraintBool: false,
+    laborIntensiveOrNonAvailabilityOfLaborConstraintBool: false,
+    infertileSoilConstraintBool: false,
+    otherConstraintBool: false,
+    otherConstraintList: [
+      {
+        mainConstraintsOrDifficulties: null,
+        rate: null,
+      },
+    ],
   }),
 
   methods: {
@@ -3128,6 +3466,13 @@ export default {
         age: null,
         gender: null,
         relationToTheRespondent: null,
+      })
+    },
+
+    addOtherConstraint() {
+      this.otherConstraintList.push({
+        mainConstraintsOrDifficulties: null,
+        rate: null,
       })
     },
 
@@ -3203,6 +3548,10 @@ export default {
 
     removeMostBeneficialSupportServices(index) {
       this.mostBeneficialSupportServicesList.splice(index, 1)
+    },
+
+    removeOtherConstraint(index) {
+      this.otherConstraintList.splice(index, 1)
     },
   },
 
@@ -3367,6 +3716,49 @@ export default {
           rate: null,
         },
       ]
+    },
+
+    lowEducationLevelConstraintBool() {
+      this.lowEducationLevelConstraint = null
+    },
+    limitedAccessToInformationConstraintBool() {
+      this.limitedAccessToInformationConstraint = null
+    },
+    lackOfExtensionServicesConstraintBool() {
+      this.lackOfExtensionServicesConstraint = null
+    },
+    craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool() {
+      this.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint = null
+    },
+    inadequateCapitalConstraintBool() {
+      this.inadequateCapitalConstraint = null
+    },
+    noAccessToWaterForIrrigationConstraintBool() {
+      this.noAccessToWaterForIrrigationConstraint = null
+    },
+    noAccessToCreditConstraintConstraintBool() {
+      this.noAccessToCreditConstraintConstraint = null
+    },
+    longerTimeRequiredToSeeResultsConstraintBool() {
+      this.longerTimeRequiredToSeeResultsConstraint = null
+    },
+    oldAgeConstraintBool() {
+      this.oldAgeConstraint = null
+    },
+    landTenureOrLandOwnershipIssuesConstraintBool() {
+      this.landTenureOrLandOwnershipIssuesConstraint = null
+    },
+    landTopographyNotSuitableConstraintBool() {
+      this.landTopographyNotSuitableConstraint = null
+    },
+    laborIntensiveOrNonAvailabilityOfLaborConstraintBool() {
+      this.laborIntensiveOrNonAvailabilityOfLaborConstraint = null
+    },
+    infertileSoilConstraintBool() {
+      this.infertileSoilConstraint = null
+    },
+    otherConstraintBool() {
+      this.otherConstraint = null
     },
 
     driversOfChangeAndVulnerabilityOfOthersBool() {

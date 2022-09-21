@@ -3070,12 +3070,27 @@
                 label="(7.6): Marketing System"
               ></v-checkbox>
             </v-col>
-            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
-              <v-text-field
+            <v-col cols="12" sm="7" class="ma-0 pa-0 pt-3">
+              <v-combobox
                 v-if="marketingSystemBool"
+                v-model="marketingSystem"
+                :items="marketingSystemList"
+                label="Select options"
+                multiple
+                dense
+              ></v-combobox>
+            </v-col>
+          </v-row>
+
+          <v-row
+            v-if="marketingSystem.includes('Others')"
+            :class="{ 'ml-5': $vuetify.breakpoint.smAndUp }"
+          >
+            <v-col cols="12" sm="4">
+              <v-text-field
                 dense
                 clearable
-                v-model="marketingSystem"
+                v-model="marketingSystemSpecify"
                 label="Please specify"
               ></v-text-field>
             </v-col>
@@ -3652,7 +3667,7 @@ export default {
     educationAndHealthFacilities: null,
     farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations:
       null,
-    marketingSystem: null,
+    marketingSystem: [],
     presenceOfAgriculturalProcessingFacilities: null,
     irrigation: null,
     farmingEquipment: null,
@@ -3669,6 +3684,16 @@ export default {
     irrigationBool: false,
     farmingEquipmentBool: false,
     othersBool: false,
+    marketingSystemList: [
+      'Talipapa',
+      'Wet/Public Market',
+      'Rolling Store (truck)',
+      'Rolling Store (cart)',
+      'Retail Store',
+      'Wholesale Store',
+      'Others',
+    ],
+    marketingSystemSpecify: null,
   }),
 
   methods: {
@@ -4068,7 +4093,13 @@ export default {
         null
     },
     marketingSystemBool() {
-      this.marketingSystem = null
+      this.marketingSystem = []
+      this.marketingSystemSpecify = null
+    },
+    marketingSystem() {
+      if (!this.marketingSystem.includes('Others')) {
+        this.marketingSystemSpecify = null
+      }
     },
     presenceOfAgriculturalProcessingFacilitiesBool() {
       this.presenceOfAgriculturalProcessingFacilities = null

@@ -184,3 +184,16 @@ export default {
   },
 }
 </script>
+
+<style>
+.small-number-input {
+  width: 70px;
+}
+.long-input {
+  width: 200px;
+}
+
+.middle-length-select {
+  width: 200px;
+}
+</style>

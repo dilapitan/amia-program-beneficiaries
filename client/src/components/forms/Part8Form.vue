@@ -1,0 +1,167 @@
+<template>
+  <div>
+    <h3>VIII. ISSUES/CONCERNS/PROBLEMS IN FARMING</h3>
+
+    <br />
+
+    <div>
+      <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
+        <v-col cols="12" sm="5" class="mr-2 text-body-2">
+          (8) Select the following that applies:
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" sm="10">
+          <v-combobox
+            v-model="issuesOrConcernsOrProblemsInFarming"
+            :items="issuesOrConcernsOrProblemsInFarmingList"
+            label="Select options"
+            multiple
+            dense
+          ></v-combobox>
+        </v-col>
+      </v-row>
+
+      <div
+        :class="{
+          'ml-5': $vuetify.breakpoint.xsOnly,
+          'ml-10': $vuetify.breakpoint.smAndUp,
+        }"
+      >
+        <v-row
+          v-if="
+            issuesOrConcernsOrProblemsInFarming.includes(
+              'Low crop production**'
+            )
+          "
+        >
+          <v-col cols="12" sm="4">
+            <v-text-field
+              dense
+              clearable
+              v-model="
+                issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify
+              "
+              label="Please specify crops"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row
+          v-if="
+            issuesOrConcernsOrProblemsInFarming.includes(
+              'Low livestock production**'
+            )
+          "
+        >
+          <v-col cols="12" sm="4">
+            <v-text-field
+              dense
+              clearable
+              v-model="
+                issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify
+              "
+              label="Please specify livestock"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row
+          v-if="
+            issuesOrConcernsOrProblemsInFarming.includes(
+              'Drought or lack of moisture in the soil'
+            )
+          "
+        >
+          <v-col cols="12" sm="4">
+            <v-select
+              :items="seasonList"
+              dense
+              v-model="
+                issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify
+              "
+              label="Please specify season"
+            ></v-select>
+          </v-col>
+        </v-row>
+
+        <v-row v-if="issuesOrConcernsOrProblemsInFarming.includes('Others')">
+          <v-col cols="12" sm="4">
+            <v-text-field
+              dense
+              clearable
+              v-model="issuesOrConcernsOrProblemsInFarmingOthersSpecify"
+              label="Please specify the other issue(s)"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </div>
+
+      <v-row
+        :class="{
+          'ml-5': $vuetify.breakpoint.xsOnly,
+          'ml-10': $vuetify.breakpoint.smAndUp,
+        }"
+        class="text-caption"
+      >
+        <v-col cols="1">
+          <p>Note:</p>
+        </v-col>
+
+        <v-col cols="6">
+          <ul style="list-style-type: none">
+            <li>*, loss of 90% of usual/expected output</li>
+            <li>**, >50% loss in expected/usual crop/livestock production</li>
+            <li>
+              ***, above the economic threshold level – meaning the disease
+              severity/pest population is significant enough to decrease yield
+              (>50% loss in expected/usual crop/livestock production)
+            </li>
+          </ul>
+        </v-col>
+      </v-row>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    // 8. Issues/Concerns/Problems in Farming - Data variables
+    issuesOrConcernsOrProblemsInFarming: [],
+
+    // 8. Issues/Concerns/Problems in Farming - UI variables
+    issuesOrConcernsOrProblemsInFarmingList: [
+      'Flooding',
+      'High crop losses during typhoon*',
+      'Soil erosion',
+      'Soil siltation',
+      'Access to high-quality seeds',
+      'Low crop production**',
+      'Low livestock production**',
+      'Occurrence of pest and diseases in crops***',
+      'Occurrence of pest and disease in livestock***',
+      'Occurrence of pest and disease in aquaculture***',
+      'Lack of market ',
+      'Low farm gate price',
+      'Insufficient technical knowledge on crop production',
+      'Insufficient technical knowledge on livestock production',
+      'Insufficient technical knowledge on aquaculture',
+      'Malfunctioning irrigation',
+      'Drought or lack of moisture in the soil',
+      'Weeds',
+      'Insufficient/lacking postharvest facilities',
+      'Insufficient/lacking agricultural equipment and machinery',
+      'Others',
+    ],
+    issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify: null,
+    issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify: null,
+    issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify: null,
+    issuesOrConcernsOrProblemsInFarmingOthersSpecify: null,
+  }),
+
+  methods: {},
+  watch: {},
+}
+</script>

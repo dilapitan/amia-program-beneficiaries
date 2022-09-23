@@ -1270,6 +1270,140 @@ export default {
     },
   },
   watch: {
+    driversOfChangeAndVulnerabilityOfLandDegredationBool() {
+      this.driversOfChangeAndVulnerabilityOfLandDegredation = null
+    },
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool() {
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices =
+        null
+    },
+    driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool() {
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices =
+        null
+    },
+    driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool() {
+      this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals =
+        null
+    },
+
+    driversOfChangeAndVulnerabilityOfOthersBool() {
+      this.driversOfChangeAndVulnerabilityOfOthers = null
+      this.driversOfChangeAndVulnerabilityOfOthersList = [
+        {
+          effectsOrImpact: null,
+          rate: null,
+        },
+      ]
+    },
+
+    driversOfChangeAndVulnerabilityOfOthersList() {
+      this.driversOfChangeAndVulnerabilityOfOthers =
+        this.driversOfChangeAndVulnerabilityOfOthersList
+    },
+
+    perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool() {
+      this.perceivedEffectsOrImpactsOfChangeInTimingOfRains = null
+    },
+
+    perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool() {
+      this.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfReducedCroppingSeasonBool() {
+      this.perceivedEffectsOrImpactsOfReducedCroppingSeason = null
+    },
+
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool() {
+      this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool() {
+      this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfPostharvestLossesBool() {
+      this.perceivedEffectsOrImpactsOfPostharvestLosses = null
+    },
+
+    perceivedEffectsOrImpactsOfPestInvasionBool() {
+      this.perceivedEffectsOrImpactsOfPestInvasion = null
+    },
+
+    perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool() {
+      this.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases = null
+    },
+
+    perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool() {
+      this.perceivedEffectsOrImpactsOfPovertyAndFoodShortages = null
+    },
+
+    perceivedEffectsOrImpactsOfLackOfPotableWaterBool() {
+      this.perceivedEffectsOrImpactsOfLackOfPotableWater = null
+    },
+
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool() {
+      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater = null
+    },
+
+    perceivedEffectsOrImpactsOfErosionsBool() {
+      this.perceivedEffectsOrImpactsOfErosions = null
+    },
+
+    perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool() {
+      this.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife = null
+    },
+
+    perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool() {
+      this.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties =
+        null
+    },
+
+    perceivedEffectsOrImpactsOfDeathOfLivestockBool() {
+      this.perceivedEffectsOrImpactsOfDeathOfLivestock = null
+    },
+
+    perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool() {
+      this.perceivedEffectsOrImpactsOfDecreasedLivestockProduction = null
+    },
+
+    perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool() {
+      this.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing = null
+    },
+
+    perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool() {
+      this.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes = null
+    },
+
+    perceivedEffectsOrImpactsOfRuralUrbanMigrationBool() {
+      this.perceivedEffectsOrImpactsOfRuralUrbanMigration = null
+    },
+
+    perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool() {
+      this.perceivedEffectsOrImpactsOfSiltationOfWaterBodies = null
+    },
+
+    perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool() {
+      this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover = null
+    },
+
+    perceivedEffectsOrImpactsOfOthersBool() {
+      this.perceivedEffectsOrImpactsOfOthers = null
+      this.perceivedEffectsOrImpactsOfOthersList = [
+        {
+          effectsOrImpact: null,
+          rate: null,
+        },
+      ]
+    },
+
+    perceivedEffectsOrImpactsOfOthersList() {
+      this.perceivedEffectsOrImpactsOfOthers =
+        this.perceivedEffectsOrImpactsOfOthersList
+    },
+
     sourceOfInformationRelatedToImprovingAgriculturalProduction() {
       if (
         !this.sourceOfInformationRelatedToImprovingAgriculturalProduction.includes(

@@ -162,6 +162,38 @@ export default {
   }),
 
   methods: {},
-  watch: {},
+  watch: {
+    issuesOrConcernsOrProblemsInFarming() {
+      if (!this.issuesOrConcernsOrProblemsInFarming.includes('Others')) {
+        this.issuesOrConcernsOrProblemsInFarmingOthersSpecify = null
+      }
+
+      if (
+        !this.issuesOrConcernsOrProblemsInFarming.includes(
+          'Low crop production**'
+        )
+      ) {
+        this.issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify = null
+      }
+
+      if (
+        !this.issuesOrConcernsOrProblemsInFarming.includes(
+          'Low livestock production**'
+        )
+      ) {
+        this.issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify =
+          null
+      }
+
+      if (
+        !this.issuesOrConcernsOrProblemsInFarming.includes(
+          'Drought or lack of moisture in the soil'
+        )
+      ) {
+        this.issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify =
+          null
+      }
+    },
+  },
 }
 </script>

@@ -163,7 +163,7 @@
               dense
               clearable
               v-model="
-                FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
+                farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
               "
             ></v-text-field>
           </v-col>
@@ -589,7 +589,7 @@ export default {
     formOfFinancialSupportReceived: null,
     formOfMaterialSupportReceived: null,
     formOfExtensionServicesSupportReceived: null,
-    FarmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
+    farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
     formOfInfrastructureSupportReceived: null,
     formOfOtherSupportReceived: null,
     mostBeneficialSupportServices: null,
@@ -689,7 +689,106 @@ export default {
     ],
   }),
 
-  methods: {},
-  watch: {},
+  computed: {
+    threePointScale() {
+      return this.$store.state.threePointScale
+    },
+  },
+
+  methods: {
+    addMostBeneficialSupportServices() {
+      this.mostBeneficialSupportServicesList.push({
+        mostBeneficialSupportService: null,
+        reasonWhyMostBeneficialSupportService: null,
+      })
+    },
+
+    addOtherConstraint() {
+      this.otherConstraintList.push({
+        mainConstraintsOrDifficulties: null,
+        rate: null,
+      })
+    },
+
+    removeMostBeneficialSupportServices(index) {
+      this.mostBeneficialSupportServicesList.splice(index, 1)
+    },
+
+    removeOtherConstraint(index) {
+      this.otherConstraintList.splice(index, 1)
+    },
+  },
+  watch: {
+    changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall() {
+      if (
+        !this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.includes(
+          'Others'
+        )
+      )
+        this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify =
+          null
+    },
+
+    receivedAnyExternalSupportForAdaptationMeasures() {
+      if (!this.receivedAnyExternalSupportForAdaptationMeasures) {
+        this.formOfFinancialSupportReceived = null
+        this.formOfMaterialSupportReceived = null
+        this.formOfExtensionServicesSupportReceived = null
+        this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived =
+          null
+        this.formOfInfrastructureSupportReceived = null
+        this.formOfOtherSupportReceived = null
+      }
+    },
+
+    lowEducationLevelConstraintBool() {
+      this.lowEducationLevelConstraint = null
+    },
+    limitedAccessToInformationConstraintBool() {
+      this.limitedAccessToInformationConstraint = null
+    },
+    lackOfExtensionServicesConstraintBool() {
+      this.lackOfExtensionServicesConstraint = null
+    },
+    craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool() {
+      this.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint = null
+    },
+    inadequateCapitalConstraintBool() {
+      this.inadequateCapitalConstraint = null
+    },
+    noAccessToWaterForIrrigationConstraintBool() {
+      this.noAccessToWaterForIrrigationConstraint = null
+    },
+    noAccessToCreditConstraintConstraintBool() {
+      this.noAccessToCreditConstraintConstraint = null
+    },
+    longerTimeRequiredToSeeResultsConstraintBool() {
+      this.longerTimeRequiredToSeeResultsConstraint = null
+    },
+    oldAgeConstraintBool() {
+      this.oldAgeConstraint = null
+    },
+    landTenureOrLandOwnershipIssuesConstraintBool() {
+      this.landTenureOrLandOwnershipIssuesConstraint = null
+    },
+    landTopographyNotSuitableConstraintBool() {
+      this.landTopographyNotSuitableConstraint = null
+    },
+    laborIntensiveOrNonAvailabilityOfLaborConstraintBool() {
+      this.laborIntensiveOrNonAvailabilityOfLaborConstraint = null
+    },
+    infertileSoilConstraintBool() {
+      this.infertileSoilConstraint = null
+    },
+    otherConstraintBool() {
+      this.otherConstraint = null
+      this.otherConstraintList = [
+        {
+          mainConstraintsOrDifficulties: null,
+          rate: null,
+        },
+      ]
+    },
+  },
 }
 </script>

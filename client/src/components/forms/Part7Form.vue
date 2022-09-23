@@ -262,6 +262,54 @@ export default {
   }),
 
   methods: {},
-  watch: {},
+  watch: {
+    accessToAgricultureOrFisheriesRnDInstitutionsBool() {
+      this.accessToAgricultureOrFisheriesRnDInstitutions = null
+    },
+
+    accessToCreditBool() {
+      this.accessToCredit = null
+    },
+
+    laboratoryFacilitiesBool() {
+      this.laboratoryFacilities = null
+    },
+
+    educationAndHealthFacilitiesBool() {
+      this.educationAndHealthFacilities = null
+    },
+
+    farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociationsBool() {
+      this.farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations =
+        null
+    },
+
+    marketingSystemBool() {
+      this.marketingSystem = []
+      this.marketingSystemSpecify = null
+    },
+
+    marketingSystem() {
+      if (!this.marketingSystem.includes('Others')) {
+        this.marketingSystemSpecify = null
+      }
+    },
+
+    presenceOfAgriculturalProcessingFacilitiesBool() {
+      this.presenceOfAgriculturalProcessingFacilities = null
+    },
+
+    irrigationBool() {
+      this.irrigation = null
+    },
+
+    farmingEquipmentBool() {
+      this.farmingEquipment = null
+    },
+
+    othersBool() {
+      this.others = null
+    },
+  },
 }
 </script>

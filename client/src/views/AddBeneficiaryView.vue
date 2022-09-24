@@ -64,6 +64,22 @@
 
       <!-- 8 Issues/Concerns/Problems in Farming -->
       <Part8Form />
+
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <v-overlay :value="loading"></v-overlay>
+      <div class="d-flex align-end flex-column">
+        <v-btn
+          :disabled="loading"
+          :loading="loading"
+          @click="addBeneficiary()"
+          color="primary"
+        >
+          SUBMIT
+        </v-btn>
+      </div>
     </v-card>
   </div>
 </template>
@@ -94,9 +110,16 @@ export default {
     Part8Form,
   },
 
-  data: () => ({}),
+  data: () => ({
+    loading: false,
+  }),
 
-  methods: {},
+  methods: {
+    addBeneficiary() {
+      this.loading = true
+      // this.$router.push('/')
+    },
+  },
 
   watch: {},
 }

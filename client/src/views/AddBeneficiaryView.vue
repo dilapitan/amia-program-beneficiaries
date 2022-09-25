@@ -6,64 +6,69 @@
     </p>
     <br />
     <v-card class="pa-5" color="middleground" flat height="100%">
+      <!-- <v-form ref="form" v-model="valid" lazy-validation> -->
       <!-- 0 General -->
-      <Part0Form />
+      <Part0Form
+        @sendData="addBeneficiary($event)"
+        :toAddBeneficiary="toAddBeneficiary"
+        :requiredRule="requiredRule"
+      />
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 1 Farmer's Basic Information -->
-      <Part1Form />
+      <!-- <Part1Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 2 Socio-demographic Information -->
-      <Part2Form />
+      <!-- <Part2Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 3 Farm Description -->
-      <Part3Form />
+      <!-- <Part3Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 4 Farm Activities -->
-      <Part4Form />
+      <!-- <Part4Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-      <Part5Form />
+      <!-- <Part5Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 6 Farmer's Adaptation Practices -->
-      <Part6Form />
+      <!-- <Part6Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 7 Institutional Characteristics -->
-      <Part7Form />
+      <!-- <Part7Form /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 8 Issues/Concerns/Problems in Farming -->
-      <Part8Form />
+      <!-- <Part8Form /> -->
 
       <br />
       <v-divider></v-divider>
@@ -80,44 +85,65 @@
           SUBMIT
         </v-btn>
       </div>
+      <!-- </v-form> -->
     </v-card>
   </div>
 </template>
 
 <script>
 import Part0Form from '@/components/forms/Part0Form.vue'
-import Part1Form from '@/components/forms/Part1Form.vue'
-import Part2Form from '@/components/forms/Part2Form.vue'
-import Part3Form from '@/components/forms/Part3Form.vue'
-import Part4Form from '@/components/forms/Part4Form.vue'
-import Part5Form from '@/components/forms/Part5Form.vue'
-import Part6Form from '@/components/forms/Part6Form.vue'
-import Part7Form from '@/components/forms/Part7Form.vue'
-import Part8Form from '@/components/forms/Part8Form.vue'
+// import Part1Form from '@/components/forms/Part1Form.vue'
+// import Part2Form from '@/components/forms/Part2Form.vue'
+// import Part3Form from '@/components/forms/Part3Form.vue'
+// import Part4Form from '@/components/forms/Part4Form.vue'
+// import Part5Form from '@/components/forms/Part5Form.vue'
+// import Part6Form from '@/components/forms/Part6Form.vue'
+// import Part7Form from '@/components/forms/Part7Form.vue'
+// import Part8Form from '@/components/forms/Part8Form.vue'
 
 export default {
   name: 'AddBeneficiaryView',
 
   components: {
     Part0Form,
-    Part1Form,
-    Part2Form,
-    Part3Form,
-    Part4Form,
-    Part5Form,
-    Part6Form,
-    Part7Form,
-    Part8Form,
+    // Part1Form,
+    // Part2Form,
+    // Part3Form,
+    // Part4Form,
+    // Part5Form,
+    // Part6Form,
+    // Part7Form,
+    // Part8Form,
   },
 
   data: () => ({
+    // valid: true,
     loading: false,
+    toAddBeneficiary: false,
+    requiredRule: [(v) => !!v || 'Required'],
   }),
 
   methods: {
-    addBeneficiary() {
-      this.loading = true
-      // this.$router.push('/')
+    addBeneficiary(value) {
+      console.log('value:', value)
+      this.toAddBeneficiary = true
+
+      if (value) {
+        this.toAddBeneficiary = false
+      }
+
+      // This is for adding the validation
+      // const valid = this.$refs.form.validate()
+
+      // if (valid) {
+      //   console.log('value:', value)
+      //   // API Services
+      //   this.loading = true
+      //   this.$router.push('/')
+      // } else {
+      //   console.log('AAAA')
+      //   this.toAddBeneficiary = false
+      // }
     },
   },
 

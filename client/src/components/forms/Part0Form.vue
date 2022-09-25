@@ -12,6 +12,7 @@
             dense
             clearable
             v-model="surveyNo"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </v-col>
@@ -105,6 +106,8 @@
 
 <script>
 export default {
+  props: ['toAddBeneficiary', 'requiredRule'],
+
   data: () => ({
     // 0. General Info - data variables
     surveyNo: null,
@@ -117,7 +120,24 @@ export default {
     dateMenu: false,
   }),
 
-  methods: {},
-  watch: {},
+  methods: {
+    passForm0Data() {
+      const part0Data = {
+        surveyNo: this.surveyNo,
+        date: this.date,
+        interviewStart: this.interviewStart,
+        interviewEnd: this.interviewEnd,
+        nameOfInterviewer: this.nameOfInterviewer,
+      }
+
+      this.$emit('sendData', part0Data)
+    },
+  },
+
+  watch: {
+    toAddBeneficiary() {
+      this.passForm0Data()
+    },
+  },
 }
 </script>

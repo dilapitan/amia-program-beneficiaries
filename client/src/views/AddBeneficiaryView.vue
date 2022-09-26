@@ -123,9 +123,31 @@ export default {
     requiredRule: [(v) => !!v || 'Required'],
   }),
 
+  computed: {
+    beneficiaries() {
+      return this.$store.state.beneficiaries
+    },
+  },
+
   methods: {
     addBeneficiary() {
       this.getPart0Formdata()
+
+      const newBeneficiaries = [...this.beneficiaries]
+      newBeneficiaries.push({
+        surveyNo0: this.beneficiaries.length + 1,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Dominic Lapitan',
+      })
+
+      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+
+      this.loading = true
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
 
       // This is for adding the validation
       // const valid = this.$refs.form.validate()

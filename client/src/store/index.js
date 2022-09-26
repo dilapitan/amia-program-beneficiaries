@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-import { SET_LOGIN } from './mutation-types'
+import { SET_LOGIN, SET_BENEFICIARIES } from './mutation-types'
 
 export default new Vuex.Store({
   state: {
@@ -105,8 +105,16 @@ export default new Vuex.Store({
     [SET_LOGIN](state, credentials) {
       state.user = credentials
     },
+
+    [SET_BENEFICIARIES](state, beneficiaries) {
+      state.beneficiaries = beneficiaries
+    },
   },
   actions: {
+    setBeneficiariesAction({ commit }, payload) {
+      commit('SET_BENEFICIARIES', payload)
+    },
+
     setLoginAction({ commit }, payload) {
       commit('SET_LOGIN', payload)
     },

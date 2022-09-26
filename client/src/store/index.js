@@ -8,6 +8,50 @@ import { SET_LOGIN } from './mutation-types'
 export default new Vuex.Store({
   state: {
     user: null,
+    beneficiaries: [
+      {
+        surveyNo0: 1,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Troy Bolton',
+      },
+      {
+        surveyNo0: 2,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Gabriella Montez',
+      },
+      {
+        surveyNo0: 3,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Sharpay Evans',
+      },
+      {
+        surveyNo0: 4,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Ryan Evans',
+      },
+      {
+        surveyNo0: 5,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Chad Danforth',
+      },
+      {
+        surveyNo0: 6,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Taylor McKessie',
+      },
+    ],
 
     // UI data variables
     fivePointScale: [

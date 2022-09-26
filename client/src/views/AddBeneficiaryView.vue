@@ -22,7 +22,7 @@
       <br />
 
       <!-- 2 Socio-demographic Information -->
-      <!-- <Part2Form /> -->
+      <!-- <Part2Form ref="part2Form" /> -->
 
       <br />
       <v-divider></v-divider>
@@ -122,27 +122,20 @@ export default {
     beneficiaries() {
       return this.$store.state.beneficiaries
     },
-
-    part0FormData() {
-      return this.$store.state.part0FormData
-    },
-
-    part1FormData() {
-      return this.$store.state.part1FormData
-    },
   },
 
   methods: {
     addBeneficiary() {
-      const part0FormData = this.$refs.part0Form.passForm0Data()
-
-      const part1FormData = this.$refs.part1Form.passForm1Data()
+      const part0FormData = this.getPart0FormData()
+      const part1FormData = this.getPart1FormData()
 
       // TODO: reflect how merge/override this with "valid"/validation
       if (part0FormData && part1FormData) {
+        // Part 0
         const { date, interviewStart, interviewEnd, nameOfInterviewer } =
           part0FormData
 
+        // Part 1
         const {
           regionOrProvince,
           cityOrMunicipality,
@@ -153,12 +146,16 @@ export default {
         } = part1FormData
 
         const newBeneficiaries = [...this.beneficiaries]
+
         newBeneficiaries.push({
+          // Part 0
           surveyNo: this.beneficiaries.length + 1,
           date,
           interviewStart,
           interviewEnd,
           nameOfInterviewer,
+
+          // Part 1
           regionOrProvince,
           cityOrMunicipality,
           barangay,
@@ -186,6 +183,16 @@ export default {
       //   console.log('AAAA')
       //   this.toAddBeneficiary = false
       // }
+    },
+
+    getPart0FormData() {
+      const part0FormData = this.$refs.part0Form.passForm0Data()
+      return part0FormData
+    },
+
+    getPart1FormData() {
+      const part1FormData = this.$refs.part1Form.passForm1Data()
+      return part1FormData
     },
   },
 

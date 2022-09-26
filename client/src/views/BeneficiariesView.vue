@@ -41,7 +41,7 @@ export default {
       { text: 'Actions', value: 'actions', sortable: false },
       {
         text: 'Survey No.',
-        value: 'surveyNo0',
+        value: 'surveyNo',
         align: 'center',
         width: '110px',
       },

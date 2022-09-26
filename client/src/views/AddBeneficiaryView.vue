@@ -8,18 +8,14 @@
     <v-card class="pa-5" color="middleground" flat height="100%">
       <!-- <v-form ref="form" v-model="valid" lazy-validation> -->
       <!-- 0 General -->
-      <Part0Form
-        @sendData="getPart0Formdata($event)"
-        :toAddBeneficiary="toAddBeneficiary"
-        :requiredRule="requiredRule"
-      />
+      <Part0Form ref="part0Form" />
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 1 Farmer's Basic Information -->
-      <!-- <Part1Form /> -->
+      <Part1Form ref="part1Form" />
 
       <br />
       <v-divider></v-divider>
@@ -92,7 +88,7 @@
 
 <script>
 import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
@@ -106,7 +102,7 @@ export default {
 
   components: {
     Part0Form,
-    // Part1Form,
+    Part1Form,
     // Part2Form,
     // Part3Form,
     // Part4Form,
@@ -119,35 +115,64 @@ export default {
   data: () => ({
     // valid: true,
     loading: false,
-    toAddBeneficiary: false,
-    requiredRule: [(v) => !!v || 'Required'],
+    // requiredRule: [(v) => !!v || 'Required'],
   }),
 
   computed: {
     beneficiaries() {
       return this.$store.state.beneficiaries
     },
+
+    part0FormData() {
+      return this.$store.state.part0FormData
+    },
+
+    part1FormData() {
+      return this.$store.state.part1FormData
+    },
   },
 
   methods: {
     addBeneficiary() {
-      this.getPart0Formdata()
+      const part0FormData = this.$refs.part0Form.passForm0Data()
 
-      const newBeneficiaries = [...this.beneficiaries]
-      newBeneficiaries.push({
-        surveyNo0: this.beneficiaries.length + 1,
-        date: new Date().toLocaleDateString(),
-        interviewStart: new Date().toLocaleDateString(),
-        interviewEnd: new Date().toLocaleDateString(),
-        nameOfInterviewer: 'Dominic Lapitan',
-      })
+      const part1FormData = this.$refs.part1Form.passForm1Data()
 
-      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      // TODO: reflect how merge/override this with "valid"/validation
+      if (part0FormData && part1FormData) {
+        const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+          part0FormData
 
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 500)
+        const {
+          regionOrProvince,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        } = part1FormData
+
+        const newBeneficiaries = [...this.beneficiaries]
+        newBeneficiaries.push({
+          surveyNo: this.beneficiaries.length + 1,
+          date,
+          interviewStart,
+          interviewEnd,
+          nameOfInterviewer,
+          regionOrProvince,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        })
+
+        this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        this.loading = true
+        setTimeout(() => {
+          this.$router.push('/')
+        }, 500)
+      }
 
       // This is for adding the validation
       // const valid = this.$refs.form.validate()
@@ -161,15 +186,6 @@ export default {
       //   console.log('AAAA')
       //   this.toAddBeneficiary = false
       // }
-    },
-
-    getPart0Formdata(value) {
-      // console.log('value:', value)
-      this.toAddBeneficiary = true
-
-      if (value) {
-        this.toAddBeneficiary = false
-      }
     },
   },
 

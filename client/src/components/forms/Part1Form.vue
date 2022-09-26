@@ -71,7 +71,19 @@ export default {
     farmersCodeNo: null,
   }),
 
-  methods: {},
-  watch: {},
+  methods: {
+    passForm1Data() {
+      const part1Data = {
+        regionOrProvince: this.regionOrProvince,
+        cityOrMunicipality: this.cityOrMunicipality,
+        barangay: this.barangay,
+        nameOfFarmer: this.nameOfFarmer,
+        contactNo: this.contactNo,
+        farmersCodeNo: this.farmersCodeNo,
+      }
+
+      return part1Data
+    },
+  },
 }
 </script>

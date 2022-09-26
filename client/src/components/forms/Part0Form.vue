@@ -11,8 +11,8 @@
             class="small-number-input"
             dense
             clearable
-            v-model="surveyNo"
-            :rules="requiredRule"
+            v-model="nextSurveyNo"
+            readonly
           ></v-text-field>
         </div>
       </v-col>
@@ -106,11 +106,8 @@
 
 <script>
 export default {
-  props: ['toAddBeneficiary', 'requiredRule'],
-
   data: () => ({
     // 0. General Info - data variables
-    surveyNo: null,
     date: null,
     interviewStart: null,
     interviewEnd: null,
@@ -120,23 +117,23 @@ export default {
     dateMenu: false,
   }),
 
+  computed: {
+    nextSurveyNo() {
+      return this.$store.state.beneficiaries.length + 1
+    },
+  },
+
   methods: {
     passForm0Data() {
       const part0Data = {
-        surveyNo: this.surveyNo,
+        surveyNo: this.nextSurveyNo,
         date: this.date,
         interviewStart: this.interviewStart,
         interviewEnd: this.interviewEnd,
         nameOfInterviewer: this.nameOfInterviewer,
       }
 
-      this.$emit('sendData', part0Data)
-    },
-  },
-
-  watch: {
-    toAddBeneficiary() {
-      this.passForm0Data()
+      return part0Data
     },
   },
 }

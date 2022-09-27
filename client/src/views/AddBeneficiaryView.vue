@@ -8,21 +8,21 @@
     <v-card class="pa-5" color="middleground" flat height="100%">
       <!-- <v-form ref="form" v-model="valid" lazy-validation> -->
       <!-- 0 General -->
-      <Part0Form ref="part0Form" />
+      <!-- <Part0Form ref="part0Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 1 Farmer's Basic Information -->
-      <Part1Form ref="part1Form" />
+      <!-- <Part1Form ref="part1Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 2 Socio-demographic Information -->
-      <!-- <Part2Form ref="part2Form" /> -->
+      <Part2Form ref="part2Form" />
 
       <br />
       <v-divider></v-divider>
@@ -87,9 +87,9 @@
 </template>
 
 <script>
-import Part0Form from '@/components/forms/Part0Form.vue'
-import Part1Form from '@/components/forms/Part1Form.vue'
-// import Part2Form from '@/components/forms/Part2Form.vue'
+// import Part0Form from '@/components/forms/Part0Form.vue'
+// import Part1Form from '@/components/forms/Part1Form.vue'
+import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
@@ -101,9 +101,9 @@ export default {
   name: 'AddBeneficiaryView',
 
   components: {
-    Part0Form,
-    Part1Form,
-    // Part2Form,
+    // Part0Form,
+    // Part1Form,
+    Part2Form,
     // Part3Form,
     // Part4Form,
     // Part5Form,
@@ -126,50 +126,69 @@ export default {
 
   methods: {
     addBeneficiary() {
-      const part0FormData = this.getPart0FormData()
-      const part1FormData = this.getPart1FormData()
+      // const part0FormData = this.getPart0FormData()
+      // const part1FormData = this.getPart1FormData()
+      const part2FormData = this.getPart2FormData()
 
       // TODO: reflect how merge/override this with "valid"/validation
-      if (part0FormData && part1FormData) {
-        // Part 0
-        const { date, interviewStart, interviewEnd, nameOfInterviewer } =
-          part0FormData
+      // if (part0FormData && part1FormData) {
+      // Part 0
+      // const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+      //   part0FormData
 
-        // Part 1
-        const {
-          regionOrProvince,
-          cityOrMunicipality,
-          barangay,
-          nameOfFarmer,
-          contactNo,
-          farmersCodeNo,
-        } = part1FormData
+      // Part 1
+      // const {
+      //   regionOrProvince,
+      //   cityOrMunicipality,
+      //   barangay,
+      //   nameOfFarmer,
+      //   contactNo,
+      //   farmersCodeNo,
+      // } = part1FormData
 
-        const newBeneficiaries = [...this.beneficiaries]
+      // Part 2
+      const {
+        age,
+        gender,
+        civilStatus,
+        religion,
+        belongingTo,
+        householdMembers,
+      } = part2FormData
 
-        newBeneficiaries.push({
-          // Part 0
-          surveyNo: this.beneficiaries.length + 1,
-          date,
-          interviewStart,
-          interviewEnd,
-          nameOfInterviewer,
+      const newBeneficiaries = [...this.beneficiaries]
 
-          // Part 1
-          regionOrProvince,
-          cityOrMunicipality,
-          barangay,
-          nameOfFarmer,
-          contactNo,
-          farmersCodeNo,
-        })
+      newBeneficiaries.push({
+        // // Part 0
+        // surveyNo: this.beneficiaries.length + 1,
+        // date,
+        // interviewStart,
+        // interviewEnd,
+        // nameOfInterviewer,
+        //
+        // // Part 1
+        // regionOrProvince,
+        // cityOrMunicipality,
+        // barangay,
+        // nameOfFarmer,
+        // contactNo,
+        // farmersCodeNo,
+        //
+        // Part 2
+        age,
+        gender,
+        civilStatus,
+        religion,
+        belongingTo,
+        householdMembers,
+      })
 
-        this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-        this.loading = true
-        setTimeout(() => {
-          this.$router.push('/')
-        }, 500)
-      }
+      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      this.loading = true
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
+      // }
 
       // This is for adding the validation
       // const valid = this.$refs.form.validate()
@@ -185,14 +204,19 @@ export default {
       // }
     },
 
-    getPart0FormData() {
-      const part0FormData = this.$refs.part0Form.passForm0Data()
-      return part0FormData
-    },
+    // getPart0FormData() {
+    //   const part0FormData = this.$refs.part0Form.passForm0Data()
+    //   return part0FormData
+    // },
 
-    getPart1FormData() {
-      const part1FormData = this.$refs.part1Form.passForm1Data()
-      return part1FormData
+    // getPart1FormData() {
+    //   const part1FormData = this.$refs.part1Form.passForm1Data()
+    //   return part1FormData
+    // },
+
+    getPart2FormData() {
+      const part2FormData = this.$refs.part2Form.passForm2Data()
+      return part2FormData
     },
   },
 

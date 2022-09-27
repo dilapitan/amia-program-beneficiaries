@@ -22,6 +22,7 @@
 
         <div>
           <v-select
+            v-model="gender"
             class="middle-length-select"
             :items="genderOptions"
             label="Select option"
@@ -33,6 +34,7 @@
 
         <div>
           <v-select
+            v-model="civilStatus"
             class="middle-length-select"
             :items="civilStatusOptions"
             label="Select option"
@@ -84,7 +86,10 @@
       </div>
 
       <div class="mt-3 ml-5">
-        <div v-for="(householdMember, index) in householdMembers" :key="index">
+        <div
+          v-for="(householdMember, index) in householdMembersList"
+          :key="index"
+        >
           <v-row class="d-flex align-baseline">
             <v-col cols="12" sm="1">{{ index + 1 }}</v-col>
             <v-col cols="12" sm="3">
@@ -367,14 +372,7 @@ export default {
     religion: null,
     belongingTo: null,
     belongingToSpecify: null,
-    householdMembers: [
-      {
-        name: null,
-        age: null,
-        gender: null,
-        relationToTheRespondent: null,
-      },
-    ],
+    householdMembers: '',
     yearsOfFarmingExperience: null,
     highestEducationalAttainment: null,
     highestEducationalAttainmentSpecify: null,
@@ -399,6 +397,14 @@ export default {
       'Person with Disability',
       'Indigenous People',
       '4Ps beneficiary (including household members)',
+    ],
+    householdMembersList: [
+      {
+        name: null,
+        age: null,
+        gender: null,
+        relationToTheRespondent: null,
+      },
     ],
     highestEducationalAttainmentOptions: [
       'Elementary Graduate',
@@ -473,7 +479,7 @@ export default {
 
   methods: {
     addHouseholdMember() {
-      this.householdMembers.push({
+      this.householdMembersList.push({
         name: null,
         age: null,
         gender: null,
@@ -498,7 +504,46 @@ export default {
     },
 
     removeHouseholdMember(index) {
-      this.householdMembers.splice(index, 1)
+      this.householdMembersList.splice(index, 1)
+    },
+
+    passForm2Data() {
+      // Added dynamic fields
+      if (this.belongingToSpecify) {
+        this.belongingTo = `${this.belongingTo} - ${this.belongingToSpecify}`
+      }
+
+      if (this.householdMembersList.length) {
+        let _householdMembers = ''
+        this.householdMembersList.map((member, index) => {
+          let string = ''
+          Object.values(member).map((value, index) => {
+            string = string.concat(value)
+
+            if (index < Object.values(member).length - 1) {
+              string = string.concat(',')
+            }
+          })
+
+          _householdMembers = _householdMembers.concat(string)
+          if (index < this.householdMembersList.length - 1) {
+            _householdMembers = _householdMembers.concat('; ')
+          }
+        })
+
+        this.householdMembers = _householdMembers
+      }
+
+      const part2Data = {
+        age: this.age,
+        gender: this.gender,
+        civilStatus: this.civilStatus,
+        religion: this.religion,
+        belongingTo: this.belongingTo,
+        householdMembers: this.householdMembers,
+      }
+
+      return part2Data
     },
   },
   watch: {

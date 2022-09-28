@@ -18,6 +18,5 @@ export const sortMonths = (arr) => {
     return MONTHS.indexOf(a) - MONTHS.indexOf(b)
   })
 
-  console.log('sortedMonths:', sortedMonths)
   return sortedMonths
 }

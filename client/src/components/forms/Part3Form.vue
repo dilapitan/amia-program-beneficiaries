@@ -226,6 +226,8 @@
 </template>
 
 <script>
+import { sortMonths } from '@/helpers'
+
 export default {
   data: () => ({
     // 3. Farm Description - data variables
@@ -282,10 +284,14 @@ export default {
   methods: {
     stringifyMonthsWithoutRain() {
       let stringified = ''
-      this.monthsWithoutRain.map((month, index) => {
+
+      // Sort shuffled months
+      const sortedMonths = sortMonths(this.monthsWithoutRain)
+
+      sortedMonths.map((month, index) => {
         stringified = stringified.concat(month)
 
-        if (index < this.monthsWithoutRain.length - 1) {
+        if (index < sortedMonths.length - 1) {
           stringified = stringified.concat(', ')
         }
       })

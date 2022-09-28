@@ -236,11 +236,11 @@ export default {
         landHolding,
       })
 
-      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 500)
+      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      // this.loading = true
+      // setTimeout(() => {
+      //   this.$router.push('/')
+      // }, 500)
       // }
 
       // This is for adding the validation

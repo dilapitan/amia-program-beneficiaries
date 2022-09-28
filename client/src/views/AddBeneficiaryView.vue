@@ -129,7 +129,7 @@ export default {
       // const part0FormData = this.getPart0FormData()
       // const part1FormData = this.getPart1FormData()
       const part2FormData = this.getPart2FormData()
-
+      console.log('part2FormData:', part2FormData)
       // TODO: reflect how merge/override this with "valid"/validation
       // if (part0FormData && part1FormData) {
       // Part 0
@@ -154,6 +154,15 @@ export default {
         religion,
         belongingTo,
         householdMembers,
+        yearsOfFarmingExperience,
+        highestEducationalAttainment,
+        languagesOrDialectsSpoken,
+        mainSourceOfIncome,
+        otherSourcesOfIncome,
+        averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture,
       } = part2FormData
 
       const newBeneficiaries = [...this.beneficiaries]
@@ -181,6 +190,15 @@ export default {
         religion,
         belongingTo,
         householdMembers,
+        yearsOfFarmingExperience,
+        highestEducationalAttainment,
+        languagesOrDialectsSpoken,
+        mainSourceOfIncome,
+        otherSourcesOfIncome,
+        averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture,
       })
 
       this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)

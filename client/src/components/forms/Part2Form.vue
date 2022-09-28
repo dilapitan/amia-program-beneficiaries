@@ -258,7 +258,7 @@
           <div class="d-flex">
             <v-checkbox
               class="mr-2 ma-0 pa-0"
-              @click="addOtherSourceOfIncome(otherSource, index)"
+              @click="addOtherSourceOfIncome(otherSource)"
               v-model="otherSource.selected"
               :label="otherSource.id"
             ></v-checkbox>
@@ -487,17 +487,17 @@ export default {
       })
     },
 
-    addOtherSourceOfIncome(otherSourceOfIncome, index) {
-      if (otherSourceOfIncome.selected)
-        this.otherSourcesOfIncome.push(otherSourceOfIncome)
+    addOtherSourceOfIncome(source) {
+      if (source.selected) this.otherSourcesOfIncome.push(source)
       else {
-        this.otherSourcesOfIncome.splice(index, 1)
+        const removeIndex = this.otherSourcesOfIncome.indexOf(source)
+        this.otherSourcesOfIncome.splice(removeIndex, 1)
 
-        if (otherSourceOfIncome.id === 'Regular Job') {
+        if (source.id === 'Regular Job') {
           this.otherSourcesOfIncomeRegularJobSpecify = null
-        } else if (otherSourceOfIncome.id === 'Own Business') {
+        } else if (source.id === 'Own Business') {
           this.otherSourcesOfIncomeOwnBusinessSpecify = null
-        } else if (otherSourceOfIncome.id === 'Others') {
+        } else if (source.id === 'Others') {
           this.otherSourcesOfIncomeOthersSpecify = null
         }
       }
@@ -510,28 +510,19 @@ export default {
     passForm2Data() {
       // Added dynamic fields
       if (this.belongingToSpecify) {
-        this.belongingTo = `${this.belongingTo} - ${this.belongingToSpecify}`
+        this.belongingTo = `${this.belongingTo} (${this.belongingToSpecify})`
       }
 
-      if (this.householdMembersList.length) {
-        let _householdMembers = ''
-        this.householdMembersList.map((member, index) => {
-          let string = ''
-          Object.values(member).map((value, index) => {
-            string = string.concat(value)
+      if (this.highestEducationalAttainmentSpecify) {
+        this.highestEducationalAttainment = `${this.highestEducationalAttainment} (${this.highestEducationalAttainmentSpecify})`
+      }
 
-            if (index < Object.values(member).length - 1) {
-              string = string.concat(',')
-            }
-          })
+      if (this.mainSourceOfIncomeSpecify) {
+        this.mainSourceOfIncome = `${this.mainSourceOfIncome} (${this.mainSourceOfIncomeSpecify})`
+      }
 
-          _householdMembers = _householdMembers.concat(string)
-          if (index < this.householdMembersList.length - 1) {
-            _householdMembers = _householdMembers.concat('; ')
-          }
-        })
-
-        this.householdMembers = _householdMembers
+      if (this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify) {
+        this.membershipInAFarmerGroupOrAssociationOrOrganization = `${this.membershipInAFarmerGroupOrAssociationOrOrganization} (${this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify})`
       }
 
       const part2Data = {
@@ -540,10 +531,88 @@ export default {
         civilStatus: this.civilStatus,
         religion: this.religion,
         belongingTo: this.belongingTo,
-        householdMembers: this.householdMembers,
+        householdMembers: this.stringifyHouseholdMembers(),
+        yearsOfFarmingExperience: this.yearsOfFarmingExperience,
+        highestEducationalAttainment: this.highestEducationalAttainment,
+        languagesOrDialectsSpoken: this.languagesOrDialectsSpoken,
+        mainSourceOfIncome: this.mainSourceOfIncome,
+        otherSourcesOfIncome: this.stringifyOtherSourcesOfIncome(),
+        averageGrossMonthlyIncomeOfHousehold:
+          this.averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome: this.averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization:
+          this.membershipInAFarmerGroupOrAssociationOrOrganization,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture:
+          this.enrolledInRegistrySystemForBasicSectorsInAgriculture,
       }
 
       return part2Data
+    },
+
+    parenthesize(string) {
+      return `(${string})`
+    },
+
+    stringifyHouseholdMembers() {
+      let stringified = ''
+
+      // Trim list to only capture filled up data
+      this.householdMembersList.map((member, index) => {
+        if (
+          !member.name ||
+          !member.age ||
+          !member.gender ||
+          !member.relationToTheRespondent
+        ) {
+          this.removeHouseholdMember(index)
+        }
+      })
+
+      this.householdMembersList.map((member, index) => {
+        const { name, age, gender, relationToTheRespondent } = member
+        const stringifiedMember = `${name}, ${age}, ${gender}, ${relationToTheRespondent}`
+
+        stringified = stringified.concat(stringifiedMember)
+
+        if (index < this.householdMembersList.length - 1) {
+          stringified = stringified.concat('; ')
+        }
+      })
+
+      return stringified
+    },
+
+    stringifyOtherSourcesOfIncome() {
+      let stringified = ''
+      this.otherSourcesOfIncome.map((source, index) => {
+        if (source.id === 'Regular Job') {
+          stringified = stringified
+            .concat(source.id)
+            .concat(
+              this.parenthesize(this.otherSourcesOfIncomeRegularJobSpecify)
+            )
+        } else if (source.id === 'Own Business') {
+          stringified = stringified
+            .concat(source.id)
+            .concat(
+              this.parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
+            )
+        } else if (source.id === 'Others') {
+          stringified = stringified
+            .concat(source.id)
+            .concat(
+              this.parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
+            )
+        } else {
+          stringified = stringified.concat(source.id)
+        }
+
+        if (index < this.otherSourcesOfIncome.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
     },
   },
   watch: {

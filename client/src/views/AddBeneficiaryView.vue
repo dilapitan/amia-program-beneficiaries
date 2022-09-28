@@ -36,14 +36,14 @@
       <br />
 
       <!-- 4 Farm Activities -->
-      <Part4Form ref="part4Form" />
+      <!-- <Part4Form ref="part4Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-      <!-- <Part5Form /> -->
+      <Part5Form />
 
       <br />
       <v-divider></v-divider>
@@ -91,8 +91,8 @@
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
-import Part4Form from '@/components/forms/Part4Form.vue'
-// import Part5Form from '@/components/forms/Part5Form.vue'
+// import Part4Form from '@/components/forms/Part4Form.vue'
+import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
@@ -105,8 +105,8 @@ export default {
     // Part1Form,
     // Part2Form,
     // Part3Form,
-    Part4Form,
-    // Part5Form,
+    // Part4Form,
+    Part5Form,
     // Part6Form,
     // Part7Form,
     // Part8Form,

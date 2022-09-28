@@ -273,7 +273,7 @@
         <br />
 
         <div>
-          <p class="text-body-2 font-weight-bold">Crop 1:</p>
+          <p class="text-body-2 font-weight-bold">Wet Season:</p>
 
           <v-row class="d-flex align-baseline">
             <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
@@ -281,7 +281,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop1LandPreparation"
+                v-model="cropCalendarWetSeasonLandPreparation"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -296,7 +296,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop1Planting"
+                v-model="cropCalendarWetSeasonPlanting"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -311,7 +311,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop1Growing"
+                v-model="cropCalendarWetSeasonGrowing"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -326,7 +326,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop1Harvesting"
+                v-model="cropCalendarWetSeasonHarvesting"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -338,13 +338,8 @@
 
         <br />
 
-        <v-switch
-          v-model="addCrop2"
-          :label="addCrop2 ? 'Remove Crop 2' : 'Add Crop 2'"
-        ></v-switch>
-
-        <div v-if="addCrop2">
-          <p class="text-body-2 font-weight-bold">Crop 2:</p>
+        <div>
+          <p class="text-body-2 font-weight-bold">Dry Season:</p>
 
           <v-row class="d-flex align-baseline">
             <v-col class="ma-0 pa-0 ml-3" cols="12" sm="2">
@@ -352,7 +347,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop2LandPreparation"
+                v-model="cropCalendarDrySeasonLandPreparation"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -367,7 +362,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop2Planting"
+                v-model="cropCalendarDrySeasonPlanting"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -382,7 +377,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop2Growing"
+                v-model="cropCalendarDrySeasonGrowing"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -397,7 +392,7 @@
             </v-col>
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
-                v-model="cropCalendarCrop2Harvesting"
+                v-model="cropCalendarDrySeasonHarvesting"
                 :items="months"
                 label="Select month(s)"
                 multiple
@@ -454,14 +449,14 @@ export default {
     croppingPatternSpecify: null,
     estimatedGrossIncomePerCroppingFirstCropping: null,
     estimatedGrossIncomePerCroppingSecondCropping: null,
-    cropCalendarCrop1LandPreparation: [],
-    cropCalendarCrop1Planting: [],
-    cropCalendarCrop1Growing: [],
-    cropCalendarCrop1Harvesting: [],
-    cropCalendarCrop2LandPreparation: [],
-    cropCalendarCrop2Planting: [],
-    cropCalendarCrop2Growing: [],
-    cropCalendarCrop2Harvesting: [],
+    cropCalendarWetSeasonLandPreparation: [],
+    cropCalendarWetSeasonPlanting: [],
+    cropCalendarWetSeasonGrowing: [],
+    cropCalendarWetSeasonHarvesting: [],
+    cropCalendarDrySeasonLandPreparation: [],
+    cropCalendarDrySeasonPlanting: [],
+    cropCalendarDrySeasonGrowing: [],
+    cropCalendarDrySeasonHarvesting: [],
 
     // 4. Farm Activities - UI variables
     agriculturalActivitiesOptions: [
@@ -488,7 +483,6 @@ export default {
       'Inter-cropping',
       'Others',
     ],
-    addCrop2: false,
   }),
 
   computed: {
@@ -528,15 +522,6 @@ export default {
     },
   },
   watch: {
-    addCrop2() {
-      if (!this.addCrop2) {
-        this.cropCalendarCrop2LandPreparation = []
-        this.cropCalendarCrop2Planting = []
-        this.cropCalendarCrop2Growing = []
-        this.cropCalendarCrop2Harvesting = []
-      }
-    },
-
     croppingPattern() {
       if (this.croppingPattern !== 'Others') this.croppingPatternSpecify = null
     },

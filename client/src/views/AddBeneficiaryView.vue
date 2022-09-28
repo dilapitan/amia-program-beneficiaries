@@ -22,14 +22,14 @@
       <br />
 
       <!-- 2 Socio-demographic Information -->
-      <Part2Form ref="part2Form" />
+      <!-- <Part2Form ref="part2Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 3 Farm Description -->
-      <!-- <Part3Form /> -->
+      <Part3Form ref="part3Form" />
 
       <br />
       <v-divider></v-divider>
@@ -89,8 +89,8 @@
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
-import Part2Form from '@/components/forms/Part2Form.vue'
-// import Part3Form from '@/components/forms/Part3Form.vue'
+// import Part2Form from '@/components/forms/Part2Form.vue'
+import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
@@ -103,8 +103,8 @@ export default {
   components: {
     // Part0Form,
     // Part1Form,
-    Part2Form,
-    // Part3Form,
+    // Part2Form,
+    Part3Form,
     // Part4Form,
     // Part5Form,
     // Part6Form,
@@ -128,8 +128,9 @@ export default {
     addBeneficiary() {
       // const part0FormData = this.getPart0FormData()
       // const part1FormData = this.getPart1FormData()
-      const part2FormData = this.getPart2FormData()
-      console.log('part2FormData:', part2FormData)
+      // const part2FormData = this.getPart2FormData()
+      const part3FormData = this.getPart3FormData()
+      console.log('part3FormData:', part3FormData)
       // TODO: reflect how merge/override this with "valid"/validation
       // if (part0FormData && part1FormData) {
       // Part 0
@@ -147,23 +148,41 @@ export default {
       // } = part1FormData
 
       // Part 2
+      // const {
+      //   age,
+      //   gender,
+      //   civilStatus,
+      //   religion,
+      //   belongingTo,
+      //   householdMembers,
+      //   yearsOfFarmingExperience,
+      //   highestEducationalAttainment,
+      //   languagesOrDialectsSpoken,
+      //   mainSourceOfIncome,
+      //   otherSourcesOfIncome,
+      //   averageGrossMonthlyIncomeOfHousehold,
+      //   averageGrossMonthlyFarmIncome,
+      //   membershipInAFarmerGroupOrAssociationOrOrganization,
+      //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
+      // } = part2FormData
+
+      // Part 3
       const {
-        age,
-        gender,
-        civilStatus,
-        religion,
-        belongingTo,
-        householdMembers,
-        yearsOfFarmingExperience,
-        highestEducationalAttainment,
-        languagesOrDialectsSpoken,
-        mainSourceOfIncome,
-        otherSourcesOfIncome,
-        averageGrossMonthlyIncomeOfHousehold,
-        averageGrossMonthlyFarmIncome,
-        membershipInAFarmerGroupOrAssociationOrOrganization,
-        enrolledInRegistrySystemForBasicSectorsInAgriculture,
-      } = part2FormData
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        irrigationSource,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
+      } = part3FormData
 
       const newBeneficiaries = [...this.beneficiaries]
 
@@ -184,21 +203,37 @@ export default {
         // farmersCodeNo,
         //
         // Part 2
-        age,
-        gender,
-        civilStatus,
-        religion,
-        belongingTo,
-        householdMembers,
-        yearsOfFarmingExperience,
-        highestEducationalAttainment,
-        languagesOrDialectsSpoken,
-        mainSourceOfIncome,
-        otherSourcesOfIncome,
-        averageGrossMonthlyIncomeOfHousehold,
-        averageGrossMonthlyFarmIncome,
-        membershipInAFarmerGroupOrAssociationOrOrganization,
-        enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        // age,
+        // gender,
+        // civilStatus,
+        // religion,
+        // belongingTo,
+        // householdMembers,
+        // yearsOfFarmingExperience,
+        // highestEducationalAttainment,
+        // languagesOrDialectsSpoken,
+        // mainSourceOfIncome,
+        // otherSourcesOfIncome,
+        // averageGrossMonthlyIncomeOfHousehold,
+        // averageGrossMonthlyFarmIncome,
+        // membershipInAFarmerGroupOrAssociationOrOrganization,
+        // enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        //
+        // Part 3
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        irrigationSource,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
       })
 
       this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
@@ -232,9 +267,14 @@ export default {
     //   return part1FormData
     // },
 
-    getPart2FormData() {
-      const part2FormData = this.$refs.part2Form.passForm2Data()
-      return part2FormData
+    // getPart2FormData() {
+    //   const part2FormData = this.$refs.part2Form.passForm2Data()
+    //   return part2FormData
+    // },
+
+    getPart3FormData() {
+      const part3FormData = this.$refs.part3Form.passForm3Data()
+      return part3FormData
     },
   },
 

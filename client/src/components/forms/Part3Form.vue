@@ -279,7 +279,46 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    stringifyMonthsWithoutRain() {
+      let stringified = ''
+      this.monthsWithoutRain.map((month, index) => {
+        stringified = stringified.concat(month)
+
+        if (index < this.monthsWithoutRain.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
+    passForm3Data() {
+      if (this.irrigationSourceOthersSpecify) {
+        this.irrigationSource = `${this.irrigationSource} (${this.irrigationSourceOthersSpecify})`
+      }
+
+      const part3Data = {
+        totalAreaOfAgriculturalLand: this.totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand: this.totalAreaOfForestryLand,
+        totalCultivatedArea: this.totalCultivatedArea,
+        distanceFromHomeToFarm: this.distanceFromHomeToFarm,
+        distanceFromLandToWaterSource: this.distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad:
+          this.distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost: this.distanceFromMarketOrTradingPost,
+        irrigationSource: this.irrigationSource,
+        monthsWithoutRain: this.stringifyMonthsWithoutRain(),
+        positionInTheLandscape: this.positionInTheLandscape,
+        locationOfFarm: this.locationOfFarm,
+        landTenure: this.landTenure,
+        tenancy: this.tenancy,
+        landHolding: this.landHolding,
+      }
+
+      return part3Data
+    },
+  },
   watch: {
     irrigationSource() {
       if (this.irrigationSource !== 'Others')

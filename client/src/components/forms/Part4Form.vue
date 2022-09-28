@@ -521,6 +521,11 @@ export default {
         }
       }
     },
+
+    passForm4Data() {
+      const part4Data = {}
+      return part4Data
+    },
   },
   watch: {
     addCrop2() {

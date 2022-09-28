@@ -29,14 +29,14 @@
       <br />
 
       <!-- 3 Farm Description -->
-      <Part3Form ref="part3Form" />
+      <!-- <Part3Form ref="part3Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 4 Farm Activities -->
-      <!-- <Part4Form /> -->
+      <Part4Form ref="part4Form" />
 
       <br />
       <v-divider></v-divider>
@@ -90,8 +90,8 @@
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
-import Part3Form from '@/components/forms/Part3Form.vue'
-// import Part4Form from '@/components/forms/Part4Form.vue'
+// import Part3Form from '@/components/forms/Part3Form.vue'
+import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
@@ -104,8 +104,8 @@ export default {
     // Part0Form,
     // Part1Form,
     // Part2Form,
-    Part3Form,
-    // Part4Form,
+    // Part3Form,
+    Part4Form,
     // Part5Form,
     // Part6Form,
     // Part7Form,
@@ -129,8 +129,9 @@ export default {
       // const part0FormData = this.getPart0FormData()
       // const part1FormData = this.getPart1FormData()
       // const part2FormData = this.getPart2FormData()
-      const part3FormData = this.getPart3FormData()
-      console.log('part3FormData:', part3FormData)
+      // const part3FormData = this.getPart3FormData()
+      const part4FormData = this.getPart4FormData()
+      console.log('part4FormData:', part4FormData)
       // TODO: reflect how merge/override this with "valid"/validation
       // if (part0FormData && part1FormData) {
       // Part 0
@@ -167,22 +168,22 @@ export default {
       // } = part2FormData
 
       // Part 3
-      const {
-        totalAreaOfAgriculturalLand,
-        totalAreaOfForestryLand,
-        totalCultivatedArea,
-        distanceFromHomeToFarm,
-        distanceFromLandToWaterSource,
-        distanceFromMarketNearestPavedRoad,
-        distanceFromMarketOrTradingPost,
-        irrigationSource,
-        monthsWithoutRain,
-        positionInTheLandscape,
-        locationOfFarm,
-        landTenure,
-        tenancy,
-        landHolding,
-      } = part3FormData
+      // const {
+      //   totalAreaOfAgriculturalLand,
+      //   totalAreaOfForestryLand,
+      //   totalCultivatedArea,
+      //   distanceFromHomeToFarm,
+      //   distanceFromLandToWaterSource,
+      //   distanceFromMarketNearestPavedRoad,
+      //   distanceFromMarketOrTradingPost,
+      //   irrigationSource,
+      //   monthsWithoutRain,
+      //   positionInTheLandscape,
+      //   locationOfFarm,
+      //   landTenure,
+      //   tenancy,
+      //   landHolding,
+      // } = part3FormData
 
       const newBeneficiaries = [...this.beneficiaries]
 
@@ -220,20 +221,22 @@ export default {
         // enrolledInRegistrySystemForBasicSectorsInAgriculture,
         //
         // Part 3
-        totalAreaOfAgriculturalLand,
-        totalAreaOfForestryLand,
-        totalCultivatedArea,
-        distanceFromHomeToFarm,
-        distanceFromLandToWaterSource,
-        distanceFromMarketNearestPavedRoad,
-        distanceFromMarketOrTradingPost,
-        irrigationSource,
-        monthsWithoutRain,
-        positionInTheLandscape,
-        locationOfFarm,
-        landTenure,
-        tenancy,
-        landHolding,
+        // totalAreaOfAgriculturalLand,
+        // totalAreaOfForestryLand,
+        // totalCultivatedArea,
+        // distanceFromHomeToFarm,
+        // distanceFromLandToWaterSource,
+        // distanceFromMarketNearestPavedRoad,
+        // distanceFromMarketOrTradingPost,
+        // irrigationSource,
+        // monthsWithoutRain,
+        // positionInTheLandscape,
+        // locationOfFarm,
+        // landTenure,
+        // tenancy,
+        // landHolding,
+        //
+        // Part 4
       })
 
       // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
@@ -272,9 +275,14 @@ export default {
     //   return part2FormData
     // },
 
-    getPart3FormData() {
-      const part3FormData = this.$refs.part3Form.passForm3Data()
-      return part3FormData
+    // getPart3FormData() {
+    //   const part3FormData = this.$refs.part3Form.passForm3Data()
+    //   return part3FormData
+    // },
+
+    getPart4FormData() {
+      const part4FormData = this.$refs.part4Form.passForm4Data()
+      return part4FormData
     },
   },
 

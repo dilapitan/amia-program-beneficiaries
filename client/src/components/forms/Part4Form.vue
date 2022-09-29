@@ -421,7 +421,7 @@
               label="2nd Cropping"
               dense
               clearable
-              v-model="estimatedGrossIncomePerCroppingFirstCropping"
+              v-model="estimatedGrossIncomePerCroppingSecondCropping"
             ></v-text-field>
           </div>
         </v-col>
@@ -539,6 +539,10 @@ export default {
     },
 
     passForm4Data() {
+      if (this.croppingPatternSpecify) {
+        this.croppingPattern = `${this.croppingPattern} (${this.croppingPatternSpecify})`
+      }
+
       const part4Data = {
         agriculturalActivities: this.stringifyAgriculturalActivities(),
         cropsProduced: this.cropsProduced,
@@ -574,6 +578,10 @@ export default {
         cropCalendarDrySeasonHarvesting: stringifyMonths(
           this.cropCalendarDrySeasonHarvesting
         ),
+        estimatedGrossIncomePerCroppingFirstCropping:
+          this.estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping:
+          this.estimatedGrossIncomePerCroppingSecondCropping,
       }
       return part4Data
     },

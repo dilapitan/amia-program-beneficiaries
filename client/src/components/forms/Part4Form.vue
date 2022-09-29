@@ -523,10 +523,6 @@ export default {
     },
   },
   watch: {
-    agriculturalActivities() {
-      console.log(this.agriculturalActivities)
-    },
-
     croppingPattern() {
       if (this.croppingPattern !== 'Others') this.croppingPatternSpecify = null
     },

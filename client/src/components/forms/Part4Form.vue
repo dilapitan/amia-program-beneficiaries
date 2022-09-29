@@ -22,9 +22,7 @@
           <v-row>
             <v-col class="mr-2 ma-0 pa-0">
               <v-checkbox
-                @click="
-                  addAgriculturalActivities(agriculturalActivities, index)
-                "
+                @click="addAgriculturalActivities(agriculturalActivities)"
                 v-model="agriculturalActivities.selected"
                 :label="agriculturalActivities.id"
               ></v-checkbox>
@@ -492,11 +490,14 @@ export default {
   },
 
   methods: {
-    addAgriculturalActivities(agriculturalActivities, index) {
+    addAgriculturalActivities(agriculturalActivities) {
       if (agriculturalActivities.selected)
         this.agriculturalActivities.push(agriculturalActivities)
       else {
-        this.agriculturalActivities.splice(index, 1)
+        const removedIndex = this.agriculturalActivities.indexOf(
+          agriculturalActivities
+        )
+        this.agriculturalActivities.splice(removedIndex, 1)
 
         if (agriculturalActivities.id === 'Crop Production') {
           this.cropsProduced = null
@@ -522,6 +523,10 @@ export default {
     },
   },
   watch: {
+    agriculturalActivities() {
+      console.log(this.agriculturalActivities)
+    },
+
     croppingPattern() {
       if (this.croppingPattern !== 'Others') this.croppingPatternSpecify = null
     },

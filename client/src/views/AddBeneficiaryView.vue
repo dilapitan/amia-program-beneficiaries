@@ -36,14 +36,14 @@
       <br />
 
       <!-- 4 Farm Activities -->
-      <Part4Form ref="part4Form" />
+      <!-- <Part4Form ref="part4Form" /> -->
 
       <br />
       <v-divider></v-divider>
       <br />
 
       <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-      <!-- <Part5Form /> -->
+      <Part5Form refs="part5Form" />
 
       <br />
       <v-divider></v-divider>
@@ -91,8 +91,8 @@
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
-import Part4Form from '@/components/forms/Part4Form.vue'
-// import Part5Form from '@/components/forms/Part5Form.vue'
+// import Part4Form from '@/components/forms/Part4Form.vue'
+import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
@@ -105,8 +105,8 @@ export default {
     // Part1Form,
     // Part2Form,
     // Part3Form,
-    Part4Form,
-    // Part5Form,
+    // Part4Form,
+    Part5Form,
     // Part6Form,
     // Part7Form,
     // Part8Form,
@@ -130,8 +130,9 @@ export default {
       // const part1FormData = this.getPart1FormData()
       // const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
-      const part4FormData = this.getPart4FormData()
-      console.log('part4FormData:', part4FormData)
+      // const part4FormData = this.getPart4FormData()
+      const part5FormData = this.getPart5FormData()
+      console.log('part5FormData:', part5FormData)
       // TODO: reflect how merge/override this with "valid"/validation
       // if (part0FormData && part1FormData) {
       // Part 0
@@ -186,27 +187,29 @@ export default {
       // } = part3FormData
 
       // Part 4
-      const {
-        agriculturalActivities,
-        cropsProduced,
-        landAreaDevotedForCropProduction,
-        livestockRaisedOrProduced,
-        landAreaDevotedForLivestockProduction,
-        speciesGrownForAquaculture,
-        landAreaDevotedForAquaculture,
-        sourceOfWaterForAquaculture,
-        croppingPattern,
-        estimatedGrossIncomePerCroppingFirstCropping,
-        estimatedGrossIncomePerCroppingSecondCropping,
-        cropCalendarWetSeasonLandPreparation,
-        cropCalendarWetSeasonPlanting,
-        cropCalendarWetSeasonGrowing,
-        cropCalendarWetSeasonHarvesting,
-        cropCalendarDrySeasonLandPreparation,
-        cropCalendarDrySeasonPlanting,
-        cropCalendarDrySeasonGrowing,
-        cropCalendarDrySeasonHarvesting,
-      } = part4FormData
+      // const {
+      //   agriculturalActivities,
+      //   cropsProduced,
+      //   landAreaDevotedForCropProduction,
+      //   livestockRaisedOrProduced,
+      //   landAreaDevotedForLivestockProduction,
+      //   speciesGrownForAquaculture,
+      //   landAreaDevotedForAquaculture,
+      //   sourceOfWaterForAquaculture,
+      //   croppingPattern,
+      //   estimatedGrossIncomePerCroppingFirstCropping,
+      //   estimatedGrossIncomePerCroppingSecondCropping,
+      //   cropCalendarWetSeasonLandPreparation,
+      //   cropCalendarWetSeasonPlanting,
+      //   cropCalendarWetSeasonGrowing,
+      //   cropCalendarWetSeasonHarvesting,
+      //   cropCalendarDrySeasonLandPreparation,
+      //   cropCalendarDrySeasonPlanting,
+      //   cropCalendarDrySeasonGrowing,
+      //   cropCalendarDrySeasonHarvesting,
+      // } = part4FormData
+
+      // Part 5
 
       const newBeneficiaries = [...this.beneficiaries]
 
@@ -260,32 +263,34 @@ export default {
         // landHolding,
         //
         // Part 4
-        agriculturalActivities,
-        cropsProduced,
-        landAreaDevotedForCropProduction,
-        livestockRaisedOrProduced,
-        landAreaDevotedForLivestockProduction,
-        speciesGrownForAquaculture,
-        landAreaDevotedForAquaculture,
-        sourceOfWaterForAquaculture,
-        croppingPattern,
-        estimatedGrossIncomePerCroppingFirstCropping,
-        estimatedGrossIncomePerCroppingSecondCropping,
-        cropCalendarWetSeasonLandPreparation,
-        cropCalendarWetSeasonPlanting,
-        cropCalendarWetSeasonGrowing,
-        cropCalendarWetSeasonHarvesting,
-        cropCalendarDrySeasonLandPreparation,
-        cropCalendarDrySeasonPlanting,
-        cropCalendarDrySeasonGrowing,
-        cropCalendarDrySeasonHarvesting,
+        // agriculturalActivities,
+        // cropsProduced,
+        // landAreaDevotedForCropProduction,
+        // livestockRaisedOrProduced,
+        // landAreaDevotedForLivestockProduction,
+        // speciesGrownForAquaculture,
+        // landAreaDevotedForAquaculture,
+        // sourceOfWaterForAquaculture,
+        // croppingPattern,
+        // estimatedGrossIncomePerCroppingFirstCropping,
+        // estimatedGrossIncomePerCroppingSecondCropping,
+        // cropCalendarWetSeasonLandPreparation,
+        // cropCalendarWetSeasonPlanting,
+        // cropCalendarWetSeasonGrowing,
+        // cropCalendarWetSeasonHarvesting,
+        // cropCalendarDrySeasonLandPreparation,
+        // cropCalendarDrySeasonPlanting,
+        // cropCalendarDrySeasonGrowing,
+        // cropCalendarDrySeasonHarvesting,
+        //
+        // Part 5
       })
 
-      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 500)
+      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      // this.loading = true
+      // setTimeout(() => {
+      //   this.$router.push('/')
+      // }, 500)
       // }
 
       // This is for adding the validation
@@ -322,9 +327,14 @@ export default {
     //   return part3FormData
     // },
 
-    getPart4FormData() {
-      const part4FormData = this.$refs.part4Form.passForm4Data()
-      return part4FormData
+    // getPart4FormData() {
+    //   const part4FormData = this.$refs.part4Form.passForm4Data()
+    //   return part4FormData
+    // },
+
+    getPart5FormData() {
+      const part5FormData = this.$refs.part5Form.passForm5Data()
+      return part5FormData
     },
   },
 

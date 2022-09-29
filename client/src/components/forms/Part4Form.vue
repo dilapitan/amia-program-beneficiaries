@@ -553,6 +553,27 @@ export default {
         cropCalendarWetSeasonLandPreparation: stringifyMonths(
           this.cropCalendarWetSeasonLandPreparation
         ),
+        cropCalendarWetSeasonPlanting: stringifyMonths(
+          this.cropCalendarWetSeasonPlanting
+        ),
+        cropCalendarWetSeasonGrowing: stringifyMonths(
+          this.cropCalendarWetSeasonGrowing
+        ),
+        cropCalendarWetSeasonHarvesting: stringifyMonths(
+          this.cropCalendarWetSeasonHarvesting
+        ),
+        cropCalendarDrySeasonLandPreparation: stringifyMonths(
+          this.cropCalendarDrySeasonLandPreparation
+        ),
+        cropCalendarDrySeasonPlanting: stringifyMonths(
+          this.cropCalendarDrySeasonPlanting
+        ),
+        cropCalendarDrySeasonGrowing: stringifyMonths(
+          this.cropCalendarDrySeasonGrowing
+        ),
+        cropCalendarDrySeasonHarvesting: stringifyMonths(
+          this.cropCalendarDrySeasonHarvesting
+        ),
       }
       return part4Data
     },

@@ -20,3 +20,7 @@ export const sortMonths = (arr) => {
 
   return sortedMonths
 }
+
+export const parenthesize = (string) => {
+  return `(${string})`
+}

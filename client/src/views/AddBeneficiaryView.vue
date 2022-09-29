@@ -185,6 +185,19 @@ export default {
       //   landHolding,
       // } = part3FormData
 
+      // Part 4
+      const {
+        agriculturalActivities,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
+        croppingPattern,
+      } = part4FormData
+
       const newBeneficiaries = [...this.beneficiaries]
 
       newBeneficiaries.push({
@@ -237,13 +250,22 @@ export default {
         // landHolding,
         //
         // Part 4
+        agriculturalActivities,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
+        croppingPattern,
       })
 
-      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      // this.loading = true
-      // setTimeout(() => {
-      //   this.$router.push('/')
-      // }, 500)
+      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      this.loading = true
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
       // }
 
       // This is for adding the validation

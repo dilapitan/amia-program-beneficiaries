@@ -431,6 +431,8 @@
 </template>
 
 <script>
+import { parenthesize } from '@/helpers'
+
 export default {
   data: () => ({
     // 4. Farm Activities - data variables
@@ -517,8 +519,38 @@ export default {
       }
     },
 
+    stringifyAgriculturalActivities() {
+      let stringified = ''
+      this.agriculturalActivities.map((source, index) => {
+        stringified = stringified.concat(source.id)
+
+        if (source.id === 'Agri-based Product Development') {
+          stringified = stringified.concat(
+            parenthesize(this.agriBasedProductDevelopmentSpecify)
+          )
+        }
+
+        if (index < this.agriculturalActivities.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
     passForm4Data() {
-      const part4Data = {}
+      const part4Data = {
+        agriculturalActivities: this.stringifyAgriculturalActivities(),
+        cropsProduced: this.cropsProduced,
+        landAreaDevotedForCropProduction: this.landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced: this.livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction:
+          this.landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture: this.speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture: this.landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture: this.sourceOfWaterForAquaculture,
+        croppingPattern: this.croppingPattern,
+      }
       return part4Data
     },
   },

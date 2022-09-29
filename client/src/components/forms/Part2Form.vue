@@ -363,6 +363,8 @@
 </template>
 
 <script>
+import { parenthesize } from '@/helpers'
+
 export default {
   data: () => ({
     // 2. Socio-demographic Information - data variables
@@ -549,10 +551,6 @@ export default {
       return part2Data
     },
 
-    parenthesize(string) {
-      return `(${string})`
-    },
-
     stringifyHouseholdMembers() {
       let stringified = ''
 
@@ -588,21 +586,15 @@ export default {
         if (source.id === 'Regular Job') {
           stringified = stringified
             .concat(source.id)
-            .concat(
-              this.parenthesize(this.otherSourcesOfIncomeRegularJobSpecify)
-            )
+            .concat(parenthesize(this.otherSourcesOfIncomeRegularJobSpecify))
         } else if (source.id === 'Own Business') {
           stringified = stringified
             .concat(source.id)
-            .concat(
-              this.parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
-            )
+            .concat(parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify))
         } else if (source.id === 'Others') {
           stringified = stringified
             .concat(source.id)
-            .concat(
-              this.parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
-            )
+            .concat(parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify))
         } else {
           stringified = stringified.concat(source.id)
         }

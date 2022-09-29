@@ -431,7 +431,7 @@
 </template>
 
 <script>
-import { parenthesize, sortMonths } from '@/helpers'
+import { parenthesize, stringifyMonths } from '@/helpers'
 
 export default {
   data: () => ({
@@ -538,21 +538,6 @@ export default {
       return stringified
     },
 
-    stringifyMonths(months) {
-      let stringified = ''
-
-      const sortedMonths = sortMonths(months)
-      sortedMonths.map((month, index) => {
-        stringified = stringified.concat(month)
-
-        if (index < sortedMonths.length - 1) {
-          stringified = stringified.concat(', ')
-        }
-      })
-
-      return stringified
-    },
-
     passForm4Data() {
       const part4Data = {
         agriculturalActivities: this.stringifyAgriculturalActivities(),
@@ -565,7 +550,7 @@ export default {
         landAreaDevotedForAquaculture: this.landAreaDevotedForAquaculture,
         sourceOfWaterForAquaculture: this.sourceOfWaterForAquaculture,
         croppingPattern: this.croppingPattern,
-        cropCalendarWetSeasonLandPreparation: this.stringifyMonths(
+        cropCalendarWetSeasonLandPreparation: stringifyMonths(
           this.cropCalendarWetSeasonLandPreparation
         ),
       }

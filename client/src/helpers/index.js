@@ -1,4 +1,4 @@
-export const sortMonths = (arr) => {
+const sortMonths = (months) => {
   const MONTHS = [
     'January',
     'February',
@@ -14,11 +14,26 @@ export const sortMonths = (arr) => {
     'December',
   ]
 
-  const sortedMonths = arr.sort(function (a, b) {
+  const sortedMonths = months.sort(function (a, b) {
     return MONTHS.indexOf(a) - MONTHS.indexOf(b)
   })
 
   return sortedMonths
+}
+
+export const stringifyMonths = (months) => {
+  let stringified = ''
+
+  const sortedMonths = sortMonths(months)
+  sortedMonths.map((month, index) => {
+    stringified = stringified.concat(month)
+
+    if (index < sortedMonths.length - 1) {
+      stringified = stringified.concat(', ')
+    }
+  })
+
+  return stringified
 }
 
 export const parenthesize = (string) => {

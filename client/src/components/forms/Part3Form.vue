@@ -226,7 +226,7 @@
 </template>
 
 <script>
-import { sortMonths } from '@/helpers'
+import { stringifyMonths } from '@/helpers'
 
 export default {
   data: () => ({
@@ -282,23 +282,6 @@ export default {
   },
 
   methods: {
-    stringifyMonthsWithoutRain() {
-      let stringified = ''
-
-      // Sort shuffled months
-      const sortedMonths = sortMonths(this.monthsWithoutRain)
-
-      sortedMonths.map((month, index) => {
-        stringified = stringified.concat(month)
-
-        if (index < sortedMonths.length - 1) {
-          stringified = stringified.concat(', ')
-        }
-      })
-
-      return stringified
-    },
-
     passForm3Data() {
       if (this.irrigationSourceOthersSpecify) {
         this.irrigationSource = `${this.irrigationSource} (${this.irrigationSourceOthersSpecify})`
@@ -314,7 +297,7 @@ export default {
           this.distanceFromMarketNearestPavedRoad,
         distanceFromMarketOrTradingPost: this.distanceFromMarketOrTradingPost,
         irrigationSource: this.irrigationSource,
-        monthsWithoutRain: this.stringifyMonthsWithoutRain(),
+        monthsWithoutRain: stringifyMonths(this.monthsWithoutRain),
         positionInTheLandscape: this.positionInTheLandscape,
         locationOfFarm: this.locationOfFarm,
         landTenure: this.landTenure,

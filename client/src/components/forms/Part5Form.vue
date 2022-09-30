@@ -435,7 +435,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool
               "
-              label="(5.9.2) Perceived Effects/Impacts of: Abrupt Change in Seasons/Changes in Growing Season"
+              label="(5.9.2) Abrupt Change in Seasons/Changes in Growing Season"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -457,7 +457,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfReducedCroppingSeasonBool"
-              label="(5.9.3) Perceived Effects/Impacts of: Reduced Cropping (Growing) Season"
+              label="(5.9.3) Reduced Cropping (Growing) Season"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -477,7 +477,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailureBool
               "
-              label="(5.9.4) Perceived Effects/Impacts of: Increased Frequency Of Drought and Crop Failure"
+              label="(5.9.4) Increased Frequency Of Drought and Crop Failure"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -501,7 +501,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool
               "
-              label="(5.9.5) Perceived Effects/Impacts of: Increased Frequency Of Floods and Farm Destructions"
+              label="(5.9.5) Increased Frequency Of Floods and Farm Destructions"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -523,7 +523,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfPostharvestLossesBool"
-              label="(5.9.6) Perceived Effects/Impacts of: Postharvest Losses"
+              label="(5.9.6) Postharvest Losses"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -541,7 +541,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfPestInvasionBool"
-              label="(5.9.7) Perceived Effects/Impacts of: Pest Invasion"
+              label="(5.9.7) Pest Invasion"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -561,7 +561,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool
               "
-              label="(5.9.8) Perceived Effects/Impacts of: Prevalence of Pests and Diseases"
+              label="(5.9.8) Prevalence of Pests and Diseases"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -579,7 +579,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool"
-              label="(5.9.9) Perceived Effects/Impacts of: Poverty and Food Shortages"
+              label="(5.9.9) Poverty and Food Shortages"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -597,7 +597,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfLackOfPotableWaterBool"
-              label="(5.9.10) Perceived Effects/Impacts of: Lack of Potable Water (Drinking)"
+              label="(5.9.10) Lack of Potable Water (Drinking)"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -617,7 +617,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool
               "
-              label="(5.9.11) Perceived Effects/Impacts of: ReducedVolumeOfIrrigationWater"
+              label="(5.9.11) ReducedVolumeOfIrrigationWater"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -639,7 +639,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfErosionsBool"
-              label="(5.9.12) Perceived Effects/Impacts of: Erosions"
+              label="(5.9.12) Erosions"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -659,7 +659,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool
               "
-              label="(5.9.13) Perceived Effects/Impacts of: Extinction of Fishes and Aquatic Life"
+              label="(5.9.13) Extinction of Fishes and Aquatic Life"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -683,7 +683,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool
               "
-              label="(5.9.14) Perceived Effects/Impacts of: Extinction Of Some Crops And Crop Varieties"
+              label="(5.9.14) Extinction Of Some Crops And Crop Varieties"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -705,7 +705,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfDeathOfLivestockBool"
-              label="(5.9.15) Perceived Effects/Impacts of: Death of Livestock"
+              label="(5.9.15) Death of Livestock"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -725,7 +725,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool
               "
-              label="(5.9.16) Perceived Effects/Impacts of: Decreased Livestock Production"
+              label="(5.9.16) Decreased Livestock Production"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -745,7 +745,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool
               "
-              label="(5.9.17) Perceived Effects/Impacts of: Rising Cost of Farming and Fishing"
+              label="(5.9.17) Rising Cost of Farming and Fishing"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -767,7 +767,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool
               "
-              label="(5.9.18) Perceived Effects/Impacts of: Destruction of Farm Roads and Homes"
+              label="(5.9.18) Destruction of Farm Roads and Homes"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -789,7 +789,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfRuralUrbanMigrationBool"
-              label="(5.9.19) Perceived Effects/Impacts of: Rural-Urban Migration"
+              label="(5.9.19) Rural-Urban Migration"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -807,7 +807,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool"
-              label="(5.9.20) Perceived Effects/Impacts of: Siltation of Water Bodies"
+              label="(5.9.20) Siltation of Water Bodies"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -827,7 +827,7 @@
               v-model="
                 perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool
               "
-              label="(5.9.21) Perceived Effects/Impacts of: Disappearance of Vegetation Cover"
+              label="(5.9.21) Disappearance of Vegetation Cover"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -849,7 +849,7 @@
           <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="perceivedEffectsOrImpactsOfOthersBool"
-              label="(5.9.22) Perceived Effects/Impacts of: Others"
+              label="(5.9.22) Others"
             ></v-checkbox>
           </v-col>
         </v-row>

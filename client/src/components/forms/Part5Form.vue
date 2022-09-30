@@ -1325,6 +1325,53 @@ export default {
           this.descriptionOfChangeInRainfallIntensity,
         descriptionOfChangeInNumberOfWeatherEvents:
           this.descriptionOfChangeInNumberOfWeatherEvents,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains:
+          this.perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason:
+          this
+            .perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason:
+          this.perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure:
+          this
+            .perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions:
+          this
+            .perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses:
+          this.perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion:
+          this.perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases:
+          this.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages:
+          this.perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater:
+          this.perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater:
+          this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfErosions:
+          this.perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife:
+          this.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties:
+          this.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock:
+          this.perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction:
+          this.perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing:
+          this.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes:
+          this.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration:
+          this.perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies:
+          this.perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover:
+          this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfOthers:
+          this.perceivedEffectsOrImpactsOfOthers,
       }
 
       return part5Data

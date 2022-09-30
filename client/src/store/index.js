@@ -55,11 +55,11 @@ export default new Vuex.Store({
 
     // UI data variables
     fivePointScale: [
-      '1 - Very Severe [Disastrous]',
-      '2 - Severe [Critical]',
-      '3 - Significant',
-      '4 - Somewhat Significant',
-      '5 - Irrelevant',
+      'Very Severe [Disastrous]',
+      'Severe [Critical]',
+      'Significant',
+      'Somewhat Significant',
+      'Irrelevant',
     ],
     generalThreeChoice: ['Yes', 'No', `I don't know`],
     months: [

@@ -1162,7 +1162,7 @@ export default {
     driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices: null,
     driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
       null,
-    driversOfChangeAndVulnerabilityOfOthers: null,
+    driversOfChangeAndVulnerabilityOfOthers: '',
 
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - UI variables
     descriptionOfChangesInClimateOptions: [
@@ -1247,6 +1247,31 @@ export default {
 
     removePerceivedEffectsOrImpactsOfOthers(index) {
       this.perceivedEffectsOrImpactsOfOthersList.splice(index, 1)
+    },
+
+    stringifyDriversOfChangeAndVulnerabilityOfOthers() {
+      let stringified = ''
+
+      // Trim list to only capture filled up data
+      this.driversOfChangeAndVulnerabilityOfOthersList.map((driver, index) => {
+        if (!driver.effectsOrImpact || !driver.rate) {
+          this.removeDriversOfChangeAndVulnerabilityOfOthers(index)
+        }
+      })
+
+      this.driversOfChangeAndVulnerabilityOfOthersList.map((driver, index) => {
+        const { effectsOrImpact, rate } = driver
+        const stringifiedDriver = `${effectsOrImpact} (${rate})`
+
+        stringified = stringified.concat(stringifiedDriver)
+
+        if (index < this.driversOfChangeAndVulnerabilityOfOthersList - 1) {
+          stringified = stringified.concat('; ')
+        }
+      })
+
+      console.log('stringified:', stringified)
+      return stringified
     },
 
     passForm5Data() {
@@ -1372,6 +1397,20 @@ export default {
           this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
         perceivedEffectsOrImpactsOfOthers:
           this.perceivedEffectsOrImpactsOfOthers,
+        observedMainOpportunitiesOfLongTermChangesInClimate:
+          this.observedMainOpportunitiesOfLongTermChangesInClimate,
+        driversOfChangeAndVulnerabilityOfLandDegredation:
+          this.driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices:
+          this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices:
+          this
+            .driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
+          this
+            .driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfOthers:
+          this.stringifyDriversOfChangeAndVulnerabilityOfOthers(),
       }
 
       return part5Data

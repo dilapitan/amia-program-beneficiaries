@@ -39,3 +39,21 @@ export const stringifyMonths = (months) => {
 export const parenthesize = (string) => {
   return `(${string})`
 }
+
+export const stringifyArray = (array, othersSpecifyValue) => {
+  let stringified = ''
+
+  array.map((source, index) => {
+    stringified = stringified.concat(source)
+
+    if (source === 'Others') {
+      stringified = stringified.concat(parenthesize(othersSpecifyValue))
+    }
+
+    if (index < array.length - 1) {
+      stringified = stringified.concat(', ')
+    }
+  })
+
+  return stringified
+}

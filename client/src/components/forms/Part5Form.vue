@@ -1100,6 +1100,8 @@
 </template>
 
 <script>
+import { stringifyArray } from '@/helpers'
+
 export default {
   data: () => ({
     // 5. Technical Knowledge/Perception of Climate Change and Its Impacts - data variables
@@ -1245,6 +1247,87 @@ export default {
 
     removePerceivedEffectsOrImpactsOfOthers(index) {
       this.perceivedEffectsOrImpactsOfOthersList.splice(index, 1)
+    },
+
+    passForm5Data() {
+      const part5Data = {
+        attendedAgriculturalRelatedTrainings:
+          this.attendedAgriculturalRelatedTrainings,
+        totalNumberOfTrainingsAttended: this.totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction:
+          stringifyArray(
+            this.sourceOfInformationRelatedToImprovingAgriculturalProduction,
+            this
+              .sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify
+          ),
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing:
+          stringifyArray(
+            this
+              .sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+            this
+              .sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify
+          ),
+        sourceOfClimateAndWeatherInformation: stringifyArray(
+          this.sourceOfClimateAndWeatherInformation,
+          this.sourceOfClimateAndWeatherInformationSpecify
+        ),
+        observedAnyLongTermChangesInClimate:
+          this.observedAnyLongTermChangesInClimate,
+        changesInClimateForTemperature: this.changesInClimateForTemperature
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForAmountOfRainfaill: this
+          .changesInClimateForAmountOfRainfaill
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForRainfallTiming: this
+          .changesInClimateForRainfallTiming
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForRainfulIntensity: this
+          .changesInClimateForRainfulIntensity
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForRainfallDuration: this
+          .changesInClimateForRainfallDuration
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForNumberOfWeatherEvents: this
+          .changesInClimateForNumberOfWeatherEvents
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForNumberOfHotDays: this
+          .changesInClimateForNumberOfHotDays
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForNumberOfRainyDays: this
+          .changesInClimateForNumberOfRainyDays
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops: this
+          .changesInClimateForOccurenceOfPestsAndDiseasesInCrops
+          ? 'Increase'
+          : 'Decrease',
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock: this
+          .changesInClimateForOccurenceOfPestsAndDiseasesInLivestock
+          ? 'Increase'
+          : 'Decrease',
+        observedAnyChangeInTheOnsetOfDrySeason:
+          this.observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason:
+          this.observedAnyChangeInTheOnsetOfWetSeason,
+        descriptionOfChangeInTemperature: this.descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration:
+          this.descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming:
+          this.descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity:
+          this.descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents:
+          this.descriptionOfChangeInNumberOfWeatherEvents,
+      }
+
+      return part5Data
     },
   },
   watch: {

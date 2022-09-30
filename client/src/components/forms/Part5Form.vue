@@ -942,7 +942,7 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="driversOfChangeAndVulnerabilityOfLandDegredationBool"
-              label="(5.11.1) Drivers of Change and Vulnerability of: Land Degradation (Soil Nutrient Depletion)"
+              label="(5.11.1) Land Degradation (Soil Nutrient Depletion)"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -962,7 +962,7 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool
               "
-              label="(5.11.2) Drivers of Change and Vulnerability of: Unexpexcted Changes in Input Prices"
+              label="(5.11.2) Unexpexcted Changes in Input Prices"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -986,7 +986,7 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool
               "
-              label="(5.11.3) Drivers of Change and Vulnerability of: Unexpected Changes in Product Prices"
+              label="(5.11.3) Unexpected Changes in Product Prices"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -1010,7 +1010,7 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool
               "
-              label="(5.11.4) Drivers of Change and Vulnerability of: Risks for Diseases and Pests Affecting Crops and Animals"
+              label="(5.11.4) Risks for Diseases and Pests Affecting Crops and Animals"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -1032,7 +1032,7 @@
           <v-col cols="12" sm="5" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="driversOfChangeAndVulnerabilityOfOthersBool"
-              label="(5.11.5) Drivers of Change and Vulnerability of: Others"
+              label="(5.11.5) Others"
             ></v-checkbox>
           </v-col>
         </v-row>

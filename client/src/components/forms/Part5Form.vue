@@ -1100,7 +1100,7 @@
 </template>
 
 <script>
-import { stringifyArray } from '@/helpers'
+import { stringifyArray, removeElementOfOthersArray } from '@/helpers'
 
 export default {
   data: () => ({
@@ -1241,6 +1241,7 @@ export default {
       })
     },
 
+    // TODO refactor these remove methods into one
     removeDriversOfChangeAndVulnerabilityOfOthers(index) {
       this.driversOfChangeAndVulnerabilityOfOthersList.splice(index, 1)
     },
@@ -1249,28 +1250,27 @@ export default {
       this.perceivedEffectsOrImpactsOfOthersList.splice(index, 1)
     },
 
-    stringifyDriversOfChangeAndVulnerabilityOfOthers() {
+    stringifyArrayOthers(array) {
       let stringified = ''
 
       // Trim list to only capture filled up data
-      this.driversOfChangeAndVulnerabilityOfOthersList.map((driver, index) => {
+      array.map((driver, index) => {
         if (!driver.effectsOrImpact || !driver.rate) {
-          this.removeDriversOfChangeAndVulnerabilityOfOthers(index)
+          removeElementOfOthersArray(array, index)
         }
       })
 
-      this.driversOfChangeAndVulnerabilityOfOthersList.map((driver, index) => {
+      array.map((driver, index) => {
         const { effectsOrImpact, rate } = driver
         const stringifiedDriver = `${effectsOrImpact} (${rate})`
 
         stringified = stringified.concat(stringifiedDriver)
 
-        if (index < this.driversOfChangeAndVulnerabilityOfOthersList - 1) {
-          stringified = stringified.concat('; ')
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
         }
       })
 
-      console.log('stringified:', stringified)
       return stringified
     },
 
@@ -1395,8 +1395,9 @@ export default {
           this.perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
         perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover:
           this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-        perceivedEffectsOrImpactsOfOthers:
-          this.perceivedEffectsOrImpactsOfOthers,
+        perceivedEffectsOrImpactsOfOthers: this.stringifyArrayOthers(
+          this.perceivedEffectsOrImpactsOfOthers
+        ),
         observedMainOpportunitiesOfLongTermChangesInClimate:
           this.observedMainOpportunitiesOfLongTermChangesInClimate,
         driversOfChangeAndVulnerabilityOfLandDegredation:
@@ -1409,8 +1410,9 @@ export default {
         driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
           this
             .driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-        driversOfChangeAndVulnerabilityOfOthers:
-          this.stringifyDriversOfChangeAndVulnerabilityOfOthers(),
+        driversOfChangeAndVulnerabilityOfOthers: this.stringifyArrayOthers(
+          this.driversOfChangeAndVulnerabilityOfOthersList
+        ),
       }
 
       return part5Data

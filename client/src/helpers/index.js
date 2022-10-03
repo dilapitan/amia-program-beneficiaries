@@ -21,21 +21,6 @@ const sortMonths = (months) => {
   return sortedMonths
 }
 
-export const stringifyMonths = (months) => {
-  let stringified = ''
-
-  const sortedMonths = sortMonths(months)
-  sortedMonths.map((month, index) => {
-    stringified = stringified.concat(month)
-
-    if (index < sortedMonths.length - 1) {
-      stringified = stringified.concat(', ')
-    }
-  })
-
-  return stringified
-}
-
 export const parenthesize = (string) => {
   return `(${string})`
 }
@@ -56,4 +41,23 @@ export const stringifyArray = (array, othersSpecifyValue) => {
   })
 
   return stringified
+}
+
+export const stringifyMonths = (months) => {
+  let stringified = ''
+
+  const sortedMonths = sortMonths(months)
+  sortedMonths.map((month, index) => {
+    stringified = stringified.concat(month)
+
+    if (index < sortedMonths.length - 1) {
+      stringified = stringified.concat(', ')
+    }
+  })
+
+  return stringified
+}
+
+export const removeElementOfOthersArray = (array, index) => {
+  array.splice(index, 1)
 }

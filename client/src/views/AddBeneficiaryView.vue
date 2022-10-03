@@ -210,6 +210,58 @@ export default {
       // } = part4FormData
 
       // Part 5
+      const {
+        attendedAgriculturalRelatedTrainings,
+        totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        sourceOfClimateAndWeatherInformation,
+        observedAnyLongTermChangesInClimate,
+        changesInClimateForTemperature,
+        changesInClimateForAmountOfRainfaill,
+        changesInClimateForRainfallTiming,
+        changesInClimateForRainfulIntensity,
+        changesInClimateForRainfallDuration,
+        changesInClimateForNumberOfWeatherEvents,
+        changesInClimateForNumberOfHotDays,
+        changesInClimateForNumberOfRainyDays,
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason,
+        descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfOthers,
+        observedMainOpportunitiesOfLongTermChangesInClimate,
+        driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfOthers,
+      } = part5FormData
 
       const newBeneficiaries = [...this.beneficiaries]
 
@@ -284,13 +336,63 @@ export default {
         // cropCalendarDrySeasonHarvesting,
         //
         // Part 5
+        attendedAgriculturalRelatedTrainings,
+        totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        sourceOfClimateAndWeatherInformation,
+        observedAnyLongTermChangesInClimate,
+        changesInClimateForTemperature,
+        changesInClimateForAmountOfRainfaill,
+        changesInClimateForRainfallTiming,
+        changesInClimateForRainfulIntensity,
+        changesInClimateForRainfallDuration,
+        changesInClimateForNumberOfWeatherEvents,
+        changesInClimateForNumberOfHotDays,
+        changesInClimateForNumberOfRainyDays,
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason,
+        descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfOthers,
+        observedMainOpportunitiesOfLongTermChangesInClimate,
+        driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfOthers,
       })
 
-      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      // this.loading = true
-      // setTimeout(() => {
-      //   this.$router.push('/')
-      // }, 500)
+      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      this.loading = true
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
       // }
 
       // This is for adding the validation

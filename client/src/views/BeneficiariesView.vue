@@ -452,7 +452,7 @@ export default {
         value: 'estimatedGrossIncomePerCroppingSecondCropping',
         width: '200px',
         align: 'center',
-      },*/
+      },
 
       // 5. Technical Knowledge/Perception of Climate Change and Its Impacts
       {
@@ -819,7 +819,7 @@ export default {
         value: 'driversOfChangeAndVulnerabilityOfOthers',
         width: '200px',
         align: 'center',
-      },
+      }, */
 
       // 6. Farmer's Adaptation Practices
       {

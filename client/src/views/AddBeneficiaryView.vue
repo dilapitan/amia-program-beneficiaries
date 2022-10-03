@@ -264,6 +264,34 @@ export default {
       //   driversOfChangeAndVulnerabilityOfOthers,
       // } = part5FormData
 
+      // const {
+      //   madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+      //   changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+      //   additionalAdaptationMeasuresBeingConsideredInTheFuture,
+      //   receivedAnyExternalSupportForAdaptationMeasures,
+      //   formOfFinancialSupportReceived,
+      //   formOfMaterialSupportReceived,
+      //   formOfExtensionServicesSupportReceived,
+      //   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+      //   formOfInfrastructureSupportReceived,
+      //   formOfOtherSupportReceived,
+      //   mostBeneficialSupportServices,
+      //   lowEducationLevelConstraint,
+      //   limitedAccessToInformationConstraint,
+      //   lackOfExtensionServicesConstraint,
+      //   craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+      //   inadequateCapitalConstraint,
+      //   noAccessToWaterForIrrigationConstraint,
+      //   noAccessToCreditConstraintConstraint,
+      //   longerTimeRequiredToSeeResultsConstraint,
+      //   oldAgeConstraint,
+      //   landTenureOrLandOwnershipIssuesConstraint,
+      //   landTopographyNotSuitableConstraint,
+      //   laborIntensiveOrNonAvailabilityOfLaborConstraint,
+      //   infertileSoilConstraint,
+      //   otherConstraint,
+      // } = part6FormData
+
       const newBeneficiaries = [...this.beneficiaries]
 
       newBeneficiaries.push({
@@ -387,6 +415,33 @@ export default {
         // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
         // driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         // driversOfChangeAndVulnerabilityOfOthers,
+        //
+        // Part 6
+        // madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        // changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        // additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        // receivedAnyExternalSupportForAdaptationMeasures,
+        // formOfFinancialSupportReceived,
+        // formOfMaterialSupportReceived,
+        // formOfExtensionServicesSupportReceived,
+        // farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        // formOfInfrastructureSupportReceived,
+        // formOfOtherSupportReceived,
+        // mostBeneficialSupportServices,
+        // lowEducationLevelConstraint,
+        // limitedAccessToInformationConstraint,
+        // lackOfExtensionServicesConstraint,
+        // craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        // inadequateCapitalConstraint,
+        // noAccessToWaterForIrrigationConstraint,
+        // noAccessToCreditConstraintConstraint,
+        // longerTimeRequiredToSeeResultsConstraint,
+        // oldAgeConstraint,
+        // landTenureOrLandOwnershipIssuesConstraint,
+        // landTopographyNotSuitableConstraint,
+        // laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        // infertileSoilConstraint,
+        // otherConstraint,
       })
 
       // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)

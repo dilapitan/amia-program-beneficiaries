@@ -757,6 +757,12 @@ export default {
     removeOtherConstraint(index) {
       this.otherConstraintList.splice(index, 1)
     },
+
+    passForm6Data() {
+      const part6Data = {}
+
+      return part6Data
+    },
   },
   watch: {
     changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall() {

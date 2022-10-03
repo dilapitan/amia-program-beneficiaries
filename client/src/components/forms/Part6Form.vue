@@ -600,7 +600,13 @@
               </v-row>
             </div>
             <br />
-            <v-btn @click="addOtherConstraint()" color="primary" small outlined>
+            <v-btn
+              :disabled="!checkLastElementIfNull(otherConstraintList)"
+              @click="addOtherConstraint()"
+              color="primary"
+              small
+              outlined
+            >
               ADD
             </v-btn>
           </v-col>
@@ -611,7 +617,11 @@
 </template>
 
 <script>
-import { stringifyArray, removeElementOfOthersArray } from '@/helpers/'
+import {
+  checkLastElementIfNull,
+  stringifyArray,
+  removeElementOfOthersArray,
+} from '@/helpers/'
 
 export default {
   data: () => ({
@@ -752,6 +762,8 @@ export default {
       })
     },
 
+    checkLastElementIfNull: checkLastElementIfNull,
+
     removeMostBeneficialSupportServices(index) {
       this.mostBeneficialSupportServicesList.splice(index, 1)
     },
@@ -795,6 +807,7 @@ export default {
 
       // Trim list to only capture filled up data
       array.map((constraint, index) => {
+        console.log('constraint:', constraint)
         if (!constraint.mainConstraintsOrDifficulties || !constraint.rate) {
           removeElementOfOthersArray(array, index)
         }

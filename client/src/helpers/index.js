@@ -21,6 +21,14 @@ const sortMonths = (months) => {
   return sortedMonths
 }
 
+export const checkLastElementIfNull = (array) => {
+  const LAST_ELEMENT = array[array.length - 1]
+  const valuesOfLastElement = Object.values(LAST_ELEMENT)
+  const isNull = valuesOfLastElement.every((value) => value !== null)
+
+  return isNull
+}
+
 export const parenthesize = (string) => {
   return `(${string})`
 }

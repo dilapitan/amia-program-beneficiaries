@@ -96,106 +96,140 @@
       </v-row>
 
       <div
-        v-if="receivedAnyExternalSupportForAdaptationMeasures"
         :class="{
-          'ml-5': $vuetify.breakpoint.xsOnly,
+          'ml-3': $vuetify.breakpoint.xsOnly,
           'ml-10': $vuetify.breakpoint.smAndUp,
         }"
       >
-        <v-row>
-          <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
-            <div class="mr-2 text-body-2">
-              If yes, in what form does the support come?
-            </div>
-          </v-col>
-        </v-row>
+        <div
+          v-if="receivedAnyExternalSupportForAdaptationMeasures"
+          :class="{
+            'ml-2': $vuetify.breakpoint.xsOnly,
+            'ml-10': $vuetify.breakpoint.smAndUp,
+          }"
+        >
+          <v-row>
+            <v-col class="d-flex align-baseline" cols="12" sm="6" md="6">
+              <div class="mr-2 text-body-2">
+                If yes, in what form does the support come?
+              </div>
+            </v-col>
+          </v-row>
 
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.1) Form of Financial Support received:
-          </v-col>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="formOfFinancialSupportReceivedBool"
+                label="(6.5.1) Form of Financial Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="formOfFinancialSupportReceivedBool"
+                v-model="formOfFinancialSupportReceived"
+                dense
+                label="Please specify"
+                clearable
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="formOfFinancialSupportReceived"
-            ></v-text-field>
-          </v-col>
-        </v-row>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="formOfMaterialSupportReceivedBool"
+                label="(6.5.2) Form of Material Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="formOfMaterialSupportReceivedBool"
+                v-model="formOfMaterialSupportReceived"
+                dense
+                clearable
+                label="Please specify"
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.2) Form of Material Support received:
-          </v-col>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="formOfExtensionServicesSupportReceivedBool"
+                label="(6.5.3) Form of Extension Services Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="formOfExtensionServicesSupportReceivedBool"
+                v-model="formOfExtensionServicesSupportReceived"
+                dense
+                clearable
+                label="Please specify"
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="formOfMaterialSupportReceived"
-            ></v-text-field>
-          </v-col>
-        </v-row>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="
+                  farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool
+                "
+                label="(6.5.4) Form of Farming Fishing Advisories Based On Weather and Climate Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="
+                  farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool
+                "
+                v-model="
+                  farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
+                "
+                dense
+                clearable
+                label="Please specify"
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.3) Form of Extension Services Support received:
-          </v-col>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="formOfInfrastructureSupportReceivedBool"
+                label="(6.5.5) Form of Infrastructure Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="formOfInfrastructureSupportReceivedBool"
+                v-model="formOfInfrastructureSupportReceived"
+                dense
+                clearable
+                label="Please specify"
+              ></v-text-field>
+            </v-col>
+          </v-row>
 
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="formOfExtensionServicesSupportReceived"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.4) Form of Farming Fishing Advisories Based On Weather and
-            Climate Support received:
-          </v-col>
-
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="
-                farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
-              "
-            ></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.5) Form of Infrastructure Support received:
-          </v-col>
-
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="formOfInfrastructureSupportReceived"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-
-        <v-row class="d-flex align-baseline">
-          <v-col class="mr-2 text-body-2" cols="12" sm="3">
-            (6.5.6) Form of Other Support received:
-          </v-col>
-
-          <v-col cols="12" sm="8">
-            <v-text-field
-              dense
-              clearable
-              v-model="formOfOtherSupportReceived"
-            ></v-text-field>
-          </v-col>
-        </v-row>
+          <v-row class="d-flex">
+            <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
+              <v-checkbox
+                v-model="formOfOtherSupportReceivedBool"
+                label="(6.5.6) Form of Other Support received:"
+              ></v-checkbox>
+            </v-col>
+            <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
+              <v-text-field
+                v-if="formOfOtherSupportReceivedBool"
+                v-model="formOfOtherSupportReceived"
+                dense
+                clearable
+                label="Please specify"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+        </div>
       </div>
 
       <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
@@ -661,6 +695,12 @@ export default {
         'Large financial investment in new land (expansion in other areas)',
         'Others',
       ],
+    formOfFinancialSupportReceivedBool: false,
+    formOfMaterialSupportReceivedBool: false,
+    formOfExtensionServicesSupportReceivedBool: false,
+    farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool: false,
+    formOfInfrastructureSupportReceivedBool: false,
+    formOfOtherSupportReceivedBool: false,
     mostBeneficialSupportServicesList: [
       {
         mostBeneficialSupportService: null,
@@ -738,7 +778,38 @@ export default {
           null
         this.formOfInfrastructureSupportReceived = null
         this.formOfOtherSupportReceived = null
+        this.formOfFinancialSupportReceivedBool = false
+        this.formOfMaterialSupportReceivedBool = false
+        this.formOfExtensionServicesSupportReceivedBool = false
+        this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool = false
+        this.formOfInfrastructureSupportReceivedBool = false
+        this.formOfOtherSupportReceivedBool = false
       }
+    },
+
+    formOfFinancialSupportReceivedBool() {
+      this.formOfFinancialSupportReceived = null
+    },
+
+    formOfMaterialSupportReceivedBool() {
+      this.formOfMaterialSupportReceived = null
+    },
+
+    formOfExtensionServicesSupportReceivedBool() {
+      this.formOfExtensionServicesSupportReceived = null
+    },
+
+    farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool() {
+      this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived =
+        null
+    },
+
+    formOfInfrastructureSupportReceivedBool() {
+      this.formOfInfrastructureSupportReceived = null
+    },
+
+    formOfOtherSupportReceivedBool() {
+      this.formOfOtherSupportReceived = null
     },
 
     lowEducationLevelConstraintBool() {

@@ -611,6 +611,8 @@
 </template>
 
 <script>
+import { stringifyArray, removeElementOfOthersArray } from '@/helpers/'
+
 export default {
   data: () => ({
     // 6. Farmer's Adaptation Practices - Data variables
@@ -626,7 +628,7 @@ export default {
     farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
     formOfInfrastructureSupportReceived: null,
     formOfOtherSupportReceived: null,
-    mostBeneficialSupportServices: null,
+    mostBeneficialSupportServices: [],
     lowEducationLevelConstraint: null,
     limitedAccessToInformationConstraint: null,
     lackOfExtensionServicesConstraint: null,
@@ -758,8 +760,112 @@ export default {
       this.otherConstraintList.splice(index, 1)
     },
 
+    stringifyMostBeneficialSupport(array) {
+      let stringified = ''
+
+      // Trim list to only capture filled up data
+      array.map((service, index) => {
+        if (
+          !service.mostBeneficialSupportService ||
+          !service.reasonWhyMostBeneficialSupportService
+        ) {
+          removeElementOfOthersArray(array, index)
+        }
+      })
+
+      array.map((service, index) => {
+        const {
+          mostBeneficialSupportService,
+          reasonWhyMostBeneficialSupportService,
+        } = service
+        const stringifiedService = `${mostBeneficialSupportService} (${reasonWhyMostBeneficialSupportService})`
+
+        stringified = stringified.concat(stringifiedService)
+
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
+    stringifyArrayOthers(array) {
+      let stringified = ''
+
+      // Trim list to only capture filled up data
+      array.map((constraint, index) => {
+        if (!constraint.mainConstraintsOrDifficulties || !constraint.rate) {
+          removeElementOfOthersArray(array, index)
+        }
+      })
+
+      array.map((constraint, index) => {
+        const { mainConstraintsOrDifficulties, rate } = constraint
+        const stringifiedConstraint = `${mainConstraintsOrDifficulties} (${rate})`
+
+        stringified = stringified.concat(stringifiedConstraint)
+
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
     passForm6Data() {
-      const part6Data = {}
+      const part6Data = {
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
+          this
+            .madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
+          stringifyArray(
+            this
+              .changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+            this
+              .changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify
+          ),
+        additionalAdaptationMeasuresBeingConsideredInTheFuture:
+          this.additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures:
+          this.receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived: this.formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived: this.formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived:
+          this.formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived:
+          this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived:
+          this.formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived: this.formOfOtherSupportReceived,
+        mostBeneficialSupportServices: this.stringifyMostBeneficialSupport(
+          this.mostBeneficialSupportServicesList
+        ),
+        lowEducationLevelConstraint: this.lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint:
+          this.limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint:
+          this.lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint:
+          this.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint: this.inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint:
+          this.noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint:
+          this.noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint:
+          this.longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint: this.oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint:
+          this.landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint:
+          this.landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint:
+          this.laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint: this.infertileSoilConstraint,
+        otherConstraint: this.stringifyArrayOthers(this.otherConstraintList),
+      }
 
       return part6Data
     },

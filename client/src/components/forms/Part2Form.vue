@@ -146,7 +146,13 @@
           </v-row>
         </div>
         <br />
-        <v-btn @click="addHouseholdMember()" color="primary" small outlined>
+        <v-btn
+          :disabled="!checkLastElementIfNull(householdMembersList)"
+          @click="addHouseholdMember()"
+          color="primary"
+          small
+          outlined
+        >
           ADD MORE MEMBER
         </v-btn>
       </div>
@@ -363,7 +369,7 @@
 </template>
 
 <script>
-import { parenthesize } from '@/helpers'
+import { checkLastElementIfNull, parenthesize } from '@/helpers'
 
 export default {
   data: () => ({
@@ -505,6 +511,8 @@ export default {
       }
     },
 
+    checkLastElementIfNull: checkLastElementIfNull,
+
     removeHouseholdMember(index) {
       this.householdMembersList.splice(index, 1)
     },
@@ -533,7 +541,9 @@ export default {
         civilStatus: this.civilStatus,
         religion: this.religion,
         belongingTo: this.belongingTo,
-        householdMembers: this.stringifyHouseholdMembers(),
+        householdMembers: this.stringifyHouseholdMembers(
+          this.householdMembersList
+        ),
         yearsOfFarmingExperience: this.yearsOfFarmingExperience,
         highestEducationalAttainment: this.highestEducationalAttainment,
         languagesOrDialectsSpoken: this.languagesOrDialectsSpoken,
@@ -551,28 +561,28 @@ export default {
       return part2Data
     },
 
-    stringifyHouseholdMembers() {
+    stringifyHouseholdMembers(array) {
       let stringified = ''
 
       // Trim list to only capture filled up data
-      this.householdMembersList.map((member, index) => {
+      const filtered = array.filter((member) => {
         if (
-          !member.name ||
-          !member.age ||
-          !member.gender ||
-          !member.relationToTheRespondent
+          member.name &&
+          member.age &&
+          member.gender &&
+          member.relationToTheRespondent
         ) {
-          this.removeHouseholdMember(index)
+          return member
         }
       })
 
-      this.householdMembersList.map((member, index) => {
+      filtered.map((member, index) => {
         const { name, age, gender, relationToTheRespondent } = member
         const stringifiedMember = `${name}, ${age}, ${gender}, ${relationToTheRespondent}`
 
         stringified = stringified.concat(stringifiedMember)
 
-        if (index < this.householdMembersList.length - 1) {
+        if (index < filtered.length - 1) {
           stringified = stringified.concat('; ')
         }
       })

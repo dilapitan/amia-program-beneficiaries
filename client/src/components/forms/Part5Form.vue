@@ -898,6 +898,9 @@
             </div>
             <br />
             <v-btn
+              :disabled="
+                !checkLastElementIfNull(perceivedEffectsOrImpactsOfOthersList)
+              "
               @click="addPerceivedEffectsOrImpactsOfOthers()"
               color="primary"
               small
@@ -1085,6 +1088,11 @@
             </div>
             <br />
             <v-btn
+              :disabled="
+                !checkLastElementIfNull(
+                  driversOfChangeAndVulnerabilityOfOthersList
+                )
+              "
               @click="addDriversOfChangeAndVulnerabilityOfOthers()"
               color="primary"
               small
@@ -1100,7 +1108,7 @@
 </template>
 
 <script>
-import { stringifyArray, removeElementOfOthersArray } from '@/helpers'
+import { checkLastElementIfNull, stringifyArray } from '@/helpers'
 
 export default {
   data: () => ({
@@ -1155,7 +1163,7 @@ export default {
     perceivedEffectsOrImpactsOfRuralUrbanMigration: null,
     perceivedEffectsOrImpactsOfSiltationOfWaterBodies: null,
     perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover: null,
-    perceivedEffectsOrImpactsOfOthers: null,
+    perceivedEffectsOrImpactsOfOthers: '',
     observedMainOpportunitiesOfLongTermChangesInClimate: null,
     driversOfChangeAndVulnerabilityOfLandDegredation: null,
     driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices: null,
@@ -1241,6 +1249,8 @@ export default {
       })
     },
 
+    checkLastElementIfNull: checkLastElementIfNull,
+
     // TODO refactor these remove methods into one
     removeDriversOfChangeAndVulnerabilityOfOthers(index) {
       this.driversOfChangeAndVulnerabilityOfOthersList.splice(index, 1)
@@ -1254,19 +1264,19 @@ export default {
       let stringified = ''
 
       // Trim list to only capture filled up data
-      array.map((driver, index) => {
-        if (!driver.effectsOrImpact || !driver.rate) {
-          removeElementOfOthersArray(array, index)
+      const filtered = array.filter((driver) => {
+        if (driver.effectsOrImpact && driver.rate) {
+          return driver
         }
       })
 
-      array.map((driver, index) => {
+      filtered.map((driver, index) => {
         const { effectsOrImpact, rate } = driver
         const stringifiedDriver = `${effectsOrImpact} (${rate})`
 
         stringified = stringified.concat(stringifiedDriver)
 
-        if (index < array.length - 1) {
+        if (index < filtered.length - 1) {
           stringified = stringified.concat(', ')
         }
       })
@@ -1396,7 +1406,7 @@ export default {
         perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover:
           this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
         perceivedEffectsOrImpactsOfOthers: this.stringifyArrayOthers(
-          this.perceivedEffectsOrImpactsOfOthers
+          this.perceivedEffectsOrImpactsOfOthersList
         ),
         observedMainOpportunitiesOfLongTermChangesInClimate:
           this.observedMainOpportunitiesOfLongTermChangesInClimate,

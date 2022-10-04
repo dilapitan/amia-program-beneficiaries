@@ -22,6 +22,10 @@ const sortMonths = (months) => {
 }
 
 export const checkLastElementIfNull = (array) => {
+  /**
+   * This prevents the ADD button from being used over and over without
+   * filling up the form first.
+   */
   const LAST_ELEMENT = array[array.length - 1]
   const valuesOfLastElement = Object.values(LAST_ELEMENT)
   const isNull = valuesOfLastElement.every((value) => value !== null)

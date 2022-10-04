@@ -625,8 +625,7 @@ import { checkLastElementIfNull, stringifyArray } from '@/helpers/'
 export default {
   data: () => ({
     // 6. Farmer's Adaptation Practices - Data variables
-    madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
-      null,
+    madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years: false,
     changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
       [],
     additionalAdaptationMeasuresBeingConsideredInTheFuture: null,
@@ -829,7 +828,9 @@ export default {
       const part6Data = {
         madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
           this
-            .madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+            .madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years
+            ? 'Yes'
+            : 'No',
         changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
           stringifyArray(
             this
@@ -839,8 +840,10 @@ export default {
           ),
         additionalAdaptationMeasuresBeingConsideredInTheFuture:
           this.additionalAdaptationMeasuresBeingConsideredInTheFuture,
-        receivedAnyExternalSupportForAdaptationMeasures:
-          this.receivedAnyExternalSupportForAdaptationMeasures,
+        receivedAnyExternalSupportForAdaptationMeasures: this
+          .receivedAnyExternalSupportForAdaptationMeasures
+          ? 'Yes'
+          : 'No',
         formOfFinancialSupportReceived: this.formOfFinancialSupportReceived,
         formOfMaterialSupportReceived: this.formOfMaterialSupportReceived,
         formOfExtensionServicesSupportReceived:

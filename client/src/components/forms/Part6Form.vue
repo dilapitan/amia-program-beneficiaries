@@ -620,11 +620,7 @@
 </template>
 
 <script>
-import {
-  checkLastElementIfNull,
-  stringifyArray,
-  removeElementOfOthersArray,
-} from '@/helpers/'
+import { checkLastElementIfNull, stringifyArray } from '@/helpers/'
 
 export default {
   data: () => ({
@@ -809,20 +805,19 @@ export default {
       let stringified = ''
 
       // Trim list to only capture filled up data
-      array.map((constraint, index) => {
-        console.log('constraint:', constraint)
-        if (!constraint.mainConstraintsOrDifficulties || !constraint.rate) {
-          removeElementOfOthersArray(array, index)
+      const filtered = array.filter((constraint) => {
+        if (constraint.mainConstraintsOrDifficulties && constraint.rate) {
+          return constraint
         }
       })
 
-      array.map((constraint, index) => {
+      filtered.map((constraint, index) => {
         const { mainConstraintsOrDifficulties, rate } = constraint
         const stringifiedConstraint = `${mainConstraintsOrDifficulties} (${rate})`
 
         stringified = stringified.concat(stringifiedConstraint)
 
-        if (index < array.length - 1) {
+        if (index < filtered.length - 1) {
           stringified = stringified.concat(', ')
         }
       })

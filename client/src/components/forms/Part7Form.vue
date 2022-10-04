@@ -183,7 +183,7 @@
         </v-row>
 
         <v-row class="d-flex">
-          <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
+          <v-col cols="12" sm="4" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="farmingEquipmentBool"
               label="(7.9): Farming Equipment"
@@ -223,6 +223,8 @@
 </template>
 
 <script>
+import { stringifyArray } from '@/helpers/'
+
 export default {
   data: () => ({
     // 7. Institutional Characteristics - Data variables
@@ -261,7 +263,30 @@ export default {
     marketingSystemSpecify: null,
   }),
 
-  methods: {},
+  methods: {
+    passForm7Data() {
+      const part7Data = {
+        accessToAgricultureOrFisheriesRnDInstitutions:
+          this.accessToAgricultureOrFisheriesRnDInstitutions,
+        accessToCredit: this.accessToCredit,
+        laboratoryFacilities: this.laboratoryFacilities,
+        educationAndHealthFacilities: this.educationAndHealthFacilities,
+        farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations:
+          this
+            .farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        marketingSystem: stringifyArray(
+          this.marketingSystem,
+          this.marketingSystemSpecify
+        ),
+        presenceOfAgriculturalProcessingFacilities:
+          this.presenceOfAgriculturalProcessingFacilities,
+        irrigation: this.irrigation,
+        farmingEquipment: this.farmingEquipment,
+        others: this.others,
+      }
+      return part7Data
+    },
+  },
   watch: {
     accessToAgricultureOrFisheriesRnDInstitutionsBool() {
       this.accessToAgricultureOrFisheriesRnDInstitutions = null

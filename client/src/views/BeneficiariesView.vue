@@ -819,7 +819,7 @@ export default {
         value: 'driversOfChangeAndVulnerabilityOfOthers',
         width: '200px',
         align: 'center',
-      }, */
+      },
 
       // 6. Farmer's Adaptation Practices
       {
@@ -999,7 +999,7 @@ export default {
         value: 'otherConstraint',
         width: '150px',
         align: 'center',
-      },
+      }, */
 
       // 7. Institutional Characteristics
 

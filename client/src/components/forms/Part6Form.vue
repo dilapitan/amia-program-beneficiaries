@@ -289,6 +289,9 @@
           </div>
           <br />
           <v-btn
+            :disabled="
+              !checkLastElementIfNull(mostBeneficialSupportServicesList)
+            "
             @click="addMostBeneficialSupportServices()"
             color="primary"
             small
@@ -776,25 +779,25 @@ export default {
       let stringified = ''
 
       // Trim list to only capture filled up data
-      array.map((service, index) => {
+      const filtered = array.filter((service) => {
         if (
-          !service.mostBeneficialSupportService ||
-          !service.reasonWhyMostBeneficialSupportService
-        ) {
-          removeElementOfOthersArray(array, index)
-        }
+          service.mostBeneficialSupportService &&
+          service.reasonWhyMostBeneficialSupportService
+        )
+          return service
       })
 
-      array.map((service, index) => {
+      filtered.map((service, index) => {
         const {
           mostBeneficialSupportService,
           reasonWhyMostBeneficialSupportService,
         } = service
+
         const stringifiedService = `${mostBeneficialSupportService} (${reasonWhyMostBeneficialSupportService})`
 
         stringified = stringified.concat(stringifiedService)
 
-        if (index < array.length - 1) {
+        if (index < filtered.length - 1) {
           stringified = stringified.concat(', ')
         }
       })

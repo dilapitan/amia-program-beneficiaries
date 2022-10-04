@@ -999,7 +999,7 @@ export default {
         value: 'otherConstraint',
         width: '150px',
         align: 'center',
-      }, */
+      },
 
       // 7. Institutional Characteristics
 
@@ -1073,7 +1073,7 @@ export default {
         value: 'others',
         width: '150px',
         align: 'center',
-      },
+      }, */
 
       // 8. Issues/Concerns/Problems in Farming
       {

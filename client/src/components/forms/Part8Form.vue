@@ -126,6 +126,8 @@
 </template>
 
 <script>
+import { parenthesize } from '@/helpers'
+
 export default {
   data: () => ({
     // 8. Issues/Concerns/Problems in Farming - Data variables
@@ -161,7 +163,62 @@ export default {
     issuesOrConcernsOrProblemsInFarmingOthersSpecify: null,
   }),
 
-  methods: {},
+  computed: {
+    seasonList() {
+      return this.$store.state.seasonList
+    },
+  },
+
+  methods: {
+    stringifyArray(array) {
+      let stringified = ''
+
+      array.map((source, index) => {
+        stringified = stringified.concat(source)
+
+        if (source === 'Low crop production**') {
+          stringified = stringified.concat(
+            parenthesize(
+              this.issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify
+            )
+          )
+        } else if (source === 'Low livestock production**') {
+          stringified = stringified.concat(
+            parenthesize(
+              this
+                .issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify
+            )
+          )
+        } else if (source === 'Drought or lack of moisture in the soil') {
+          stringified = stringified.concat(
+            parenthesize(
+              this
+                .issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify
+            )
+          )
+        } else if (source === 'Others') {
+          stringified = stringified.concat(
+            parenthesize(this.issuesOrConcernsOrProblemsInFarmingOthersSpecify)
+          )
+        }
+
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
+    passForm8Data() {
+      const part8Data = {
+        issuesOrConcernsOrProblemsInFarming: this.stringifyArray(
+          this.issuesOrConcernsOrProblemsInFarming
+        ),
+      }
+      return part8Data
+    },
+  },
   watch: {
     issuesOrConcernsOrProblemsInFarming() {
       if (!this.issuesOrConcernsOrProblemsInFarming.includes('Others')) {

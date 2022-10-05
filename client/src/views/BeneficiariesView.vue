@@ -70,9 +70,9 @@ export default {
 
       // 1. Farmer's Basic Information
       {
-        text: '(1.1) Region/Province',
+        text: '(1.1) Province',
         sortable: false,
-        value: 'regionOrProvince',
+        value: 'province',
         width: '200px',
         align: 'center',
       },

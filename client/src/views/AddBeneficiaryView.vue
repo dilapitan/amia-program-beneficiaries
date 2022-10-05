@@ -144,14 +144,14 @@ export default {
       //   part0FormData
 
       // Part 1
-      // const {
-      //   regionOrProvince,
-      //   cityOrMunicipality,
-      //   barangay,
-      //   nameOfFarmer,
-      //   contactNo,
-      //   farmersCodeNo,
-      // } = part1FormData
+      const {
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
+      } = part1FormData
 
       // Part 2
       // const {
@@ -321,12 +321,12 @@ export default {
         // nameOfInterviewer,
         //
         // // Part 1
-        // regionOrProvince,
-        // cityOrMunicipality,
-        // barangay,
-        // nameOfFarmer,
-        // contactNo,
-        // farmersCodeNo,
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
         //
         // Part 2
         // age,
@@ -477,11 +477,11 @@ export default {
         // issuesOrConcernsOrProblemsInFarming,
       })
 
-      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      // this.loading = true
-      // setTimeout(() => {
-      //   this.$router.push('/')
-      // }, 500)
+      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      this.loading = true
+      setTimeout(() => {
+        this.$router.push('/')
+      }, 500)
       // }
 
       // This is for adding the validation

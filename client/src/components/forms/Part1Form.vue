@@ -6,14 +6,16 @@
 
     <div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.1) Region/Province:</div>
+        <div class="mr-2 text-body-2">(1.1) Province:</div>
 
         <div>
-          <v-text-field
-            dense
-            clearable
-            v-model="regionOrProvince"
-          ></v-text-field>
+          <v-select
+            :items="provinceList"
+            name="province"
+            item-text="province"
+            label="Select a province"
+            v-model="province"
+          ></v-select>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
@@ -27,29 +29,23 @@
           ></v-text-field>
         </div>
       </div>
-      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.3) Barangay:</div>
 
-        <div>
-          <v-text-field dense clearable v-model="barangay"></v-text-field>
-        </div>
-      </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.4) Name of Farmer:</div>
+        <div class="mr-2 text-body-2">(1.3) Name of Farmer:</div>
 
         <div>
           <v-text-field dense clearable v-model="nameOfFarmer"></v-text-field>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.5) Contact No:</div>
+        <div class="mr-2 text-body-2">(1.4) Contact No:</div>
 
         <div>
           <v-text-field dense clearable v-model="contactNo"></v-text-field>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.6) Farmer's Code No:</div>
+        <div class="mr-2 text-body-2">(1.5) Farmer's Code No:</div>
 
         <div>
           <v-text-field dense clearable v-model="farmersCodeNo"></v-text-field>
@@ -60,23 +56,24 @@
 </template>
 
 <script>
+import { getRegion5 } from '@/helpers/locations'
+
 export default {
   data: () => ({
     // 1. Farmer's Basic Information - data variables
-    regionOrProvince: null,
+    province: null,
     cityOrMunicipality: null,
-    barangay: null,
     nameOfFarmer: null,
     contactNo: null,
     farmersCodeNo: null,
+    provinceList: getRegion5(),
   }),
 
   methods: {
     passForm1Data() {
       const part1Data = {
-        regionOrProvince: this.regionOrProvince,
+        province: this.province,
         cityOrMunicipality: this.cityOrMunicipality,
-        barangay: this.barangay,
         nameOfFarmer: this.nameOfFarmer,
         contactNo: this.contactNo,
         farmersCodeNo: this.farmersCodeNo,

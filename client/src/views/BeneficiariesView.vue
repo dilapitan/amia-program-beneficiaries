@@ -39,7 +39,7 @@ export default {
   data: () => ({
     headers: [
       { text: 'Actions', value: 'actions', sortable: false },
-      /* {
+      {
         text: 'Survey No.',
         value: 'surveyNo',
         align: 'center',
@@ -83,35 +83,35 @@ export default {
         width: '200px',
         align: 'center',
       },
+      // {
+      //   text: '(1.3) Barangay',
+      //   sortable: false,
+      //   width: '120px',
+      //   align: 'center',
+      //   value: 'barangay',
+      // },
       {
-        text: '(1.3) Barangay',
-        sortable: false,
-        width: '120px',
-        align: 'center',
-        value: 'barangay',
-      },
-      {
-        text: '(1.4) Name of Farmer',
+        text: '(1.3) Name of Farmer',
         sortable: false,
         width: '150px',
         align: 'center',
         value: 'nameOfFarmer',
       },
       {
-        text: '(1.5) Contact No.',
+        text: '(1.4) Contact No.',
         sortable: false,
         width: '130px',
         align: 'center',
         value: 'contactNo',
       },
       {
-        text: `(1.6) Farmer's Code No.`,
+        text: `(1.5) Farmer's Code No.`,
         sortable: false,
         value: 'farmersCodeNo',
         width: '200px',
         align: 'center',
       },
-
+      /*
       // 2. Socio-Demographic Information
       {
         text: '(2.1) Age',
@@ -1073,7 +1073,7 @@ export default {
         value: 'others',
         width: '150px',
         align: 'center',
-      }, */
+      },
 
       // 8. Issues/Concerns/Problems in Farming
       {
@@ -1082,7 +1082,7 @@ export default {
         value: 'issuesOrConcernsOrProblemsInFarming',
         width: '150px',
         align: 'center',
-      },
+      }, */
     ],
     beneficiaries: [],
   }),

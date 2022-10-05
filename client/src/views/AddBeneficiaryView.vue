@@ -15,7 +15,7 @@
       <br />
 
       <!-- 1 Farmer's Basic Information -->
-      <!-- <Part1Form ref="part1Form" /> -->
+      <Part1Form ref="part1Form" />
 
       <br />
       <v-divider></v-divider>
@@ -64,7 +64,7 @@
       <br />
 
       <!-- 8 Issues/Concerns/Problems in Farming -->
-      <Part8Form ref="part8Form" />
+      <!-- <Part8Form ref="part8Form" /> -->
 
       <br />
       <v-divider></v-divider>
@@ -88,28 +88,28 @@
 
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
-import Part8Form from '@/components/forms/Part8Form.vue'
+// import Part8Form from '@/components/forms/Part8Form.vue'
 
 export default {
   name: 'AddBeneficiaryView',
 
   components: {
     // Part0Form,
-    // Part1Form,
+    Part1Form,
     // Part2Form,
     // Part3Form,
     // Part4Form,
     // Part5Form,
     // Part6Form,
     // Part7Form,
-    Part8Form,
+    // Part8Form,
   },
 
   data: () => ({
@@ -127,15 +127,15 @@ export default {
   methods: {
     addBeneficiary() {
       // const part0FormData = this.getPart0FormData()
-      // const part1FormData = this.getPart1FormData()
+      const part1FormData = this.getPart1FormData()
       // const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
       // const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
       // const part7FormData = this.getPart7FormData()
-      const part8FormData = this.getPart8FormData()
-      console.log('part8FormData:', part8FormData)
+      // const part8FormData = this.getPart8FormData()
+      console.log('part1FormData:', part1FormData)
 
       // TODO: reflect how merge/override this with "valid"/validation
       // if (part0FormData && part1FormData) {
@@ -308,7 +308,7 @@ export default {
       //   others,
       // } = part7FormData
 
-      const { issuesOrConcernsOrProblemsInFarming } = part8FormData
+      // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
       const newBeneficiaries = [...this.beneficiaries]
 
@@ -474,14 +474,14 @@ export default {
         // others,
         //
         // Part 8
-        issuesOrConcernsOrProblemsInFarming,
+        // issuesOrConcernsOrProblemsInFarming,
       })
 
-      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/')
-      }, 500)
+      // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+      // this.loading = true
+      // setTimeout(() => {
+      //   this.$router.push('/')
+      // }, 500)
       // }
 
       // This is for adding the validation
@@ -503,10 +503,10 @@ export default {
     //   return part0FormData
     // },
 
-    // getPart1FormData() {
-    //   const part1FormData = this.$refs.part1Form.passForm1Data()
-    //   return part1FormData
-    // },
+    getPart1FormData() {
+      const part1FormData = this.$refs.part1Form.passForm1Data()
+      return part1FormData
+    },
 
     // getPart2FormData() {
     //   const part2FormData = this.$refs.part2Form.passForm2Data()
@@ -538,10 +538,10 @@ export default {
     //   return part7FormData
     // },
 
-    getPart8FormData() {
-      const part8FormData = this.$refs.part8Form.passForm8Data()
-      return part8FormData
-    },
+    // getPart8FormData() {
+    //   const part8FormData = this.$refs.part8Form.passForm8Data()
+    //   return part8FormData
+    // },
   },
 
   watch: {},

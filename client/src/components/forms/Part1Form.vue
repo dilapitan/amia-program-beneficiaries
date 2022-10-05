@@ -22,30 +22,39 @@
         <div class="mr-2 text-body-2">(1.2) City/Municipality:</div>
 
         <div>
-          <v-text-field
+          <v-select
+            :disabled="!Boolean(province)"
+            :items="cityOrMunicipalityList"
             dense
-            clearable
             v-model="cityOrMunicipality"
-          ></v-text-field>
+          ></v-select>
         </div>
       </div>
 
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.3) Name of Farmer:</div>
+        <div class="mr-2 text-body-2">(1.3) Barangay:</div>
+
+        <div>
+          <v-text-field dense clearable v-model="barangay"></v-text-field>
+        </div>
+      </div>
+
+      <div class="d-flex align-baseline" cols="12" sm="6" md="6">
+        <div class="mr-2 text-body-2">(1.4) Name of Farmer:</div>
 
         <div>
           <v-text-field dense clearable v-model="nameOfFarmer"></v-text-field>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.4) Contact No:</div>
+        <div class="mr-2 text-body-2">(1.5) Contact No:</div>
 
         <div>
           <v-text-field dense clearable v-model="contactNo"></v-text-field>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="6" md="6">
-        <div class="mr-2 text-body-2">(1.5) Farmer's Code No:</div>
+        <div class="mr-2 text-body-2">(1.6) Farmer's Code No:</div>
 
         <div>
           <v-text-field dense clearable v-model="farmersCodeNo"></v-text-field>
@@ -63,17 +72,28 @@ export default {
     // 1. Farmer's Basic Information - data variables
     province: null,
     cityOrMunicipality: null,
+    barangay: null,
     nameOfFarmer: null,
     contactNo: null,
     farmersCodeNo: null,
     provinceList: getRegion5(),
   }),
 
+  computed: {
+    cityOrMunicipalityList() {
+      if (this.province) {
+        return this.provinceList.find((item) => item.province === this.province)
+          .municipalities
+      } else return []
+    },
+  },
+
   methods: {
     passForm1Data() {
       const part1Data = {
         province: this.province,
         cityOrMunicipality: this.cityOrMunicipality,
+        barangay: this.barangay,
         nameOfFarmer: this.nameOfFarmer,
         contactNo: this.contactNo,
         farmersCodeNo: this.farmersCodeNo,

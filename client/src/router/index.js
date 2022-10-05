@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import BeneficiariesView from '../views/BeneficiariesView.vue'
+import HomePageView from '../views/HomePageView.vue'
 
 Vue.use(VueRouter)
 
@@ -17,8 +17,16 @@ function guardRoutes(to, from, next) {
 const routes = [
   {
     path: '/',
+    name: 'HomePageView',
+    component: HomePageView,
+  },
+  {
+    path: '/beneficiaries',
     name: 'BeneficiariesView',
-    component: BeneficiariesView,
+    component: () =>
+      import(
+        /* webpackChunkName: "Beneficiaries" */ '../views/BeneficiariesView.vue'
+      ),
   },
   {
     path: '/about',
@@ -27,34 +35,38 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+      import(/* webpackChunkName: "About" */ '../views/AboutView.vue'),
   },
   {
     path: '/add',
     name: 'AddBeneficiaryView',
     beforeEnter: guardRoutes,
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/AddBeneficiaryView.vue'),
+      import(
+        /* webpackChunkName: "AddBeneficiaries" */ '../views/AddBeneficiaryView.vue'
+      ),
   },
   {
     path: '/login',
     name: 'LoginView',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/LoginView.vue'),
+      import(/* webpackChunkName: "Login" */ '../views/LoginView.vue'),
   },
   {
     path: '/unauthorized',
     name: 'UnauthorizedPageView',
     component: () =>
       import(
-        /* webpackChunkName: "about" */ '../views/UnauthorizedPageView.vue'
+        /* webpackChunkName: "Unatuhorized" */ '../views/UnauthorizedPageView.vue'
       ),
   },
   {
     path: '*',
     name: 'PageNotFound',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/PageNotFoundView.vue'),
+      import(
+        /* webpackChunkName: "PageNotFound" */ '../views/PageNotFoundView.vue'
+      ),
   },
 ]
 

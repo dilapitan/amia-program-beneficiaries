@@ -8,7 +8,7 @@
       app
     >
       <v-list :style="{ padding: 0 }" dense>
-        <v-list-item v-if="isLoggedIn" to="/">
+        <v-list-item v-if="isLoggedIn" to="/beneficiaries">
           <v-icon class="mr-2">mdi-account-group</v-icon>
           <v-list-item-content>
             <v-list-item-title>

@@ -6,12 +6,10 @@
       <template v-slot:[`item.actions`]="{ item }">
         <div class="d-flex align-baseline">
           <v-icon small class="mr-2"> mdi-eye </v-icon>
-          <v-icon v-if="isLoggedIn" small class="mr-2" @click="editItem(item)">
+          <v-icon small class="mr-2" @click="editItem(item)">
             mdi-pencil
           </v-icon>
-          <v-icon v-if="isLoggedIn" small @click="deleteItem(item)">
-            mdi-delete
-          </v-icon>
+          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
         </div>
       </template>
     </v-data-table>
@@ -1089,12 +1087,6 @@ export default {
 
   created() {
     this.initialize()
-  },
-
-  computed: {
-    isLoggedIn() {
-      return Boolean(this.$store.state.user)
-    },
   },
 
   methods: {

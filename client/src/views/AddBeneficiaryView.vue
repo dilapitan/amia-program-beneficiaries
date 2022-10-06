@@ -477,6 +477,8 @@ export default {
         // issuesOrConcernsOrProblemsInFarming,
       })
 
+      // TODO: Add to beneficiariesPerProvince
+
       this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
       this.loading = true
       setTimeout(() => {

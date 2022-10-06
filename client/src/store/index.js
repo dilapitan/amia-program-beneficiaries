@@ -15,6 +15,10 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Troy Bolton',
+        province: 'ALBAY',
+        cityOrMunicipality: 'Bacacay',
+        barangay: 'Brgy 1',
+        nameOfFarmer: 'Juan Magsasaka',
       },
       {
         surveyNo: 2,
@@ -22,6 +26,10 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Gabriella Montez',
+        province: 'ALBAY',
+        cityOrMunicipality: 'Bacacay',
+        barangay: 'Brgy 3',
+        nameOfFarmer: 'Sisa Magsasaka',
       },
       {
         surveyNo: 3,
@@ -29,6 +37,10 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Sharpay Evans',
+        province: 'CAMARINES NORTE',
+        cityOrMunicipality: 'Capalonga',
+        barangay: 'Brgy 1',
+        nameOfFarmer: 'Pedro Magsasaka',
       },
       {
         surveyNo: 4,
@@ -36,6 +48,10 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Ryan Evans',
+        province: 'CAMARINES SUR',
+        cityOrMunicipality: 'Bombon',
+        barangay: 'Brgy 2',
+        nameOfFarmer: 'Florantina Magsasaka',
       },
       {
         surveyNo: 5,
@@ -43,6 +59,10 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Chad Danforth',
+        province: 'CATANDUANES',
+        cityOrMunicipality: 'Masbate City',
+        barangay: 'Brgy 2',
+        nameOfFarmer: 'Berto Magsasaka',
       },
       {
         surveyNo: 6,
@@ -50,6 +70,83 @@ export default new Vuex.Store({
         interviewStart: new Date().toLocaleDateString(),
         interviewEnd: new Date().toLocaleDateString(),
         nameOfInterviewer: 'Taylor McKessie',
+        province: 'MASBATE',
+        cityOrMunicipality: 'Panganiban',
+        barangay: 'Brgy 5',
+        nameOfFarmer: 'Lusiang Magsasaka',
+      },
+    ],
+    beneficiariesPerProvince: [
+      {
+        province: 'ALBAY',
+        beneficiaries: [
+          {
+            count: 1,
+            province: 'ALBAY',
+            cityOrMunicipality: 'Bacacay',
+            barangay: 'Brgy 1',
+            nameOfFarmer: 'Juan Magsasaka',
+          },
+          {
+            count: 2,
+            province: 'ALBAY',
+            cityOrMunicipality: 'Bacacay',
+            barangay: 'Brgy 3',
+            nameOfFarmer: 'Sisa Magsasaka',
+          },
+        ],
+      },
+      {
+        province: 'CAMARINES NORTE',
+        beneficiaries: [
+          {
+            count: 1,
+            province: 'CAMARINES NORTE',
+            cityOrMunicipality: 'Capalonga',
+            barangay: 'Brgy 1',
+            nameOfFarmer: 'Pedro Magsasaka',
+          },
+        ],
+      },
+      {
+        province: 'CAMARINES SUR',
+        beneficiaries: [
+          {
+            count: 1,
+            province: 'CAMARINES SUR',
+            cityOrMunicipality: 'Bombon',
+            barangay: 'Brgy 2',
+            nameOfFarmer: 'Florantina Magsasaka',
+          },
+        ],
+      },
+      {
+        province: 'CATANDUANES',
+        beneficiaries: [
+          {
+            count: 1,
+            province: 'CATANDUANES',
+            cityOrMunicipality: 'Masbate City',
+            barangay: 'Brgy 2',
+            nameOfFarmer: 'Berto Magsasaka',
+          },
+        ],
+      },
+      {
+        province: 'MASBATE',
+        beneficiaries: [
+          {
+            count: 1,
+            province: 'MASBATE',
+            cityOrMunicipality: 'Panganiban',
+            barangay: 'Brgy 5',
+            nameOfFarmer: 'Lusiang Magsasaka',
+          },
+        ],
+      },
+      {
+        province: 'SORSOGON',
+        beneficiaries: [],
       },
     ],
 
@@ -100,7 +197,7 @@ export default new Vuex.Store({
       '3 - Not Important',
     ],
   },
-  getters: {},
+
   mutations: {
     [SET_LOGIN](state, credentials) {
       state.user = credentials

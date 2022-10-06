@@ -145,6 +145,19 @@ const REGION_5 = [
   },
 ]
 
+const PROVINCES_OF_REGION_5 = [
+  'ALBAY',
+  'CAMARINES NORTE',
+  'CAMARINES SUR',
+  'CATANDUANES',
+  'MASBATE',
+  'SORSOGON',
+]
+
 export const getRegion5 = () => {
   return REGION_5
+}
+
+export const getProvincesOfRegion5 = () => {
+  return PROVINCES_OF_REGION_5
 }

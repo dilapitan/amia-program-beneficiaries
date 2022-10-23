@@ -17,7 +17,7 @@
           </div>
         </v-card>
       </v-col>
-      <v-col cols="12" sm="3">Facebook Page</v-col>
+      <v-col cols="12" sm="3"></v-col>
     </v-row>
   </v-container>
 </template>

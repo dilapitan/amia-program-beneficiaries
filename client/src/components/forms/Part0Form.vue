@@ -83,6 +83,7 @@
             dense
             clearable
             v-model="interviewEnd"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </v-col>
@@ -99,6 +100,7 @@
             dense
             clearable
             v-model="nameOfInterviewer"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </v-col>

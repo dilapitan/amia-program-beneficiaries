@@ -10,9 +10,9 @@
           <v-text-field
             class="small-number-input"
             dense
-            clearable
             v-model="nextSurveyNo"
             readonly
+            disabled
           ></v-text-field>
         </div>
       </v-col>

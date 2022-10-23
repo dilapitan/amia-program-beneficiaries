@@ -40,6 +40,7 @@
                 readonly
                 v-bind="attrs"
                 v-on="on"
+                :rules="requiredRule"
               ></v-text-field>
             </template>
             <v-date-picker v-model="date" no-title scrollable>
@@ -66,6 +67,7 @@
             dense
             clearable
             v-model="interviewStart"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </v-col>
@@ -116,6 +118,8 @@ export default {
     // 0. General Info - UI variables
     dateMenu: false,
   }),
+
+  props: ['requiredRule'],
 
   computed: {
     nextSurveyNo() {

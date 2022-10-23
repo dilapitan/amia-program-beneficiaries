@@ -8,14 +8,14 @@
     <v-card class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 0 General -->
-        <Part0Form ref="part0Form" :requiredRule="requiredRule" />
+        <!-- <Part0Form ref="part0Form" :requiredRule="requiredRule" /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 1 Farmer's Basic Information -->
-        <!-- <Part1Form ref="part1Form" /> -->
+        <Part1Form ref="part1Form" :requiredRule="requiredRule" />
 
         <br />
         <v-divider></v-divider>
@@ -87,8 +87,8 @@
 </template>
 
 <script>
-import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
+// import Part0Form from '@/components/forms/Part0Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
@@ -101,8 +101,8 @@ export default {
   name: 'AddBeneficiaryView',
 
   components: {
-    Part0Form,
-    // Part1Form,
+    // Part0Form,
+    Part1Form,
     // Part2Form,
     // Part3Form,
     // Part4Form,
@@ -126,44 +126,54 @@ export default {
 
   methods: {
     addBeneficiary() {
-      // const part1FormData = this.getPart1FormData()
-      // const part2FormData = this.getPart2FormData()
-      // const part3FormData = this.getPart3FormData()
-      // const part4FormData = this.getPart4FormData()
-      // const part5FormData = this.getPart5FormData()
-      // const part6FormData = this.getPart6FormData()
-      // const part7FormData = this.getPart7FormData()
-      // const part8FormData = this.getPart8FormData()
-
       // This is for adding the validation
       const valid = this.$refs.form.validate()
 
       if (valid) {
         console.log('valid')
-        const part0FormData = this.getPart0FormData()
-        console.log('part0FormData:', part0FormData)
+        // const part0FormData = this.getPart0FormData()
+        const part1FormData = this.getPart1FormData()
+        // const part2FormData = this.getPart2FormData()
+        // const part3FormData = this.getPart3FormData()
+        // const part4FormData = this.getPart4FormData()
+        // const part5FormData = this.getPart5FormData()
+        // const part6FormData = this.getPart6FormData()
+        // const part7FormData = this.getPart7FormData()
+        // const part8FormData = this.getPart8FormData()
+
+        console.log('part1FormData:', part1FormData)
 
         // Part 0
-        const { date, interviewStart, interviewEnd, nameOfInterviewer } =
-          part0FormData
+        // const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+        //   part0FormData
+
+        // Part 1
+        const {
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        } = part1FormData
 
         const newBeneficiaries = [...this.beneficiaries]
 
         newBeneficiaries.push({
           // // Part 0
-          surveyNo: this.beneficiaries.length + 1,
-          date,
-          interviewStart,
-          interviewEnd,
-          nameOfInterviewer,
+          // surveyNo: this.beneficiaries.length + 1,
+          // date,
+          // interviewStart,
+          // interviewEnd,
+          // nameOfInterviewer,
           //
           // // Part 1
-          // province,
-          // cityOrMunicipality,
-          // barangay,
-          // nameOfFarmer,
-          // contactNo,
-          // farmersCodeNo,
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
           //
           // Part 2
           // age,
@@ -331,16 +341,6 @@ export default {
         return
       }
 
-      // Part 1
-      // const {
-      //   province,
-      //   cityOrMunicipality,
-      //   barangay,
-      //   nameOfFarmer,
-      //   contactNo,
-      //   farmersCodeNo,
-      // } = part1FormData
-
       // Part 2
       // const {
       //   age,
@@ -499,15 +499,15 @@ export default {
       // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
     },
 
-    getPart0FormData() {
-      const part0FormData = this.$refs.part0Form.passForm0Data()
-      return part0FormData
-    },
-
-    // getPart1FormData() {
-    //   const part1FormData = this.$refs.part1Form.passForm1Data()
-    //   return part1FormData
+    // getPart0FormData() {
+    //   const part0FormData = this.$refs.part0Form.passForm0Data()
+    //   return part0FormData
     // },
+
+    getPart1FormData() {
+      const part1FormData = this.$refs.part1Form.passForm1Data()
+      return part1FormData
+    },
 
     // getPart2FormData() {
     //   const part2FormData = this.$refs.part2Form.passForm2Data()

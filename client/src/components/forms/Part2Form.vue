@@ -14,6 +14,7 @@
             dense
             clearable
             v-model="age"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </div>
@@ -26,6 +27,7 @@
             class="middle-length-select"
             :items="genderOptions"
             label="Select option"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -38,6 +40,7 @@
             class="middle-length-select"
             :items="civilStatusOptions"
             label="Select option"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -45,7 +48,12 @@
         <div class="mr-2 text-body-2">(2.4) Religion:</div>
 
         <div>
-          <v-text-field dense clearable v-model="religion"></v-text-field>
+          <v-text-field
+            dense
+            clearable
+            v-model="religion"
+            :rules="requiredRule"
+          ></v-text-field>
         </div>
       </div>
       <div class="d-flex align-baseline" cols="12" sm="12" md="6">
@@ -58,6 +66,7 @@
             :items="belongingToOptions"
             label="Select option"
             v-model="belongingTo"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -74,6 +83,7 @@
               clearable
               v-model="belongingToSpecify"
               label="Please specify"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -484,6 +494,8 @@ export default {
       '> 60,000',
     ],
   }),
+
+  props: ['requiredRule'],
 
   methods: {
     addHouseholdMember() {

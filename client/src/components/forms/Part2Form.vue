@@ -109,6 +109,7 @@
                 clearable
                 v-model="householdMember.name"
                 label="Name"
+                :rules="requiredRule"
               ></v-text-field
             ></v-col>
             <v-col cols="12" sm="2">
@@ -118,6 +119,7 @@
                 clearable
                 v-model="householdMember.age"
                 label="Age"
+                :rules="requiredRule"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="2">
@@ -127,6 +129,7 @@
                 clearable
                 v-model="householdMember.gender"
                 label="Gender"
+                :rules="requiredRule"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="3">
@@ -136,6 +139,7 @@
                 clearable
                 v-model="householdMember.relationToTheRespondent"
                 label="Relation to Respondent"
+                :rules="requiredRule"
               ></v-text-field>
             </v-col>
             <v-col v-if="index !== 0" cols="12" sm="1">
@@ -177,6 +181,7 @@
             dense
             clearable
             v-model="yearsOfFarmingExperience"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </div>
@@ -191,6 +196,7 @@
             :items="highestEducationalAttainmentOptions"
             label="Select option"
             v-model="highestEducationalAttainment"
+            :rules="requiredRule"
           ></v-select>
         </v-col>
       </v-row>
@@ -207,6 +213,7 @@
               clearable
               v-model="highestEducationalAttainmentSpecify"
               label="Please specify"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -220,6 +227,7 @@
             dense
             clearable
             v-model="languagesOrDialectsSpoken"
+            :rules="requiredRule"
           ></v-text-field>
         </div>
       </div>
@@ -234,6 +242,7 @@
             :items="mainSourceOfIncomeOptions"
             label="Select option"
             v-model="mainSourceOfIncome"
+            :rules="requiredRule"
           ></v-select>
         </v-col>
       </v-row>
@@ -253,6 +262,7 @@
               dense
               clearable
               v-model="mainSourceOfIncomeSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </div>
@@ -265,7 +275,7 @@
         </v-col>
       </v-row>
 
-      <div>
+      <div :class="{ 'multiple-checkbox-error': !validArrayOfCheckboxes }">
         <div
           :class="{ 'ml-3': $vuetify.breakpoint.smAndUp }"
           v-for="(otherSource, index) in otherSourcesOfIncomeOptions"
@@ -284,6 +294,7 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeRegularJobSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
             <v-text-field
@@ -292,6 +303,7 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeOwnBusinessSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
             <v-text-field
@@ -300,11 +312,15 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeOthersSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </div>
         </div>
       </div>
+      <p v-if="!validArrayOfCheckboxes" class="red--text text--darken-4">
+        At least one is required to be selected.
+      </p>
 
       <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
         <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
@@ -495,7 +511,7 @@ export default {
     ],
   }),
 
-  props: ['requiredRule'],
+  props: ['requiredRule', 'validArrayOfCheckboxes'],
 
   methods: {
     addHouseholdMember() {
@@ -630,6 +646,12 @@ export default {
     },
   },
   watch: {
+    otherSourcesOfIncome() {
+      if (this.otherSourcesOfIncome.length > 0) {
+        this.$emit('validArrayOfCheckboxesTrue')
+      }
+    },
+
     highestEducationalAttainment() {
       if (this.highestEducationalAttainment !== 'Others') {
         this.highestEducationalAttainmentSpecify = null
@@ -654,3 +676,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.multiple-checkbox-error {
+  border: 1px solid #b71c1c;
+}
+</style>

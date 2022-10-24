@@ -22,7 +22,12 @@
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <Part2Form ref="part2Form" :requiredRule="requiredRule" />
+        <Part2Form
+          ref="part2Form"
+          :requiredRule="requiredRule"
+          :validArrayOfCheckboxes="validArrayOfCheckboxes"
+          @validArrayOfCheckboxesTrue="validArrayOfCheckboxes = true"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -116,6 +121,10 @@ export default {
     valid: true,
     loading: false,
     requiredRule: [(v) => !!v || 'Required'],
+    requiredAtLeastSelected: (v) => {
+      return !!v || 'Required'
+    },
+    validArrayOfCheckboxes: true,
   }),
 
   computed: {
@@ -128,20 +137,30 @@ export default {
     addBeneficiary() {
       // This is for adding the validation
       const valid = this.$refs.form.validate()
+      // const part0FormData = this.getPart0FormData()
+      // const part1FormData = this.getPart1FormData()
+      const part2FormData = this.getPart2FormData()
+      // const part3FormData = this.getPart3FormData()
+      // const part4FormData = this.getPart4FormData()
+      // const part5FormData = this.getPart5FormData()
+      // const part6FormData = this.getPart6FormData()
+      // const part7FormData = this.getPart7FormData()
+      // const part8FormData = this.getPart8FormData()
 
+      console.log('part2FormData:', part2FormData)
+
+      // This is for validating multiple checkboxes and at least one is required.
+      if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
+        /**
+         * This acts like a flag that is passed in the Child component
+         * to display the validation UI/error.
+         */
+        this.validArrayOfCheckboxes = false
+      }
+
+      //if (valid && this.validArrayOfCheckboxes) {
       if (valid) {
         console.log('valid')
-        // const part0FormData = this.getPart0FormData()
-        // const part1FormData = this.getPart1FormData()
-        const part2FormData = this.getPart2FormData()
-        // const part3FormData = this.getPart3FormData()
-        // const part4FormData = this.getPart4FormData()
-        // const part5FormData = this.getPart5FormData()
-        // const part6FormData = this.getPart6FormData()
-        // const part7FormData = this.getPart7FormData()
-        // const part8FormData = this.getPart8FormData()
-
-        console.log('part2FormData:', part2FormData)
 
         // Part 0
         // const { date, interviewStart, interviewEnd, nameOfInterviewer } =
@@ -543,6 +562,8 @@ export default {
     //   const part8FormData = this.$refs.part8Form.passForm8Data()
     //   return part8FormData
     // },
+
+    // isValidCheckboxes() {},
   },
 
   watch: {},

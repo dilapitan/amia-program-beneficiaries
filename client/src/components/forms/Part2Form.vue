@@ -332,6 +332,7 @@
             :items="averageGrossMonthlyIncomeOfHouseholdOptions"
             label="Select option"
             v-model="averageGrossMonthlyIncomeOfHousehold"
+            :rules="requiredRule"
           ></v-select>
         </v-col>
       </v-row>
@@ -346,6 +347,7 @@
             :items="averageGrossMonthlyFarmIncomeOptions"
             label="Select option"
             v-model="averageGrossMonthlyFarmIncome"
+            :rules="requiredRule"
           ></v-select>
         </v-col>
       </v-row>

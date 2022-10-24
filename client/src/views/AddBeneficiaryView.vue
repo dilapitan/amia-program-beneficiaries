@@ -150,13 +150,13 @@ export default {
       console.log('part2FormData:', part2FormData)
 
       // This is for validating multiple checkboxes and at least one is required.
-      if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
-        /**
-         * This acts like a flag that is passed in the Child component
-         * to display the validation UI/error.
-         */
-        this.validArrayOfCheckboxes = false
-      }
+      // if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
+      //   /**
+      //    * This acts like a flag that is passed in the Child component
+      //    * to display the validation UI/error.
+      //    */
+      //   this.validArrayOfCheckboxes = false
+      // }
 
       //if (valid && this.validArrayOfCheckboxes) {
       if (valid) {

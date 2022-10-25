@@ -34,18 +34,22 @@
         <br />
 
         <!-- 3 Farm Description -->
-        <Part3Form
+        <!-- <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 4 Farm Activities -->
-        <!-- <Part4Form ref="part4Form" /> -->
+        <Part4Form
+          ref="part4Form"
+          :requiredRule="requiredRule"
+          :requiredRuleVComboBox="requiredRuleVComboBox"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -99,8 +103,8 @@
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
-import Part3Form from '@/components/forms/Part3Form.vue'
-// import Part4Form from '@/components/forms/Part4Form.vue'
+// import Part3Form from '@/components/forms/Part3Form.vue'
+import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
@@ -113,8 +117,8 @@ export default {
     // Part0Form,
     // Part1Form,
     // Part2Form,
-    Part3Form,
-    // Part4Form,
+    // Part3Form,
+    Part4Form,
     // Part5Form,
     // Part6Form,
     // Part7Form,
@@ -144,14 +148,14 @@ export default {
       // const part0FormData = this.getPart0FormData()
       // const part1FormData = this.getPart1FormData()
       // const part2FormData = this.getPart2FormData()
-      const part3FormData = this.getPart3FormData()
-      // const part4FormData = this.getPart4FormData()
+      // const part3FormData = this.getPart3FormData()
+      const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
       // const part7FormData = this.getPart7FormData()
       // const part8FormData = this.getPart8FormData()
 
-      console.log('part3FormData:', part3FormData)
+      console.log('part4FormData:', part4FormData)
 
       // This is for validating multiple checkboxes and at least one is required.
       // if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
@@ -200,22 +204,45 @@ export default {
         // } = part2FormData
 
         // Part 3
+        // const {
+        //   totalAreaOfAgriculturalLand,
+        //   totalAreaOfForestryLand,
+        //   totalCultivatedArea,
+        //   distanceFromHomeToFarm,
+        //   distanceFromLandToWaterSource,
+        //   distanceFromMarketNearestPavedRoad,
+        //   distanceFromMarketOrTradingPost,
+        //   irrigationSource,
+        //   monthsWithoutRain,
+        //   positionInTheLandscape,
+        //   locationOfFarm,
+        //   landTenure,
+        //   tenancy,
+        //   landHolding,
+        // } = part3FormData
+
+        // Part 4
         const {
-          totalAreaOfAgriculturalLand,
-          totalAreaOfForestryLand,
-          totalCultivatedArea,
-          distanceFromHomeToFarm,
-          distanceFromLandToWaterSource,
-          distanceFromMarketNearestPavedRoad,
-          distanceFromMarketOrTradingPost,
-          irrigationSource,
-          monthsWithoutRain,
-          positionInTheLandscape,
-          locationOfFarm,
-          landTenure,
-          tenancy,
-          landHolding,
-        } = part3FormData
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
+        } = part4FormData
 
         const newBeneficiaries = [...this.beneficiaries]
 
@@ -253,41 +280,41 @@ export default {
           // enrolledInRegistrySystemForBasicSectorsInAgriculture,
           //
           // Part 3
-          totalAreaOfAgriculturalLand,
-          totalAreaOfForestryLand,
-          totalCultivatedArea,
-          distanceFromHomeToFarm,
-          distanceFromLandToWaterSource,
-          distanceFromMarketNearestPavedRoad,
-          distanceFromMarketOrTradingPost,
-          irrigationSource,
-          monthsWithoutRain,
-          positionInTheLandscape,
-          locationOfFarm,
-          landTenure,
-          tenancy,
-          landHolding,
+          // totalAreaOfAgriculturalLand,
+          // totalAreaOfForestryLand,
+          // totalCultivatedArea,
+          // distanceFromHomeToFarm,
+          // distanceFromLandToWaterSource,
+          // distanceFromMarketNearestPavedRoad,
+          // distanceFromMarketOrTradingPost,
+          // irrigationSource,
+          // monthsWithoutRain,
+          // positionInTheLandscape,
+          // locationOfFarm,
+          // landTenure,
+          // tenancy,
+          // landHolding,
           //
           // Part 4
-          // agriculturalActivities,
-          // cropsProduced,
-          // landAreaDevotedForCropProduction,
-          // livestockRaisedOrProduced,
-          // landAreaDevotedForLivestockProduction,
-          // speciesGrownForAquaculture,
-          // landAreaDevotedForAquaculture,
-          // sourceOfWaterForAquaculture,
-          // croppingPattern,
-          // estimatedGrossIncomePerCroppingFirstCropping,
-          // estimatedGrossIncomePerCroppingSecondCropping,
-          // cropCalendarWetSeasonLandPreparation,
-          // cropCalendarWetSeasonPlanting,
-          // cropCalendarWetSeasonGrowing,
-          // cropCalendarWetSeasonHarvesting,
-          // cropCalendarDrySeasonLandPreparation,
-          // cropCalendarDrySeasonPlanting,
-          // cropCalendarDrySeasonGrowing,
-          // cropCalendarDrySeasonHarvesting,
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
           //
           // Part 5
           // attendedAgriculturalRelatedTrainings,
@@ -400,29 +427,6 @@ export default {
         console.log('Invalid')
         return
       }
-
-      // Part 4
-      // const {
-      //   agriculturalActivities,
-      //   cropsProduced,
-      //   landAreaDevotedForCropProduction,
-      //   livestockRaisedOrProduced,
-      //   landAreaDevotedForLivestockProduction,
-      //   speciesGrownForAquaculture,
-      //   landAreaDevotedForAquaculture,
-      //   sourceOfWaterForAquaculture,
-      //   croppingPattern,
-      //   estimatedGrossIncomePerCroppingFirstCropping,
-      //   estimatedGrossIncomePerCroppingSecondCropping,
-      //   cropCalendarWetSeasonLandPreparation,
-      //   cropCalendarWetSeasonPlanting,
-      //   cropCalendarWetSeasonGrowing,
-      //   cropCalendarWetSeasonHarvesting,
-      //   cropCalendarDrySeasonLandPreparation,
-      //   cropCalendarDrySeasonPlanting,
-      //   cropCalendarDrySeasonGrowing,
-      //   cropCalendarDrySeasonHarvesting,
-      // } = part4FormData
 
       // Part 5
       // const {
@@ -537,15 +541,15 @@ export default {
     //   return part2FormData
     // },
 
-    getPart3FormData() {
-      const part3FormData = this.$refs.part3Form.passForm3Data()
-      return part3FormData
-    },
-
-    // getPart4FormData() {
-    //   const part4FormData = this.$refs.part4Form.passForm4Data()
-    //   return part4FormData
+    // getPart3FormData() {
+    //   const part3FormData = this.$refs.part3Form.passForm3Data()
+    //   return part3FormData
     // },
+
+    getPart4FormData() {
+      const part4FormData = this.$refs.part4Form.passForm4Data()
+      return part4FormData
+    },
 
     // getPart5FormData() {
     //   const part5FormData = this.$refs.part5Form.passForm5Data()

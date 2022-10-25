@@ -17,6 +17,7 @@
               dense
               clearable
               v-model="totalAreaOfAgriculturalLand"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -32,6 +33,7 @@
               dense
               clearable
               v-model="totalAreaOfForestryLand"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -47,6 +49,7 @@
               dense
               clearable
               v-model="totalCultivatedArea"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -64,6 +67,7 @@
               dense
               clearable
               v-model="distanceFromHomeToFarm"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -79,6 +83,7 @@
               dense
               clearable
               v-model="distanceFromLandToWaterSource"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -97,6 +102,7 @@
               dense
               clearable
               v-model="distanceFromMarketNearestPavedRoad"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -114,6 +120,7 @@
               dense
               clearable
               v-model="distanceFromMarketOrTradingPost"
+              :rules="requiredRule"
             ></v-text-field>
           </div>
         </v-col>
@@ -127,6 +134,7 @@
             :items="irrigationSourceOptions"
             label="Select option"
             v-model="irrigationSource"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -142,6 +150,7 @@
               dense
               clearable
               v-model="irrigationSourceOthersSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </div>
@@ -154,6 +163,7 @@
         <div>
           <v-combobox
             v-model="monthsWithoutRain"
+            :rules="[requiredRuleVComboBox]"
             :items="months"
             label="Select options"
             multiple
@@ -170,6 +180,7 @@
             :items="positionInTheLandscapeOptions"
             label="Select option"
             v-model="positionInTheLandscape"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -182,6 +193,7 @@
             :items="locationOfFarmOptions"
             label="Select option"
             v-model="locationOfFarm"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -194,6 +206,7 @@
             :items="landTenureOptions"
             label="Select option"
             v-model="landTenure"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -206,6 +219,7 @@
             :items="tenancyOptions"
             label="Select option"
             v-model="tenancy"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -218,6 +232,7 @@
             :items="landHoldingOptions"
             label="Select option"
             v-model="landHolding"
+            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -274,6 +289,8 @@ export default {
       'Large, consolidated (>2 ha)',
     ],
   }),
+
+  props: ['requiredRule', 'requiredRuleVComboBox'],
 
   computed: {
     months() {

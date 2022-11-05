@@ -30,6 +30,7 @@
               dense
               clearable
               v-model="accessToAgricultureOrFisheriesRnDInstitutions"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -48,6 +49,7 @@
               dense
               clearable
               v-model="accessToCredit"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -66,6 +68,7 @@
               dense
               clearable
               v-model="laboratoryFacilities"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -84,6 +87,7 @@
               dense
               clearable
               v-model="educationAndHealthFacilities"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -108,6 +112,7 @@
               v-model="
                 farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
               "
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -124,6 +129,7 @@
             <v-combobox
               v-if="marketingSystemBool"
               v-model="marketingSystem"
+              :rules="[requiredRuleVComboBox]"
               :items="marketingSystemList"
               label="Select options"
               multiple
@@ -141,6 +147,7 @@
               dense
               clearable
               v-model="marketingSystemSpecify"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -159,6 +166,7 @@
               dense
               clearable
               v-model="presenceOfAgriculturalProcessingFacilities"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -177,6 +185,7 @@
               dense
               clearable
               v-model="irrigation"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -195,6 +204,7 @@
               dense
               clearable
               v-model="farmingEquipment"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -213,6 +223,7 @@
               dense
               clearable
               v-model="others"
+              :rules="requiredRule"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -262,6 +273,8 @@ export default {
     ],
     marketingSystemSpecify: null,
   }),
+
+  props: ['requiredRule', 'requiredRuleVComboBox'],
 
   methods: {
     passForm7Data() {

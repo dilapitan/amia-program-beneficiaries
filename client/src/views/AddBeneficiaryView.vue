@@ -67,18 +67,22 @@
         <br />
 
         <!-- 6 Farmer's Adaptation Practices -->
-        <Part6Form
+        <!-- <Part6Form
           ref="part6Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 7 Institutional Characteristics -->
-        <!-- <Part7Form ref="part7Form" /> -->
+        <Part7Form
+          ref="part7Form"
+          :requiredRule="requiredRule"
+          :requiredRuleVComboBox="requiredRuleVComboBox"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -114,8 +118,8 @@
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
-import Part6Form from '@/components/forms/Part6Form.vue'
-// import Part7Form from '@/components/forms/Part7Form.vue'
+// import Part6Form from '@/components/forms/Part6Form.vue'
+import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
 
 export default {
@@ -128,8 +132,8 @@ export default {
     // Part3Form,
     // Part4Form,
     // Part5Form,
-    Part6Form,
-    // Part7Form,
+    // Part6Form,
+    Part7Form,
     // Part8Form,
   },
 
@@ -159,11 +163,11 @@ export default {
       // const part3FormData = this.getPart3FormData()
       // const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
-      const part6FormData = this.getPart6FormData()
-      // const part7FormData = this.getPart7FormData()
+      // const part6FormData = this.getPart6FormData()
+      const part7FormData = this.getPart7FormData()
       // const part8FormData = this.getPart8FormData()
 
-      console.log('part6FormData:', part6FormData)
+      console.log('part7FormData:', part7FormData)
 
       // This is for validating multiple checkboxes and at least one is required.
       // if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
@@ -306,33 +310,46 @@ export default {
         //   driversOfChangeAndVulnerabilityOfOthers,
         // } = part5FormData
 
+        // const {
+        //   madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        //   changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        //   additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        //   receivedAnyExternalSupportForAdaptationMeasures,
+        //   formOfFinancialSupportReceived,
+        //   formOfMaterialSupportReceived,
+        //   formOfExtensionServicesSupportReceived,
+        //   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        //   formOfInfrastructureSupportReceived,
+        //   formOfOtherSupportReceived,
+        //   mostBeneficialSupportServices,
+        //   lowEducationLevelConstraint,
+        //   limitedAccessToInformationConstraint,
+        //   lackOfExtensionServicesConstraint,
+        //   craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        //   inadequateCapitalConstraint,
+        //   noAccessToWaterForIrrigationConstraint,
+        //   noAccessToCreditConstraintConstraint,
+        //   longerTimeRequiredToSeeResultsConstraint,
+        //   oldAgeConstraint,
+        //   landTenureOrLandOwnershipIssuesConstraint,
+        //   landTopographyNotSuitableConstraint,
+        //   laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        //   infertileSoilConstraint,
+        //   otherConstraint,
+        // } = part6FormData
+
         const {
-          madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
-          changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
-          additionalAdaptationMeasuresBeingConsideredInTheFuture,
-          receivedAnyExternalSupportForAdaptationMeasures,
-          formOfFinancialSupportReceived,
-          formOfMaterialSupportReceived,
-          formOfExtensionServicesSupportReceived,
-          farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
-          formOfInfrastructureSupportReceived,
-          formOfOtherSupportReceived,
-          mostBeneficialSupportServices,
-          lowEducationLevelConstraint,
-          limitedAccessToInformationConstraint,
-          lackOfExtensionServicesConstraint,
-          craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
-          inadequateCapitalConstraint,
-          noAccessToWaterForIrrigationConstraint,
-          noAccessToCreditConstraintConstraint,
-          longerTimeRequiredToSeeResultsConstraint,
-          oldAgeConstraint,
-          landTenureOrLandOwnershipIssuesConstraint,
-          landTopographyNotSuitableConstraint,
-          laborIntensiveOrNonAvailabilityOfLaborConstraint,
-          infertileSoilConstraint,
-          otherConstraint,
-        } = part6FormData
+          accessToAgricultureOrFisheriesRnDInstitutions,
+          accessToCredit,
+          laboratoryFacilities,
+          educationAndHealthFacilities,
+          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+          marketingSystem,
+          presenceOfAgriculturalProcessingFacilities,
+          irrigation,
+          farmingEquipment,
+          others,
+        } = part7FormData
 
         const newBeneficiaries = [...this.beneficiaries]
 
@@ -459,43 +476,43 @@ export default {
           // driversOfChangeAndVulnerabilityOfOthers,
           //
           // Part 6
-          madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
-          changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
-          additionalAdaptationMeasuresBeingConsideredInTheFuture,
-          receivedAnyExternalSupportForAdaptationMeasures,
-          formOfFinancialSupportReceived,
-          formOfMaterialSupportReceived,
-          formOfExtensionServicesSupportReceived,
-          farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
-          formOfInfrastructureSupportReceived,
-          formOfOtherSupportReceived,
-          mostBeneficialSupportServices,
-          lowEducationLevelConstraint,
-          limitedAccessToInformationConstraint,
-          lackOfExtensionServicesConstraint,
-          craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
-          inadequateCapitalConstraint,
-          noAccessToWaterForIrrigationConstraint,
-          noAccessToCreditConstraintConstraint,
-          longerTimeRequiredToSeeResultsConstraint,
-          oldAgeConstraint,
-          landTenureOrLandOwnershipIssuesConstraint,
-          landTopographyNotSuitableConstraint,
-          laborIntensiveOrNonAvailabilityOfLaborConstraint,
-          infertileSoilConstraint,
-          otherConstraint,
+          // madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+          // changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+          // additionalAdaptationMeasuresBeingConsideredInTheFuture,
+          // receivedAnyExternalSupportForAdaptationMeasures,
+          // formOfFinancialSupportReceived,
+          // formOfMaterialSupportReceived,
+          // formOfExtensionServicesSupportReceived,
+          // farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+          // formOfInfrastructureSupportReceived,
+          // formOfOtherSupportReceived,
+          // mostBeneficialSupportServices,
+          // lowEducationLevelConstraint,
+          // limitedAccessToInformationConstraint,
+          // lackOfExtensionServicesConstraint,
+          // craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+          // inadequateCapitalConstraint,
+          // noAccessToWaterForIrrigationConstraint,
+          // noAccessToCreditConstraintConstraint,
+          // longerTimeRequiredToSeeResultsConstraint,
+          // oldAgeConstraint,
+          // landTenureOrLandOwnershipIssuesConstraint,
+          // landTopographyNotSuitableConstraint,
+          // laborIntensiveOrNonAvailabilityOfLaborConstraint,
+          // infertileSoilConstraint,
+          // otherConstraint,
           //
           // Part 7
-          // accessToAgricultureOrFisheriesRnDInstitutions,
-          // accessToCredit,
-          // laboratoryFacilities,
-          // educationAndHealthFacilities,
-          // farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-          // marketingSystem,
-          // presenceOfAgriculturalProcessingFacilities,
-          // irrigation,
-          // farmingEquipment,
-          // others,
+          accessToAgricultureOrFisheriesRnDInstitutions,
+          accessToCredit,
+          laboratoryFacilities,
+          educationAndHealthFacilities,
+          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+          marketingSystem,
+          presenceOfAgriculturalProcessingFacilities,
+          irrigation,
+          farmingEquipment,
+          others,
           //
           // Part 8
           // issuesOrConcernsOrProblemsInFarming,
@@ -517,19 +534,6 @@ export default {
         console.log('Invalid')
         return
       }
-
-      // const {
-      //   accessToAgricultureOrFisheriesRnDInstitutions,
-      //   accessToCredit,
-      //   laboratoryFacilities,
-      //   educationAndHealthFacilities,
-      //   farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-      //   marketingSystem,
-      //   presenceOfAgriculturalProcessingFacilities,
-      //   irrigation,
-      //   farmingEquipment,
-      //   others,
-      // } = part7FormData
 
       // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
     },
@@ -564,15 +568,15 @@ export default {
     //   return part5FormData
     // },
 
-    getPart6FormData() {
-      const part6FormData = this.$refs.part6Form.passForm6Data()
-      return part6FormData
-    },
-
-    // getPart7FormData() {
-    //   const part7FormData = this.$refs.part7Form.passForm7Data()
-    //   return part7FormData
+    // getPart6FormData() {
+    //   const part6FormData = this.$refs.part6Form.passForm6Data()
+    //   return part6FormData
     // },
+
+    getPart7FormData() {
+      const part7FormData = this.$refs.part7Form.passForm7Data()
+      return part7FormData
+    },
 
     // getPart8FormData() {
     //   const part8FormData = this.$refs.part8Form.passForm8Data()

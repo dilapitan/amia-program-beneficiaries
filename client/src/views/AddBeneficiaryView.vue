@@ -78,18 +78,22 @@
         <br />
 
         <!-- 7 Institutional Characteristics -->
-        <Part7Form
+        <!-- <Part7Form
           ref="part7Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 8 Issues/Concerns/Problems in Farming -->
-        <!-- <Part8Form ref="part8Form" /> -->
+        <Part8Form
+          ref="part8Form"
+          :requiredRule="requiredRule"
+          :requiredRuleVComboBox="requiredRuleVComboBox"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -119,8 +123,8 @@
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
-import Part7Form from '@/components/forms/Part7Form.vue'
-// import Part8Form from '@/components/forms/Part8Form.vue'
+// import Part7Form from '@/components/forms/Part7Form.vue'
+import Part8Form from '@/components/forms/Part8Form.vue'
 
 export default {
   name: 'AddBeneficiaryView',
@@ -133,8 +137,8 @@ export default {
     // Part4Form,
     // Part5Form,
     // Part6Form,
-    Part7Form,
-    // Part8Form,
+    // Part7Form,
+    Part8Form,
   },
 
   data: () => ({
@@ -164,10 +168,10 @@ export default {
       // const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
-      const part7FormData = this.getPart7FormData()
-      // const part8FormData = this.getPart8FormData()
+      // const part7FormData = this.getPart7FormData()
+      const part8FormData = this.getPart8FormData()
 
-      console.log('part7FormData:', part7FormData)
+      console.log('part8FormData:', part8FormData)
 
       // This is for validating multiple checkboxes and at least one is required.
       // if (this.isValidCheckboxes(!part2FormData.otherSourcesOfIncome.length)) {
@@ -338,18 +342,20 @@ export default {
         //   otherConstraint,
         // } = part6FormData
 
-        const {
-          accessToAgricultureOrFisheriesRnDInstitutions,
-          accessToCredit,
-          laboratoryFacilities,
-          educationAndHealthFacilities,
-          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-          marketingSystem,
-          presenceOfAgriculturalProcessingFacilities,
-          irrigation,
-          farmingEquipment,
-          others,
-        } = part7FormData
+        // const {
+        //   accessToAgricultureOrFisheriesRnDInstitutions,
+        //   accessToCredit,
+        //   laboratoryFacilities,
+        //   educationAndHealthFacilities,
+        //   farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        //   marketingSystem,
+        //   presenceOfAgriculturalProcessingFacilities,
+        //   irrigation,
+        //   farmingEquipment,
+        //   others,
+        // } = part7FormData
+
+        const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiaries = [...this.beneficiaries]
 
@@ -503,19 +509,19 @@ export default {
           // otherConstraint,
           //
           // Part 7
-          accessToAgricultureOrFisheriesRnDInstitutions,
-          accessToCredit,
-          laboratoryFacilities,
-          educationAndHealthFacilities,
-          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-          marketingSystem,
-          presenceOfAgriculturalProcessingFacilities,
-          irrigation,
-          farmingEquipment,
-          others,
+          // accessToAgricultureOrFisheriesRnDInstitutions,
+          // accessToCredit,
+          // laboratoryFacilities,
+          // educationAndHealthFacilities,
+          // farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+          // marketingSystem,
+          // presenceOfAgriculturalProcessingFacilities,
+          // irrigation,
+          // farmingEquipment,
+          // others,
           //
           // Part 8
-          // issuesOrConcernsOrProblemsInFarming,
+          issuesOrConcernsOrProblemsInFarming,
         })
 
         // TODO: Add to beneficiariesPerProvince
@@ -534,8 +540,6 @@ export default {
         console.log('Invalid')
         return
       }
-
-      // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
     },
 
     // getPart0FormData() {
@@ -573,15 +577,15 @@ export default {
     //   return part6FormData
     // },
 
-    getPart7FormData() {
-      const part7FormData = this.$refs.part7Form.passForm7Data()
-      return part7FormData
-    },
-
-    // getPart8FormData() {
-    //   const part8FormData = this.$refs.part8Form.passForm8Data()
-    //   return part8FormData
+    // getPart7FormData() {
+    //   const part7FormData = this.$refs.part7Form.passForm7Data()
+    //   return part7FormData
     // },
+
+    getPart8FormData() {
+      const part8FormData = this.$refs.part8Form.passForm8Data()
+      return part8FormData
+    },
 
     // isValidCheckboxes() {},
   },

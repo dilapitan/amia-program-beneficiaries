@@ -15,6 +15,7 @@
         <v-col cols="12" sm="10">
           <v-combobox
             v-model="issuesOrConcernsOrProblemsInFarming"
+            :rules="[requiredRuleVComboBox]"
             :items="issuesOrConcernsOrProblemsInFarmingList"
             label="Select options"
             multiple
@@ -43,6 +44,7 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify
               "
+              :rules="requiredRule"
               label="Please specify crops"
             ></v-text-field>
           </v-col>
@@ -62,6 +64,7 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify
               "
+              :rules="requiredRule"
               label="Please specify livestock"
             ></v-text-field>
           </v-col>
@@ -81,6 +84,7 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify
               "
+              :rules="requiredRule"
               label="Please specify season"
             ></v-select>
           </v-col>
@@ -92,6 +96,7 @@
               dense
               clearable
               v-model="issuesOrConcernsOrProblemsInFarmingOthersSpecify"
+              :rules="requiredRule"
               label="Please specify the other issue(s)"
             ></v-text-field>
           </v-col>
@@ -162,6 +167,8 @@ export default {
     issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify: null,
     issuesOrConcernsOrProblemsInFarmingOthersSpecify: null,
   }),
+
+  props: ['requiredRule', 'requiredRuleVComboBox'],
 
   computed: {
     seasonList() {

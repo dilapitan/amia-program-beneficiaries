@@ -266,6 +266,7 @@
                   dense
                   clearable
                   v-model="item.mostBeneficialSupportService"
+                  :rules="requiredRule"
                   label="Support services considered as most beneficial"
                 ></v-text-field
               ></v-col>
@@ -275,6 +276,7 @@
                   dense
                   clearable
                   v-model="item.reasonWhyMostBeneficialSupportService"
+                  :rules="requiredRule"
                   label="Reasons why support service is beneficial"
                 ></v-text-field
               ></v-col>
@@ -336,6 +338,7 @@
               v-if="lowEducationLevelConstraintBool"
               dense
               v-model="lowEducationLevelConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -354,6 +357,7 @@
               v-if="limitedAccessToInformationConstraintBool"
               dense
               v-model="limitedAccessToInformationConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -372,6 +376,7 @@
               v-if="lackOfExtensionServicesConstraintBool"
               dense
               v-model="lackOfExtensionServicesConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -396,6 +401,7 @@
               v-model="
                 craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
               "
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -414,6 +420,7 @@
               v-if="inadequateCapitalConstraintBool"
               dense
               v-model="inadequateCapitalConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -432,6 +439,7 @@
               v-if="noAccessToWaterForIrrigationConstraintBool"
               dense
               v-model="noAccessToWaterForIrrigationConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -450,6 +458,7 @@
               v-if="noAccessToCreditConstraintConstraintBool"
               dense
               v-model="noAccessToCreditConstraintConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -468,6 +477,7 @@
               v-if="longerTimeRequiredToSeeResultsConstraintBool"
               dense
               v-model="longerTimeRequiredToSeeResultsConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -486,6 +496,7 @@
               v-if="oldAgeConstraintBool"
               dense
               v-model="oldAgeConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -504,6 +515,7 @@
               v-if="landTenureOrLandOwnershipIssuesConstraintBool"
               dense
               v-model="landTenureOrLandOwnershipIssuesConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -522,6 +534,7 @@
               v-if="landTopographyNotSuitableConstraintBool"
               dense
               v-model="landTopographyNotSuitableConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -540,6 +553,7 @@
               v-if="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
               dense
               v-model="laborIntensiveOrNonAvailabilityOfLaborConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -558,6 +572,7 @@
               v-if="infertileSoilConstraintBool"
               dense
               v-model="infertileSoilConstraint"
+              :rules="requiredRule"
               label="Rate"
             ></v-select>
           </v-col>
@@ -583,6 +598,7 @@
                     dense
                     clearable
                     v-model="item.mainConstraintsOrDifficulties"
+                    :rules="requiredRule"
                     label="Main Constraint/Difficulties"
                   ></v-text-field
                 ></v-col>
@@ -591,6 +607,7 @@
                     :items="threePointScale"
                     dense
                     v-model="item.rate"
+                    :rules="requiredRule"
                     label="Rate"
                   ></v-select>
                 </v-col>

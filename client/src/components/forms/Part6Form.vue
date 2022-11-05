@@ -39,6 +39,7 @@
             :items="
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallList
             "
+            :rules="[requiredRuleVComboBox]"
             label="Select options"
             multiple
             dense
@@ -59,6 +60,7 @@
             v-model="
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify
             "
+            :rules="requiredRule"
             label="Please specify"
           ></v-text-field>
         </v-col>
@@ -76,6 +78,7 @@
             filled
             clearable
             v-model="additionalAdaptationMeasuresBeingConsideredInTheFuture"
+            :rules="requiredRule"
           ></v-textarea>
         </v-col>
       </v-row>
@@ -127,6 +130,7 @@
               <v-text-field
                 v-if="formOfFinancialSupportReceivedBool"
                 v-model="formOfFinancialSupportReceived"
+                :rules="requiredRule"
                 dense
                 label="Please specify"
                 clearable
@@ -145,6 +149,7 @@
               <v-text-field
                 v-if="formOfMaterialSupportReceivedBool"
                 v-model="formOfMaterialSupportReceived"
+                :rules="requiredRule"
                 dense
                 clearable
                 label="Please specify"
@@ -163,6 +168,7 @@
               <v-text-field
                 v-if="formOfExtensionServicesSupportReceivedBool"
                 v-model="formOfExtensionServicesSupportReceived"
+                :rules="requiredRule"
                 dense
                 clearable
                 label="Please specify"
@@ -187,6 +193,7 @@
                 v-model="
                   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
                 "
+                :rules="requiredRule"
                 dense
                 clearable
                 label="Please specify"
@@ -205,6 +212,7 @@
               <v-text-field
                 v-if="formOfInfrastructureSupportReceivedBool"
                 v-model="formOfInfrastructureSupportReceived"
+                :rules="requiredRule"
                 dense
                 clearable
                 label="Please specify"
@@ -223,6 +231,7 @@
               <v-text-field
                 v-if="formOfOtherSupportReceivedBool"
                 v-model="formOfOtherSupportReceived"
+                :rules="requiredRule"
                 dense
                 clearable
                 label="Please specify"
@@ -738,6 +747,8 @@ export default {
       },
     ],
   }),
+
+  props: ['requiredRule', 'requiredRuleVComboBox'],
 
   computed: {
     threePointScale() {

@@ -109,7 +109,7 @@ export default {
         width: '200px',
         align: 'center',
       },
-      /*
+
       // 2. Socio-Demographic Information
       {
         text: '(2.1) Age',
@@ -1080,7 +1080,7 @@ export default {
         value: 'issuesOrConcernsOrProblemsInFarming',
         width: '150px',
         align: 'center',
-      }, */
+      },
     ],
     beneficiaries: [],
   }),

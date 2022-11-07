@@ -15,18 +15,18 @@
         <br />
 
         <!-- 1 Farmer's Basic Information -->
-        <!-- <Part1Form ref="part1Form" :requiredRule="requiredRule" /> -->
+        <Part1Form ref="part1Form" :requiredRule="requiredRule" />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <Part2Form
+        <!-- <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
@@ -116,8 +116,8 @@
 
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
-import Part2Form from '@/components/forms/Part2Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
+// import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
@@ -130,8 +130,8 @@ export default {
 
   components: {
     // Part0Form,
-    // Part1Form,
-    Part2Form,
+    Part1Form,
+    // Part2Form,
     // Part3Form,
     // Part4Form,
     // Part5Form,
@@ -161,8 +161,8 @@ export default {
       // This is for adding the validation
       const valid = this.$refs.form.validate()
       // const part0FormData = this.getPart0FormData()
-      // const part1FormData = this.getPart1FormData()
-      const part2FormData = this.getPart2FormData()
+      const part1FormData = this.getPart1FormData()
+      // const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
       // const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
@@ -180,33 +180,33 @@ export default {
         //   part0FormData
 
         // Part 1
-        // const {
-        //   province,
-        //   cityOrMunicipality,
-        //   barangay,
-        //   nameOfFarmer,
-        //   contactNo,
-        //   farmersCodeNo,
-        // } = part1FormData
+        const {
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        } = part1FormData
 
         // Part 2
-        const {
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
-        } = part2FormData
+        // const {
+        //   age,
+        //   gender,
+        //   civilStatus,
+        //   religion,
+        //   belongingTo,
+        //   householdMembers,
+        //   yearsOfFarmingExperience,
+        //   highestEducationalAttainment,
+        //   languagesOrDialectsSpoken,
+        //   mainSourceOfIncome,
+        //   otherSourcesOfIncome,
+        //   averageGrossMonthlyIncomeOfHousehold,
+        //   averageGrossMonthlyFarmIncome,
+        //   membershipInAFarmerGroupOrAssociationOrOrganization,
+        //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        // } = part2FormData
 
         // Part 3
         // const {
@@ -347,39 +347,38 @@ export default {
         // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiaries = [...this.beneficiaries]
-
-        newBeneficiaries.push({
-          // // Part 0
+        const newBeneficiary = {
+          // Part 0
           // surveyNo: this.beneficiaries.length + 1,
           // date,
           // interviewStart,
           // interviewEnd,
           // nameOfInterviewer,
-          //
-          // // Part 1
-          // province,
-          // cityOrMunicipality,
-          // barangay,
-          // nameOfFarmer,
-          // contactNo,
-          // farmersCodeNo,
-          //
+
+          // Part 1
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+
           // Part 2
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          // age,
+          // gender,
+          // civilStatus,
+          // religion,
+          // belongingTo,
+          // householdMembers,
+          // yearsOfFarmingExperience,
+          // highestEducationalAttainment,
+          // languagesOrDialectsSpoken,
+          // mainSourceOfIncome,
+          // otherSourcesOfIncome,
+          // averageGrossMonthlyIncomeOfHousehold,
+          // averageGrossMonthlyFarmIncome,
+          // membershipInAFarmerGroupOrAssociationOrOrganization,
+          // enrolledInRegistrySystemForBasicSectorsInAgriculture,
           //
           // Part 3
           // totalAreaOfAgriculturalLand,
@@ -511,16 +510,16 @@ export default {
           //
           // Part 8
           // issuesOrConcernsOrProblemsInFarming,
-        })
+        }
 
-        // TODO: Add to beneficiariesPerProvince
+        newBeneficiaries.push(newBeneficiary)
 
         // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        // this.$store.dispatch('setBeneficiaryPerProvinceAction', newBeneficiary)
         // this.loading = true
         // setTimeout(() => {
-        //   this.$router.push('/')
+        //   this.$router.push('/beneficiaries')
         // }, 500)
-        // }
 
         // API Services
         // this.loading = true
@@ -536,15 +535,15 @@ export default {
     //   return part0FormData
     // },
 
-    // getPart1FormData() {
-    //   const part1FormData = this.$refs.part1Form.passForm1Data()
-    //   return part1FormData
-    // },
-
-    getPart2FormData() {
-      const part2FormData = this.$refs.part2Form.passForm2Data()
-      return part2FormData
+    getPart1FormData() {
+      const part1FormData = this.$refs.part1Form.passForm1Data()
+      return part1FormData
     },
+
+    // getPart2FormData() {
+    //   const part2FormData = this.$refs.part2Form.passForm2Data()
+    //   return part2FormData
+    // },
 
     // getPart3FormData() {
     //   const part3FormData = this.$refs.part3Form.passForm3Data()

@@ -3,7 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-import { SET_LOGIN, SET_BENEFICIARIES } from './mutation-types'
+import {
+  SET_LOGIN,
+  SET_BENEFICIARIES,
+  SET_BENEFICIARY_PER_PROVINCE,
+} from './mutation-types'
 
 export default new Vuex.Store({
   state: {
@@ -206,10 +210,26 @@ export default new Vuex.Store({
     [SET_BENEFICIARIES](state, beneficiaries) {
       state.beneficiaries = beneficiaries
     },
+
+    [SET_BENEFICIARY_PER_PROVINCE](state, beneficiaryPerProvince) {
+      const beneficiariesPerProvince = state.beneficiariesPerProvince
+
+      beneficiariesPerProvince.filter((_beneficiaryPerProvince) => {
+        if (
+          _beneficiaryPerProvince.province === beneficiaryPerProvince.province
+        ) {
+          _beneficiaryPerProvince.beneficiaries.push(beneficiaryPerProvince)
+        }
+      })
+    },
   },
   actions: {
     setBeneficiariesAction({ commit }, payload) {
       commit('SET_BENEFICIARIES', payload)
+    },
+
+    setBeneficiaryPerProvinceAction({ commit }, payload) {
+      commit('SET_BENEFICIARY_PER_PROVINCE', payload)
     },
 
     setLoginAction({ commit }, payload) {

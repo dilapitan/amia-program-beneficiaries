@@ -273,54 +273,61 @@
         <v-col cols="12" sm="4" md="2" class="mr-2 text-body-2">
           (2.11) Other Sources of Income:
         </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-combobox
+            v-model="otherSourcesOfIncome"
+            :rules="[requiredRuleVComboBox]"
+            :items="otherSourcesOfIncomeList"
+            label="Select options"
+            multiple
+            dense
+          ></v-combobox>
+        </v-col>
       </v-row>
 
-      <div :class="{ 'multiple-checkbox-error': !validArrayOfCheckboxes }">
-        <div
-          :class="{ 'ml-3': $vuetify.breakpoint.smAndUp }"
-          v-for="(otherSource, index) in otherSourcesOfIncomeOptions"
-          :key="index"
-        >
-          <div class="d-flex">
-            <v-checkbox
-              class="mr-2 ma-0 pa-0"
-              @click="addOtherSourceOfIncome(otherSource)"
-              v-model="otherSource.selected"
-              :label="otherSource.id"
-            ></v-checkbox>
+      <div
+        :class="{
+          'ml-5': $vuetify.breakpoint.xsOnly,
+          'ml-10': $vuetify.breakpoint.smAndUp,
+        }"
+      >
+        <v-row v-if="otherSourcesOfIncome.includes('Regular Job')">
+          <v-col cols="12" sm="4">
             <v-text-field
-              class="ma-0 pa-0 mb-2"
-              v-if="otherSource.selected && otherSource.id === 'Regular Job'"
               dense
               clearable
               v-model="otherSourcesOfIncomeRegularJobSpecify"
               :rules="requiredRule"
-              label="Please specify"
+              label="Please specify Regular Job"
             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row v-if="otherSourcesOfIncome.includes('Own Business')">
+          <v-col cols="12" sm="4">
             <v-text-field
-              class="ma-0 pa-0 mb-2"
-              v-if="otherSource.selected && otherSource.id === 'Own Business'"
               dense
               clearable
               v-model="otherSourcesOfIncomeOwnBusinessSpecify"
               :rules="requiredRule"
-              label="Please specify"
+              label="Please specify Own Business"
             ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row v-if="otherSourcesOfIncome.includes('Others')">
+          <v-col cols="12" sm="4">
             <v-text-field
-              class="ma-0 pa-0 mb-2"
-              v-if="otherSource.selected && otherSource.id === 'Others'"
               dense
               clearable
               v-model="otherSourcesOfIncomeOthersSpecify"
               :rules="requiredRule"
-              label="Please specify"
+              label="Please specify Other source of income"
             ></v-text-field>
-          </div>
-        </div>
+          </v-col>
+        </v-row>
       </div>
-      <p v-if="!validArrayOfCheckboxes" class="red--text text--darken-4">
-        At least one is required to be selected.
-      </p>
 
       <v-row class="d-flex align-baseline" cols="12" sm="12" md="6">
         <v-col cols="12" sm="5" md="2" class="mr-2 text-body-2">
@@ -459,40 +466,18 @@ export default {
       'OFW Remittances',
       'Others',
     ],
-    otherSourcesOfIncomeOptions: [
-      {
-        id: 'Farming',
-        selected: false,
-      },
-      {
-        id: 'Trading',
-        selected: false,
-      },
-      {
-        id: 'Housekeeping',
-        selected: false,
-      },
-      {
-        id: 'Regular Job',
-        selected: false,
-      },
-      {
-        id: 'Non-farm Work',
-        selected: false,
-      },
-      {
-        id: 'Own Business',
-        selected: false,
-      },
-      {
-        id: 'OFW Remittances',
-        selected: false,
-      },
-      {
-        id: 'Others',
-        selected: false,
-      },
+
+    otherSourcesOfIncomeList: [
+      'Farming',
+      'Trading',
+      'Housekeeping',
+      'Regular Job',
+      'Non-farm Work',
+      'Own Business',
+      'OFW Remittances',
+      'Others',
     ],
+
     averageGrossMonthlyIncomeOfHouseholdOptions: [
       '≤ 10,000',
       '10,001 - 20,000',
@@ -513,7 +498,7 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'validArrayOfCheckboxes'],
+  props: ['requiredRule', 'requiredRuleVComboBox'],
 
   methods: {
     addHouseholdMember() {
@@ -525,26 +510,39 @@ export default {
       })
     },
 
-    addOtherSourceOfIncome(source) {
-      if (source.selected) this.otherSourcesOfIncome.push(source)
-      else {
-        const removeIndex = this.otherSourcesOfIncome.indexOf(source)
-        this.otherSourcesOfIncome.splice(removeIndex, 1)
-
-        if (source.id === 'Regular Job') {
-          this.otherSourcesOfIncomeRegularJobSpecify = null
-        } else if (source.id === 'Own Business') {
-          this.otherSourcesOfIncomeOwnBusinessSpecify = null
-        } else if (source.id === 'Others') {
-          this.otherSourcesOfIncomeOthersSpecify = null
-        }
-      }
-    },
-
     checkLastElementIfNull: checkLastElementIfNull,
 
     removeHouseholdMember(index) {
       this.householdMembersList.splice(index, 1)
+    },
+
+    stringifyArray(array) {
+      let stringified = ''
+
+      array.map((source, index) => {
+        stringified = stringified.concat(source)
+
+        if (source === 'Regular Job') {
+          stringified = stringified.concat(
+            parenthesize(this.otherSourcesOfIncomeRegularJobSpecify)
+          )
+        } else if (source === 'Own Business') {
+          stringified = stringified.concat(
+            parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
+          )
+        } else if (source === 'Others') {
+          stringified = stringified.concat(
+            parenthesize(this.otherSourcesOfIncomeOthersSpecify)
+          )
+        }
+
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      console.log('stringified:', stringified)
+      return stringified
     },
 
     passForm2Data() {
@@ -578,7 +576,7 @@ export default {
         highestEducationalAttainment: this.highestEducationalAttainment,
         languagesOrDialectsSpoken: this.languagesOrDialectsSpoken,
         mainSourceOfIncome: this.mainSourceOfIncome,
-        otherSourcesOfIncome: this.stringifyOtherSourcesOfIncome(),
+        otherSourcesOfIncome: this.stringifyArray(this.otherSourcesOfIncome),
         averageGrossMonthlyIncomeOfHousehold:
           this.averageGrossMonthlyIncomeOfHousehold,
         averageGrossMonthlyFarmIncome: this.averageGrossMonthlyFarmIncome,
@@ -648,12 +646,6 @@ export default {
     },
   },
   watch: {
-    otherSourcesOfIncome() {
-      if (this.otherSourcesOfIncome.length > 0) {
-        this.$emit('validArrayOfCheckboxesTrue')
-      }
-    },
-
     highestEducationalAttainment() {
       if (this.highestEducationalAttainment !== 'Others') {
         this.highestEducationalAttainmentSpecify = null
@@ -673,6 +665,20 @@ export default {
     membershipInAFarmerGroupOrAssociationOrOrganization() {
       if (this.membershipInAFarmerGroupOrAssociationOrOrganization === false) {
         this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify = null
+      }
+    },
+
+    otherSourcesOfIncome() {
+      if (!this.otherSourcesOfIncome.includes('Regular Job')) {
+        this.otherSourcesOfIncomeRegularJobSpecify = null
+      }
+
+      if (!this.otherSourcesOfIncome.includes('Own Business')) {
+        this.otherSourcesOfIncomeOwnBusinessSpecify = null
+      }
+
+      if (!this.otherSourcesOfIncome.includes('Others')) {
+        this.otherSourcesOfIncomeOthersSpecify = null
       }
     },
   },

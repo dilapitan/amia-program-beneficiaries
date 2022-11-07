@@ -514,16 +514,14 @@ export default {
 
         newBeneficiaries.push(newBeneficiary)
 
-        // this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-        // this.$store.dispatch('setBeneficiaryPerProvinceAction', newBeneficiary)
-        // this.loading = true
-        // setTimeout(() => {
-        //   this.$router.push('/beneficiaries')
-        // }, 500)
-
         // API Services
-        // this.loading = true
-        // this.$router.push('/')
+
+        this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        this.$store.dispatch('setBeneficiaryPerProvinceAction', newBeneficiary)
+        this.loading = true
+        setTimeout(() => {
+          this.$router.push('/beneficiaries')
+        }, 500)
       } else {
         console.log('Invalid')
         return

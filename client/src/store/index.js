@@ -85,14 +85,12 @@ export default new Vuex.Store({
         province: 'ALBAY',
         beneficiaries: [
           {
-            count: 1,
             province: 'ALBAY',
             cityOrMunicipality: 'Bacacay',
             barangay: 'Brgy 1',
             nameOfFarmer: 'Juan Magsasaka',
           },
           {
-            count: 2,
             province: 'ALBAY',
             cityOrMunicipality: 'Bacacay',
             barangay: 'Brgy 3',
@@ -104,7 +102,6 @@ export default new Vuex.Store({
         province: 'CAMARINES NORTE',
         beneficiaries: [
           {
-            count: 1,
             province: 'CAMARINES NORTE',
             cityOrMunicipality: 'Capalonga',
             barangay: 'Brgy 1',
@@ -116,7 +113,6 @@ export default new Vuex.Store({
         province: 'CAMARINES SUR',
         beneficiaries: [
           {
-            count: 1,
             province: 'CAMARINES SUR',
             cityOrMunicipality: 'Bombon',
             barangay: 'Brgy 2',
@@ -128,7 +124,6 @@ export default new Vuex.Store({
         province: 'CATANDUANES',
         beneficiaries: [
           {
-            count: 1,
             province: 'CATANDUANES',
             cityOrMunicipality: 'Masbate City',
             barangay: 'Brgy 2',
@@ -140,7 +135,6 @@ export default new Vuex.Store({
         province: 'MASBATE',
         beneficiaries: [
           {
-            count: 1,
             province: 'MASBATE',
             cityOrMunicipality: 'Panganiban',
             barangay: 'Brgy 5',

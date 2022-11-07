@@ -15,8 +15,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in beneficiaries" :key="item.name">
-              <td>{{ item.count }}</td>
+            <tr v-for="(item, index) in beneficiaries" :key="item.name">
+              <td>{{ index + 1 }}</td>
               <td>{{ item.nameOfFarmer }}</td>
               <td>{{ item.cityOrMunicipality }}</td>
             </tr>

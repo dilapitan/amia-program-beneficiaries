@@ -541,7 +541,6 @@ export default {
         }
       })
 
-      console.log('stringified:', stringified)
       return stringified
     },
 

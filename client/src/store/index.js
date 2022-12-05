@@ -79,6 +79,186 @@ export default new Vuex.Store({
         barangay: 'Brgy 5',
         nameOfFarmer: 'Lusiang Magsasaka',
       },
+      {
+        // Part 0
+        surveyNo: 7,
+        date: '2022-11-10',
+        interviewStart: '10:30',
+        interviewEnd: '11:00',
+        nameOfInterviewer: 'John Doe',
+
+        // Part 1
+        province: 'ALBAY',
+        cityOrMunicipality: 'Bacacay',
+        barangay: 'Baranggay',
+        nameOfFarmer: 'Ani Magsika',
+        contactNo: '091234123',
+        farmersCodeNo: '1234',
+
+        // Part 2
+        age: '50',
+        gender: 'Male',
+        civilStatus: 'Married',
+        religion: 'Roman Catholic',
+        belongingTo: 'Indigenous People (Sample IP)',
+        householdMembers: 'Yusa Magsika, 49, Female, Wife',
+        yearsOfFarmingExperience: '40',
+        highestEducationalAttainment: 'High School Graduate',
+        languagesOrDialectsSpoken: 'Tagalog',
+        mainSourceOfIncome: 'Farming',
+        otherSourcesOfIncome: 'Own Business(Bigasan)',
+        averageGrossMonthlyIncomeOfHousehold: '30,001 - 40,000',
+        averageGrossMonthlyFarmIncome: '40,001 - 50,000',
+        membershipInAFarmerGroupOrAssociationOrOrganization:
+          'true (Magsika Assoc)',
+        enrolledInRegistrySystemForBasicSectorsInAgriculture: false,
+
+        // Part 3
+        totalAreaOfAgriculturalLand: '10',
+        totalAreaOfForestryLand: '5',
+        totalCultivatedArea: '8',
+        distanceFromHomeToFarm: '3',
+        distanceFromLandToWaterSource: '1',
+        distanceFromMarketNearestPavedRoad: '1',
+        distanceFromMarketOrTradingPost: '1',
+        irrigationSource: 'Rainfall',
+        monthsWithoutRain: 'February, March, April',
+        positionInTheLandscape: 'Top slope',
+        locationOfFarm: 'Upland',
+        landTenure: 'Private Ownership',
+        tenancy: 'Cash tenancy',
+        landHolding: 'Small, sometimes fragmented (1-2 ha)',
+
+        // Part 4
+        agriculturalActivities:
+          'Crop Production, Livestock Production, Aquaculture, Agri-based Product Development(Pinya planting)',
+        cropsProduced: 'Palay',
+        landAreaDevotedForCropProduction: '1',
+        livestockRaisedOrProduced: 'Pigs',
+        landAreaDevotedForLivestockProduction: '1',
+        speciesGrownForAquaculture: 'Tilapia',
+        landAreaDevotedForAquaculture: '1',
+        sourceOfWaterForAquaculture: 'Irrigation',
+        croppingPattern: 'Inter-cropping',
+        estimatedGrossIncomePerCroppingFirstCropping: '100000',
+        estimatedGrossIncomePerCroppingSecondCropping: '100000',
+        cropCalendarWetSeasonLandPreparation: 'January, February',
+        cropCalendarWetSeasonPlanting: 'March, April',
+        cropCalendarWetSeasonGrowing: 'April, May',
+        cropCalendarWetSeasonHarvesting: 'June, July',
+        cropCalendarDrySeasonLandPreparation: 'January, March',
+        cropCalendarDrySeasonPlanting: 'February, March',
+        cropCalendarDrySeasonGrowing: 'March, April',
+        cropCalendarDrySeasonHarvesting: 'June, November',
+
+        // Part 5
+        attendedAgriculturalRelatedTrainings: true,
+        totalNumberOfTrainingsAttended: '5',
+        sourceOfInformationRelatedToImprovingAgriculturalProduction:
+          'Internet, Social Media, TV, Radio',
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing:
+          'TV, Radio, Internet, Social Media',
+        sourceOfClimateAndWeatherInformation: 'Others(Facebook, Twitter)',
+        observedAnyLongTermChangesInClimate: 'Yes',
+        changesInClimateForTemperature: 'Increase',
+        changesInClimateForAmountOfRainfaill: 'Increase',
+        changesInClimateForRainfallTiming: 'Decrease',
+        changesInClimateForRainfulIntensity: 'Increase',
+        changesInClimateForRainfallDuration: 'Decrease',
+        changesInClimateForNumberOfWeatherEvents: 'Increase',
+        changesInClimateForNumberOfHotDays: 'Decrease',
+        changesInClimateForNumberOfRainyDays: 'Decrease',
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops: 'Decrease',
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock: 'Decrease',
+        observedAnyChangeInTheOnsetOfDrySeason: 'No',
+        observedAnyChangeInTheOnsetOfWetSeason: "I don't know",
+        descriptionOfChangeInTemperature: 'Limited',
+        descriptionOfChangeInRainfallDuration: 'Limited',
+        descriptionOfChangeInRainfallTiming: 'Limited',
+        descriptionOfChangeInRainfallIntensity: 'Extreme',
+        descriptionOfChangeInNumberOfWeatherEvents: 'Very Limited/Few',
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains: 'Significant',
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason:
+          null,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason: null,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions:
+          'Irrelevant',
+        perceivedEffectsOrImpactsOfPostharvestLosses: null,
+        perceivedEffectsOrImpactsOfPestInvasion: null,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases: null,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages: null,
+        perceivedEffectsOrImpactsOfLackOfPotableWater: null,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater: null,
+        perceivedEffectsOrImpactsOfErosions: null,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife: null,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties: null,
+        perceivedEffectsOrImpactsOfDeathOfLivestock: null,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction:
+          'Very Severe [Disastrous]',
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing:
+          'Very Severe [Disastrous]',
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes: null,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration: null,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies: null,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover: null,
+        perceivedEffectsOrImpactsOfOthers: '',
+        observedMainOpportunitiesOfLongTermChangesInClimate:
+          'Wala namang nakita',
+        driversOfChangeAndVulnerabilityOfLandDegredation: 'Severe [Critical]',
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices: null,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices: null,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
+          'Irrelevant',
+        driversOfChangeAndVulnerabilityOfOthers:
+          'Pest (Very Severe [Disastrous]), Lack of Fertilizer (Very Severe [Disastrous])',
+
+        // Part 6
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
+          'Yes',
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
+          'Use of drip irrigation, Use of alternate wetting and drying irrigation, Implementation of pasture management techniques, Hydroponics',
+        additionalAdaptationMeasuresBeingConsideredInTheFuture:
+          'Wala namang dagdag',
+        receivedAnyExternalSupportForAdaptationMeasures: 'Yes',
+        formOfFinancialSupportReceived: 'Coop',
+        formOfMaterialSupportReceived: 'Pesticide',
+        formOfExtensionServicesSupportReceived: null,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
+        formOfInfrastructureSupportReceived: null,
+        formOfOtherSupportReceived: null,
+        mostBeneficialSupportServices: 'Capital (Para simulan lahat)',
+        lowEducationLevelConstraint: '1 - Very Important',
+        limitedAccessToInformationConstraint: null,
+        lackOfExtensionServicesConstraint: null,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint: null,
+        inadequateCapitalConstraint: '1 - Very Important',
+        noAccessToWaterForIrrigationConstraint: null,
+        noAccessToCreditConstraintConstraint: null,
+        longerTimeRequiredToSeeResultsConstraint: null,
+        oldAgeConstraint: null,
+        landTenureOrLandOwnershipIssuesConstraint: null,
+        landTopographyNotSuitableConstraint: null,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint: null,
+        infertileSoilConstraint: null,
+        otherConstraint: 'Problema sa pamilya (1 - Very Important)',
+
+        // Part 7
+        accessToAgricultureOrFisheriesRnDInstitutions: 'Maganda',
+        accessToCredit: null,
+        laboratoryFacilities: null,
+        educationAndHealthFacilities: null,
+        farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations:
+          null,
+        marketingSystem: '',
+        presenceOfAgriculturalProcessingFacilities: null,
+        irrigation: null,
+        farmingEquipment: 'Tracktor',
+        others: null,
+
+        // Part 8
+        issuesOrConcernsOrProblemsInFarming:
+          'Soil erosion, Soil siltation, Low crop production**(Palay)',
+      },
     ],
     beneficiariesPerProvince: [
       {

@@ -150,6 +150,10 @@ export default {
     validArrayOfCheckboxes: true,
   }),
 
+  mounted() {
+    console.log(this.$route.params)
+  },
+
   computed: {
     beneficiaries() {
       return this.$store.state.beneficiaries

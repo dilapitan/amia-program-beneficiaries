@@ -5,7 +5,9 @@
     <v-data-table :headers="headers" :items="beneficiaries" class="elevation-1">
       <template v-slot:[`item.actions`]="{ item }">
         <div class="d-flex align-baseline">
-          <v-icon small class="mr-2"> mdi-eye </v-icon>
+          <v-icon @click="viewBeneficiary(item)" small class="mr-2">
+            mdi-eye
+          </v-icon>
           <v-icon small class="mr-2" @click="editItem(item)">
             mdi-pencil
           </v-icon>
@@ -1092,6 +1094,13 @@ export default {
   methods: {
     initialize() {
       this.beneficiaries = this.$store.state.beneficiaries
+    },
+
+    viewBeneficiary(beneficiary) {
+      this.$router.push({
+        name: 'AddBeneficiaryView',
+        params: { content: beneficiary },
+      })
     },
 
     editItem(item) {

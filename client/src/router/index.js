@@ -43,7 +43,7 @@ const routes = [
     beforeEnter: guardRoutes,
     component: () =>
       import(
-        /* webpackChunkName: "AddBeneficiaries" */ '../views/AddBeneficiaryView.vue'
+        /* webpackChunkName: "AddBeneficiaries" */ '../views/BeneficiaryFormView.vue'
       ),
   },
   {

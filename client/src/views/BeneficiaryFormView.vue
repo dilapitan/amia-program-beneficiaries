@@ -1,9 +1,7 @@
 <template>
   <div class="my-5 mx-10">
-    <h3>Add Beneficiary</h3>
-    <p class="mt-2 text-body-2">
-      This is where you can add a new beneficiary to the list.
-    </p>
+    <h3>{{ setHeader(getMode()).header }}</h3>
+    <p class="mt-2 text-body-2">{{ setHeader(getMode()).subHeader }}</p>
     <br />
     <v-card class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
@@ -533,6 +531,27 @@ export default {
       } else {
         console.log('Invalid')
         return
+      }
+    },
+
+    getMode() {
+      return this.$route.params.mode
+    },
+
+    setHeader(mode) {
+      switch (mode) {
+        case 'VIEW':
+          return {
+            header: 'View Beneficiary',
+            subHeader:
+              'This is where you can see the details of a Beneficiary.',
+          }
+        default:
+          return {
+            header: 'Add Beneficiary',
+            subHeader:
+              'This is where you can add a new beneficiary to the list.',
+          }
       }
     },
 

@@ -1099,7 +1099,7 @@ export default {
     viewBeneficiary(beneficiary) {
       this.$router.push({
         name: 'AddBeneficiaryView',
-        params: { content: beneficiary },
+        params: { content: beneficiary, mode: 'VIEW' },
       })
     },
 

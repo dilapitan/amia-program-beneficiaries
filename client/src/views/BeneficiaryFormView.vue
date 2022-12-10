@@ -553,6 +553,11 @@ export default {
             subHeader:
               'This is where you can add a new beneficiary to the list.',
           }
+        case 'EditBeneficiaryView':
+          return {
+            header: 'Edit Beneficiary',
+            subHeader: 'This is where you update the details of a Beneficiary.',
+          }
         default:
           return {
             header: '',

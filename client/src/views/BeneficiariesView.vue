@@ -22,7 +22,7 @@
           <v-icon @click="viewBeneficiary(item)" small class="mr-2">
             mdi-eye
           </v-icon>
-          <v-icon small class="mr-2" @click="editItem(item)">
+          <v-icon small class="mr-2" @click="editBeneficiary(item)">
             mdi-pencil
           </v-icon>
           <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
@@ -1117,6 +1117,17 @@ export default {
         params: {
           content: beneficiary,
           mode: 'VIEW',
+          surveyNo: beneficiary.surveyNo,
+        },
+      })
+    },
+
+    editBeneficiary(beneficiary) {
+      this.$router.push({
+        name: 'EditBeneficiaryView',
+        params: {
+          content: beneficiary,
+          mode: 'EDIT',
           surveyNo: beneficiary.surveyNo,
         },
       })

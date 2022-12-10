@@ -19,7 +19,11 @@
     <v-card v-else class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 0 General -->
-        <Part0Form ref="part0Form" :requiredRule="requiredRule" />
+        <Part0Form
+          ref="part0Form"
+          :requiredRule="requiredRule"
+          :part0FormData="part0FormData"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -159,11 +163,13 @@ export default {
       return !!v.length || 'Required'
     },
     validArrayOfCheckboxes: true,
-    beneficiary: null,
+    part0FormData: null,
   }),
 
   mounted() {
-    console.log(this.$route)
+    if (this.$route.params.content) {
+      this.setBeneficiary(this.$route.params.content)
+    }
   },
 
   computed: {
@@ -548,6 +554,10 @@ export default {
       }
     },
 
+    setBeneficiary(beneficiary) {
+      this.setPart0FormData(beneficiary)
+    },
+
     getMode() {
       return this.$route.name
     },
@@ -577,6 +587,19 @@ export default {
             subHeader: '',
           }
       }
+    },
+
+    setPart0FormData(beneficiary) {
+      const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+        beneficiary
+
+      const _part0FormData = {
+        date,
+        interviewStart,
+        interviewEnd,
+        nameOfInterviewer,
+      }
+      console.log('_part0FormData:', _part0FormData)
     },
 
     getPart0FormData() {

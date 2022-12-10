@@ -121,7 +121,11 @@ export default {
     dateMenu: false,
   }),
 
-  props: ['requiredRule'],
+  props: ['requiredRule', 'part0FormData'],
+
+  mounted() {
+    console.log(this.part0FormData)
+  },
 
   computed: {
     nextSurveyNo() {

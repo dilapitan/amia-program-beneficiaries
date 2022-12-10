@@ -4,7 +4,11 @@
     <p class="mt-2 text-body-2">{{ setHeader(getMode()).subHeader }}</p>
     <br />
 
-    <div v-if="!this.$route.params.content">
+    <div
+      v-if="
+        !this.$route.params.content && this.$route.name !== 'AddBeneficiaryView'
+      "
+    >
       <p>
         <strong>No data found.</strong>
         To View/Edit a Beneficiary, please go to the List of Beneficiaries to

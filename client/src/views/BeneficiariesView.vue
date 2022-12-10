@@ -1113,7 +1113,6 @@ export default {
     viewBeneficiary(beneficiary) {
       this.$router.push({
         name: 'ViewBeneficiaryView',
-        // path: `/view/${beneficiary.surveyNo}`,
         params: {
           content: beneficiary,
           mode: 'VIEW',
@@ -1131,10 +1130,6 @@ export default {
           surveyNo: beneficiary.surveyNo,
         },
       })
-    },
-
-    editItem(item) {
-      console.log('item:', item)
     },
 
     deleteItem(item) {

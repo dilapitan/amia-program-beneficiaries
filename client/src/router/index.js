@@ -47,6 +47,15 @@ const routes = [
       ),
   },
   {
+    path: '/view/survey/:surveyNo',
+    name: 'ViewBeneficiaryView',
+    beforeEnter: guardRoutes,
+    component: () =>
+      import(
+        /* webpackChunkName: "AddBeneficiaries" */ '../views/BeneficiaryFormView.vue'
+      ),
+  },
+  {
     path: '/login',
     name: 'LoginView',
     component: () =>

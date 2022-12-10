@@ -146,10 +146,11 @@ export default {
       return !!v.length || 'Required'
     },
     validArrayOfCheckboxes: true,
+    beneficiary: null,
   }),
 
   mounted() {
-    console.log(this.$route.params)
+    console.log(this.$route)
   },
 
   computed: {
@@ -535,22 +536,27 @@ export default {
     },
 
     getMode() {
-      return this.$route.params.mode
+      return this.$route.name
     },
 
     setHeader(mode) {
       switch (mode) {
-        case 'VIEW':
+        case 'ViewBeneficiaryView':
           return {
             header: 'View Beneficiary',
             subHeader:
               'This is where you can see the details of a Beneficiary.',
           }
-        default:
+        case 'AddBeneficiaryView':
           return {
             header: 'Add Beneficiary',
             subHeader:
               'This is where you can add a new beneficiary to the list.',
+          }
+        default:
+          return {
+            header: '',
+            subHeader: '',
           }
       }
     },

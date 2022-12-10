@@ -1,6 +1,20 @@
 <template>
   <div class="my-5 mx-10">
-    <h3>List of Program Beneficiaries</h3>
+    <v-row>
+      <v-col><h3>List of Program Beneficiaries</h3></v-col>
+      <v-spacer></v-spacer>
+      <v-col class="text-right">
+        <v-btn v-if="$vuetify.breakpoint.smAndUp" color="primary" to="/add">
+          <v-icon left>mdi-account-plus</v-icon>
+          ADD BENEFICIARY
+        </v-btn>
+
+        <v-btn v-else fab small color="primary" to="/add">
+          <v-icon>mdi-account-plus</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+
     <br />
     <v-data-table :headers="headers" :items="beneficiaries" class="elevation-1">
       <template v-slot:[`item.actions`]="{ item }">
@@ -1098,8 +1112,13 @@ export default {
 
     viewBeneficiary(beneficiary) {
       this.$router.push({
-        name: 'AddBeneficiaryView',
-        params: { content: beneficiary, mode: 'VIEW' },
+        name: 'ViewBeneficiaryView',
+        // path: `/view/${beneficiary.surveyNo}`,
+        params: {
+          content: beneficiary,
+          mode: 'VIEW',
+          surveyNo: beneficiary.surveyNo,
+        },
       })
     },
 

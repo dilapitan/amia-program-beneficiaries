@@ -3,7 +3,16 @@
     <h3>{{ setHeader(getMode()).header }}</h3>
     <p class="mt-2 text-body-2">{{ setHeader(getMode()).subHeader }}</p>
     <br />
-    <v-card class="pa-5" color="middleground" flat height="100%">
+
+    <div v-if="!this.$route.params.content">
+      <p>
+        <strong>No data found.</strong>
+        To View/Edit a Beneficiary, please go to the List of Beneficiaries to
+        click the Action buttons.
+      </p>
+    </div>
+
+    <v-card v-else class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 0 General -->
         <Part0Form ref="part0Form" :requiredRule="requiredRule" />

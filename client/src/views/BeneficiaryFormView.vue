@@ -115,12 +115,16 @@
         <v-overlay :value="loading"></v-overlay>
         <div class="d-flex align-end flex-column">
           <v-btn
+            v-if="mode !== 'VIEW'"
             :disabled="loading"
             :loading="loading"
             @click="addBeneficiary()"
             color="primary"
           >
             SUBMIT
+          </v-btn>
+          <v-btn v-else to="/beneficiaries" color="primary">
+            BACK TO LIST
           </v-btn>
         </div>
       </v-form>

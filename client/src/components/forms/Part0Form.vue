@@ -10,7 +10,7 @@
           <v-text-field
             class="small-number-input"
             dense
-            v-model="nextSurveyNo"
+            v-model="dependentSurveyNo"
             readonly
             disabled
           ></v-text-field>
@@ -121,15 +121,21 @@ export default {
     dateMenu: false,
   }),
 
-  props: ['requiredRule', 'part0FormData'],
+  props: ['mode', 'requiredRule', 'part0FormData'],
 
-  mounted() {
-    // console.log(this.part0FormData)
+  created() {
+    if (this.part0FormData !== null) {
+      this.setPart0FormData(this.part0FormData)
+    }
   },
 
   computed: {
     nextSurveyNo() {
       return this.$store.state.beneficiaries.length + 1
+    },
+
+    dependentSurveyNo() {
+      return this.mode !== null ? this.surveyNo : this.nextSurveyNo
     },
   },
 
@@ -144,6 +150,22 @@ export default {
       }
 
       return part0Data
+    },
+
+    setPart0FormData(part0FormData) {
+      const {
+        surveyNo,
+        date,
+        interviewEnd,
+        interviewStart,
+        nameOfInterviewer,
+      } = part0FormData
+
+      this.surveyNo = surveyNo
+      this.date = date
+      this.interviewEnd = interviewEnd
+      this.interviewStart = interviewStart
+      this.nameOfInterviewer = nameOfInterviewer
     },
   },
 }

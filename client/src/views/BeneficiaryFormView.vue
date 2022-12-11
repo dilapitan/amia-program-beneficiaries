@@ -19,6 +19,7 @@
         <!-- 0 General -->
         <Part0Form
           ref="part0Form"
+          :mode="mode"
           :requiredRule="requiredRule"
           :part0FormData="part0FormData"
         />
@@ -163,10 +164,12 @@ export default {
     validArrayOfCheckboxes: true,
     currentBeneficiary: null,
     part0FormData: null,
+    mode: null,
   }),
 
   mounted() {
     this.setBeneficiary(this.$route.params.surveyNo)
+    this.setMode(this.$route.name)
   },
 
   computed: {
@@ -560,7 +563,22 @@ export default {
 
       this.currentBeneficiary = currentBeneficiary
 
-      // this.setPart0FormData(beneficiary)
+      if (this.currentBeneficiary !== undefined) {
+        this.setPart0FormData(this.currentBeneficiary)
+      }
+    },
+
+    setMode(name) {
+      switch (name) {
+        case 'ViewBeneficiaryView':
+          this.mode = 'VIEW'
+          break
+        case 'EditBeneficiaryView':
+          this.mode = 'EDIT'
+          break
+        default:
+          return
+      }
     },
 
     getMode() {
@@ -595,16 +613,23 @@ export default {
     },
 
     setPart0FormData(beneficiary) {
-      const { date, interviewStart, interviewEnd, nameOfInterviewer } =
-        beneficiary
+      const {
+        surveyNo,
+        date,
+        interviewStart,
+        interviewEnd,
+        nameOfInterviewer,
+      } = beneficiary
 
       const _part0FormData = {
+        surveyNo,
         date,
         interviewStart,
         interviewEnd,
         nameOfInterviewer,
       }
-      console.log('_part0FormData:', _part0FormData)
+
+      this.part0FormData = _part0FormData
     },
 
     getPart0FormData() {

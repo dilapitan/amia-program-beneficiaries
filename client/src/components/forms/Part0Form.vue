@@ -41,6 +41,7 @@
                 v-bind="attrs"
                 v-on="on"
                 :rules="requiredRule"
+                :disabled="mode !== null"
               ></v-text-field>
             </template>
             <v-date-picker v-model="date" no-title scrollable>
@@ -68,6 +69,7 @@
             clearable
             v-model="interviewStart"
             :rules="requiredRule"
+            :disabled="mode !== null"
           ></v-text-field>
         </div>
       </v-col>
@@ -84,6 +86,7 @@
             clearable
             v-model="interviewEnd"
             :rules="requiredRule"
+            :disabled="mode !== null"
           ></v-text-field>
         </div>
       </v-col>
@@ -101,6 +104,7 @@
             clearable
             v-model="nameOfInterviewer"
             :rules="requiredRule"
+            :disabled="mode !== null"
           ></v-text-field>
         </div>
       </v-col>

@@ -124,7 +124,7 @@ export default {
   props: ['requiredRule', 'part0FormData'],
 
   mounted() {
-    console.log(this.part0FormData)
+    // console.log(this.part0FormData)
   },
 
   computed: {

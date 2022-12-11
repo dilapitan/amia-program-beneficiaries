@@ -16,6 +16,7 @@
             label="Select a province"
             v-model="province"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -24,7 +25,7 @@
 
         <div>
           <v-select
-            :disabled="!Boolean(province)"
+            :disabled="!Boolean(province) || mode === 'VIEW'"
             :items="cityOrMunicipalityList"
             dense
             v-model="cityOrMunicipality"
@@ -42,6 +43,7 @@
             clearable
             v-model="barangay"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -55,6 +57,7 @@
             clearable
             v-model="nameOfFarmer"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -67,6 +70,7 @@
             clearable
             v-model="contactNo"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -79,6 +83,7 @@
             clearable
             v-model="farmersCodeNo"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -101,7 +106,13 @@ export default {
     provinceList: getRegion5(),
   }),
 
-  props: ['requiredRule'],
+  props: ['mode', 'requiredRule', 'part1FormData'],
+
+  created() {
+    if (this.part1FormData !== null) {
+      this.setPart1FormData(this.part1FormData)
+    }
+  },
 
   computed: {
     cityOrMunicipalityList() {
@@ -124,6 +135,24 @@ export default {
       }
 
       return part1Data
+    },
+
+    setPart1FormData(part1FormData) {
+      const {
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
+      } = part1FormData
+
+      this.province = province
+      this.cityOrMunicipality = cityOrMunicipality
+      this.barangay = barangay
+      this.nameOfFarmer = nameOfFarmer
+      this.contactNo = contactNo
+      this.farmersCodeNo = farmersCodeNo
     },
   },
 }

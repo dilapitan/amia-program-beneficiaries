@@ -29,7 +29,12 @@
         <br />
 
         <!-- 1 Farmer's Basic Information -->
-        <Part1Form ref="part1Form" :requiredRule="requiredRule" />
+        <Part1Form
+          ref="part1Form"
+          :mode="mode"
+          :requiredRule="requiredRule"
+          :part1FormData="part1FormData"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -168,6 +173,7 @@ export default {
     validArrayOfCheckboxes: true,
     currentBeneficiary: null,
     part0FormData: null,
+    part1FormData: null,
     mode: null,
   }),
 
@@ -569,6 +575,7 @@ export default {
 
       if (this.currentBeneficiary !== undefined) {
         this.setPart0FormData(this.currentBeneficiary)
+        this.setPart1FormData(this.currentBeneficiary)
       }
     },
 
@@ -634,6 +641,28 @@ export default {
       }
 
       this.part0FormData = _part0FormData
+    },
+
+    setPart1FormData(beneficiary) {
+      const {
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
+      } = beneficiary
+
+      const _part1FormData = {
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
+      }
+
+      this.part1FormData = _part1FormData
     },
 
     getPart0FormData() {

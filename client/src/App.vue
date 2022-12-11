@@ -128,6 +128,19 @@
       <v-main>
         <router-view />
       </v-main>
+      <v-btn
+        v-scroll="onScroll"
+        v-show="fab"
+        fab
+        dark
+        fixed
+        bottom
+        right
+        color="primary"
+        @click="toTop"
+      >
+        <v-icon>mdi-chevron-up</v-icon>
+      </v-btn>
     </v-card>
   </v-app>
 </template>
@@ -138,6 +151,7 @@ export default {
 
   data: () => ({
     drawer: null,
+    fab: false,
   }),
 
   created() {
@@ -180,6 +194,17 @@ export default {
     toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
       localStorage.setItem('dark_theme', this.$vuetify.theme.dark.toString())
+    },
+
+    // Got this from: https://codepen.io/carlos-henreis/pen/vzXKBJ
+    onScroll(e) {
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset || e.target.scrollTop || 0
+      this.fab = top > 20
+    },
+
+    toTop() {
+      this.$vuetify.goTo(0)
     },
   },
 }

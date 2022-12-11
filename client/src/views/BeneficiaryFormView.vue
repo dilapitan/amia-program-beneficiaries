@@ -5,9 +5,7 @@
     <br />
 
     <div
-      v-if="
-        !this.$route.params.content && this.$route.name !== 'AddBeneficiaryView'
-      "
+      v-if="!currentBeneficiary && this.$route.name !== 'AddBeneficiaryView'"
     >
       <p>
         <strong>No data found.</strong>
@@ -163,13 +161,12 @@ export default {
       return !!v.length || 'Required'
     },
     validArrayOfCheckboxes: true,
+    currentBeneficiary: null,
     part0FormData: null,
   }),
 
   mounted() {
-    if (this.$route.params.content) {
-      this.setBeneficiary(this.$route.params.content)
-    }
+    this.setBeneficiary(this.$route.params.surveyNo)
   },
 
   computed: {
@@ -554,8 +551,16 @@ export default {
       }
     },
 
-    setBeneficiary(beneficiary) {
-      this.setPart0FormData(beneficiary)
+    setBeneficiary(surveyNo) {
+      // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
+
+      const currentBeneficiary = this.$store.state.beneficiaries.find(
+        (beneficiary) => beneficiary.surveyNo === +surveyNo
+      )
+
+      this.currentBeneficiary = currentBeneficiary
+
+      // this.setPart0FormData(beneficiary)
     },
 
     getMode() {

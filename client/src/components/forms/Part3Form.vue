@@ -18,6 +18,7 @@
               clearable
               v-model="totalAreaOfAgriculturalLand"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -34,6 +35,7 @@
               clearable
               v-model="totalAreaOfForestryLand"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -50,6 +52,7 @@
               clearable
               v-model="totalCultivatedArea"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -68,6 +71,7 @@
               clearable
               v-model="distanceFromHomeToFarm"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -84,6 +88,7 @@
               clearable
               v-model="distanceFromLandToWaterSource"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -103,6 +108,7 @@
               clearable
               v-model="distanceFromMarketNearestPavedRoad"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -121,6 +127,7 @@
               clearable
               v-model="distanceFromMarketOrTradingPost"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -292,6 +299,12 @@ export default {
 
   props: ['mode', 'part3FormData', 'requiredRule', 'requiredRuleVComboBox'],
 
+  created() {
+    if (this.part3FormData !== null) {
+      this.setPart3FormData(this.part3FormData)
+    }
+  },
+
   computed: {
     months() {
       return this.$store.state.months
@@ -323,6 +336,35 @@ export default {
       }
 
       return part3Data
+    },
+
+    setPart3FormData(part3FormData) {
+      const {
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        // irrigationSource,
+        // irrigationSourceOthersSpecify,
+        // monthsWithoutRain,
+        // positionInTheLandscape,
+        // locationOfFarm,
+        // landTenure,
+        // tenancy,
+        // landHolding,
+      } = part3FormData
+
+      this.totalAreaOfAgriculturalLand = totalAreaOfAgriculturalLand
+      this.totalAreaOfForestryLand = totalAreaOfForestryLand
+      this.totalCultivatedArea = totalCultivatedArea
+      this.distanceFromHomeToFarm = distanceFromHomeToFarm
+      this.distanceFromLandToWaterSource = distanceFromLandToWaterSource
+      this.distanceFromMarketNearestPavedRoad =
+        distanceFromMarketNearestPavedRoad
+      this.distanceFromMarketOrTradingPost = distanceFromMarketOrTradingPost
     },
   },
   watch: {

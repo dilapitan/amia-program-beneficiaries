@@ -637,15 +637,6 @@ export default {
 
       this.otherSourcesOfIncome = _otherSourcesOfIncome
 
-      // this.otherSourcesOfIncome = ['Others']
-      // otherSourcesOfIncome.split('(').length > 1
-      //   ? getParenthesisValue(otherSourcesOfIncome).mainValue
-      //   : otherSourcesOfIncome
-      // this.otherSourcesOfIncomeSpecify =
-      //   otherSourcesOfIncome.split('(').length > 1
-      //     ? getParenthesisValue(otherSourcesOfIncome).specificValue
-      //     : null
-
       this.averageGrossMonthlyIncomeOfHousehold =
         averageGrossMonthlyIncomeOfHousehold
 

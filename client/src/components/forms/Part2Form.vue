@@ -15,6 +15,7 @@
             clearable
             v-model="age"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>

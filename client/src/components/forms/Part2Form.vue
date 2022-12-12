@@ -566,6 +566,10 @@ export default {
         yearsOfFarmingExperience,
         highestEducationalAttainment,
         languagesOrDialectsSpoken,
+        mainSourceOfIncome,
+        // otherSourcesOfIncome,
+        averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome,
       } = part2FormData
 
       this.age = age
@@ -600,6 +604,29 @@ export default {
           : null
 
       this.languagesOrDialectsSpoken = languagesOrDialectsSpoken
+
+      this.mainSourceOfIncome =
+        mainSourceOfIncome.split('(').length > 1
+          ? getParenthesisValue(mainSourceOfIncome).mainValue
+          : mainSourceOfIncome
+      this.mainSourceOfIncomeSpecify =
+        mainSourceOfIncome.split('(').length > 1
+          ? getParenthesisValue(mainSourceOfIncome).specificValue
+          : null
+
+      // this.otherSourcesOfIncome =
+      //   otherSourcesOfIncome.split('(').length > 1
+      //     ? getParenthesisValue(otherSourcesOfIncome).mainValue
+      //     : otherSourcesOfIncome
+      // this.otherSourcesOfIncomeSpecify =
+      //   otherSourcesOfIncome.split('(').length > 1
+      //     ? getParenthesisValue(otherSourcesOfIncome).specificValue
+      //     : null
+
+      this.averageGrossMonthlyIncomeOfHousehold =
+        averageGrossMonthlyIncomeOfHousehold
+
+      this.averageGrossMonthlyFarmIncome = averageGrossMonthlyFarmIncome
     },
 
     stringifyArray(array) {
@@ -739,10 +766,15 @@ export default {
     },
 
     mainSourceOfIncome() {
+      const MAIN_SOURCES_OF_INCOME_WITH_SPECIFIC_VALUE = [
+        'Regular Job',
+        'Own Business',
+        'Others',
+      ]
       if (
-        this.mainSourceOfIncome === 'Regular Job' ||
-        this.mainSourceOfIncome === 'Own Business' ||
-        this.mainSourceOfIncome === 'Others'
+        !MAIN_SOURCES_OF_INCOME_WITH_SPECIFIC_VALUE.includes(
+          this.mainSourceOfIncome
+        )
       ) {
         this.mainSourceOfIncomeSpecify = null
       }

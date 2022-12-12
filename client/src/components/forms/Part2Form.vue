@@ -111,6 +111,7 @@
                 v-model="householdMember.name"
                 label="Name"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
               ></v-text-field
             ></v-col>
             <v-col cols="12" sm="2">
@@ -121,6 +122,7 @@
                 v-model="householdMember.age"
                 label="Age"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="2">
@@ -131,6 +133,7 @@
                 v-model="householdMember.gender"
                 label="Gender"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="3">
@@ -141,6 +144,7 @@
                 v-model="householdMember.relationToTheRespondent"
                 label="Relation to Respondent"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
               ></v-text-field>
             </v-col>
             <v-col v-if="index !== 0" cols="12" sm="1">

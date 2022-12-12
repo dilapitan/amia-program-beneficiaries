@@ -570,6 +570,7 @@ export default {
         otherSourcesOfIncome,
         averageGrossMonthlyIncomeOfHousehold,
         averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization,
         enrolledInRegistrySystemForBasicSectorsInAgriculture,
       } = part2FormData
 
@@ -642,6 +643,19 @@ export default {
         averageGrossMonthlyIncomeOfHousehold
 
       this.averageGrossMonthlyFarmIncome = averageGrossMonthlyFarmIncome
+
+      this.membershipInAFarmerGroupOrAssociationOrOrganization =
+        membershipInAFarmerGroupOrAssociationOrOrganization.split('(').length >
+        1
+          ? true
+          : false
+      this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify =
+        membershipInAFarmerGroupOrAssociationOrOrganization.split('(').length >
+        1
+          ? getParenthesisValue(
+              membershipInAFarmerGroupOrAssociationOrOrganization
+            ).specificValue
+          : null
 
       this.enrolledInRegistrySystemForBasicSectorsInAgriculture =
         enrolledInRegistrySystemForBasicSectorsInAgriculture

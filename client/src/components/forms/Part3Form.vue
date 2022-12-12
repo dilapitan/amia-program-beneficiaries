@@ -142,6 +142,7 @@
             label="Select option"
             v-model="irrigationSource"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -158,6 +159,7 @@
               clearable
               v-model="irrigationSourceOthersSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </div>
@@ -248,7 +250,7 @@
 </template>
 
 <script>
-import { stringifyMonths } from '@/helpers'
+import { getParenthesisValue, stringifyMonths } from '@/helpers'
 
 export default {
   data: () => ({
@@ -347,7 +349,7 @@ export default {
         distanceFromLandToWaterSource,
         distanceFromMarketNearestPavedRoad,
         distanceFromMarketOrTradingPost,
-        // irrigationSource,
+        irrigationSource,
         // irrigationSourceOthersSpecify,
         // monthsWithoutRain,
         // positionInTheLandscape,
@@ -356,6 +358,7 @@ export default {
         // tenancy,
         // landHolding,
       } = part3FormData
+      console.log('irrigationSource:', irrigationSource)
 
       this.totalAreaOfAgriculturalLand = totalAreaOfAgriculturalLand
       this.totalAreaOfForestryLand = totalAreaOfForestryLand
@@ -365,6 +368,13 @@ export default {
       this.distanceFromMarketNearestPavedRoad =
         distanceFromMarketNearestPavedRoad
       this.distanceFromMarketOrTradingPost = distanceFromMarketOrTradingPost
+      this.irrigationSource = irrigationSource.includes('Others')
+        ? 'Others'
+        : irrigationSource
+
+      this.irrigationSourceOthersSpecify =
+        irrigationSource.includes('Others') &&
+        getParenthesisValue(irrigationSource).specificValue
     },
   },
   watch: {

@@ -174,6 +174,7 @@
             v-model="monthsWithoutRain"
             :rules="[requiredRuleVComboBox]"
             :items="months"
+            :disabled="mode === 'VIEW'"
             label="Select options"
             multiple
             dense
@@ -190,6 +191,7 @@
             label="Select option"
             v-model="positionInTheLandscape"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -203,6 +205,7 @@
             label="Select option"
             v-model="locationOfFarm"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -216,6 +219,7 @@
             label="Select option"
             v-model="landTenure"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -229,6 +233,7 @@
             label="Select option"
             v-model="tenancy"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -242,6 +247,7 @@
             label="Select option"
             v-model="landHolding"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -350,15 +356,13 @@ export default {
         distanceFromMarketNearestPavedRoad,
         distanceFromMarketOrTradingPost,
         irrigationSource,
-        // irrigationSourceOthersSpecify,
-        // monthsWithoutRain,
-        // positionInTheLandscape,
-        // locationOfFarm,
-        // landTenure,
-        // tenancy,
-        // landHolding,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
       } = part3FormData
-      console.log('irrigationSource:', irrigationSource)
 
       this.totalAreaOfAgriculturalLand = totalAreaOfAgriculturalLand
       this.totalAreaOfForestryLand = totalAreaOfForestryLand
@@ -375,6 +379,13 @@ export default {
       this.irrigationSourceOthersSpecify =
         irrigationSource.includes('Others') &&
         getParenthesisValue(irrigationSource).specificValue
+
+      this.monthsWithoutRain = monthsWithoutRain.split(',')
+      this.positionInTheLandscape = positionInTheLandscape
+      this.locationOfFarm = locationOfFarm
+      this.landTenure = landTenure
+      this.tenancy = tenancy
+      this.landHolding = landHolding
     },
   },
   watch: {

@@ -594,17 +594,17 @@ export default {
         stringified = stringified.concat(source)
 
         if (source === 'Regular Job') {
-          stringified = stringified.concat(
-            parenthesize(this.otherSourcesOfIncomeRegularJobSpecify)
-          )
+          stringified = stringified
+            .concat(' ')
+            .concat(parenthesize(this.otherSourcesOfIncomeRegularJobSpecify))
         } else if (source === 'Own Business') {
-          stringified = stringified.concat(
-            parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify)
-          )
+          stringified = stringified
+            .concat(' ')
+            .concat(parenthesize(this.otherSourcesOfIncomeOwnBusinessSpecify))
         } else if (source === 'Others') {
-          stringified = stringified.concat(
-            parenthesize(this.otherSourcesOfIncomeOthersSpecify)
-          )
+          stringified = stringified
+            .concat(' ')
+            .concat(parenthesize(this.otherSourcesOfIncomeOthersSpecify))
         }
 
         if (index < array.length - 1) {

@@ -107,7 +107,7 @@ export default new Vuex.Store({
         highestEducationalAttainment: 'High School Graduate',
         languagesOrDialectsSpoken: 'Tagalog',
         mainSourceOfIncome: 'Farming',
-        otherSourcesOfIncome: 'Own Business(Bigasan)',
+        otherSourcesOfIncome: 'Own Business (Bigasan)',
         averageGrossMonthlyIncomeOfHousehold: '30,001 - 40,000',
         averageGrossMonthlyFarmIncome: '40,001 - 50,000',
         membershipInAFarmerGroupOrAssociationOrOrganization:

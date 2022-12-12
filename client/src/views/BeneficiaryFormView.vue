@@ -41,24 +41,26 @@
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <Part2Form
+        <!-- <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part2FormData="part2FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 3 Farm Description -->
-        <!-- <Part3Form
+        <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        /> -->
+          :mode="mode"
+          :part3FormData="part3FormData"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -142,8 +144,8 @@
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
-import Part2Form from '@/components/forms/Part2Form.vue'
-// import Part3Form from '@/components/forms/Part3Form.vue'
+// import Part2Form from '@/components/forms/Part2Form.vue'
+import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
@@ -156,8 +158,8 @@ export default {
   components: {
     // Part0Form,
     // Part1Form,
-    Part2Form,
-    // Part3Form,
+    // Part2Form,
+    Part3Form,
     // Part4Form,
     // Part5Form,
     // Part6Form,
@@ -177,6 +179,7 @@ export default {
     part0FormData: null,
     part1FormData: null,
     part2FormData: null,
+    part3FormData: null,
     mode: null,
   }),
 
@@ -580,6 +583,7 @@ export default {
         this.setPart0FormData(this.currentBeneficiary)
         this.setPart1FormData(this.currentBeneficiary)
         this.setPart2FormData(this.currentBeneficiary)
+        this.setPart3FormData(this.currentBeneficiary)
       }
     },
 
@@ -707,6 +711,46 @@ export default {
       }
 
       this.part2FormData = _part2FormData
+    },
+
+    setPart3FormData(beneficiary) {
+      const {
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        irrigationSource,
+        irrigationSourceOthersSpecify,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
+      } = beneficiary
+
+      const _part3FormData = {
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        irrigationSource,
+        irrigationSourceOthersSpecify,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
+      }
+
+      this.part3FormData = _part3FormData
     },
 
     getPart0FormData() {

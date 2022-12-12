@@ -290,7 +290,7 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part3FormData', 'requiredRule', 'requiredRuleVComboBox'],
 
   computed: {
     months() {

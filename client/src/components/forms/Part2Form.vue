@@ -29,6 +29,7 @@
             :items="genderOptions"
             label="Select option"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -42,6 +43,7 @@
             :items="civilStatusOptions"
             label="Select option"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -54,6 +56,7 @@
             clearable
             v-model="religion"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -68,6 +71,7 @@
             label="Select option"
             v-model="belongingTo"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -85,6 +89,7 @@
               v-model="belongingToSpecify"
               label="Please specify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -155,6 +160,7 @@
                     color="primary"
                     v-bind="attrs"
                     v-on="on"
+                    :disabled="mode === 'VIEW'"
                   >
                     mdi-cancel
                   </v-icon>
@@ -166,7 +172,9 @@
         </div>
         <br />
         <v-btn
-          :disabled="!checkLastElementIfNull(householdMembersList)"
+          :disabled="
+            !checkLastElementIfNull(householdMembersList) || mode === 'VIEW'
+          "
           @click="addHouseholdMember()"
           color="primary"
           small
@@ -411,6 +419,7 @@
 <script>
 import {
   checkLastElementIfNull,
+  getParenthesisValue,
   parenthesize,
   stringSplitToObject,
 } from '@/helpers'
@@ -532,9 +541,29 @@ export default {
     },
 
     setPart2FormData(part2FormData) {
-      const { age, householdMembers } = part2FormData
+      const {
+        age,
+        gender,
+        civilStatus,
+        religion,
+        belongingTo,
+        householdMembers,
+      } = part2FormData
 
       this.age = age
+      this.gender = gender
+      this.civilStatus = civilStatus
+      this.religion = religion
+      this.belongingTo =
+        belongingTo.split('(').length > 1
+          ? getParenthesisValue(belongingTo).mainValue
+          : belongingTo
+
+      this.belongingToSpecify =
+        belongingTo.split('(').length > 1
+          ? getParenthesisValue(belongingTo).specificValue
+          : null
+
       this.householdMembersList = stringSplitToObject(householdMembers, [
         'name',
         'age',

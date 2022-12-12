@@ -33,6 +33,14 @@ export const checkLastElementIfNull = (array) => {
   return isNull
 }
 
+export const getParenthesisValue = (string) => {
+  const parsed = string.split('(')
+  return {
+    mainValue: parsed[0].trim(),
+    specificValue: parsed[1].slice(0, -1), // remove closing ")"
+  }
+}
+
 export const parenthesize = (string) => {
   return `(${string})`
 }

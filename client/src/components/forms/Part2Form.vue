@@ -498,7 +498,13 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part2FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part2FormData !== null) {
+      this.setPart2FormData(this.part2FormData)
+    }
+  },
 
   methods: {
     addHouseholdMember() {
@@ -514,6 +520,12 @@ export default {
 
     removeHouseholdMember(index) {
       this.householdMembersList.splice(index, 1)
+    },
+
+    setPart2FormData(part2FormData) {
+      const { age } = part2FormData
+
+      this.age = age
     },
 
     stringifyArray(array) {
@@ -589,6 +601,7 @@ export default {
     },
 
     stringifyHouseholdMembers(array) {
+      console.log('array:', array)
       let stringified = ''
 
       // Trim list to only capture filled up data

@@ -195,6 +195,7 @@
             clearable
             v-model="yearsOfFarmingExperience"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -210,6 +211,7 @@
             label="Select option"
             v-model="highestEducationalAttainment"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
       </v-row>
@@ -227,6 +229,7 @@
               v-model="highestEducationalAttainmentSpecify"
               label="Please specify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -548,6 +551,8 @@ export default {
         religion,
         belongingTo,
         householdMembers,
+        yearsOfFarmingExperience,
+        highestEducationalAttainment,
       } = part2FormData
 
       this.age = age
@@ -570,6 +575,16 @@ export default {
         'gender',
         'relationToTheRespondent',
       ])
+
+      this.yearsOfFarmingExperience = yearsOfFarmingExperience
+      this.highestEducationalAttainment =
+        highestEducationalAttainment.split('(').length > 1
+          ? getParenthesisValue(highestEducationalAttainment).mainValue
+          : highestEducationalAttainment
+      this.highestEducationalAttainmentSpecify =
+        highestEducationalAttainment.split('(').length > 1
+          ? getParenthesisValue(highestEducationalAttainment).specificValue
+          : null
     },
 
     stringifyArray(array) {

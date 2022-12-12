@@ -244,6 +244,7 @@
             clearable
             v-model="languagesOrDialectsSpoken"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
       </div>
@@ -553,6 +554,7 @@ export default {
         householdMembers,
         yearsOfFarmingExperience,
         highestEducationalAttainment,
+        languagesOrDialectsSpoken,
       } = part2FormData
 
       this.age = age
@@ -585,6 +587,8 @@ export default {
         highestEducationalAttainment.split('(').length > 1
           ? getParenthesisValue(highestEducationalAttainment).specificValue
           : null
+
+      this.languagesOrDialectsSpoken = languagesOrDialectsSpoken
     },
 
     stringifyArray(array) {

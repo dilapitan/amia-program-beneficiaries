@@ -570,6 +570,7 @@ export default {
         otherSourcesOfIncome,
         averageGrossMonthlyIncomeOfHousehold,
         averageGrossMonthlyFarmIncome,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture,
       } = part2FormData
 
       this.age = age
@@ -641,6 +642,9 @@ export default {
         averageGrossMonthlyIncomeOfHousehold
 
       this.averageGrossMonthlyFarmIncome = averageGrossMonthlyFarmIncome
+
+      this.enrolledInRegistrySystemForBasicSectorsInAgriculture =
+        enrolledInRegistrySystemForBasicSectorsInAgriculture
     },
 
     stringifyArray(array) {

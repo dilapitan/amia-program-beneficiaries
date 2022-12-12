@@ -260,6 +260,7 @@
             label="Select option"
             v-model="mainSourceOfIncome"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
       </v-row>
@@ -280,6 +281,7 @@
               clearable
               v-model="mainSourceOfIncomeSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </div>
@@ -299,6 +301,7 @@
             label="Select options"
             multiple
             dense
+            :disabled="mode === 'VIEW'"
           ></v-combobox>
         </v-col>
       </v-row>
@@ -316,6 +319,7 @@
               clearable
               v-model="otherSourcesOfIncomeRegularJobSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify Regular Job"
             ></v-text-field>
           </v-col>
@@ -328,6 +332,7 @@
               clearable
               v-model="otherSourcesOfIncomeOwnBusinessSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify Own Business"
             ></v-text-field>
           </v-col>
@@ -340,6 +345,7 @@
               clearable
               v-model="otherSourcesOfIncomeOthersSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify Other source of income"
             ></v-text-field>
           </v-col>
@@ -357,6 +363,7 @@
             label="Select option"
             v-model="averageGrossMonthlyIncomeOfHousehold"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
       </v-row>
@@ -372,6 +379,7 @@
             label="Select option"
             v-model="averageGrossMonthlyFarmIncome"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
       </v-row>
@@ -387,6 +395,7 @@
             :label="
               membershipInAFarmerGroupOrAssociationOrOrganization ? 'Yes' : 'No'
             "
+            :disabled="mode === 'VIEW'"
           ></v-switch>
           <v-text-field
             class="ma-0 pa-0 mb-2"
@@ -395,6 +404,7 @@
             clearable
             v-model="membershipInAFarmerGroupOrAssociationOrOrganizationSpecify"
             label="Please specify"
+            :disabled="mode === 'VIEW'"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -413,6 +423,7 @@
                 ? 'Yes'
                 : 'No'
             "
+            :disabled="mode === 'VIEW'"
           ></v-switch>
         </v-col>
       </v-row>

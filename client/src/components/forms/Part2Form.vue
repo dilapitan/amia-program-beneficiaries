@@ -567,7 +567,7 @@ export default {
         highestEducationalAttainment,
         languagesOrDialectsSpoken,
         mainSourceOfIncome,
-        // otherSourcesOfIncome,
+        otherSourcesOfIncome,
         averageGrossMonthlyIncomeOfHousehold,
         averageGrossMonthlyFarmIncome,
       } = part2FormData
@@ -614,10 +614,33 @@ export default {
           ? getParenthesisValue(mainSourceOfIncome).specificValue
           : null
 
-      // this.otherSourcesOfIncome =
-      //   otherSourcesOfIncome.split('(').length > 1
-      //     ? getParenthesisValue(otherSourcesOfIncome).mainValue
-      //     : otherSourcesOfIncome
+      const otherSourcesOfIncomeParsed = otherSourcesOfIncome.split(',')
+      const _otherSourcesOfIncome = []
+      otherSourcesOfIncomeParsed.map((item) => {
+        if (item.split('(').length > 1) {
+          const parsed = getParenthesisValue(item)
+          _otherSourcesOfIncome.push(parsed.mainValue)
+
+          if (parsed.mainValue === 'Regular Job') {
+            this.otherSourcesOfIncomeRegularJobSpecify = parsed.specificValue
+          }
+          if (parsed.mainValue === 'Own Business') {
+            this.otherSourcesOfIncomeOwnBusinessSpecify = parsed.specificValue
+          }
+          if (parsed.mainValue === 'Others') {
+            this.otherSourcesOfIncomeOthersSpecify = parsed.specificValue
+          }
+        } else {
+          _otherSourcesOfIncome.push(item)
+        }
+      })
+
+      this.otherSourcesOfIncome = _otherSourcesOfIncome
+
+      // this.otherSourcesOfIncome = ['Others']
+      // otherSourcesOfIncome.split('(').length > 1
+      //   ? getParenthesisValue(otherSourcesOfIncome).mainValue
+      //   : otherSourcesOfIncome
       // this.otherSourcesOfIncomeSpecify =
       //   otherSourcesOfIncome.split('(').length > 1
       //     ? getParenthesisValue(otherSourcesOfIncome).specificValue
@@ -654,6 +677,7 @@ export default {
         }
       })
 
+      console.log('stringified:', stringified)
       return stringified
     },
 

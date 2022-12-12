@@ -404,7 +404,11 @@
 </template>
 
 <script>
-import { checkLastElementIfNull, parenthesize } from '@/helpers'
+import {
+  checkLastElementIfNull,
+  parenthesize,
+  stringSplitToObject,
+} from '@/helpers'
 
 export default {
   data: () => ({
@@ -523,9 +527,15 @@ export default {
     },
 
     setPart2FormData(part2FormData) {
-      const { age } = part2FormData
+      const { age, householdMembers } = part2FormData
 
       this.age = age
+      this.householdMembersList = stringSplitToObject(householdMembers, [
+        'name',
+        'age',
+        'gender',
+        'relationToTheRespondent',
+      ])
     },
 
     stringifyArray(array) {

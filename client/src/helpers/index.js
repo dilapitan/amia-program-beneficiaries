@@ -73,3 +73,20 @@ export const stringifyMonths = (months) => {
 export const removeElementOfOthersArray = (array, index) => {
   array.splice(index, 1)
 }
+
+export const stringSplitToObject = (string, props) => {
+  const semiColonParsed = string.split(';')
+
+  let items = []
+  semiColonParsed.map((obj) => {
+    const commaParsed = obj.split(',')
+
+    let item = {}
+    for (let i = 0; i < commaParsed.length; i++) {
+      item[props[i]] = commaParsed[i]
+    }
+    items.push(item)
+  })
+
+  return items
+}

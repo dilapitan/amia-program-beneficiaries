@@ -101,7 +101,8 @@ export default new Vuex.Store({
         civilStatus: 'Married',
         religion: 'Roman Catholic',
         belongingTo: 'Indigenous People (Sample IP)',
-        householdMembers: 'Yusa Magsika, 49, Female, Wife',
+        householdMembers:
+          'Yusa Magsika, 49, Female, Wife; Sashimi Magsika, 10, Male, Kid',
         yearsOfFarmingExperience: '40',
         highestEducationalAttainment: 'High School Graduate',
         languagesOrDialectsSpoken: 'Tagalog',

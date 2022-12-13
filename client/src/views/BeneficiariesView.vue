@@ -30,6 +30,27 @@
       </template>
     </v-data-table>
 
+    <v-dialog v-model="dialogDelete" max-width="500px">
+      <v-card>
+        <v-card-title class="text-h6">
+          Are you sure you want to delete Survey No:
+          {{ deletedItem.surveyNo }}?
+        </v-card-title>
+
+        <br />
+
+        <v-card-subtitle>
+          Deleting this removes the beneficiary from the list.
+        </v-card-subtitle>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="grey" text @click="closeDelete">Cancel</v-btn>
+          <v-btn color="error" @click="deleteItemConfirm">Delete</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <strong>Note:</strong>
     <div>
       <p>
@@ -1099,10 +1120,20 @@ export default {
       },
     ],
     beneficiaries: [],
+    dialogDelete: false,
+    deletedIndex: -1,
+    deletedItem: {},
+    updatedBeneficiariesPerProvince: [],
   }),
 
   created() {
     this.initialize()
+  },
+
+  watch: {
+    dialogDelete(val) {
+      val || this.closeDelete()
+    },
   },
 
   methods: {
@@ -1133,16 +1164,58 @@ export default {
     },
 
     deleteItem(item) {
-      console.log('item:', item)
+      // console.log('item:', item)
+      this.deletedIndex = this.beneficiaries.indexOf(item)
+      this.deletedItem = Object.assign({}, item)
+
+      const provinceWithBeneficiaries =
+        this.$store.state.beneficiariesPerProvince.find(
+          (provinceWithBeneficiary) =>
+            provinceWithBeneficiary.province === item.province
+        )
+
+      const filteredBeneficiaries =
+        provinceWithBeneficiaries.beneficiaries.filter((beneficiary) => {
+          if (beneficiary.surveyNo !== item.surveyNo) return beneficiary
+        })
+
+      const _updatedBeneficiariesPerProvince =
+        this.$store.state.beneficiariesPerProvince.map(
+          (provinceWithBeneficiary) => {
+            if (provinceWithBeneficiary.province === item.province) {
+              provinceWithBeneficiary.beneficiaries = filteredBeneficiaries
+            }
+            return provinceWithBeneficiary
+          }
+        )
+
+      this.updatedBeneficiariesPerProvince = _updatedBeneficiariesPerProvince
+
+      this.dialogDelete = true
     },
 
     deleteItemConfirm() {
+      const updatedBeneficiaries = this.beneficiaries.splice(
+        this.deletedIndex,
+        1
+      )
+      this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
+      this.$store.dispatch(
+        'setBeneficiaryPerProvinceAction',
+        this.updatedBeneficiariesPerProvince
+      )
+
       this.closeDelete()
     },
 
-    close() {},
-
-    closeDelete() {},
+    closeDelete() {
+      this.dialogDelete = false
+      this.$nextTick(() => {
+        this.deletedItem = Object.assign({}, {})
+        this.deletedIndex = -1
+        this.updatedBeneficiariesPerProvince = []
+      })
+    },
   },
 }
 </script>

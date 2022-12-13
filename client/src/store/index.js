@@ -13,17 +13,17 @@ export default new Vuex.Store({
   state: {
     user: null,
     beneficiaries: [
-      // {
-      //   surveyNo: 1,
-      //   date: new Date().toLocaleDateString(),
-      //   interviewStart: new Date().toLocaleDateString(),
-      //   interviewEnd: new Date().toLocaleDateString(),
-      //   nameOfInterviewer: 'Troy Bolton',
-      //   province: 'ALBAY',
-      //   cityOrMunicipality: 'Bacacay',
-      //   barangay: 'Brgy 1',
-      //   nameOfFarmer: 'Juan Magsasaka',
-      // },
+      {
+        surveyNo: 1,
+        date: new Date().toLocaleDateString(),
+        interviewStart: new Date().toLocaleDateString(),
+        interviewEnd: new Date().toLocaleDateString(),
+        nameOfInterviewer: 'Troy Bolton',
+        province: 'ALBAY',
+        cityOrMunicipality: 'Bacacay',
+        barangay: 'Brgy 1',
+        nameOfFarmer: 'Juan Magsasaka',
+      },
       // {
       //   surveyNo: 2,
       //   date: new Date().toLocaleDateString(),
@@ -267,62 +267,36 @@ export default new Vuex.Store({
         province: 'ALBAY',
         beneficiaries: [
           {
+            surveyNo: 1,
             province: 'ALBAY',
             cityOrMunicipality: 'Bacacay',
             barangay: 'Brgy 1',
             nameOfFarmer: 'Juan Magsasaka',
           },
           {
+            surveyNo: 7,
             province: 'ALBAY',
             cityOrMunicipality: 'Bacacay',
-            barangay: 'Brgy 3',
-            nameOfFarmer: 'Sisa Magsasaka',
+            barangay: 'Baranggay',
+            nameOfFarmer: 'Ani Magsika',
           },
         ],
       },
       {
         province: 'CAMARINES NORTE',
-        beneficiaries: [
-          {
-            province: 'CAMARINES NORTE',
-            cityOrMunicipality: 'Capalonga',
-            barangay: 'Brgy 1',
-            nameOfFarmer: 'Pedro Magsasaka',
-          },
-        ],
+        beneficiaries: [],
       },
       {
         province: 'CAMARINES SUR',
-        beneficiaries: [
-          {
-            province: 'CAMARINES SUR',
-            cityOrMunicipality: 'Bombon',
-            barangay: 'Brgy 2',
-            nameOfFarmer: 'Florantina Magsasaka',
-          },
-        ],
+        beneficiaries: [],
       },
       {
         province: 'CATANDUANES',
-        beneficiaries: [
-          {
-            province: 'CATANDUANES',
-            cityOrMunicipality: 'Masbate City',
-            barangay: 'Brgy 2',
-            nameOfFarmer: 'Berto Magsasaka',
-          },
-        ],
+        beneficiaries: [],
       },
       {
         province: 'MASBATE',
-        beneficiaries: [
-          {
-            province: 'MASBATE',
-            cityOrMunicipality: 'Panganiban',
-            barangay: 'Brgy 5',
-            nameOfFarmer: 'Lusiang Magsasaka',
-          },
-        ],
+        beneficiaries: [],
       },
       {
         province: 'SORSOGON',

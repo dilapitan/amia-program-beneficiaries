@@ -13,17 +13,17 @@ export default new Vuex.Store({
   state: {
     user: null,
     beneficiaries: [
-      {
-        surveyNo: 1,
-        date: new Date().toLocaleDateString(),
-        interviewStart: new Date().toLocaleDateString(),
-        interviewEnd: new Date().toLocaleDateString(),
-        nameOfInterviewer: 'Troy Bolton',
-        province: 'ALBAY',
-        cityOrMunicipality: 'Bacacay',
-        barangay: 'Brgy 1',
-        nameOfFarmer: 'Juan Magsasaka',
-      },
+      // {
+      //   surveyNo: 1,
+      //   date: new Date().toLocaleDateString(),
+      //   interviewStart: new Date().toLocaleDateString(),
+      //   interviewEnd: new Date().toLocaleDateString(),
+      //   nameOfInterviewer: 'Troy Bolton',
+      //   province: 'ALBAY',
+      //   cityOrMunicipality: 'Bacacay',
+      //   barangay: 'Brgy 1',
+      //   nameOfFarmer: 'Juan Magsasaka',
+      // },
       // {
       //   surveyNo: 2,
       //   date: new Date().toLocaleDateString(),
@@ -266,13 +266,13 @@ export default new Vuex.Store({
       {
         province: 'ALBAY',
         beneficiaries: [
-          {
-            surveyNo: 1,
-            province: 'ALBAY',
-            cityOrMunicipality: 'Bacacay',
-            barangay: 'Brgy 1',
-            nameOfFarmer: 'Juan Magsasaka',
-          },
+          // {
+          //   surveyNo: 1,
+          //   province: 'ALBAY',
+          //   cityOrMunicipality: 'Bacacay',
+          //   barangay: 'Brgy 1',
+          //   nameOfFarmer: 'Juan Magsasaka',
+          // },
           {
             surveyNo: 7,
             province: 'ALBAY',

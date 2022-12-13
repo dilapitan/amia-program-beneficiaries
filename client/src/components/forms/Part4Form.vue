@@ -504,7 +504,13 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part4FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part4FormData !== null) {
+      this.setPart4FormData(this.part4FormData)
+    }
+  },
 
   computed: {
     months() {
@@ -605,6 +611,32 @@ export default {
           this.estimatedGrossIncomePerCroppingSecondCropping,
       }
       return part4Data
+    },
+
+    setPart4FormData(part4FormData) {
+      const {
+        agriculturalActivities,
+        // cropsProduced,
+        // landAreaDevotedForCropProduction,
+        // livestockRaisedOrProduced,
+        // landAreaDevotedForLivestockProduction,
+        // speciesGrownForAquaculture,
+        // landAreaDevotedForAquaculture,
+        // sourceOfWaterForAquaculture,
+        // croppingPattern,
+        // estimatedGrossIncomePerCroppingFirstCropping,
+        // estimatedGrossIncomePerCroppingSecondCropping,
+        // cropCalendarWetSeasonLandPreparation,
+        // cropCalendarWetSeasonPlanting,
+        // cropCalendarWetSeasonGrowing,
+        // cropCalendarWetSeasonHarvesting,
+        // cropCalendarDrySeasonLandPreparation,
+        // cropCalendarDrySeasonPlanting,
+        // cropCalendarDrySeasonGrowing,
+        // cropCalendarDrySeasonHarvesting,
+      } = part4FormData
+
+      console.log('agriculturalActivities:', agriculturalActivities)
     },
   },
   watch: {

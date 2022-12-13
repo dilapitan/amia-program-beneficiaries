@@ -54,24 +54,26 @@
         <br />
 
         <!-- 3 Farm Description -->
-        <Part3Form
+        <!-- <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part3FormData="part3FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 4 Farm Activities -->
-        <!-- <Part4Form
+        <Part4Form
           ref="part4Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        /> -->
+          :mode="mode"
+          :part4FormData="part4FormData"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -145,8 +147,8 @@
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
-import Part3Form from '@/components/forms/Part3Form.vue'
-// import Part4Form from '@/components/forms/Part4Form.vue'
+// import Part3Form from '@/components/forms/Part3Form.vue'
+import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
@@ -159,8 +161,8 @@ export default {
     // Part0Form,
     // Part1Form,
     // Part2Form,
-    Part3Form,
-    // Part4Form,
+    // Part3Form,
+    Part4Form,
     // Part5Form,
     // Part6Form,
     // Part7Form,
@@ -180,6 +182,7 @@ export default {
     part1FormData: null,
     part2FormData: null,
     part3FormData: null,
+    part4FormData: null,
     mode: null,
   }),
 
@@ -584,6 +587,7 @@ export default {
         this.setPart1FormData(this.currentBeneficiary)
         this.setPart2FormData(this.currentBeneficiary)
         this.setPart3FormData(this.currentBeneficiary)
+        this.setPart4FormData(this.currentBeneficiary)
       }
     },
 
@@ -749,6 +753,52 @@ export default {
       }
 
       this.part3FormData = _part3FormData
+    },
+
+    setPart4FormData(beneficiary) {
+      const {
+        agriculturalActivities,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
+        croppingPattern,
+        estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping,
+        cropCalendarWetSeasonLandPreparation,
+        cropCalendarWetSeasonPlanting,
+        cropCalendarWetSeasonGrowing,
+        cropCalendarWetSeasonHarvesting,
+        cropCalendarDrySeasonLandPreparation,
+        cropCalendarDrySeasonPlanting,
+        cropCalendarDrySeasonGrowing,
+        cropCalendarDrySeasonHarvesting,
+      } = beneficiary
+
+      this.part4FormData = {
+        agriculturalActivities,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
+        croppingPattern,
+        estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping,
+        cropCalendarWetSeasonLandPreparation,
+        cropCalendarWetSeasonPlanting,
+        cropCalendarWetSeasonGrowing,
+        cropCalendarWetSeasonHarvesting,
+        cropCalendarDrySeasonLandPreparation,
+        cropCalendarDrySeasonPlanting,
+        cropCalendarDrySeasonGrowing,
+        cropCalendarDrySeasonHarvesting,
+      }
     },
 
     getPart0FormData() {

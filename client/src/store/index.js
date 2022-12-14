@@ -133,9 +133,9 @@ export default new Vuex.Store({
 
         // Part 4
         agriculturalActivities:
-          'Crop Production, Livestock Production, Aquaculture, Agri-based Product Development(Pinya planting)',
-        cropsProduced: 'Palay',
-        landAreaDevotedForCropProduction: '1',
+          'Livestock Production, Aquaculture, Agri-based Product Development(Pinya planting)',
+        cropsProduced: null,
+        landAreaDevotedForCropProduction: null,
         livestockRaisedOrProduced: 'Pigs',
         landAreaDevotedForLivestockProduction: '1',
         speciesGrownForAquaculture: 'Tilapia',

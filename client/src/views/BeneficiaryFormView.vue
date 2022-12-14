@@ -203,9 +203,9 @@ export default {
       const valid = this.$refs.form.validate()
       //const part0FormData = this.getPart0FormData()
       // const part1FormData = this.getPart1FormData()
-      const part2FormData = this.getPart2FormData()
+      // const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
-      // const part4FormData = this.getPart4FormData()
+      const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
       // const part7FormData = this.getPart7FormData()
@@ -231,23 +231,23 @@ export default {
         // } = part1FormData
 
         // Part 2
-        const {
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
-        } = part2FormData
+        // const {
+        //   age,
+        //   gender,
+        //   civilStatus,
+        //   religion,
+        //   belongingTo,
+        //   householdMembers,
+        //   yearsOfFarmingExperience,
+        //   highestEducationalAttainment,
+        //   languagesOrDialectsSpoken,
+        //   mainSourceOfIncome,
+        //   otherSourcesOfIncome,
+        //   averageGrossMonthlyIncomeOfHousehold,
+        //   averageGrossMonthlyFarmIncome,
+        //   membershipInAFarmerGroupOrAssociationOrOrganization,
+        //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        // } = part2FormData
 
         // Part 3
         // const {
@@ -268,27 +268,27 @@ export default {
         // } = part3FormData
 
         // Part 4
-        // const {
-        //   agriculturalActivities,
-        //   cropsProduced,
-        //   landAreaDevotedForCropProduction,
-        //   livestockRaisedOrProduced,
-        //   landAreaDevotedForLivestockProduction,
-        //   speciesGrownForAquaculture,
-        //   landAreaDevotedForAquaculture,
-        //   sourceOfWaterForAquaculture,
-        //   croppingPattern,
-        //   estimatedGrossIncomePerCroppingFirstCropping,
-        //   estimatedGrossIncomePerCroppingSecondCropping,
-        //   cropCalendarWetSeasonLandPreparation,
-        //   cropCalendarWetSeasonPlanting,
-        //   cropCalendarWetSeasonGrowing,
-        //   cropCalendarWetSeasonHarvesting,
-        //   cropCalendarDrySeasonLandPreparation,
-        //   cropCalendarDrySeasonPlanting,
-        //   cropCalendarDrySeasonGrowing,
-        //   cropCalendarDrySeasonHarvesting,
-        // } = part4FormData
+        const {
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
+        } = part4FormData
 
         // Part 5
         // const {
@@ -407,21 +407,21 @@ export default {
           // farmersCodeNo,
 
           // Part 2
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          // age,
+          // gender,
+          // civilStatus,
+          // religion,
+          // belongingTo,
+          // householdMembers,
+          // yearsOfFarmingExperience,
+          // highestEducationalAttainment,
+          // languagesOrDialectsSpoken,
+          // mainSourceOfIncome,
+          // otherSourcesOfIncome,
+          // averageGrossMonthlyIncomeOfHousehold,
+          // averageGrossMonthlyFarmIncome,
+          // membershipInAFarmerGroupOrAssociationOrOrganization,
+          // enrolledInRegistrySystemForBasicSectorsInAgriculture,
           //
           // Part 3
           // totalAreaOfAgriculturalLand,
@@ -440,25 +440,25 @@ export default {
           // landHolding,
           //
           // Part 4
-          // agriculturalActivities,
-          // cropsProduced,
-          // landAreaDevotedForCropProduction,
-          // livestockRaisedOrProduced,
-          // landAreaDevotedForLivestockProduction,
-          // speciesGrownForAquaculture,
-          // landAreaDevotedForAquaculture,
-          // sourceOfWaterForAquaculture,
-          // croppingPattern,
-          // estimatedGrossIncomePerCroppingFirstCropping,
-          // estimatedGrossIncomePerCroppingSecondCropping,
-          // cropCalendarWetSeasonLandPreparation,
-          // cropCalendarWetSeasonPlanting,
-          // cropCalendarWetSeasonGrowing,
-          // cropCalendarWetSeasonHarvesting,
-          // cropCalendarDrySeasonLandPreparation,
-          // cropCalendarDrySeasonPlanting,
-          // cropCalendarDrySeasonGrowing,
-          // cropCalendarDrySeasonHarvesting,
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
           //
           // Part 5
           // attendedAgriculturalRelatedTrainings,

@@ -25,6 +25,7 @@
                 @click="addAgriculturalActivities(agriculturalActivities)"
                 v-model="agriculturalActivities.selected"
                 :label="agriculturalActivities.id"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
           </v-row>
@@ -52,6 +53,7 @@
                     clearable
                     v-model="cropsProduced"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -76,6 +78,7 @@
                     clearable
                     v-model="landAreaDevotedForCropProduction"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -108,6 +111,7 @@
                     clearable
                     v-model="livestockRaisedOrProduced"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -132,6 +136,7 @@
                     clearable
                     v-model="landAreaDevotedForLivestockProduction"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -164,6 +169,7 @@
                     clearable
                     v-model="speciesGrownForAquaculture"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -188,6 +194,7 @@
                     clearable
                     v-model="landAreaDevotedForAquaculture"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -212,6 +219,7 @@
                     clearable
                     v-model="sourceOfWaterForAquaculture"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
                 </div>
@@ -234,6 +242,7 @@
                   clearable
                   v-model="agriBasedProductDevelopmentSpecify"
                   :rules="requiredRule"
+                  :disabled="mode === 'VIEW'"
                   label="Please specify"
                 ></v-text-field>
               </div>
@@ -432,6 +441,7 @@
               clearable
               v-model="estimatedGrossIncomePerCroppingFirstCropping"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
           <div>
@@ -441,6 +451,7 @@
               clearable
               v-model="estimatedGrossIncomePerCroppingSecondCropping"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -548,6 +559,7 @@ export default {
 
     stringifyAgriculturalActivities() {
       let stringified = ''
+      console.log('this.agriculturalActivities:', this.agriculturalActivities)
       this.agriculturalActivities.map((source, index) => {
         stringified = stringified.concat(source.id)
 
@@ -616,16 +628,16 @@ export default {
     setPart4FormData(part4FormData) {
       const {
         agriculturalActivities,
-        // cropsProduced,
-        // landAreaDevotedForCropProduction,
-        // livestockRaisedOrProduced,
-        // landAreaDevotedForLivestockProduction,
-        // speciesGrownForAquaculture,
-        // landAreaDevotedForAquaculture,
-        // sourceOfWaterForAquaculture,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
         // croppingPattern,
-        // estimatedGrossIncomePerCroppingFirstCropping,
-        // estimatedGrossIncomePerCroppingSecondCropping,
+        estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping,
         // cropCalendarWetSeasonLandPreparation,
         // cropCalendarWetSeasonPlanting,
         // cropCalendarWetSeasonGrowing,
@@ -636,7 +648,56 @@ export default {
         // cropCalendarDrySeasonHarvesting,
       } = part4FormData
 
-      console.log('agriculturalActivities:', agriculturalActivities)
+      const _agriculturalActivities = agriculturalActivities
+        .split(',')
+        .map((item) => {
+          const trimmed = item.trim()
+
+          if (trimmed.includes('Agri-based Product Development')) {
+            const _agriBasedProductDevelopmentSpecify = trimmed
+              .split('(')[1]
+              .slice(0, -1)
+
+            this.agriBasedProductDevelopmentSpecify =
+              _agriBasedProductDevelopmentSpecify
+          }
+
+          return {
+            id: trimmed.includes('Agri-based Product Development')
+              ? 'Agri-based Product Development'
+              : trimmed,
+            selected: true,
+          }
+        })
+
+      const _agriculturalActivitiesOptions = this.agriculturalActivitiesOptions
+
+      this.agriculturalActivitiesOptions = _agriculturalActivitiesOptions.map(
+        (item) => {
+          const found = _agriculturalActivities.find(
+            (agriculturalActivity) => agriculturalActivity.id === item.id
+          )
+          if (found) {
+            item.selected = true
+          }
+          return item
+        }
+      )
+
+      this.agriculturalActivities = _agriculturalActivities
+      this.cropsProduced = cropsProduced
+      this.landAreaDevotedForCropProduction = landAreaDevotedForCropProduction
+      this.livestockRaisedOrProduced = livestockRaisedOrProduced
+      this.landAreaDevotedForLivestockProduction =
+        landAreaDevotedForLivestockProduction
+      this.speciesGrownForAquaculture = speciesGrownForAquaculture
+      this.landAreaDevotedForAquaculture = landAreaDevotedForAquaculture
+      this.sourceOfWaterForAquaculture = sourceOfWaterForAquaculture
+
+      this.estimatedGrossIncomePerCroppingFirstCropping =
+        estimatedGrossIncomePerCroppingFirstCropping
+      this.estimatedGrossIncomePerCroppingSecondCropping =
+        estimatedGrossIncomePerCroppingSecondCropping
     },
   },
   watch: {

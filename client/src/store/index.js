@@ -160,7 +160,7 @@ export default new Vuex.Store({
           'Internet, Social Media, TV, Radio',
         sourceOfInformationRelatedToImprovingAgriculturalProductProcessing:
           'TV, Radio, Internet, Social Media',
-        sourceOfClimateAndWeatherInformation: 'Others(Facebook, Twitter)',
+        sourceOfClimateAndWeatherInformation: 'Others(Facebook/Twitter)',
         observedAnyLongTermChangesInClimate: 'Yes',
         changesInClimateForTemperature: 'Increase',
         changesInClimateForAmountOfRainfaill: 'Increase',

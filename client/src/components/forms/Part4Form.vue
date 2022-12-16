@@ -260,6 +260,7 @@
             label="Select option"
             v-model="croppingPattern"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
       </div>
@@ -276,6 +277,7 @@
               clearable
               v-model="croppingPatternSpecify"
               label="Please specify"
+              :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
         </v-col>
@@ -461,7 +463,7 @@
 </template>
 
 <script>
-import { parenthesize, stringifyMonths } from '@/helpers'
+import { getParenthesisValue, parenthesize, stringifyMonths } from '@/helpers'
 
 export default {
   data: () => ({
@@ -635,7 +637,7 @@ export default {
         speciesGrownForAquaculture,
         landAreaDevotedForAquaculture,
         sourceOfWaterForAquaculture,
-        // croppingPattern,
+        croppingPattern,
         estimatedGrossIncomePerCroppingFirstCropping,
         estimatedGrossIncomePerCroppingSecondCropping,
         // cropCalendarWetSeasonLandPreparation,
@@ -693,6 +695,13 @@ export default {
       this.speciesGrownForAquaculture = speciesGrownForAquaculture
       this.landAreaDevotedForAquaculture = landAreaDevotedForAquaculture
       this.sourceOfWaterForAquaculture = sourceOfWaterForAquaculture
+
+      this.croppingPattern = croppingPattern.includes('Others')
+        ? 'Others'
+        : croppingPattern
+      this.croppingPatternSpecify =
+        croppingPattern.includes('Others') &&
+        getParenthesisValue(croppingPattern).specificValue
 
       this.estimatedGrossIncomePerCroppingFirstCropping =
         estimatedGrossIncomePerCroppingFirstCropping

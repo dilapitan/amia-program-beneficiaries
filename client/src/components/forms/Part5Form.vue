@@ -1580,16 +1580,16 @@ export default {
         sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
         sourceOfClimateAndWeatherInformation,
         observedAnyLongTermChangesInClimate,
-        // changesInClimateForTemperature,
-        // changesInClimateForAmountOfRainfaill,
-        // changesInClimateForRainfallTiming,
-        // changesInClimateForRainfulIntensity,
-        // changesInClimateForRainfallDuration,
-        // changesInClimateForNumberOfWeatherEvents,
-        // changesInClimateForNumberOfHotDays,
-        // changesInClimateForNumberOfRainyDays,
-        // changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
-        // changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        changesInClimateForTemperature,
+        changesInClimateForAmountOfRainfaill,
+        changesInClimateForRainfallTiming,
+        changesInClimateForRainfulIntensity,
+        changesInClimateForRainfallDuration,
+        changesInClimateForNumberOfWeatherEvents,
+        changesInClimateForNumberOfHotDays,
+        changesInClimateForNumberOfRainyDays,
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
         // observedAnyChangeInTheOnsetOfDrySeason,
         // observedAnyChangeInTheOnsetOfWetSeason,
         // descriptionOfChangeInTemperature,
@@ -1705,6 +1705,31 @@ export default {
 
       this.observedAnyLongTermChangesInClimate =
         observedAnyLongTermChangesInClimate
+
+      this.changesInClimateForTemperature =
+        changesInClimateForTemperature === 'Increase' ? true : false
+      this.changesInClimateForAmountOfRainfaill =
+        changesInClimateForAmountOfRainfaill === 'Increase' ? true : false
+      this.changesInClimateForRainfallTiming =
+        changesInClimateForRainfallTiming === 'Increase' ? true : false
+      this.changesInClimateForRainfulIntensity =
+        changesInClimateForRainfulIntensity === 'Increase' ? true : false
+      this.changesInClimateForRainfallDuration =
+        changesInClimateForRainfallDuration === 'Increase' ? true : false
+      this.changesInClimateForNumberOfWeatherEvents =
+        changesInClimateForNumberOfWeatherEvents === 'Increase' ? true : false
+      this.changesInClimateForNumberOfHotDays =
+        changesInClimateForNumberOfHotDays === 'Increase' ? true : false
+      this.changesInClimateForNumberOfRainyDays =
+        changesInClimateForNumberOfRainyDays === 'Increase' ? true : false
+      this.changesInClimateForOccurenceOfPestsAndDiseasesInCrops =
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops === 'Increase'
+          ? true
+          : false
+      this.changesInClimateForOccurenceOfPestsAndDiseasesInLivestock =
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock === 'Increase'
+          ? true
+          : false
     },
   },
   watch: {

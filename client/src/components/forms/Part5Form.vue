@@ -1622,10 +1622,8 @@ export default {
         // driversOfChangeAndVulnerabilityOfOthers,
       } = setPart5FormData
 
-      console.log(
-        'attendedAgriculturalRelatedTrainings:',
+      this.attendedAgriculturalRelatedTrainings =
         attendedAgriculturalRelatedTrainings
-      )
     },
   },
   watch: {

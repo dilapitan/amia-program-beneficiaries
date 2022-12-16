@@ -1590,8 +1590,8 @@ export default {
         changesInClimateForNumberOfRainyDays,
         changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
         changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
-        // observedAnyChangeInTheOnsetOfDrySeason,
-        // observedAnyChangeInTheOnsetOfWetSeason,
+        observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason,
         // descriptionOfChangeInTemperature,
         // descriptionOfChangeInRainfallDuration,
         // descriptionOfChangeInRainfallTiming,
@@ -1730,6 +1730,11 @@ export default {
         changesInClimateForOccurenceOfPestsAndDiseasesInLivestock === 'Increase'
           ? true
           : false
+
+      this.observedAnyChangeInTheOnsetOfDrySeason =
+        observedAnyChangeInTheOnsetOfDrySeason
+      this.observedAnyChangeInTheOnsetOfWetSeason =
+        observedAnyChangeInTheOnsetOfWetSeason
     },
   },
   watch: {

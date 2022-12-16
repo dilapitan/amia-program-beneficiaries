@@ -56,7 +56,7 @@ export const stringifyArray = (array, othersSpecifyValue) => {
     }
 
     if (index < array.length - 1) {
-      stringified = stringified.concat(', ')
+      stringified = stringified.concat('/ ')
     }
   })
 

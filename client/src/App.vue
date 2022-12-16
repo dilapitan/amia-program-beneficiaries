@@ -17,15 +17,6 @@
           </v-list-item-content>
         </v-list-item>
 
-        <!-- <v-list-item v-if="isLoggedIn" to="/add">
-          <v-icon class="mr-2">mdi-account-plus</v-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              <span class="text-button"> ADD A BENEFICIARY</span>
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item> -->
-
         <div v-if="$vuetify.breakpoint.xsOnly">
           <br />
 

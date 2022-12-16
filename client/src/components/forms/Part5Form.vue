@@ -1592,11 +1592,11 @@ export default {
         changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
         observedAnyChangeInTheOnsetOfDrySeason,
         observedAnyChangeInTheOnsetOfWetSeason,
-        // descriptionOfChangeInTemperature,
-        // descriptionOfChangeInRainfallDuration,
-        // descriptionOfChangeInRainfallTiming,
-        // descriptionOfChangeInRainfallIntensity,
-        // descriptionOfChangeInNumberOfWeatherEvents,
+        descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents,
         // perceivedEffectsOrImpactsOfChangeInTimingOfRains,
         // perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
         // perceivedEffectsOrImpactsOfReducedCroppingSeason,
@@ -1735,6 +1735,16 @@ export default {
         observedAnyChangeInTheOnsetOfDrySeason
       this.observedAnyChangeInTheOnsetOfWetSeason =
         observedAnyChangeInTheOnsetOfWetSeason
+
+      this.descriptionOfChangeInTemperature = descriptionOfChangeInTemperature
+      this.descriptionOfChangeInRainfallDuration =
+        descriptionOfChangeInRainfallDuration
+      this.descriptionOfChangeInRainfallTiming =
+        descriptionOfChangeInRainfallTiming
+      this.descriptionOfChangeInRainfallIntensity =
+        descriptionOfChangeInRainfallIntensity
+      this.descriptionOfChangeInNumberOfWeatherEvents =
+        descriptionOfChangeInNumberOfWeatherEvents
     },
   },
   watch: {

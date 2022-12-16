@@ -1240,7 +1240,11 @@
 </template>
 
 <script>
-import { checkLastElementIfNull, stringifyArray } from '@/helpers'
+import {
+  checkLastElementIfNull,
+  getParenthesisValue,
+  stringifyArray,
+} from '@/helpers'
 
 export default {
   data: () => ({
@@ -1571,8 +1575,8 @@ export default {
     setPart5FormData(setPart5FormData) {
       const {
         attendedAgriculturalRelatedTrainings,
-        // totalNumberOfTrainingsAttended,
-        // sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction,
         // sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
         // sourceOfClimateAndWeatherInformation,
         // observedAnyLongTermChangesInClimate,
@@ -1624,6 +1628,33 @@ export default {
 
       this.attendedAgriculturalRelatedTrainings =
         attendedAgriculturalRelatedTrainings
+
+      this.totalNumberOfTrainingsAttended = totalNumberOfTrainingsAttended
+
+      const sourceOfInformationRelatedToImprovingAgriculturalProductionParsed =
+        sourceOfInformationRelatedToImprovingAgriculturalProduction.split(',')
+      const _sourceOfInformationRelatedToImprovingAgriculturalProduction = []
+      sourceOfInformationRelatedToImprovingAgriculturalProductionParsed.map(
+        (item) => {
+          if (item.split('(').length > 1) {
+            const parsed = getParenthesisValue(item)
+            _sourceOfInformationRelatedToImprovingAgriculturalProduction.push(
+              parsed.mainValue
+            )
+
+            if (parsed.mainValue === 'Others') {
+              this.sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify =
+                parsed.specificValue
+            }
+          } else
+            _sourceOfInformationRelatedToImprovingAgriculturalProduction.push(
+              item
+            )
+        }
+      )
+
+      this.sourceOfInformationRelatedToImprovingAgriculturalProduction =
+        _sourceOfInformationRelatedToImprovingAgriculturalProduction
     },
   },
   watch: {

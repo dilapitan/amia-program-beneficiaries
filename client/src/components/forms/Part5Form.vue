@@ -1579,7 +1579,7 @@ export default {
         sourceOfInformationRelatedToImprovingAgriculturalProduction,
         sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
         sourceOfClimateAndWeatherInformation,
-        // observedAnyLongTermChangesInClimate,
+        observedAnyLongTermChangesInClimate,
         // changesInClimateForTemperature,
         // changesInClimateForAmountOfRainfaill,
         // changesInClimateForRainfallTiming,
@@ -1702,6 +1702,9 @@ export default {
 
       this.sourceOfClimateAndWeatherInformation =
         _sourceOfClimateAndWeatherInformation
+
+      this.observedAnyLongTermChangesInClimate =
+        observedAnyLongTermChangesInClimate
     },
   },
   watch: {

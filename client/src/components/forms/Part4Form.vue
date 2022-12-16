@@ -303,6 +303,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -319,6 +320,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -335,6 +337,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -351,6 +354,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -373,6 +377,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -389,6 +394,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -405,6 +411,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -421,6 +428,7 @@
                 :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
+                :disabled="mode === 'VIEW'"
                 multiple
                 dense
               ></v-combobox>
@@ -640,14 +648,14 @@ export default {
         croppingPattern,
         estimatedGrossIncomePerCroppingFirstCropping,
         estimatedGrossIncomePerCroppingSecondCropping,
-        // cropCalendarWetSeasonLandPreparation,
-        // cropCalendarWetSeasonPlanting,
-        // cropCalendarWetSeasonGrowing,
-        // cropCalendarWetSeasonHarvesting,
-        // cropCalendarDrySeasonLandPreparation,
-        // cropCalendarDrySeasonPlanting,
-        // cropCalendarDrySeasonGrowing,
-        // cropCalendarDrySeasonHarvesting,
+        cropCalendarWetSeasonLandPreparation,
+        cropCalendarWetSeasonPlanting,
+        cropCalendarWetSeasonGrowing,
+        cropCalendarWetSeasonHarvesting,
+        cropCalendarDrySeasonLandPreparation,
+        cropCalendarDrySeasonPlanting,
+        cropCalendarDrySeasonGrowing,
+        cropCalendarDrySeasonHarvesting,
       } = part4FormData
 
       const _agriculturalActivities = agriculturalActivities
@@ -702,6 +710,24 @@ export default {
       this.croppingPatternSpecify =
         croppingPattern.includes('Others') &&
         getParenthesisValue(croppingPattern).specificValue
+
+      this.cropCalendarWetSeasonLandPreparation =
+        cropCalendarWetSeasonLandPreparation.split(',')
+      this.cropCalendarWetSeasonPlanting =
+        cropCalendarWetSeasonPlanting.split(',')
+      this.cropCalendarWetSeasonGrowing =
+        cropCalendarWetSeasonGrowing.split(',')
+      this.cropCalendarWetSeasonHarvesting =
+        cropCalendarWetSeasonHarvesting.split(',')
+
+      this.cropCalendarDrySeasonLandPreparation =
+        cropCalendarDrySeasonLandPreparation.split(',')
+      this.cropCalendarDrySeasonPlanting =
+        cropCalendarDrySeasonPlanting.split(',')
+      this.cropCalendarDrySeasonGrowing =
+        cropCalendarDrySeasonGrowing.split(',')
+      this.cropCalendarDrySeasonHarvesting =
+        cropCalendarDrySeasonHarvesting.split(',')
 
       this.estimatedGrossIncomePerCroppingFirstCropping =
         estimatedGrossIncomePerCroppingFirstCropping

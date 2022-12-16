@@ -1265,7 +1265,13 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part5FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part5FormData !== null) {
+      this.setPart5FormData(this.part5FormData)
+    }
+  },
 
   computed: {
     fivePointScale() {
@@ -1473,6 +1479,66 @@ export default {
       }
 
       return part5Data
+    },
+
+    setPart5FormData(setPart5FormData) {
+      const {
+        attendedAgriculturalRelatedTrainings,
+        // totalNumberOfTrainingsAttended,
+        // sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        // sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        // sourceOfClimateAndWeatherInformation,
+        // observedAnyLongTermChangesInClimate,
+        // changesInClimateForTemperature,
+        // changesInClimateForAmountOfRainfaill,
+        // changesInClimateForRainfallTiming,
+        // changesInClimateForRainfulIntensity,
+        // changesInClimateForRainfallDuration,
+        // changesInClimateForNumberOfWeatherEvents,
+        // changesInClimateForNumberOfHotDays,
+        // changesInClimateForNumberOfRainyDays,
+        // changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        // changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        // observedAnyChangeInTheOnsetOfDrySeason,
+        // observedAnyChangeInTheOnsetOfWetSeason,
+        // descriptionOfChangeInTemperature,
+        // descriptionOfChangeInRainfallDuration,
+        // descriptionOfChangeInRainfallTiming,
+        // descriptionOfChangeInRainfallIntensity,
+        // descriptionOfChangeInNumberOfWeatherEvents,
+        // perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        // perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        // perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        // perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        // perceivedEffectsOrImpactsOfPostharvestLosses,
+        // perceivedEffectsOrImpactsOfPestInvasion,
+        // perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        // perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        // perceivedEffectsOrImpactsOfLackOfPotableWater,
+        // perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        // perceivedEffectsOrImpactsOfErosions,
+        // perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        // perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        // perceivedEffectsOrImpactsOfDeathOfLivestock,
+        // perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        // perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        // perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        // perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        // perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        // perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        // perceivedEffectsOrImpactsOfOthers,
+        // observedMainOpportunitiesOfLongTermChangesInClimate,
+        // driversOfChangeAndVulnerabilityOfLandDegredation,
+        // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        // driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        // driversOfChangeAndVulnerabilityOfOthers,
+      } = setPart5FormData
+
+      console.log(
+        'attendedAgriculturalRelatedTrainings:',
+        attendedAgriculturalRelatedTrainings
+      )
     },
   },
   watch: {

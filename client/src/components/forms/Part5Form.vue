@@ -1578,7 +1578,7 @@ export default {
         totalNumberOfTrainingsAttended,
         sourceOfInformationRelatedToImprovingAgriculturalProduction,
         sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
-        // sourceOfClimateAndWeatherInformation,
+        sourceOfClimateAndWeatherInformation,
         // observedAnyLongTermChangesInClimate,
         // changesInClimateForTemperature,
         // changesInClimateForAmountOfRainfaill,
@@ -1683,6 +1683,25 @@ export default {
 
       this.sourceOfInformationRelatedToImprovingAgriculturalProductProcessing =
         _sourceOfInformationRelatedToImprovingAgriculturalProductProcessing
+
+      const sourceOfClimateAndWeatherInformationParsed =
+        sourceOfClimateAndWeatherInformation.split(',')
+      const _sourceOfClimateAndWeatherInformation = []
+      sourceOfClimateAndWeatherInformationParsed.map((item) => {
+        if (item.split('(').length > 1) {
+          const parsed = getParenthesisValue(item)
+
+          _sourceOfClimateAndWeatherInformation.push(parsed.mainValue)
+
+          if (parsed.mainValue === 'Others') {
+            this.sourceOfClimateAndWeatherInformationSpecify =
+              parsed.specificValue
+          }
+        } else _sourceOfClimateAndWeatherInformation.push(item)
+      })
+
+      this.sourceOfClimateAndWeatherInformation =
+        _sourceOfClimateAndWeatherInformation
     },
   },
   watch: {

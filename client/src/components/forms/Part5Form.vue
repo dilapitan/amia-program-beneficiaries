@@ -1618,7 +1618,7 @@ export default {
         perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
         perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
         perceivedEffectsOrImpactsOfOthers,
-        // observedMainOpportunitiesOfLongTermChangesInClimate,
+        observedMainOpportunitiesOfLongTermChangesInClimate,
         // driversOfChangeAndVulnerabilityOfLandDegredation,
         // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
         // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
@@ -1912,6 +1912,9 @@ export default {
           this.perceivedEffectsOrImpactsOfOthersList = []
         }
       })
+
+      this.observedMainOpportunitiesOfLongTermChangesInClimate =
+        observedMainOpportunitiesOfLongTermChangesInClimate
     },
   },
   watch: {

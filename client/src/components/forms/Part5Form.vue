@@ -1623,7 +1623,7 @@ export default {
         driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
         driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
         driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-        // driversOfChangeAndVulnerabilityOfOthers,
+        driversOfChangeAndVulnerabilityOfOthers,
       } = setPart5FormData
 
       this.attendedAgriculturalRelatedTrainings =
@@ -1948,6 +1948,25 @@ export default {
       setTimeout(() => {
         this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals =
           driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals
+      })
+
+      this.driversOfChangeAndVulnerabilityOfOthersBool =
+        driversOfChangeAndVulnerabilityOfOthers ? true : false
+      setTimeout(() => {
+        if (driversOfChangeAndVulnerabilityOfOthers) {
+          const splitted = driversOfChangeAndVulnerabilityOfOthers.split(',')
+
+          let items = splitted.map((obj) => {
+            let item = {}
+            item.effectsOrImpact = getParenthesisValue(obj).mainValue
+            item.rate = getParenthesisValue(obj).specificValue
+            return item
+          })
+
+          this.driversOfChangeAndVulnerabilityOfOthersList = items
+        } else {
+          this.driversOfChangeAndVulnerabilityOfOthersList = []
+        }
       })
     },
   },

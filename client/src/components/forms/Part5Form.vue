@@ -1597,26 +1597,26 @@ export default {
         descriptionOfChangeInRainfallTiming,
         descriptionOfChangeInRainfallIntensity,
         descriptionOfChangeInNumberOfWeatherEvents,
-        // perceivedEffectsOrImpactsOfChangeInTimingOfRains,
-        // perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
-        // perceivedEffectsOrImpactsOfReducedCroppingSeason,
-        // perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
-        // perceivedEffectsOrImpactsOfPostharvestLosses,
-        // perceivedEffectsOrImpactsOfPestInvasion,
-        // perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
-        // perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
-        // perceivedEffectsOrImpactsOfLackOfPotableWater,
-        // perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
-        // perceivedEffectsOrImpactsOfErosions,
-        // perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
-        // perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
-        // perceivedEffectsOrImpactsOfDeathOfLivestock,
-        // perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
-        // perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
-        // perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
-        // perceivedEffectsOrImpactsOfRuralUrbanMigration,
-        // perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
-        // perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
         // perceivedEffectsOrImpactsOfOthers,
         // observedMainOpportunitiesOfLongTermChangesInClimate,
         // driversOfChangeAndVulnerabilityOfLandDegredation,
@@ -1745,6 +1745,158 @@ export default {
         descriptionOfChangeInRainfallIntensity
       this.descriptionOfChangeInNumberOfWeatherEvents =
         descriptionOfChangeInNumberOfWeatherEvents
+
+      this.perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool =
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfChangeInTimingOfRains =
+          perceivedEffectsOrImpactsOfChangeInTimingOfRains
+      })
+
+      this.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeasonBool =
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason
+          ? true
+          : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason =
+          perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason
+      })
+
+      this.perceivedEffectsOrImpactsOfReducedCroppingSeasonBool =
+        perceivedEffectsOrImpactsOfReducedCroppingSeason ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfReducedCroppingSeason =
+          perceivedEffectsOrImpactsOfReducedCroppingSeason
+      })
+
+      this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructionsBool =
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions
+          ? true
+          : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions =
+          perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions
+      })
+
+      this.perceivedEffectsOrImpactsOfPostharvestLossesBool =
+        perceivedEffectsOrImpactsOfPostharvestLosses ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfPostharvestLosses =
+          perceivedEffectsOrImpactsOfPostharvestLosses
+      })
+
+      this.perceivedEffectsOrImpactsOfPestInvasionBool =
+        perceivedEffectsOrImpactsOfPestInvasion ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfPestInvasion =
+          perceivedEffectsOrImpactsOfPestInvasion
+      })
+
+      this.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool =
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases =
+          perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases
+      })
+
+      this.perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool =
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfPovertyAndFoodShortages =
+          perceivedEffectsOrImpactsOfPovertyAndFoodShortages
+      })
+
+      this.perceivedEffectsOrImpactsOfLackOfPotableWaterBool =
+        perceivedEffectsOrImpactsOfLackOfPotableWater ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfLackOfPotableWater =
+          perceivedEffectsOrImpactsOfLackOfPotableWater
+      })
+
+      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool =
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater =
+          perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater
+      })
+
+      this.perceivedEffectsOrImpactsOfErosionsBool =
+        perceivedEffectsOrImpactsOfErosions ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfErosions =
+          perceivedEffectsOrImpactsOfErosions
+      })
+
+      this.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool =
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife
+          ? true
+          : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife =
+          perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife
+      })
+
+      this.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool =
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties
+          ? true
+          : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties =
+          perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties
+      })
+
+      this.perceivedEffectsOrImpactsOfDeathOfLivestockBool =
+        perceivedEffectsOrImpactsOfDeathOfLivestock ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfDeathOfLivestock =
+          perceivedEffectsOrImpactsOfDeathOfLivestock
+      })
+
+      this.perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool =
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfDecreasedLivestockProduction =
+          perceivedEffectsOrImpactsOfDecreasedLivestockProduction
+      })
+
+      this.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishingBool =
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing =
+          perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing
+      })
+
+      this.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomesBool =
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes =
+          perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes
+      })
+
+      this.perceivedEffectsOrImpactsOfRuralUrbanMigrationBool =
+        perceivedEffectsOrImpactsOfRuralUrbanMigration ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfRuralUrbanMigration =
+          perceivedEffectsOrImpactsOfRuralUrbanMigration
+      })
+
+      this.perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool =
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfSiltationOfWaterBodies =
+          perceivedEffectsOrImpactsOfSiltationOfWaterBodies
+      })
+
+      this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCoverBool =
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover ? true : false
+      setTimeout(() => {
+        this.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover =
+          perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover
+      })
+
+      // this.perceivedEffectsOrImpactsOfOthersBool =
+      //   perceivedEffectsOrImpactsOfOthers ? true : false
+      // this.perceivedEffectsOrImpactsOfOthers = perceivedEffectsOrImpactsOfOthers
     },
   },
   watch: {

@@ -1619,10 +1619,10 @@ export default {
         perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
         perceivedEffectsOrImpactsOfOthers,
         observedMainOpportunitiesOfLongTermChangesInClimate,
-        // driversOfChangeAndVulnerabilityOfLandDegredation,
-        // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
-        // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
-        // driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         // driversOfChangeAndVulnerabilityOfOthers,
       } = setPart5FormData
 
@@ -1915,6 +1915,40 @@ export default {
 
       this.observedMainOpportunitiesOfLongTermChangesInClimate =
         observedMainOpportunitiesOfLongTermChangesInClimate
+
+      this.driversOfChangeAndVulnerabilityOfLandDegredationBool =
+        driversOfChangeAndVulnerabilityOfLandDegredation ? true : false
+      setTimeout(() => {
+        this.driversOfChangeAndVulnerabilityOfLandDegredation =
+          driversOfChangeAndVulnerabilityOfLandDegredation
+      })
+
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPricesBool =
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices
+          ? true
+          : false
+      setTimeout(() => {
+        this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices =
+          driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices
+      })
+
+      this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPricesBool =
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices
+          ? true
+          : false
+      setTimeout(() => {
+        this.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices =
+          driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices
+      })
+
+      this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimalsBool =
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals
+          ? true
+          : false
+      setTimeout(() => {
+        this.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals =
+          driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals
+      })
     },
   },
   watch: {

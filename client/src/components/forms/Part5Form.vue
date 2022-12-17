@@ -1617,7 +1617,7 @@ export default {
         perceivedEffectsOrImpactsOfRuralUrbanMigration,
         perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
         perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-        // perceivedEffectsOrImpactsOfOthers,
+        perceivedEffectsOrImpactsOfOthers,
         // observedMainOpportunitiesOfLongTermChangesInClimate,
         // driversOfChangeAndVulnerabilityOfLandDegredation,
         // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
@@ -1894,9 +1894,24 @@ export default {
           perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover
       })
 
-      // this.perceivedEffectsOrImpactsOfOthersBool =
-      //   perceivedEffectsOrImpactsOfOthers ? true : false
-      // this.perceivedEffectsOrImpactsOfOthers = perceivedEffectsOrImpactsOfOthers
+      this.perceivedEffectsOrImpactsOfOthersBool =
+        perceivedEffectsOrImpactsOfOthers ? true : false
+      setTimeout(() => {
+        if (perceivedEffectsOrImpactsOfOthers) {
+          const splitted = perceivedEffectsOrImpactsOfOthers.split(',')
+
+          let items = splitted.map((obj) => {
+            let item = {}
+            item.effectsOrImpact = getParenthesisValue(obj).mainValue
+            item.rate = getParenthesisValue(obj).specificValue
+            return item
+          })
+
+          this.perceivedEffectsOrImpactsOfOthersList = items
+        } else {
+          this.perceivedEffectsOrImpactsOfOthersList = []
+        }
+      })
     },
   },
   watch: {

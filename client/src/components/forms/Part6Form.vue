@@ -765,7 +765,13 @@ export default {
     ],
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part6FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part6FormData !== null) {
+      this.setPart6FormData(this.part6FormData)
+    }
+  },
 
   computed: {
     threePointScale() {
@@ -911,7 +917,43 @@ export default {
 
       return part6Data
     },
+
+    setPart6FormData(part6FormData) {
+      const {
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        // changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        // additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        // receivedAnyExternalSupportForAdaptationMeasures,
+        // formOfFinancialSupportReceived,
+        // formOfMaterialSupportReceived,
+        // formOfExtensionServicesSupportReceived,
+        // farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        // formOfInfrastructureSupportReceived,
+        // formOfOtherSupportReceived,
+        // mostBeneficialSupportServices,
+        // lowEducationLevelConstraint,
+        // limitedAccessToInformationConstraint,
+        // lackOfExtensionServicesConstraint,
+        // craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        // inadequateCapitalConstraint,
+        // noAccessToWaterForIrrigationConstraint,
+        // noAccessToCreditConstraintConstraint,
+        // longerTimeRequiredToSeeResultsConstraint,
+        // oldAgeConstraint,
+        // landTenureOrLandOwnershipIssuesConstraint,
+        // landTopographyNotSuitableConstraint,
+        // laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        // infertileSoilConstraint,
+        // otherConstraint,
+      } = part6FormData
+
+      console.log(
+        'madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:',
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years
+      )
+    },
   },
+
   watch: {
     changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall() {
       if (

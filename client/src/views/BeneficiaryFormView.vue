@@ -80,24 +80,26 @@
         <br />
 
         <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-        <Part5Form
+        <!-- <Part5Form
           ref="part5Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part5FormData="part5FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 6 Farmer's Adaptation Practices -->
-        <!-- <Part6Form
+        <Part6Form
           ref="part6Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
-        /> -->
+          :mode="mode"
+          :part6FormData="part6FormData"
+        />
 
         <br />
         <v-divider></v-divider>
@@ -151,8 +153,8 @@
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
-import Part5Form from '@/components/forms/Part5Form.vue'
-// import Part6Form from '@/components/forms/Part6Form.vue'
+// import Part5Form from '@/components/forms/Part5Form.vue'
+import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
 
@@ -165,8 +167,8 @@ export default {
     // Part2Form,
     // Part3Form,
     // Part4Form,
-    Part5Form,
-    // Part6Form,
+    // Part5Form,
+    Part6Form,
     // Part7Form,
     // Part8Form,
   },
@@ -186,6 +188,7 @@ export default {
     part3FormData: null,
     part4FormData: null,
     part5FormData: null,
+    part6FormData: null,
     mode: null,
   }),
 
@@ -592,6 +595,7 @@ export default {
         this.setPart3FormData(this.currentBeneficiary)
         this.setPart4FormData(this.currentBeneficiary)
         this.setPart5FormData(this.currentBeneficiary)
+        this.setPart6FormData(this.currentBeneficiary)
       }
     },
 
@@ -910,6 +914,64 @@ export default {
         driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
         driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         driversOfChangeAndVulnerabilityOfOthers,
+      }
+    },
+
+    setPart6FormData(beneficiary) {
+      const {
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived,
+        mostBeneficialSupportServices,
+        lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint,
+        otherConstraint,
+      } = beneficiary
+
+      this.part6FormData = {
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived,
+        mostBeneficialSupportServices,
+        lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint,
+        otherConstraint,
       }
     },
 

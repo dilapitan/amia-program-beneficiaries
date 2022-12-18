@@ -171,6 +171,7 @@
             <v-checkbox
               v-model="presenceOfAgriculturalProcessingFacilitiesBool"
               label="(7.7): Presence of Agricultural Processing Facilities"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -180,6 +181,7 @@
               clearable
               v-model="presenceOfAgriculturalProcessingFacilities"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -190,6 +192,7 @@
             <v-checkbox
               v-model="irrigationBool"
               label="(7.8): Irrigation"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -199,6 +202,7 @@
               clearable
               v-model="irrigation"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -209,6 +213,7 @@
             <v-checkbox
               v-model="farmingEquipmentBool"
               label="(7.9): Farming Equipment"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -218,6 +223,7 @@
               clearable
               v-model="farmingEquipment"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -327,9 +333,9 @@ export default {
         educationAndHealthFacilities,
         farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
         marketingSystem,
-        // presenceOfAgriculturalProcessingFacilities,
-        // irrigation,
-        // farmingEquipment,
+        presenceOfAgriculturalProcessingFacilities,
+        irrigation,
+        farmingEquipment,
         // others,
       } = part7FormData
 
@@ -382,6 +388,23 @@ export default {
         })
 
         this.marketingSystem = _marketingSystem
+      })
+
+      this.presenceOfAgriculturalProcessingFacilitiesBool =
+        presenceOfAgriculturalProcessingFacilities ? true : false
+      setTimeout(() => {
+        this.presenceOfAgriculturalProcessingFacilities =
+          presenceOfAgriculturalProcessingFacilities
+      })
+
+      this.irrigationBool = irrigation ? true : false
+      setTimeout(() => {
+        this.irrigation = irrigation
+      })
+
+      this.farmingEquipmentBool = farmingEquipment ? true : false
+      setTimeout(() => {
+        this.farmingEquipment = farmingEquipment
       })
     },
   },

@@ -1572,7 +1572,7 @@ export default {
       return part5Data
     },
 
-    setPart5FormData(setPart5FormData) {
+    setPart5FormData(part5FormData) {
       const {
         attendedAgriculturalRelatedTrainings,
         totalNumberOfTrainingsAttended,
@@ -1624,7 +1624,7 @@ export default {
         driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
         driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         driversOfChangeAndVulnerabilityOfOthers,
-      } = setPart5FormData
+      } = part5FormData
 
       this.attendedAgriculturalRelatedTrainings =
         attendedAgriculturalRelatedTrainings

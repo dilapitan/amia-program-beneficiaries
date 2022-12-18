@@ -17,6 +17,7 @@
             v-model="issuesOrConcernsOrProblemsInFarming"
             :rules="[requiredRuleVComboBox]"
             :items="issuesOrConcernsOrProblemsInFarmingList"
+            :disabled="mode === 'VIEW'"
             label="Select options"
             multiple
             dense
@@ -45,6 +46,7 @@
                 issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify
               "
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify crops"
             ></v-text-field>
           </v-col>
@@ -65,6 +67,7 @@
                 issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify
               "
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify livestock"
             ></v-text-field>
           </v-col>
@@ -85,6 +88,7 @@
                 issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify
               "
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify season"
             ></v-select>
           </v-col>
@@ -97,6 +101,7 @@
               clearable
               v-model="issuesOrConcernsOrProblemsInFarmingOthersSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify the other issue(s)"
             ></v-text-field>
           </v-col>
@@ -131,7 +136,7 @@
 </template>
 
 <script>
-import { parenthesize } from '@/helpers'
+import { getParenthesisValue, parenthesize } from '@/helpers'
 
 export default {
   data: () => ({
@@ -168,7 +173,13 @@ export default {
     issuesOrConcernsOrProblemsInFarmingOthersSpecify: null,
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part8FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part8FormData !== null) {
+      this.setPart8FormData(this.part8FormData)
+    }
+  },
 
   computed: {
     seasonList() {
@@ -224,6 +235,43 @@ export default {
         ),
       }
       return part8Data
+    },
+
+    setPart8FormData(part8FormData) {
+      const { issuesOrConcernsOrProblemsInFarming } = part8FormData
+
+      const issuesOrConcernsOrProblemsInFarmingParsed =
+        issuesOrConcernsOrProblemsInFarming.split(',')
+      const _issuesOrConcernsOrProblemsInFarming = []
+      issuesOrConcernsOrProblemsInFarmingParsed.map((item) => {
+        if (item.split('(').length > 1) {
+          const parsed = getParenthesisValue(item)
+          _issuesOrConcernsOrProblemsInFarming.push(parsed.mainValue)
+
+          if (parsed.mainValue === 'Low crop production**') {
+            this.issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify =
+              parsed.specificValue
+          }
+
+          if (parsed.mainValue === 'Low livestock production**') {
+            this.issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify =
+              parsed.specificValue
+          }
+
+          if (parsed.mainValue === 'Drought or lack of moisture in the soil') {
+            this.issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify =
+              parsed.specificValue
+          }
+
+          if (parsed.mainValue === 'Others') {
+            this.issuesOrConcernsOrProblemsInFarmingOthersSpecify =
+              parsed.specificValue
+          }
+        } else _issuesOrConcernsOrProblemsInFarming.push(item)
+      })
+
+      this.issuesOrConcernsOrProblemsInFarming =
+        _issuesOrConcernsOrProblemsInFarming
     },
   },
   watch: {

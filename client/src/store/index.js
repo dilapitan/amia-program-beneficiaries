@@ -253,7 +253,7 @@ export default new Vuex.Store({
         educationAndHealthFacilities: null,
         farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations:
           null,
-        marketingSystem: '',
+        marketingSystem: 'Talipapa, Others (Lazada)',
         presenceOfAgriculturalProcessingFacilities: null,
         irrigation: null,
         farmingEquipment: 'Tracktor',

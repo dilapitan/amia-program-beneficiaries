@@ -234,6 +234,7 @@
             <v-checkbox
               v-model="othersBool"
               label="(7.10): Others"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -243,6 +244,7 @@
               clearable
               v-model="others"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -336,7 +338,7 @@ export default {
         presenceOfAgriculturalProcessingFacilities,
         irrigation,
         farmingEquipment,
-        // others,
+        others,
       } = part7FormData
 
       this.accessToAgricultureOrFisheriesRnDInstitutionsBool =
@@ -405,6 +407,11 @@ export default {
       this.farmingEquipmentBool = farmingEquipment ? true : false
       setTimeout(() => {
         this.farmingEquipment = farmingEquipment
+      })
+
+      this.othersBool = others ? true : false
+      setTimeout(() => {
+        this.others = others
       })
     },
   },

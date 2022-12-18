@@ -351,6 +351,7 @@
             <v-checkbox
               v-model="lowEducationLevelConstraintBool"
               label="(6.7.1) Low Education Level **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -360,6 +361,7 @@
               dense
               v-model="lowEducationLevelConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -370,6 +372,7 @@
             <v-checkbox
               v-model="limitedAccessToInformationConstraintBool"
               label="(6.7.2) Limited Access to Information **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -379,6 +382,7 @@
               dense
               v-model="limitedAccessToInformationConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -389,6 +393,7 @@
             <v-checkbox
               v-model="lackOfExtensionServicesConstraintBool"
               label="(6.7.3) Lack of Extension Services **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -398,6 +403,7 @@
               dense
               v-model="lackOfExtensionServicesConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -410,6 +416,7 @@
                 craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool
               "
               label="(6.7.4) CRA Options Not Compatible With Community Norms and Values **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -423,6 +430,7 @@
                 craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
               "
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -433,6 +441,7 @@
             <v-checkbox
               v-model="inadequateCapitalConstraintBool"
               label="(6.7.5) Inadequate Capital **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -442,6 +451,7 @@
               dense
               v-model="inadequateCapitalConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -452,6 +462,7 @@
             <v-checkbox
               v-model="noAccessToWaterForIrrigationConstraintBool"
               label="(6.7.6) No Access to Water for Irrigation **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -461,6 +472,7 @@
               dense
               v-model="noAccessToWaterForIrrigationConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -471,6 +483,7 @@
             <v-checkbox
               v-model="noAccessToCreditConstraintConstraintBool"
               label="(6.7.7) No Access to Credit **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -480,6 +493,7 @@
               dense
               v-model="noAccessToCreditConstraintConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -490,6 +504,7 @@
             <v-checkbox
               v-model="longerTimeRequiredToSeeResultsConstraintBool"
               label="(6.7.8) Longer Time Required to See Results **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -499,6 +514,7 @@
               dense
               v-model="longerTimeRequiredToSeeResultsConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -509,6 +525,7 @@
             <v-checkbox
               v-model="oldAgeConstraintBool"
               label="(6.7.9) Old Age **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -518,6 +535,7 @@
               dense
               v-model="oldAgeConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -528,6 +546,7 @@
             <v-checkbox
               v-model="landTenureOrLandOwnershipIssuesConstraintBool"
               label="(6.7.10) Land Tenure/Land Ownership Issues **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -537,6 +556,7 @@
               dense
               v-model="landTenureOrLandOwnershipIssuesConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -547,6 +567,7 @@
             <v-checkbox
               v-model="landTopographyNotSuitableConstraintBool"
               label="(6.7.11) Land Topography Not Suitable **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -556,6 +577,7 @@
               dense
               v-model="landTopographyNotSuitableConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -566,6 +588,7 @@
             <v-checkbox
               v-model="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
               label="(6.7.12) Labor Intensive/Non-availability of Labor **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -575,6 +598,7 @@
               dense
               v-model="laborIntensiveOrNonAvailabilityOfLaborConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -585,6 +609,7 @@
             <v-checkbox
               v-model="infertileSoilConstraintBool"
               label="(6.7.13) Infertile Soil **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -594,6 +619,7 @@
               dense
               v-model="infertileSoilConstraint"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
           </v-col>
@@ -956,19 +982,19 @@ export default {
         formOfInfrastructureSupportReceived,
         formOfOtherSupportReceived,
         mostBeneficialSupportServices,
-        // lowEducationLevelConstraint,
-        // limitedAccessToInformationConstraint,
-        // lackOfExtensionServicesConstraint,
-        // craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
-        // inadequateCapitalConstraint,
-        // noAccessToWaterForIrrigationConstraint,
-        // noAccessToCreditConstraintConstraint,
-        // longerTimeRequiredToSeeResultsConstraint,
-        // oldAgeConstraint,
-        // landTenureOrLandOwnershipIssuesConstraint,
-        // landTopographyNotSuitableConstraint,
-        // laborIntensiveOrNonAvailabilityOfLaborConstraint,
-        // infertileSoilConstraint,
+        lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint,
         // otherConstraint,
       } = part6FormData
 
@@ -1067,6 +1093,95 @@ export default {
 
         this.mostBeneficialSupportServicesList = items
       } else this.mostBeneficialSupportServicesList = []
+
+      this.lowEducationLevelConstraintBool = lowEducationLevelConstraint
+        ? true
+        : false
+      setTimeout(() => {
+        this.lowEducationLevelConstraint = lowEducationLevelConstraint
+      })
+
+      this.limitedAccessToInformationConstraintBool =
+        limitedAccessToInformationConstraint ? true : false
+      setTimeout(() => {
+        this.limitedAccessToInformationConstraint =
+          limitedAccessToInformationConstraint
+      })
+
+      this.lackOfExtensionServicesConstraintBool =
+        lackOfExtensionServicesConstraint ? true : false
+      setTimeout(() => {
+        this.lackOfExtensionServicesConstraint =
+          lackOfExtensionServicesConstraint
+      })
+
+      this.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraintBool =
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
+          ? true
+          : false
+      setTimeout(() => {
+        this.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint =
+          craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
+      })
+
+      this.inadequateCapitalConstraintBool = inadequateCapitalConstraint
+        ? true
+        : false
+      setTimeout(() => {
+        this.inadequateCapitalConstraint = inadequateCapitalConstraint
+      })
+
+      this.noAccessToWaterForIrrigationConstraintBool =
+        noAccessToWaterForIrrigationConstraint ? true : false
+      setTimeout(() => {
+        this.noAccessToWaterForIrrigationConstraint =
+          noAccessToWaterForIrrigationConstraint
+      })
+
+      this.noAccessToCreditConstraintConstraintBool =
+        noAccessToCreditConstraintConstraint ? true : false
+      setTimeout(() => {
+        this.noAccessToCreditConstraintConstraint =
+          noAccessToCreditConstraintConstraint
+      })
+
+      this.longerTimeRequiredToSeeResultsConstraintBool =
+        longerTimeRequiredToSeeResultsConstraint ? true : false
+      setTimeout(() => {
+        this.longerTimeRequiredToSeeResultsConstraint =
+          longerTimeRequiredToSeeResultsConstraint
+      })
+
+      this.oldAgeConstraintBool = oldAgeConstraint ? true : false
+      setTimeout(() => {
+        this.oldAgeConstraint = oldAgeConstraint
+      })
+
+      this.landTenureOrLandOwnershipIssuesConstraintBool =
+        landTenureOrLandOwnershipIssuesConstraint ? true : false
+      setTimeout(() => {
+        this.landTenureOrLandOwnershipIssuesConstraint =
+          landTenureOrLandOwnershipIssuesConstraint
+      })
+
+      this.landTopographyNotSuitableConstraintBool =
+        landTopographyNotSuitableConstraint ? true : false
+      setTimeout(() => {
+        this.landTopographyNotSuitableConstraint =
+          landTopographyNotSuitableConstraint
+      })
+
+      this.laborIntensiveOrNonAvailabilityOfLaborConstraintBool =
+        laborIntensiveOrNonAvailabilityOfLaborConstraint ? true : false
+      setTimeout(() => {
+        this.laborIntensiveOrNonAvailabilityOfLaborConstraint =
+          laborIntensiveOrNonAvailabilityOfLaborConstraint
+      })
+
+      this.infertileSoilConstraintBool = infertileSoilConstraint ? true : false
+      setTimeout(() => {
+        this.infertileSoilConstraint = infertileSoilConstraint
+      })
     },
   },
 

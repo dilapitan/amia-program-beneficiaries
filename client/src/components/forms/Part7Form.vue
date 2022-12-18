@@ -22,6 +22,7 @@
             <v-checkbox
               v-model="accessToAgricultureOrFisheriesRnDInstitutionsBool"
               label="(7.1) Access to Agirculture/Fisheries R&D Institutions"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -31,6 +32,7 @@
               clearable
               v-model="accessToAgricultureOrFisheriesRnDInstitutions"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -41,6 +43,7 @@
             <v-checkbox
               v-model="accessToCreditBool"
               label="(7.2): Access to Credit"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -50,6 +53,7 @@
               clearable
               v-model="accessToCredit"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -60,6 +64,7 @@
             <v-checkbox
               v-model="laboratoryFacilitiesBool"
               label="(7.3): Laboratory Facilities"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -69,6 +74,7 @@
               clearable
               v-model="laboratoryFacilities"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -79,6 +85,7 @@
             <v-checkbox
               v-model="educationAndHealthFacilitiesBool"
               label="(7.4): Education and Health Facilities"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -88,6 +95,7 @@
               clearable
               v-model="educationAndHealthFacilities"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -100,6 +108,7 @@
                 farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociationsBool
               "
               label="(7.5): Farmers' Groups, Associations, Cooperatives; Non-Government Organizations; Irrigator's Associations"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -113,6 +122,7 @@
                 farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
               "
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -309,20 +319,49 @@ export default {
     setPart7FormData(part7FormData) {
       const {
         accessToAgricultureOrFisheriesRnDInstitutions,
-        // accessToCredit,
-        // laboratoryFacilities,
-        // educationAndHealthFacilities,
-        // farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        accessToCredit,
+        laboratoryFacilities,
+        educationAndHealthFacilities,
+        farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
         // marketingSystem,
         // presenceOfAgriculturalProcessingFacilities,
         // irrigation,
         // farmingEquipment,
         // others,
       } = part7FormData
-      console.log(
-        'accessToAgricultureOrFisheriesRnDInstitutions:',
-        accessToAgricultureOrFisheriesRnDInstitutions
-      )
+
+      this.accessToAgricultureOrFisheriesRnDInstitutionsBool =
+        accessToAgricultureOrFisheriesRnDInstitutions ? true : false
+      setTimeout(() => {
+        this.accessToAgricultureOrFisheriesRnDInstitutions =
+          accessToAgricultureOrFisheriesRnDInstitutions
+      })
+
+      this.accessToCreditBool = accessToCredit ? true : false
+      setTimeout(() => {
+        this.accessToCredit = accessToCredit
+      })
+
+      this.laboratoryFacilitiesBool = laboratoryFacilities ? true : false
+      setTimeout(() => {
+        this.laboratoryFacilities = laboratoryFacilities
+      })
+
+      this.educationAndHealthFacilitiesBool = educationAndHealthFacilities
+        ? true
+        : false
+      setTimeout(() => {
+        this.educationAndHealthFacilities = educationAndHealthFacilities
+      })
+
+      this.farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociationsBool =
+        farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
+          ? true
+          : false
+      setTimeout(() => {
+        this.farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations =
+          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
+      })
     },
   },
   watch: {

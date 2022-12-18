@@ -284,6 +284,7 @@
                   clearable
                   v-model="item.mostBeneficialSupportService"
                   :rules="requiredRule"
+                  :disabled="mode === 'VIEW'"
                   label="Support services considered as most beneficial"
                 ></v-text-field
               ></v-col>
@@ -294,6 +295,7 @@
                   clearable
                   v-model="item.reasonWhyMostBeneficialSupportService"
                   :rules="requiredRule"
+                  :disabled="mode === 'VIEW'"
                   label="Reasons why support service is beneficial"
                 ></v-text-field
               ></v-col>
@@ -306,6 +308,7 @@
                       color="primary"
                       v-bind="attrs"
                       v-on="on"
+                      :disabled="mode === 'VIEW'"
                     >
                       mdi-cancel
                     </v-icon>
@@ -318,7 +321,8 @@
           <br />
           <v-btn
             :disabled="
-              !checkLastElementIfNull(mostBeneficialSupportServicesList)
+              !checkLastElementIfNull(mostBeneficialSupportServicesList) ||
+              mode === 'VIEW'
             "
             @click="addMostBeneficialSupportServices()"
             color="primary"
@@ -951,7 +955,7 @@ export default {
         farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
         formOfInfrastructureSupportReceived,
         formOfOtherSupportReceived,
-        // mostBeneficialSupportServices,
+        mostBeneficialSupportServices,
         // lowEducationLevelConstraint,
         // limitedAccessToInformationConstraint,
         // lackOfExtensionServicesConstraint,
@@ -1050,6 +1054,19 @@ export default {
       setTimeout(() => {
         this.formOfOtherSupportReceived = formOfOtherSupportReceived
       })
+
+      if (mostBeneficialSupportServices) {
+        const splitted = mostBeneficialSupportServices.split(',')
+        let items = splitted.map((obj) => {
+          let item = {}
+          item.mostBeneficialSupportService = getParenthesisValue(obj).mainValue
+          item.reasonWhyMostBeneficialSupportService =
+            getParenthesisValue(obj).specificValue
+          return item
+        })
+
+        this.mostBeneficialSupportServicesList = items
+      } else this.mostBeneficialSupportServicesList = []
     },
   },
 

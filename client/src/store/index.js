@@ -228,7 +228,8 @@ export default new Vuex.Store({
         farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived: null,
         formOfInfrastructureSupportReceived: null,
         formOfOtherSupportReceived: 'Education and Seminars',
-        mostBeneficialSupportServices: 'Capital (Para simulan lahat)',
+        mostBeneficialSupportServices:
+          'Capital (Para simulan lahat), Education (Para sa kaalaman)',
         lowEducationLevelConstraint: '1 - Very Important',
         limitedAccessToInformationConstraint: null,
         lackOfExtensionServicesConstraint: null,

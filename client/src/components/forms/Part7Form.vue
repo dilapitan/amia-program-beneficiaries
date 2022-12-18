@@ -274,7 +274,13 @@ export default {
     marketingSystemSpecify: null,
   }),
 
-  props: ['requiredRule', 'requiredRuleVComboBox'],
+  props: ['mode', 'part7FormData', 'requiredRule', 'requiredRuleVComboBox'],
+
+  created() {
+    if (this.part7FormData !== null) {
+      this.setPart7FormData(this.part7FormData)
+    }
+  },
 
   methods: {
     passForm7Data() {
@@ -298,6 +304,25 @@ export default {
         others: this.others,
       }
       return part7Data
+    },
+
+    setPart7FormData(part7FormData) {
+      const {
+        accessToAgricultureOrFisheriesRnDInstitutions,
+        // accessToCredit,
+        // laboratoryFacilities,
+        // educationAndHealthFacilities,
+        // farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        // marketingSystem,
+        // presenceOfAgriculturalProcessingFacilities,
+        // irrigation,
+        // farmingEquipment,
+        // others,
+      } = part7FormData
+      console.log(
+        'accessToAgricultureOrFisheriesRnDInstitutions:',
+        accessToAgricultureOrFisheriesRnDInstitutions
+      )
     },
   },
   watch: {

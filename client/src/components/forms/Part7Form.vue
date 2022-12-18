@@ -133,6 +133,7 @@
             <v-checkbox
               v-model="marketingSystemBool"
               label="(7.6): Marketing System"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
           <v-col cols="12" sm="7" class="ma-0 pa-0 pt-3">
@@ -140,6 +141,7 @@
               v-if="marketingSystemBool"
               v-model="marketingSystem"
               :rules="[requiredRuleVComboBox]"
+              :disabled="mode === 'VIEW'"
               :items="marketingSystemList"
               label="Select options"
               multiple
@@ -158,6 +160,7 @@
               clearable
               v-model="marketingSystemSpecify"
               :rules="requiredRule"
+              :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
           </v-col>
@@ -244,7 +247,7 @@
 </template>
 
 <script>
-import { stringifyArray } from '@/helpers/'
+import { getParenthesisValue, stringifyArray } from '@/helpers/'
 
 export default {
   data: () => ({
@@ -323,7 +326,7 @@ export default {
         laboratoryFacilities,
         educationAndHealthFacilities,
         farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-        // marketingSystem,
+        marketingSystem,
         // presenceOfAgriculturalProcessingFacilities,
         // irrigation,
         // farmingEquipment,
@@ -361,6 +364,24 @@ export default {
       setTimeout(() => {
         this.farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations =
           farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
+      })
+
+      this.marketingSystemBool = marketingSystem ? true : false
+      setTimeout(() => {
+        const marketingSystemParsed = marketingSystem.split(',')
+        const _marketingSystem = []
+        marketingSystemParsed.map((item) => {
+          if (item.split('(').length > 1) {
+            const parsed = getParenthesisValue(item)
+            _marketingSystem.push(parsed.mainValue)
+
+            if (parsed.mainValue === 'Others') {
+              this.marketingSystemSpecify = parsed.specificValue
+            }
+          } else _marketingSystem.push(item)
+        })
+
+        this.marketingSystem = _marketingSystem
       })
     },
   },

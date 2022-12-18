@@ -630,6 +630,7 @@
             <v-checkbox
               v-model="otherConstraintBool"
               label="(6.7.14) Other **"
+              :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
         </v-row>
@@ -646,6 +647,7 @@
                     clearable
                     v-model="item.mainConstraintsOrDifficulties"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Main Constraint/Difficulties"
                   ></v-text-field
                 ></v-col>
@@ -655,6 +657,7 @@
                     dense
                     v-model="item.rate"
                     :rules="requiredRule"
+                    :disabled="mode === 'VIEW'"
                     label="Rate"
                   ></v-select>
                 </v-col>
@@ -666,6 +669,7 @@
                         color="primary"
                         v-bind="attrs"
                         v-on="on"
+                        :disabled="mode === 'VIEW'"
                       >
                         mdi-cancel
                       </v-icon>
@@ -677,7 +681,9 @@
             </div>
             <br />
             <v-btn
-              :disabled="!checkLastElementIfNull(otherConstraintList)"
+              :disabled="
+                !checkLastElementIfNull(otherConstraintList) || mode === 'VIEW'
+              "
               @click="addOtherConstraint()"
               color="primary"
               small
@@ -995,7 +1001,7 @@ export default {
         landTopographyNotSuitableConstraint,
         laborIntensiveOrNonAvailabilityOfLaborConstraint,
         infertileSoilConstraint,
-        // otherConstraint,
+        otherConstraint,
       } = part6FormData
 
       this.madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years =
@@ -1181,6 +1187,23 @@ export default {
       this.infertileSoilConstraintBool = infertileSoilConstraint ? true : false
       setTimeout(() => {
         this.infertileSoilConstraint = infertileSoilConstraint
+      })
+
+      this.otherConstraintBool = otherConstraint ? true : false
+      setTimeout(() => {
+        if (otherConstraint) {
+          const splitted = otherConstraint.split(',')
+
+          let items = splitted.map((obj) => {
+            let item = {}
+            item.mainConstraintsOrDifficulties =
+              getParenthesisValue(obj).mainValue
+            item.rate = getParenthesisValue(obj).specificValue
+            return item
+          })
+
+          this.otherConstraintList = items
+        } else this.otherConstraintList = []
       })
     },
   },

@@ -243,7 +243,8 @@ export default new Vuex.Store({
         landTopographyNotSuitableConstraint: null,
         laborIntensiveOrNonAvailabilityOfLaborConstraint: null,
         infertileSoilConstraint: null,
-        otherConstraint: 'Problema sa pamilya (1 - Very Important)',
+        otherConstraint:
+          'Problema sa pamilya (1 - Very Important), Problema sa Kapital (1 - Very Important)',
 
         // Part 7
         accessToAgricultureOrFisheriesRnDInstitutions: 'Maganda',

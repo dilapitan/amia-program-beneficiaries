@@ -21,6 +21,7 @@
                 ? 'Yes'
                 : 'No'
             "
+            :disabled="mode === 'VIEW'"
           ></v-switch>
         </v-col>
       </v-row>
@@ -40,6 +41,7 @@
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallList
             "
             :rules="[requiredRuleVComboBox]"
+            :disabled="mode === 'VIEW'"
             label="Select options"
             multiple
             dense
@@ -61,6 +63,7 @@
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify
             "
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
             label="Please specify"
           ></v-text-field>
         </v-col>
@@ -79,6 +82,7 @@
             clearable
             v-model="additionalAdaptationMeasuresBeingConsideredInTheFuture"
             :rules="requiredRule"
+            :disabled="mode === 'VIEW'"
           ></v-textarea>
         </v-col>
       </v-row>
@@ -91,6 +95,7 @@
         <v-col cols="12" sm="6" md="6">
           <v-switch
             v-model="receivedAnyExternalSupportForAdaptationMeasures"
+            :disabled="mode === 'VIEW'"
             :label="
               receivedAnyExternalSupportForAdaptationMeasures ? 'Yes' : 'No'
             "
@@ -124,6 +129,7 @@
               <v-checkbox
                 v-model="formOfFinancialSupportReceivedBool"
                 label="(6.5.1) Form of Financial Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -131,6 +137,7 @@
                 v-if="formOfFinancialSupportReceivedBool"
                 v-model="formOfFinancialSupportReceived"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 label="Please specify"
                 clearable
@@ -143,6 +150,7 @@
               <v-checkbox
                 v-model="formOfMaterialSupportReceivedBool"
                 label="(6.5.2) Form of Material Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -150,6 +158,7 @@
                 v-if="formOfMaterialSupportReceivedBool"
                 v-model="formOfMaterialSupportReceived"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 clearable
                 label="Please specify"
@@ -162,6 +171,7 @@
               <v-checkbox
                 v-model="formOfExtensionServicesSupportReceivedBool"
                 label="(6.5.3) Form of Extension Services Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -169,6 +179,7 @@
                 v-if="formOfExtensionServicesSupportReceivedBool"
                 v-model="formOfExtensionServicesSupportReceived"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 clearable
                 label="Please specify"
@@ -183,6 +194,7 @@
                   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool
                 "
                 label="(6.5.4) Form of Farming Fishing Advisories Based On Weather and Climate Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -194,6 +206,7 @@
                   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
                 "
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 clearable
                 label="Please specify"
@@ -206,6 +219,7 @@
               <v-checkbox
                 v-model="formOfInfrastructureSupportReceivedBool"
                 label="(6.5.5) Form of Infrastructure Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -213,6 +227,7 @@
                 v-if="formOfInfrastructureSupportReceivedBool"
                 v-model="formOfInfrastructureSupportReceived"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 clearable
                 label="Please specify"
@@ -225,6 +240,7 @@
               <v-checkbox
                 v-model="formOfOtherSupportReceivedBool"
                 label="(6.5.6) Form of Other Support received:"
+                :disabled="mode === 'VIEW'"
               ></v-checkbox>
             </v-col>
             <v-col cols="12" sm="3" class="ma-0 pa-0 pt-3">
@@ -232,6 +248,7 @@
                 v-if="formOfOtherSupportReceivedBool"
                 v-model="formOfOtherSupportReceived"
                 :rules="requiredRule"
+                :disabled="mode === 'VIEW'"
                 dense
                 clearable
                 label="Please specify"
@@ -646,7 +663,11 @@
 </template>
 
 <script>
-import { checkLastElementIfNull, stringifyArray } from '@/helpers/'
+import {
+  checkLastElementIfNull,
+  getParenthesisValue,
+  stringifyArray,
+} from '@/helpers/'
 
 export default {
   data: () => ({
@@ -921,15 +942,15 @@ export default {
     setPart6FormData(part6FormData) {
       const {
         madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
-        // changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
-        // additionalAdaptationMeasuresBeingConsideredInTheFuture,
-        // receivedAnyExternalSupportForAdaptationMeasures,
-        // formOfFinancialSupportReceived,
-        // formOfMaterialSupportReceived,
-        // formOfExtensionServicesSupportReceived,
-        // farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
-        // formOfInfrastructureSupportReceived,
-        // formOfOtherSupportReceived,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived,
         // mostBeneficialSupportServices,
         // lowEducationLevelConstraint,
         // limitedAccessToInformationConstraint,
@@ -947,10 +968,88 @@ export default {
         // otherConstraint,
       } = part6FormData
 
-      console.log(
-        'madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:',
-        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years
+      this.madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years =
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years ===
+        'Yes'
+          ? true
+          : false
+
+      const changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallParsed =
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.split(
+          ','
+        )
+      const _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall =
+        []
+      changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallParsed.map(
+        (item) => {
+          if (item.split('(').length > 1) {
+            const parsed = getParenthesisValue(item)
+            _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.push(
+              parsed.mainValue
+            )
+            if (parsed.mainValue === 'Others') {
+              this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify =
+                parsed.specificValue
+            }
+          } else
+            _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.push(
+              item
+            )
+        }
       )
+
+      this.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall =
+        _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall
+
+      this.additionalAdaptationMeasuresBeingConsideredInTheFuture =
+        additionalAdaptationMeasuresBeingConsideredInTheFuture
+
+      this.receivedAnyExternalSupportForAdaptationMeasures =
+        receivedAnyExternalSupportForAdaptationMeasures === 'Yes' ? true : false
+
+      this.formOfFinancialSupportReceivedBool = formOfFinancialSupportReceived
+        ? true
+        : false
+      setTimeout(() => {
+        this.formOfFinancialSupportReceived = formOfFinancialSupportReceived
+      })
+
+      this.formOfMaterialSupportReceivedBool = formOfMaterialSupportReceived
+        ? true
+        : false
+      setTimeout(() => {
+        this.formOfMaterialSupportReceived = formOfMaterialSupportReceived
+      })
+
+      this.formOfExtensionServicesSupportReceivedBool =
+        formOfExtensionServicesSupportReceived ? true : false
+      setTimeout(() => {
+        this.formOfExtensionServicesSupportReceived =
+          formOfExtensionServicesSupportReceived
+      })
+
+      this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceivedBool =
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
+          ? true
+          : false
+      setTimeout(() => {
+        this.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived =
+          farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
+      })
+
+      this.formOfInfrastructureSupportReceivedBool =
+        formOfInfrastructureSupportReceived ? true : false
+      setTimeout(() => {
+        this.formOfInfrastructureSupportReceived =
+          formOfInfrastructureSupportReceived
+      })
+
+      this.formOfOtherSupportReceivedBool = formOfOtherSupportReceived
+        ? true
+        : false
+      setTimeout(() => {
+        this.formOfOtherSupportReceived = formOfOtherSupportReceived
+      })
     },
   },
 

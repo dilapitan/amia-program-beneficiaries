@@ -617,11 +617,12 @@ export default {
           )
 
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-          this.$router.push('/beneficiaries')
         } else {
           this.beneficiaries.push(updatedBeneficiary)
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
         }
+
+        this.$router.push('/beneficiaries')
       } else {
         console.log('Invalid')
         return

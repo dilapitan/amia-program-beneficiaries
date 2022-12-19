@@ -19,13 +19,44 @@
     <v-data-table :headers="headers" :items="beneficiaries" class="elevation-1">
       <template v-slot:[`item.actions`]="{ item }">
         <div class="d-flex align-baseline">
-          <v-icon @click="viewBeneficiary(item)" small class="mr-2">
-            mdi-eye
-          </v-icon>
-          <v-icon small class="mr-2" @click="editBeneficiary(item)">
-            mdi-pencil
-          </v-icon>
-          <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                @click="viewBeneficiary(item)"
+                small
+                class="mr-2"
+                v-bind="attrs"
+                v-on="on"
+              >
+                mdi-eye
+              </v-icon>
+            </template>
+            <span>View Beneficiary</span>
+          </v-tooltip>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon
+                small
+                class="mr-2"
+                @click="editBeneficiary(item)"
+                v-bind="attrs"
+                v-on="on"
+              >
+                mdi-pencil
+              </v-icon>
+            </template>
+            <span>Edit Beneficiary</span>
+          </v-tooltip>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-icon small @click="deleteItem(item)" v-bind="attrs" v-on="on">
+                mdi-delete
+              </v-icon>
+            </template>
+            <span>Delete Beneficiary</span>
+          </v-tooltip>
         </div>
       </template>
     </v-data-table>

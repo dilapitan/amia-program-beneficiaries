@@ -644,18 +644,23 @@ export default {
 
       this.averageGrossMonthlyFarmIncome = averageGrossMonthlyFarmIncome
 
-      this.membershipInAFarmerGroupOrAssociationOrOrganization =
-        membershipInAFarmerGroupOrAssociationOrOrganization.split('(').length >
-        1
-          ? true
-          : false
-      this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify =
-        membershipInAFarmerGroupOrAssociationOrOrganization.split('(').length >
-        1
-          ? getParenthesisValue(
-              membershipInAFarmerGroupOrAssociationOrOrganization
-            ).specificValue
-          : null
+      if (membershipInAFarmerGroupOrAssociationOrOrganization) {
+        this.membershipInAFarmerGroupOrAssociationOrOrganization =
+          membershipInAFarmerGroupOrAssociationOrOrganization.split('(')
+            .length > 1
+            ? true
+            : false
+        this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify =
+          membershipInAFarmerGroupOrAssociationOrOrganization.split('(')
+            .length > 1
+            ? getParenthesisValue(
+                membershipInAFarmerGroupOrAssociationOrOrganization
+              ).specificValue
+            : null
+      } else {
+        this.membershipInAFarmerGroupOrAssociationOrOrganization = null
+        this.membershipInAFarmerGroupOrAssociationOrOrganizationSpecify = null
+      }
 
       this.enrolledInRegistrySystemForBasicSectorsInAgriculture =
         enrolledInRegistrySystemForBasicSectorsInAgriculture

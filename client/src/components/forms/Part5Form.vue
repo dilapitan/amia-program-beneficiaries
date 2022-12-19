@@ -1637,7 +1637,7 @@ export default {
       sourceOfInformationRelatedToImprovingAgriculturalProductionParsed.map(
         (item) => {
           if (item.split('(').length > 1) {
-            const parsed = getParenthesisValue(item)
+            const parsed = getParenthesisValue(item.trim())
             _sourceOfInformationRelatedToImprovingAgriculturalProduction.push(
               parsed.mainValue
             )
@@ -1648,7 +1648,7 @@ export default {
             }
           } else
             _sourceOfInformationRelatedToImprovingAgriculturalProduction.push(
-              item
+              item.trim()
             )
         }
       )
@@ -1665,7 +1665,7 @@ export default {
       sourceOfInformationRelatedToImprovingAgriculturalProductProcessingParsed.map(
         (item) => {
           if (item.split('(').length > 1) {
-            const parsed = getParenthesisValue(item)
+            const parsed = getParenthesisValue(item.trim())
             _sourceOfInformationRelatedToImprovingAgriculturalProductProcessing.push(
               parsed.mainValue
             )
@@ -1676,7 +1676,7 @@ export default {
             }
           } else
             _sourceOfInformationRelatedToImprovingAgriculturalProductProcessing.push(
-              item
+              item.trim()
             )
         }
       )
@@ -1689,7 +1689,7 @@ export default {
       const _sourceOfClimateAndWeatherInformation = []
       sourceOfClimateAndWeatherInformationParsed.map((item) => {
         if (item.split('(').length > 1) {
-          const parsed = getParenthesisValue(item)
+          const parsed = getParenthesisValue(item.trim())
 
           _sourceOfClimateAndWeatherInformation.push(parsed.mainValue)
 
@@ -1697,7 +1697,7 @@ export default {
             this.sourceOfClimateAndWeatherInformationSpecify =
               parsed.specificValue
           }
-        } else _sourceOfClimateAndWeatherInformation.push(item)
+        } else _sourceOfClimateAndWeatherInformation.push(item.trim())
       })
 
       this.sourceOfClimateAndWeatherInformation =

@@ -1019,7 +1019,7 @@ export default {
       changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallParsed.map(
         (item) => {
           if (item.split('(').length > 1) {
-            const parsed = getParenthesisValue(item)
+            const parsed = getParenthesisValue(item.trim())
             _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.push(
               parsed.mainValue
             )
@@ -1029,7 +1029,7 @@ export default {
             }
           } else
             _changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall.push(
-              item
+              item.trim()
             )
         }
       )

@@ -17,24 +17,24 @@
     <v-card v-else class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 0 General -->
-        <Part0Form
+        <!-- <Part0Form
           ref="part0Form"
           :mode="mode"
           :requiredRule="requiredRule"
           :part0FormData="part0FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 1 Farmer's Basic Information -->
-        <!-- <Part1Form
+        <Part1Form
           ref="part1Form"
           :mode="mode"
           :requiredRule="requiredRule"
           :part1FormData="part1FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -156,8 +156,8 @@
 </template>
 
 <script>
-import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
+// import Part0Form from '@/components/forms/Part0Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
@@ -170,8 +170,8 @@ export default {
   name: 'AddBeneficiaryView',
 
   components: {
-    Part0Form,
-    // Part1Form,
+    // Part0Form,
+    Part1Form,
     // Part2Form,
     // Part3Form,
     // Part4Form,
@@ -596,22 +596,49 @@ export default {
       )
 
       if (valid) {
-        const part0FormData = this.getPart0FormData()
+        // const part0FormData = this.getPart0FormData()
+        const part1FormData = this.getPart1FormData()
+        // const part2FormData = this.getPart2FormData()
+        // const part3FormData = this.getPart3FormData()
+        // const part4FormData = this.getPart4FormData()
+        // const part5FormData = this.getPart5FormData()
+        // const part6FormData = this.getPart6FormData()
+        // const part7FormData = this.getPart7FormData()
+        // const part8FormData = this.getPart8FormData()
 
         // Part 0
-        const { date, interviewStart, interviewEnd, nameOfInterviewer } =
-          part0FormData
+        // const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+        //   part0FormData
+
+        // Part 1
+        const {
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        } = part1FormData
 
         const updatedBeneficiary = {
           ...toUpdatebeneficiary,
 
           // Part 0
-          date,
-          interviewStart,
-          interviewEnd,
-          nameOfInterviewer,
+          // date,
+          // interviewStart,
+          // interviewEnd,
+          // nameOfInterviewer,
+
+          // Part 1
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
         }
 
+        console.log('updatedBeneficiary:', updatedBeneficiary)
         if (this.currentBeneficiaryIndex > -1) {
           Object.assign(
             this.beneficiaries[this.currentBeneficiaryIndex],
@@ -619,13 +646,12 @@ export default {
           )
 
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-          console.log(this.beneficiaries[0])
         } else {
           this.beneficiaries.push(updatedBeneficiary)
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
         }
 
-        // this.$router.push('/beneficiaries')
+        this.$router.push('/beneficiaries')
       } else {
         console.log('Invalid')
         return

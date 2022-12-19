@@ -796,6 +796,12 @@ export default {
     },
   },
   watch: {
+    belongingTo() {
+      if (this.belongingTo !== 'Indigenous People') {
+        this.belongingToSpecify = null
+      }
+    },
+
     highestEducationalAttainment() {
       if (this.highestEducationalAttainment !== 'Others') {
         this.highestEducationalAttainmentSpecify = null

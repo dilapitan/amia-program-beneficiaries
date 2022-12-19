@@ -41,13 +41,13 @@
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <!-- <Part2Form
+        <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part2FormData="part2FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -80,13 +80,13 @@
         <br />
 
         <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-        <Part5Form
+        <!-- <Part5Form
           ref="part5Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part5FormData="part5FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
@@ -158,10 +158,10 @@
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
-// import Part2Form from '@/components/forms/Part2Form.vue'
+import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
-import Part5Form from '@/components/forms/Part5Form.vue'
+// import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
@@ -172,10 +172,10 @@ export default {
   components: {
     // Part0Form,
     // Part1Form,
-    // Part2Form,
+    Part2Form,
     // Part3Form,
     // Part4Form,
-    Part5Form,
+    // Part5Form,
     // Part6Form,
     // Part7Form,
     // Part8Form,
@@ -598,10 +598,10 @@ export default {
       if (valid) {
         // const part0FormData = this.getPart0FormData()
         // const part1FormData = this.getPart1FormData()
-        // const part2FormData = this.getPart2FormData()
+        const part2FormData = this.getPart2FormData()
         // const part3FormData = this.getPart3FormData()
         // const part4FormData = this.getPart4FormData()
-        const part5FormData = this.getPart5FormData()
+        // const part5FormData = this.getPart5FormData()
         // const part6FormData = this.getPart6FormData()
         // const part7FormData = this.getPart7FormData()
         // const part8FormData = this.getPart8FormData()
@@ -621,23 +621,23 @@ export default {
         // } = part1FormData
 
         // Part 2
-        // const {
-        //   age,
-        //   gender,
-        //   civilStatus,
-        //   religion,
-        //   belongingTo,
-        //   householdMembers,
-        //   yearsOfFarmingExperience,
-        //   highestEducationalAttainment,
-        //   languagesOrDialectsSpoken,
-        //   mainSourceOfIncome,
-        //   otherSourcesOfIncome,
-        //   averageGrossMonthlyIncomeOfHousehold,
-        //   averageGrossMonthlyFarmIncome,
-        //   membershipInAFarmerGroupOrAssociationOrOrganization,
-        //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
-        // } = part2FormData
+        const {
+          age,
+          gender,
+          civilStatus,
+          religion,
+          belongingTo,
+          householdMembers,
+          yearsOfFarmingExperience,
+          highestEducationalAttainment,
+          languagesOrDialectsSpoken,
+          mainSourceOfIncome,
+          otherSourcesOfIncome,
+          averageGrossMonthlyIncomeOfHousehold,
+          averageGrossMonthlyFarmIncome,
+          membershipInAFarmerGroupOrAssociationOrOrganization,
+          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        } = part2FormData
 
         // Part 3
         // const {
@@ -681,58 +681,58 @@ export default {
         // } = part4FormData
 
         // Part 5
-        const {
-          attendedAgriculturalRelatedTrainings,
-          totalNumberOfTrainingsAttended,
-          sourceOfInformationRelatedToImprovingAgriculturalProduction,
-          sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
-          sourceOfClimateAndWeatherInformation,
-          observedAnyLongTermChangesInClimate,
-          changesInClimateForTemperature,
-          changesInClimateForAmountOfRainfaill,
-          changesInClimateForRainfallTiming,
-          changesInClimateForRainfulIntensity,
-          changesInClimateForRainfallDuration,
-          changesInClimateForNumberOfWeatherEvents,
-          changesInClimateForNumberOfHotDays,
-          changesInClimateForNumberOfRainyDays,
-          changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
-          changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
-          observedAnyChangeInTheOnsetOfDrySeason,
-          observedAnyChangeInTheOnsetOfWetSeason,
-          descriptionOfChangeInTemperature,
-          descriptionOfChangeInRainfallDuration,
-          descriptionOfChangeInRainfallTiming,
-          descriptionOfChangeInRainfallIntensity,
-          descriptionOfChangeInNumberOfWeatherEvents,
-          perceivedEffectsOrImpactsOfChangeInTimingOfRains,
-          perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
-          perceivedEffectsOrImpactsOfReducedCroppingSeason,
-          perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
-          perceivedEffectsOrImpactsOfPostharvestLosses,
-          perceivedEffectsOrImpactsOfPestInvasion,
-          perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
-          perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
-          perceivedEffectsOrImpactsOfLackOfPotableWater,
-          perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
-          perceivedEffectsOrImpactsOfErosions,
-          perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
-          perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
-          perceivedEffectsOrImpactsOfDeathOfLivestock,
-          perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
-          perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
-          perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
-          perceivedEffectsOrImpactsOfRuralUrbanMigration,
-          perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
-          perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-          perceivedEffectsOrImpactsOfOthers,
-          observedMainOpportunitiesOfLongTermChangesInClimate,
-          driversOfChangeAndVulnerabilityOfLandDegredation,
-          driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
-          driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
-          driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-          driversOfChangeAndVulnerabilityOfOthers,
-        } = part5FormData
+        // const {
+        //   attendedAgriculturalRelatedTrainings,
+        //   totalNumberOfTrainingsAttended,
+        //   sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        //   sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        //   sourceOfClimateAndWeatherInformation,
+        //   observedAnyLongTermChangesInClimate,
+        //   changesInClimateForTemperature,
+        //   changesInClimateForAmountOfRainfaill,
+        //   changesInClimateForRainfallTiming,
+        //   changesInClimateForRainfulIntensity,
+        //   changesInClimateForRainfallDuration,
+        //   changesInClimateForNumberOfWeatherEvents,
+        //   changesInClimateForNumberOfHotDays,
+        //   changesInClimateForNumberOfRainyDays,
+        //   changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        //   changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        //   observedAnyChangeInTheOnsetOfDrySeason,
+        //   observedAnyChangeInTheOnsetOfWetSeason,
+        //   descriptionOfChangeInTemperature,
+        //   descriptionOfChangeInRainfallDuration,
+        //   descriptionOfChangeInRainfallTiming,
+        //   descriptionOfChangeInRainfallIntensity,
+        //   descriptionOfChangeInNumberOfWeatherEvents,
+        //   perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        //   perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        //   perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        //   perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        //   perceivedEffectsOrImpactsOfPostharvestLosses,
+        //   perceivedEffectsOrImpactsOfPestInvasion,
+        //   perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        //   perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        //   perceivedEffectsOrImpactsOfLackOfPotableWater,
+        //   perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        //   perceivedEffectsOrImpactsOfErosions,
+        //   perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        //   perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        //   perceivedEffectsOrImpactsOfDeathOfLivestock,
+        //   perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        //   perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        //   perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        //   perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        //   perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        //   perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        //   perceivedEffectsOrImpactsOfOthers,
+        //   observedMainOpportunitiesOfLongTermChangesInClimate,
+        //   driversOfChangeAndVulnerabilityOfLandDegredation,
+        //   driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        //   driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        //   driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        //   driversOfChangeAndVulnerabilityOfOthers,
+        // } = part5FormData
 
         // Part 6
         // const {
@@ -797,21 +797,21 @@ export default {
           // farmersCodeNo,
 
           // Part 2
-          // age,
-          // gender,
-          // civilStatus,
-          // religion,
-          // belongingTo,
-          // householdMembers,
-          // yearsOfFarmingExperience,
-          // highestEducationalAttainment,
-          // languagesOrDialectsSpoken,
-          // mainSourceOfIncome,
-          // otherSourcesOfIncome,
-          // averageGrossMonthlyIncomeOfHousehold,
-          // averageGrossMonthlyFarmIncome,
-          // membershipInAFarmerGroupOrAssociationOrOrganization,
-          // enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          age,
+          gender,
+          civilStatus,
+          religion,
+          belongingTo,
+          householdMembers,
+          yearsOfFarmingExperience,
+          highestEducationalAttainment,
+          languagesOrDialectsSpoken,
+          mainSourceOfIncome,
+          otherSourcesOfIncome,
+          averageGrossMonthlyIncomeOfHousehold,
+          averageGrossMonthlyFarmIncome,
+          membershipInAFarmerGroupOrAssociationOrOrganization,
+          enrolledInRegistrySystemForBasicSectorsInAgriculture,
 
           // Part 3
           // totalAreaOfAgriculturalLand,
@@ -851,56 +851,56 @@ export default {
           // cropCalendarDrySeasonHarvesting,
 
           // Part 5
-          attendedAgriculturalRelatedTrainings,
-          totalNumberOfTrainingsAttended,
-          sourceOfInformationRelatedToImprovingAgriculturalProduction,
-          sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
-          sourceOfClimateAndWeatherInformation,
-          observedAnyLongTermChangesInClimate,
-          changesInClimateForTemperature,
-          changesInClimateForAmountOfRainfaill,
-          changesInClimateForRainfallTiming,
-          changesInClimateForRainfulIntensity,
-          changesInClimateForRainfallDuration,
-          changesInClimateForNumberOfWeatherEvents,
-          changesInClimateForNumberOfHotDays,
-          changesInClimateForNumberOfRainyDays,
-          changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
-          changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
-          observedAnyChangeInTheOnsetOfDrySeason,
-          observedAnyChangeInTheOnsetOfWetSeason,
-          descriptionOfChangeInTemperature,
-          descriptionOfChangeInRainfallDuration,
-          descriptionOfChangeInRainfallTiming,
-          descriptionOfChangeInRainfallIntensity,
-          descriptionOfChangeInNumberOfWeatherEvents,
-          perceivedEffectsOrImpactsOfChangeInTimingOfRains,
-          perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
-          perceivedEffectsOrImpactsOfReducedCroppingSeason,
-          perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
-          perceivedEffectsOrImpactsOfPostharvestLosses,
-          perceivedEffectsOrImpactsOfPestInvasion,
-          perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
-          perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
-          perceivedEffectsOrImpactsOfLackOfPotableWater,
-          perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
-          perceivedEffectsOrImpactsOfErosions,
-          perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
-          perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
-          perceivedEffectsOrImpactsOfDeathOfLivestock,
-          perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
-          perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
-          perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
-          perceivedEffectsOrImpactsOfRuralUrbanMigration,
-          perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
-          perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-          perceivedEffectsOrImpactsOfOthers,
-          observedMainOpportunitiesOfLongTermChangesInClimate,
-          driversOfChangeAndVulnerabilityOfLandDegredation,
-          driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
-          driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
-          driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-          driversOfChangeAndVulnerabilityOfOthers,
+          // attendedAgriculturalRelatedTrainings,
+          // totalNumberOfTrainingsAttended,
+          // sourceOfInformationRelatedToImprovingAgriculturalProduction,
+          // sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+          // sourceOfClimateAndWeatherInformation,
+          // observedAnyLongTermChangesInClimate,
+          // changesInClimateForTemperature,
+          // changesInClimateForAmountOfRainfaill,
+          // changesInClimateForRainfallTiming,
+          // changesInClimateForRainfulIntensity,
+          // changesInClimateForRainfallDuration,
+          // changesInClimateForNumberOfWeatherEvents,
+          // changesInClimateForNumberOfHotDays,
+          // changesInClimateForNumberOfRainyDays,
+          // changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+          // changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+          // observedAnyChangeInTheOnsetOfDrySeason,
+          // observedAnyChangeInTheOnsetOfWetSeason,
+          // descriptionOfChangeInTemperature,
+          // descriptionOfChangeInRainfallDuration,
+          // descriptionOfChangeInRainfallTiming,
+          // descriptionOfChangeInRainfallIntensity,
+          // descriptionOfChangeInNumberOfWeatherEvents,
+          // perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+          // perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+          // perceivedEffectsOrImpactsOfReducedCroppingSeason,
+          // perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+          // perceivedEffectsOrImpactsOfPostharvestLosses,
+          // perceivedEffectsOrImpactsOfPestInvasion,
+          // perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+          // perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+          // perceivedEffectsOrImpactsOfLackOfPotableWater,
+          // perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+          // perceivedEffectsOrImpactsOfErosions,
+          // perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+          // perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+          // perceivedEffectsOrImpactsOfDeathOfLivestock,
+          // perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+          // perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+          // perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+          // perceivedEffectsOrImpactsOfRuralUrbanMigration,
+          // perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+          // perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+          // perceivedEffectsOrImpactsOfOthers,
+          // observedMainOpportunitiesOfLongTermChangesInClimate,
+          // driversOfChangeAndVulnerabilityOfLandDegredation,
+          // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+          // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+          // driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+          // driversOfChangeAndVulnerabilityOfOthers,
         }
 
         console.log('updatedBeneficiary:', updatedBeneficiary)

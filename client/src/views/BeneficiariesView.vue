@@ -74,34 +74,34 @@ export default {
   data: () => ({
     headers: [
       { text: 'Actions', value: 'actions', sortable: false },
-      {
-        text: 'Survey No.',
-        value: 'surveyNo',
-        align: 'center',
-        width: '110px',
-      },
-      { text: 'Date', sortable: false, value: 'date', align: 'center' },
-      {
-        text: 'Interview Start',
-        sortable: false,
-        width: '120px',
-        align: 'center',
-        value: 'interviewStart',
-      },
-      {
-        text: 'Interview End',
-        sortable: false,
-        width: '120px',
-        align: 'center',
-        value: 'interviewEnd',
-      },
-      {
-        text: 'Name of Interviewer',
-        sortable: false,
-        value: 'nameOfInterviewer',
-        width: '200px',
-        align: 'center',
-      },
+      // {
+      //   text: 'Survey No.',
+      //   value: 'surveyNo',
+      //   align: 'center',
+      //   width: '110px',
+      // },
+      // { text: 'Date', sortable: false, value: 'date', align: 'center' },
+      // {
+      //   text: 'Interview Start',
+      //   sortable: false,
+      //   width: '120px',
+      //   align: 'center',
+      //   value: 'interviewStart',
+      // },
+      // {
+      //   text: 'Interview End',
+      //   sortable: false,
+      //   width: '120px',
+      //   align: 'center',
+      //   value: 'interviewEnd',
+      // },
+      // {
+      //   text: 'Name of Interviewer',
+      //   sortable: false,
+      //   value: 'nameOfInterviewer',
+      //   width: '200px',
+      //   align: 'center',
+      // },
 
       // 1. Farmer's Basic Information
       {

@@ -604,6 +604,8 @@ export default {
 
         const updatedBeneficiary = {
           ...toUpdatebeneficiary,
+
+          // Part 0
           date,
           interviewStart,
           interviewEnd,
@@ -617,12 +619,13 @@ export default {
           )
 
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
+          console.log(this.beneficiaries[0])
         } else {
           this.beneficiaries.push(updatedBeneficiary)
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
         }
 
-        this.$router.push('/beneficiaries')
+        // this.$router.push('/beneficiaries')
       } else {
         console.log('Invalid')
         return

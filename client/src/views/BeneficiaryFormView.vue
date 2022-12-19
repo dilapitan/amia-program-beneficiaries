@@ -615,7 +615,7 @@ export default {
             this.beneficiaries[this.currentBeneficiaryIndex],
             updatedBeneficiary
           )
-          console.log('this.beneficiaries:', this.beneficiaries)
+
           this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
           this.$router.push('/beneficiaries')
         } else {

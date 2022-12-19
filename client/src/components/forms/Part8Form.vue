@@ -245,8 +245,8 @@ export default {
       const _issuesOrConcernsOrProblemsInFarming = []
       issuesOrConcernsOrProblemsInFarmingParsed.map((item) => {
         if (item.split('(').length > 1) {
-          const parsed = getParenthesisValue(item)
-          _issuesOrConcernsOrProblemsInFarming.push(parsed.mainValue)
+          const parsed = getParenthesisValue(item.trim())
+          _issuesOrConcernsOrProblemsInFarming.push(parsed.mainValue.trim())
 
           if (parsed.mainValue === 'Low crop production**') {
             this.issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify =
@@ -267,7 +267,7 @@ export default {
             this.issuesOrConcernsOrProblemsInFarmingOthersSpecify =
               parsed.specificValue
           }
-        } else _issuesOrConcernsOrProblemsInFarming.push(item)
+        } else _issuesOrConcernsOrProblemsInFarming.push(item.trim())
       })
 
       this.issuesOrConcernsOrProblemsInFarming =

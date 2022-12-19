@@ -712,22 +712,32 @@ export default {
         getParenthesisValue(croppingPattern).specificValue
 
       this.cropCalendarWetSeasonLandPreparation =
-        cropCalendarWetSeasonLandPreparation.split(',')
-      this.cropCalendarWetSeasonPlanting =
-        cropCalendarWetSeasonPlanting.split(',')
-      this.cropCalendarWetSeasonGrowing =
-        cropCalendarWetSeasonGrowing.split(',')
-      this.cropCalendarWetSeasonHarvesting =
-        cropCalendarWetSeasonHarvesting.split(',')
+        cropCalendarWetSeasonLandPreparation
+          .split(',')
+          .map((item) => item.trim())
+      this.cropCalendarWetSeasonPlanting = cropCalendarWetSeasonPlanting
+        .split(',')
+        .map((item) => item.trim())
+      this.cropCalendarWetSeasonGrowing = cropCalendarWetSeasonGrowing
+        .split(',')
+        .map((item) => item.trim())
+      this.cropCalendarWetSeasonHarvesting = cropCalendarWetSeasonHarvesting
+        .split(',')
+        .map((item) => item.trim())
 
       this.cropCalendarDrySeasonLandPreparation =
-        cropCalendarDrySeasonLandPreparation.split(',')
-      this.cropCalendarDrySeasonPlanting =
-        cropCalendarDrySeasonPlanting.split(',')
-      this.cropCalendarDrySeasonGrowing =
-        cropCalendarDrySeasonGrowing.split(',')
-      this.cropCalendarDrySeasonHarvesting =
-        cropCalendarDrySeasonHarvesting.split(',')
+        cropCalendarDrySeasonLandPreparation
+          .split(',')
+          .map((item) => item.trim())
+      this.cropCalendarDrySeasonPlanting = cropCalendarDrySeasonPlanting
+        .split(',')
+        .map((item) => item.trim())
+      this.cropCalendarDrySeasonGrowing = cropCalendarDrySeasonGrowing
+        .split(',')
+        .map((item) => item.trim())
+      this.cropCalendarDrySeasonHarvesting = cropCalendarDrySeasonHarvesting
+        .split(',')
+        .map((item) => item.trim())
 
       this.estimatedGrossIncomePerCroppingFirstCropping =
         estimatedGrossIncomePerCroppingFirstCropping

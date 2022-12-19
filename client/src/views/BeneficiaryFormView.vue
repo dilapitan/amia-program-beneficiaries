@@ -41,26 +41,26 @@
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <Part2Form
+        <!-- <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part2FormData="part2FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 3 Farm Description -->
-        <!-- <Part3Form
+        <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part3FormData="part3FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -158,8 +158,8 @@
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
-import Part2Form from '@/components/forms/Part2Form.vue'
-// import Part3Form from '@/components/forms/Part3Form.vue'
+// import Part2Form from '@/components/forms/Part2Form.vue'
+import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
@@ -172,8 +172,8 @@ export default {
   components: {
     // Part0Form,
     // Part1Form,
-    Part2Form,
-    // Part3Form,
+    // Part2Form,
+    Part3Form,
     // Part4Form,
     // Part5Form,
     // Part6Form,
@@ -598,8 +598,8 @@ export default {
       if (valid) {
         // const part0FormData = this.getPart0FormData()
         // const part1FormData = this.getPart1FormData()
-        const part2FormData = this.getPart2FormData()
-        // const part3FormData = this.getPart3FormData()
+        // const part2FormData = this.getPart2FormData()
+        const part3FormData = this.getPart3FormData()
         // const part4FormData = this.getPart4FormData()
         // const part5FormData = this.getPart5FormData()
         // const part6FormData = this.getPart6FormData()
@@ -621,23 +621,41 @@ export default {
         // } = part1FormData
 
         // Part 2
+        // const {
+        //   age,
+        //   gender,
+        //   civilStatus,
+        //   religion,
+        //   belongingTo,
+        //   householdMembers,
+        //   yearsOfFarmingExperience,
+        //   highestEducationalAttainment,
+        //   languagesOrDialectsSpoken,
+        //   mainSourceOfIncome,
+        //   otherSourcesOfIncome,
+        //   averageGrossMonthlyIncomeOfHousehold,
+        //   averageGrossMonthlyFarmIncome,
+        //   membershipInAFarmerGroupOrAssociationOrOrganization,
+        //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        // } = part2FormData
+
+        // Part 3
         const {
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
-        } = part2FormData
+          totalAreaOfAgriculturalLand,
+          totalAreaOfForestryLand,
+          totalCultivatedArea,
+          distanceFromHomeToFarm,
+          distanceFromLandToWaterSource,
+          distanceFromMarketNearestPavedRoad,
+          distanceFromMarketOrTradingPost,
+          irrigationSource,
+          monthsWithoutRain,
+          positionInTheLandscape,
+          locationOfFarm,
+          landTenure,
+          tenancy,
+          landHolding,
+        } = part3FormData
 
         const updatedBeneficiary = {
           ...toUpdatebeneficiary,
@@ -657,22 +675,37 @@ export default {
           // farmersCodeNo,
 
           // Part 2
+          // age,
+          // gender,
+          // civilStatus,
+          // religion,
+          // belongingTo,
+          // householdMembers,
+          // yearsOfFarmingExperience,
+          // highestEducationalAttainment,
+          // languagesOrDialectsSpoken,
+          // mainSourceOfIncome,
+          // otherSourcesOfIncome,
+          // averageGrossMonthlyIncomeOfHousehold,
+          // averageGrossMonthlyFarmIncome,
+          // membershipInAFarmerGroupOrAssociationOrOrganization,
+          // enrolledInRegistrySystemForBasicSectorsInAgriculture,
 
-          age,
-          gender,
-          civilStatus,
-          religion,
-          belongingTo,
-          householdMembers,
-          yearsOfFarmingExperience,
-          highestEducationalAttainment,
-          languagesOrDialectsSpoken,
-          mainSourceOfIncome,
-          otherSourcesOfIncome,
-          averageGrossMonthlyIncomeOfHousehold,
-          averageGrossMonthlyFarmIncome,
-          membershipInAFarmerGroupOrAssociationOrOrganization,
-          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          // Part 3
+          totalAreaOfAgriculturalLand,
+          totalAreaOfForestryLand,
+          totalCultivatedArea,
+          distanceFromHomeToFarm,
+          distanceFromLandToWaterSource,
+          distanceFromMarketNearestPavedRoad,
+          distanceFromMarketOrTradingPost,
+          irrigationSource,
+          monthsWithoutRain,
+          positionInTheLandscape,
+          locationOfFarm,
+          landTenure,
+          tenancy,
+          landHolding,
         }
 
         console.log('updatedBeneficiary:', updatedBeneficiary)

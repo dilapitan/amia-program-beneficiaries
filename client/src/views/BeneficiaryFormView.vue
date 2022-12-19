@@ -17,12 +17,12 @@
     <v-card v-else class="pa-5" color="middleground" flat height="100%">
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 0 General -->
-        <!-- <Part0Form
+        <Part0Form
           ref="part0Form"
           :mode="mode"
           :requiredRule="requiredRule"
           :part0FormData="part0FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -119,13 +119,13 @@
         <br />
 
         <!-- 8 Issues/Concerns/Problems in Farming -->
-        <Part8Form
+        <!-- <Part8Form
           ref="part8Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part8FormData="part8FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
@@ -137,10 +137,14 @@
             v-if="mode !== 'VIEW'"
             :disabled="loading"
             :loading="loading"
-            @click="addBeneficiary()"
+            @click="
+              mode === 'EDIT'
+                ? updateBeneficiary(currentBeneficiary)
+                : addBeneficiary()
+            "
             color="primary"
           >
-            SUBMIT
+            {{ mode === 'EDIT' ? 'UPDATE' : 'SUBMIT' }}
           </v-btn>
           <v-btn v-else to="/beneficiaries" color="primary">
             BACK TO LIST
@@ -152,7 +156,7 @@
 </template>
 
 <script>
-// import Part0Form from '@/components/forms/Part0Form.vue'
+import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
@@ -160,13 +164,13 @@
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
-import Part8Form from '@/components/forms/Part8Form.vue'
+// import Part8Form from '@/components/forms/Part8Form.vue'
 
 export default {
   name: 'AddBeneficiaryView',
 
   components: {
-    // Part0Form,
+    Part0Form,
     // Part1Form,
     // Part2Form,
     // Part3Form,
@@ -174,7 +178,7 @@ export default {
     // Part5Form,
     // Part6Form,
     // Part7Form,
-    Part8Form,
+    // Part8Form,
   },
 
   data: () => ({
@@ -186,6 +190,7 @@ export default {
     },
     validArrayOfCheckboxes: true,
     currentBeneficiary: null,
+    currentBeneficiaryIndex: -1,
     part0FormData: null,
     part1FormData: null,
     part2FormData: null,
@@ -221,7 +226,7 @@ export default {
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
       // const part7FormData = this.getPart7FormData()
-      const part8FormData = this.getPart8FormData()
+      // const part8FormData = this.getPart8FormData()
 
       // console.log('part8FormData:', part8FormData)
 
@@ -399,7 +404,7 @@ export default {
         //   others,
         // } = part7FormData
 
-        const { issuesOrConcernsOrProblemsInFarming } = part8FormData
+        // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiaries = [...this.beneficiaries]
         const newBeneficiary = {
@@ -409,7 +414,6 @@ export default {
           // interviewStart,
           // interviewEnd,
           // nameOfInterviewer,
-
           // Part 1
           // province,
           // cityOrMunicipality,
@@ -417,7 +421,6 @@ export default {
           // nameOfFarmer,
           // contactNo,
           // farmersCodeNo,
-
           // Part 2
           // age,
           // gender,
@@ -564,7 +567,7 @@ export default {
           // others,
           //
           // Part 8
-          issuesOrConcernsOrProblemsInFarming,
+          // issuesOrConcernsOrProblemsInFarming,
         }
 
         console.log('newBeneficiary:', newBeneficiary)
@@ -579,6 +582,46 @@ export default {
         setTimeout(() => {
           this.$router.push('/beneficiaries')
         }, 500)
+      } else {
+        console.log('Invalid')
+        return
+      }
+    },
+
+    updateBeneficiary(toUpdatebeneficiary) {
+      const valid = this.$refs.form.validate()
+      // TODO: reset current Beneficiary upon Confirmation modal used later
+      this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
+        this.currentBeneficiary
+      )
+
+      if (valid) {
+        const part0FormData = this.getPart0FormData()
+
+        // Part 0
+        const { date, interviewStart, interviewEnd, nameOfInterviewer } =
+          part0FormData
+
+        const updatedBeneficiary = {
+          ...toUpdatebeneficiary,
+          date,
+          interviewStart,
+          interviewEnd,
+          nameOfInterviewer,
+        }
+
+        if (this.currentBeneficiaryIndex > -1) {
+          Object.assign(
+            this.beneficiaries[this.currentBeneficiaryIndex],
+            updatedBeneficiary
+          )
+          console.log('this.beneficiaries:', this.beneficiaries)
+          this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
+          this.$router.push('/beneficiaries')
+        } else {
+          this.beneficiaries.push(updatedBeneficiary)
+          this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
+        }
       } else {
         console.log('Invalid')
         return

@@ -29,25 +29,25 @@
         <br />
 
         <!-- 1 Farmer's Basic Information -->
-        <Part1Form
+        <!-- <Part1Form
           ref="part1Form"
           :mode="mode"
           :requiredRule="requiredRule"
           :part1FormData="part1FormData"
-        />
+        /> -->
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <!-- <Part2Form
+        <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part2FormData="part2FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -157,8 +157,8 @@
 
 <script>
 // import Part0Form from '@/components/forms/Part0Form.vue'
-import Part1Form from '@/components/forms/Part1Form.vue'
-// import Part2Form from '@/components/forms/Part2Form.vue'
+// import Part1Form from '@/components/forms/Part1Form.vue'
+import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
@@ -171,8 +171,8 @@ export default {
 
   components: {
     // Part0Form,
-    Part1Form,
-    // Part2Form,
+    // Part1Form,
+    Part2Form,
     // Part3Form,
     // Part4Form,
     // Part5Form,
@@ -597,8 +597,8 @@ export default {
 
       if (valid) {
         // const part0FormData = this.getPart0FormData()
-        const part1FormData = this.getPart1FormData()
-        // const part2FormData = this.getPart2FormData()
+        // const part1FormData = this.getPart1FormData()
+        const part2FormData = this.getPart2FormData()
         // const part3FormData = this.getPart3FormData()
         // const part4FormData = this.getPart4FormData()
         // const part5FormData = this.getPart5FormData()
@@ -611,14 +611,33 @@ export default {
         //   part0FormData
 
         // Part 1
+        // const {
+        //   province,
+        //   cityOrMunicipality,
+        //   barangay,
+        //   nameOfFarmer,
+        //   contactNo,
+        //   farmersCodeNo,
+        // } = part1FormData
+
+        // Part 2
         const {
-          province,
-          cityOrMunicipality,
-          barangay,
-          nameOfFarmer,
-          contactNo,
-          farmersCodeNo,
-        } = part1FormData
+          age,
+          gender,
+          civilStatus,
+          religion,
+          belongingTo,
+          householdMembers,
+          yearsOfFarmingExperience,
+          highestEducationalAttainment,
+          languagesOrDialectsSpoken,
+          mainSourceOfIncome,
+          otherSourcesOfIncome,
+          averageGrossMonthlyIncomeOfHousehold,
+          averageGrossMonthlyFarmIncome,
+          membershipInAFarmerGroupOrAssociationOrOrganization,
+          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        } = part2FormData
 
         const updatedBeneficiary = {
           ...toUpdatebeneficiary,
@@ -630,12 +649,30 @@ export default {
           // nameOfInterviewer,
 
           // Part 1
-          province,
-          cityOrMunicipality,
-          barangay,
-          nameOfFarmer,
-          contactNo,
-          farmersCodeNo,
+          // province,
+          // cityOrMunicipality,
+          // barangay,
+          // nameOfFarmer,
+          // contactNo,
+          // farmersCodeNo,
+
+          // Part 2
+
+          age,
+          gender,
+          civilStatus,
+          religion,
+          belongingTo,
+          householdMembers,
+          yearsOfFarmingExperience,
+          highestEducationalAttainment,
+          languagesOrDialectsSpoken,
+          mainSourceOfIncome,
+          otherSourcesOfIncome,
+          averageGrossMonthlyIncomeOfHousehold,
+          averageGrossMonthlyFarmIncome,
+          membershipInAFarmerGroupOrAssociationOrOrganization,
+          enrolledInRegistrySystemForBasicSectorsInAgriculture,
         }
 
         console.log('updatedBeneficiary:', updatedBeneficiary)

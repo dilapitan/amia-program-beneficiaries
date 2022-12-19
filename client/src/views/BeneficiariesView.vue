@@ -135,48 +135,48 @@ export default {
       // },
 
       // 1. Farmer's Basic Information
-      {
-        text: '(1.1) Province',
-        sortable: false,
-        value: 'province',
-        width: '200px',
-        align: 'center',
-      },
-      {
-        text: '(1.2) City/Municipality',
-        sortable: false,
-        value: 'cityOrMunicipality',
-        width: '200px',
-        align: 'center',
-      },
-      {
-        text: '(1.3) Barangay',
-        sortable: false,
-        width: '120px',
-        align: 'center',
-        value: 'barangay',
-      },
-      {
-        text: '(1.4) Name of Farmer',
-        sortable: false,
-        width: '150px',
-        align: 'center',
-        value: 'nameOfFarmer',
-      },
-      {
-        text: '(1.5) Contact No.',
-        sortable: false,
-        width: '130px',
-        align: 'center',
-        value: 'contactNo',
-      },
-      {
-        text: `(1.6) Farmer's Code No.`,
-        sortable: false,
-        value: 'farmersCodeNo',
-        width: '200px',
-        align: 'center',
-      },
+      // {
+      //   text: '(1.1) Province',
+      //   sortable: false,
+      //   value: 'province',
+      //   width: '200px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(1.2) City/Municipality',
+      //   sortable: false,
+      //   value: 'cityOrMunicipality',
+      //   width: '200px',
+      //   align: 'center',
+      // },
+      // {
+      //   text: '(1.3) Barangay',
+      //   sortable: false,
+      //   width: '120px',
+      //   align: 'center',
+      //   value: 'barangay',
+      // },
+      // {
+      //   text: '(1.4) Name of Farmer',
+      //   sortable: false,
+      //   width: '150px',
+      //   align: 'center',
+      //   value: 'nameOfFarmer',
+      // },
+      // {
+      //   text: '(1.5) Contact No.',
+      //   sortable: false,
+      //   width: '130px',
+      //   align: 'center',
+      //   value: 'contactNo',
+      // },
+      // {
+      //   text: `(1.6) Farmer's Code No.`,
+      //   sortable: false,
+      //   value: 'farmersCodeNo',
+      //   width: '200px',
+      //   align: 'center',
+      // },
 
       // 2. Socio-Demographic Information
       {

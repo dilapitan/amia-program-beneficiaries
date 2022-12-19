@@ -380,7 +380,10 @@ export default {
         irrigationSource.includes('Others') &&
         getParenthesisValue(irrigationSource).specificValue
 
-      this.monthsWithoutRain = monthsWithoutRain.split(',')
+      this.monthsWithoutRain = monthsWithoutRain
+        .split(',')
+        .map((item) => item.trim())
+
       this.positionInTheLandscape = positionInTheLandscape
       this.locationOfFarm = locationOfFarm
       this.landTenure = landTenure

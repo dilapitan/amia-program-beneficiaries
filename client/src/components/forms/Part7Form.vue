@@ -376,17 +376,17 @@ export default {
 
       this.marketingSystemBool = marketingSystem ? true : false
       setTimeout(() => {
-        const marketingSystemParsed = marketingSystem.split(',')
+        const marketingSystemParsed = marketingSystem.split('/')
         const _marketingSystem = []
         marketingSystemParsed.map((item) => {
-          if (item.split('(').length > 1) {
-            const parsed = getParenthesisValue(item)
+          if (item.split('(').length > 1 && item.includes('Others')) {
+            const parsed = getParenthesisValue(item.trim())
             _marketingSystem.push(parsed.mainValue)
 
             if (parsed.mainValue === 'Others') {
               this.marketingSystemSpecify = parsed.specificValue
             }
-          } else _marketingSystem.push(item)
+          } else _marketingSystem.push(item.trim())
         })
 
         this.marketingSystem = _marketingSystem

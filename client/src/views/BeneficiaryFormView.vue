@@ -170,8 +170,14 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" text @click="dialog = false"> Close </v-btn>
-            <v-btn color="primary" @click="dialog = false"> Confirm </v-btn>
+            <v-btn
+              color="primary"
+              text
+              @click="closeAddOfUpdateBeneficiaryModal()"
+            >
+              Close
+            </v-btn>
+            <v-btn color="primary" @click="addBeneficiary()"> Confirm </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -214,7 +220,7 @@ export default {
     },
 
     dialog: false,
-
+    newBeneficiary: null,
     validArrayOfCheckboxes: true,
     currentBeneficiary: null,
     currentBeneficiaryIndex: -1,
@@ -247,17 +253,25 @@ export default {
       if (!newBeneficiary) return
 
       this.dialog = true
+      this.newBeneficiary = newBeneficiary
+    },
+
+    closeAddOfUpdateBeneficiaryModal() {
+      this.dialog = false
+      this.newBeneficiary = null
     },
 
     addBeneficiary() {
+      this.dialog = false
       const newBeneficiaries = [...this.beneficiaries]
-      const newBeneficiary = this.getFormData()
-      if (!newBeneficiary) return
 
-      newBeneficiaries.push(newBeneficiary)
+      newBeneficiaries.push(this.newBeneficiary)
 
       this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      this.$store.dispatch('setBeneficiaryPerProvinceAction', newBeneficiary)
+      this.$store.dispatch(
+        'setBeneficiaryPerProvinceAction',
+        this.newBeneficiary
+      )
       this.loading = true
       setTimeout(() => {
         this.$router.push('/beneficiaries')

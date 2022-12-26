@@ -171,7 +171,7 @@
               text
               @click="closeAddOfUpdateBeneficiaryModal()"
             >
-              Close
+              CLOSE
             </v-btn>
             <v-btn
               color="primary"
@@ -181,7 +181,9 @@
                   : addBeneficiary()
               "
             >
-              Confirm
+              <v-icon left v-if="mode === 'EDIT'"> mdi-pencil </v-icon>
+              <v-icon left v-else> mdi-account-plus </v-icon>
+              CONFIRM {{ mode === 'EDIT' ? 'EDIT' : 'ADD' }}
             </v-btn>
           </v-card-actions>
         </v-card>

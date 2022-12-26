@@ -137,11 +137,7 @@
             v-if="mode !== 'VIEW'"
             :disabled="loading"
             :loading="loading"
-            @click.stop="
-              mode === 'EDIT'
-                ? updateBeneficiary(currentBeneficiary)
-                : confirmAddOrUpdateBeneficiary()
-            "
+            @click.stop="confirmAddOrUpdateBeneficiary(currentBeneficiary)"
             color="primary"
           >
             {{ mode === 'EDIT' ? 'UPDATE' : 'SUBMIT' }}
@@ -177,7 +173,16 @@
             >
               Close
             </v-btn>
-            <v-btn color="primary" @click="addBeneficiary()"> Confirm </v-btn>
+            <v-btn
+              color="primary"
+              @click="
+                mode === 'EDIT'
+                  ? updateBeneficiary(currentBeneficiary)
+                  : addBeneficiary()
+              "
+            >
+              Confirm
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -278,10 +283,7 @@ export default {
       }, 500)
     },
 
-    updateBeneficiary(toUpdatebeneficiary) {
-      const updatedBeneficiary = this.getFormData(toUpdatebeneficiary)
-      if (!updatedBeneficiary) return
-
+    updateBeneficiary() {
       // TODO: reset current Beneficiary upon Confirmation modal used later
       this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
         this.currentBeneficiary
@@ -290,12 +292,12 @@ export default {
       if (this.currentBeneficiaryIndex > -1) {
         Object.assign(
           this.beneficiaries[this.currentBeneficiaryIndex],
-          updatedBeneficiary
+          this.newBeneficiary
         )
 
         this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
       } else {
-        this.beneficiaries.push(updatedBeneficiary)
+        this.beneficiaries.push(this.newBeneficiary)
         this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
       }
 

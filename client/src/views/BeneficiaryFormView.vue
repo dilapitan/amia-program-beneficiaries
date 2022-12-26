@@ -942,7 +942,6 @@ export default {
           issuesOrConcernsOrProblemsInFarming,
         }
 
-        // console.log('updatedBeneficiary:', updatedBeneficiary)
         if (this.currentBeneficiaryIndex > -1) {
           Object.assign(
             this.beneficiaries[this.currentBeneficiaryIndex],

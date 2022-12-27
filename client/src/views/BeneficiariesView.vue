@@ -772,9 +772,9 @@ export default {
         align: 'center',
       },
       {
-        text: '(5.9.11) Perceived Effects/Impacts of: ReducedVolumeOfIrrigationWater',
+        text: '(5.9.11) Perceived Effects/Impacts of: Reduced Volume Of Irrigation Water',
         sortable: false,
-        value: 'perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater',
+        value: 'perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater',
         width: '200px',
         align: 'center',
       },

@@ -58,6 +58,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 5</p>
+      <v-data-table
+        :headers="headers"
+        :items="part5FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -74,6 +86,7 @@ export default {
     part2FormData: null,
     part3FormData: null,
     part4FormData: null,
+    part5FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -167,6 +180,59 @@ export default {
         cropCalendarDrySeasonPlanting,
         cropCalendarDrySeasonGrowing,
         cropCalendarDrySeasonHarvesting,
+
+        // Part 5
+        attendedAgriculturalRelatedTrainings,
+        totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        sourceOfClimateAndWeatherInformation,
+        observedAnyLongTermChangesInClimate,
+        changesInClimateForTemperature,
+        changesInClimateForAmountOfRainfaill,
+        changesInClimateForRainfallTiming,
+        changesInClimateForRainfulIntensity,
+        changesInClimateForRainfallDuration,
+        changesInClimateForNumberOfWeatherEvents,
+        changesInClimateForNumberOfHotDays,
+        changesInClimateForNumberOfRainyDays,
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason,
+        descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+        perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfOthers,
+        observedMainOpportunitiesOfLongTermChangesInClimate,
+        driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfOthers,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -346,6 +412,251 @@ export default {
           label:
             '(4.11) Estimated Gross Income Per Cropping (PhP) - 2nd Cropping',
           value: estimatedGrossIncomePerCroppingSecondCropping,
+        },
+      ]
+
+      this.part5FormData = [
+        {
+          label: '(5.1) Attended Agricultural-related Trainings',
+          value: attendedAgriculturalRelatedTrainings,
+        },
+        {
+          label: '(5.2) Total Number of Trainings Attended',
+          value: totalNumberOfTrainingsAttended,
+        },
+        {
+          label:
+            '(5.3) Source of Information Related to Improving Agricultural Production',
+          value: sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        },
+        {
+          label:
+            '(5.4) Source of Information Related to Improving Agricultural Product Processing',
+          value:
+            sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        },
+        {
+          label: '(5.5) Source of Climate and Weather Information',
+          value: sourceOfClimateAndWeatherInformation,
+        },
+        {
+          label:
+            '(5.6) Observed Any Long-term Changes in Climate (temperature/rainfall) *',
+          value: observedAnyLongTermChangesInClimate,
+        },
+        {
+          label: '(5.7.1) Long-term Changes in Climate for Temperature *',
+          value: changesInClimateForTemperature,
+        },
+        {
+          label:
+            '(5.7.2) Long-term Changes in Climate for Amount of Rainfaill *',
+          value: changesInClimateForAmountOfRainfaill,
+        },
+        {
+          label: '(5.7.3) Long-term Changes in Climate for Rainfall Timing *',
+          value: changesInClimateForRainfallTiming,
+        },
+        {
+          label: '(5.7.4) Long-term Changes in Climate for Rainful Intensity *',
+          value: changesInClimateForRainfulIntensity,
+        },
+        {
+          label: '(5.7.5) Long-term Changes in Climate for Rainfall Duration *',
+          value: changesInClimateForRainfallDuration,
+        },
+        {
+          label:
+            '(5.7.6) Long-term Changes in Climate for Number of Weather Events *',
+          value: changesInClimateForNumberOfWeatherEvents,
+        },
+        {
+          label:
+            '(5.7.7) Long-term Changes in Climate for Number of Hot Days *',
+          value: changesInClimateForNumberOfHotDays,
+        },
+        {
+          label:
+            '(5.7.8) Long-term Changes in Climate for Number of Rainy Days *',
+          value: changesInClimateForNumberOfRainyDays,
+        },
+        {
+          label:
+            '(5.7.9) Long-term Changes in Climate for Occurence of Pests And Diseases in Crops *',
+          value: changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        },
+        {
+          label:
+            '(5.7.10) Long-term Changes in Climate for Occurence of Pests And Diseases in Livestock *',
+          value: changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        },
+        {
+          label: '(5.7.11) Observed any change in the Onset of Dry Season',
+          value: observedAnyChangeInTheOnsetOfDrySeason,
+        },
+        {
+          label: '(5.7.12) Observed any change in the Onset of Wet Season',
+          value: observedAnyChangeInTheOnsetOfWetSeason,
+        },
+        {
+          label: '(5.8.1) Description of Change in Temperature',
+          value: descriptionOfChangeInTemperature,
+        },
+        {
+          label: '(5.8.2) Description of Change in Rainfall Duration',
+          value: descriptionOfChangeInRainfallDuration,
+        },
+        {
+          label: '(5.8.3) Description of Change in Rainfall Timing',
+          value: descriptionOfChangeInRainfallTiming,
+        },
+        {
+          label: '(5.8.4) Description of Change in Rainfall Intensity',
+          value: descriptionOfChangeInRainfallIntensity,
+        },
+        {
+          label: '(5.8.5) Description of Change in Number of Weather Events',
+          value: descriptionOfChangeInNumberOfWeatherEvents,
+        },
+        {
+          label:
+            '(5.9.1) Perceived Effects/Impacts of: Change in Timing of Rains',
+          value: perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        },
+        {
+          label:
+            '(5.9.2) Perceived Effects/Impacts of: Abrupt Change in Seasons/Changes in Growing Season',
+          value:
+            perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        },
+        {
+          label:
+            '(5.9.3) Perceived Effects/Impacts of: Reduced Cropping (Growing) Season',
+          value: perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        },
+        {
+          label:
+            '(5.9.4) Perceived Effects/Impacts of: Increased Frequency Of Drought and Crop Failure',
+          value:
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+        },
+        {
+          label:
+            '(5.9.5) Perceived Effects/Impacts of: Increased Frequency Of Floods and Farm Destructions',
+          value:
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        },
+        {
+          label: '(5.9.6) Perceived Effects/Impacts of: Postharvest Losses',
+          value: perceivedEffectsOrImpactsOfPostharvestLosses,
+        },
+        {
+          label: '(5.9.7) Perceived Effects/Impacts of: Pest Invasion',
+          value: perceivedEffectsOrImpactsOfPestInvasion,
+        },
+        {
+          label:
+            '(5.9.8) Perceived Effects/Impacts of: Prevalence of Pests and Diseases',
+          value: perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        },
+        {
+          label:
+            '(5.9.9) Perceived Effects/Impacts of: Poverty and Food Shortages',
+          value: perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        },
+        {
+          label:
+            '(5.9.10) Perceived Effects/Impacts of: Lack of Potable Water (Drinking)',
+          value: perceivedEffectsOrImpactsOfLackOfPotableWater,
+        },
+        {
+          label:
+            '(5.9.11) Perceived Effects/Impacts of: Reduced Volume Of Irrigation Water',
+          value: perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+        },
+        {
+          label: '(5.9.12) Perceived Effects/Impacts of: Erosions',
+          value: perceivedEffectsOrImpactsOfErosions,
+        },
+        {
+          label:
+            '(5.9.13) Perceived Effects/Impacts of: Extinction of Fishes and Aquatic Life',
+          value: perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        },
+        {
+          label:
+            '(5.9.14) Perceived Effects/Impacts of: ExtinctionOfSomeCropsAndCropVarieties',
+          value:
+            perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        },
+        {
+          label: '(5.9.15) Perceived Effects/Impacts of: Death of Livestock',
+          value: perceivedEffectsOrImpactsOfDeathOfLivestock,
+        },
+        {
+          label:
+            '(5.9.16) Perceived Effects/Impacts of: Decreased Livestock Production',
+          value: perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        },
+        {
+          label:
+            '(5.9.17) Perceived Effects/Impacts of: Rising Cost of Farming and Fishing',
+          value: perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        },
+        {
+          label:
+            '(5.9.18) Perceived Effects/Impacts of: Destruction of Farm Roads and Homes',
+          value: perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        },
+        {
+          label: '(5.9.19) Perceived Effects/Impacts of: Rural-Urban Migration',
+          value: perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        },
+        {
+          label:
+            '(5.9.20) Perceived Effects/Impacts of: Siltation of Water Bodies',
+          value: perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        },
+        {
+          label:
+            '(5.9.21) Perceived Effects/Impacts of: Disappearance of Vegetation Cover',
+          value: perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        },
+        {
+          label: '(5.9.22) Perceived Effects/Impacts of: Others',
+          value: perceivedEffectsOrImpactsOfOthers,
+        },
+        {
+          label:
+            '(5.10) Observed Main Opportunities (Positive Effects/Impacts) of These Long-term Changes in Climate *',
+          value: observedMainOpportunitiesOfLongTermChangesInClimate,
+        },
+        {
+          label:
+            '(5.11.1) Drivers of Change and Vulnerability of: Land Degradation (Soil Nutrient Depletion)',
+          value: driversOfChangeAndVulnerabilityOfLandDegredation,
+        },
+        {
+          label:
+            '(5.11.2) Drivers of Change and Vulnerability of: Unexpexcted Changes in Input Prices',
+          value:
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        },
+        {
+          label:
+            '(5.11.3) Drivers of Change and Vulnerability of: Unexpected Changes in Product Prices',
+          value:
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        },
+        {
+          label:
+            '(5.11.4) Drivers of Change and Vulnerability of: Risks for Diseases and Pests Affecting Crops and Animals',
+          value:
+            driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        },
+        {
+          label: '(5.11.5) Drivers of Change and Vulnerability of: Others',
+          value: driversOfChangeAndVulnerabilityOfOthers,
         },
       ]
     },

@@ -686,9 +686,9 @@
           <v-col cols="12" sm="3" class="ma-0 pa-0 mr-2">
             <v-checkbox
               v-model="
-                perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool
+                perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWaterBool
               "
-              label="(5.9.11) ReducedVolumeOfIrrigationWater"
+              label="(5.9.11) Reduced Volume Of Irrigation Water"
               :disabled="mode === 'VIEW'"
             ></v-checkbox>
           </v-col>
@@ -696,11 +696,11 @@
             <v-select
               :items="fivePointScale"
               v-if="
-                perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool
+                perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWaterBool
               "
               dense
               v-model="
-                perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater
+                perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater
               "
               :rules="requiredRule"
               :disabled="mode === 'VIEW'"
@@ -1288,7 +1288,7 @@ export default {
     perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases: null,
     perceivedEffectsOrImpactsOfPovertyAndFoodShortages: null,
     perceivedEffectsOrImpactsOfLackOfPotableWater: null,
-    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater: null,
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater: null,
     perceivedEffectsOrImpactsOfErosions: null,
     perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife: null,
     perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties: null,
@@ -1325,7 +1325,7 @@ export default {
     perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool: false,
     perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool: false,
     perceivedEffectsOrImpactsOfLackOfPotableWaterBool: false,
-    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool: false,
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWaterBool: false,
     perceivedEffectsOrImpactsOfErosionsBool: false,
     perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLifeBool: false,
     perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarietiesBool: false,
@@ -1527,8 +1527,8 @@ export default {
           this.perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
         perceivedEffectsOrImpactsOfLackOfPotableWater:
           this.perceivedEffectsOrImpactsOfLackOfPotableWater,
-        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater:
-          this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater:
+          this.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
         perceivedEffectsOrImpactsOfErosions:
           this.perceivedEffectsOrImpactsOfErosions,
         perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife:
@@ -1606,7 +1606,7 @@ export default {
         perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
         perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
         perceivedEffectsOrImpactsOfLackOfPotableWater,
-        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
         perceivedEffectsOrImpactsOfErosions,
         perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
         perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
@@ -1813,11 +1813,11 @@ export default {
           perceivedEffectsOrImpactsOfLackOfPotableWater
       })
 
-      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool =
-        perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater ? true : false
+      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWaterBool =
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater ? true : false
       setTimeout(() => {
-        this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater =
-          perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater
+        this.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater =
+          perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater
       })
 
       this.perceivedEffectsOrImpactsOfErosionsBool =
@@ -2045,8 +2045,8 @@ export default {
       this.perceivedEffectsOrImpactsOfLackOfPotableWater = null
     },
 
-    perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWaterBool() {
-      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrricationWater = null
+    perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWaterBool() {
+      this.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater = null
     },
 
     perceivedEffectsOrImpactsOfErosionsBool() {

@@ -22,7 +22,20 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 2</p>
+      <v-data-table
+        :headers="headers"
+        :items="part2FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
+
     <p v-else>Loading data...</p>
   </div>
 </template>
@@ -34,9 +47,10 @@ export default {
   data: () => ({
     part0FormData: null,
     part1FormData: null,
+    part2FormData: null,
     headers: [
-      { text: 'Label', value: 'label' },
-      { text: 'Value', value: 'value' },
+      { text: 'Label', value: 'label', width: '50%' },
+      { text: 'Value', value: 'value', width: '50%' },
     ],
   }),
 
@@ -50,7 +64,9 @@ export default {
 
   computed: {
     loadedData() {
-      return Boolean(this.part0FormData && this.part1FormData)
+      return Boolean(
+        this.part0FormData && this.part1FormData && this.part2FormData
+      )
     },
   },
 
@@ -71,6 +87,23 @@ export default {
         nameOfFarmer,
         contactNo,
         farmersCodeNo,
+
+        // Part 2
+        age,
+        gender,
+        civilStatus,
+        religion,
+        belongingTo,
+        householdMembers,
+        yearsOfFarmingExperience,
+        highestEducationalAttainment,
+        languagesOrDialectsSpoken,
+        mainSourceOfIncome,
+        otherSourcesOfIncome,
+        averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -88,6 +121,52 @@ export default {
         { label: '(1.4) Name of Farmer', value: nameOfFarmer },
         { label: '(1.5) Contact No.', value: contactNo },
         { label: `(1.6) Farmer's Code No.`, value: farmersCodeNo },
+      ]
+
+      this.part2FormData = [
+        { label: '(2.1) Age', value: age },
+        { label: '(2.2) Gender', value: gender },
+        { label: '(2.3) Civil Status', value: civilStatus },
+        { label: '(2.4) Religion', value: religion },
+        { label: '(2.5) Beloning To', value: belongingTo },
+        {
+          label: '(2.6) Household Members (farmer not included)',
+          value: householdMembers,
+        },
+        {
+          label: '(2.7) Years of Farming Experience',
+          value: yearsOfFarmingExperience,
+        },
+        {
+          label: '(2.8) Highest Educational Attainment',
+          value: highestEducationalAttainment,
+        },
+        {
+          label: '(2.9) Languages/Dialects spoken',
+          value: languagesOrDialectsSpoken,
+        },
+        { label: '(2.10) Main Source of Income', value: mainSourceOfIncome },
+        {
+          label: '(2.11) Other Sources of Income',
+          value: otherSourcesOfIncome,
+        },
+        {
+          label: '(2.12) Average Gross Monthly Income of Household (PhP)',
+          value: averageGrossMonthlyIncomeOfHousehold,
+        },
+        {
+          label: '(2.13) Average Gross Monthly Farm Income (PhP)',
+          value: averageGrossMonthlyFarmIncome,
+        },
+        {
+          label: '(2.14) Membership In A Farmer Group/Association/Organization',
+          value: membershipInAFarmerGroupOrAssociationOrOrganization,
+        },
+        {
+          label:
+            '(2.15) Enrolled in Registry System for Basic Sectors In Agriculture (RSBSA)',
+          value: enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        },
       ]
     },
   },

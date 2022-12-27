@@ -148,18 +148,14 @@
         </div>
       </v-form>
 
-      <v-dialog v-model="dialog" width="500" persistent>
+      <v-dialog v-model="dialog" width="800" persistent>
         <v-card>
           <v-card-title> Preview of Beneficiary Details </v-card-title>
 
           <v-card-text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            <PreviewTableOfBeneficiaryDetails
+              :beneficiaryDetails="newBeneficiary"
+            />
           </v-card-text>
 
           <v-divider></v-divider>
@@ -203,6 +199,8 @@ import Part0Form from '@/components/forms/Part0Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
 // import Part8Form from '@/components/forms/Part8Form.vue'
 
+import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
+
 export default {
   name: 'AddBeneficiaryView',
 
@@ -216,6 +214,7 @@ export default {
     // Part6Form,
     // Part7Form,
     // Part8Form,
+    PreviewTableOfBeneficiaryDetails,
   },
 
   data: () => ({

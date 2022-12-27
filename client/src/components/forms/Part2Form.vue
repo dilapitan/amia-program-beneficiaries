@@ -739,7 +739,6 @@ export default {
     },
 
     stringifyHouseholdMembers(array) {
-      console.log('array:', array)
       let stringified = ''
 
       // Trim list to only capture filled up data

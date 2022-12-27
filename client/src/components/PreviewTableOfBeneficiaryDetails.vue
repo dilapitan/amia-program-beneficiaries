@@ -34,6 +34,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 3</p>
+      <v-data-table
+        :headers="headers"
+        :items="part3FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -48,6 +60,7 @@ export default {
     part0FormData: null,
     part1FormData: null,
     part2FormData: null,
+    part3FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -104,6 +117,22 @@ export default {
         averageGrossMonthlyFarmIncome,
         membershipInAFarmerGroupOrAssociationOrOrganization,
         enrolledInRegistrySystemForBasicSectorsInAgriculture,
+
+        // Part 3
+        totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand,
+        totalCultivatedArea,
+        distanceFromHomeToFarm,
+        distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost,
+        irrigationSource,
+        monthsWithoutRain,
+        positionInTheLandscape,
+        locationOfFarm,
+        landTenure,
+        tenancy,
+        landHolding,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -167,6 +196,48 @@ export default {
             '(2.15) Enrolled in Registry System for Basic Sectors In Agriculture (RSBSA)',
           value: enrolledInRegistrySystemForBasicSectorsInAgriculture,
         },
+      ]
+
+      this.part3FormData = [
+        {
+          label: '(3.1) Total Area of Agricultural Land (ha)',
+          value: totalAreaOfAgriculturalLand,
+        },
+        {
+          label: '(3.2) Total Area of Forestry Land (ha)',
+          value: totalAreaOfForestryLand,
+        },
+        {
+          label: '(3.3) Total Cultivated Area (ha)',
+          value: totalCultivatedArea,
+        },
+        {
+          label: '(3.4) Distance from Home to Farm (km)',
+          value: distanceFromHomeToFarm,
+        },
+        {
+          label: '(3.5) Distance from Land to Water Source (km)',
+          value: distanceFromLandToWaterSource,
+        },
+        {
+          label:
+            '(3.6) Distance from Market Nearest Paved (concrete/asphalt) road (km)',
+          value: distanceFromMarketNearestPavedRoad,
+        },
+        {
+          label: '(3.7) Distance from Market/Trading Post (km)',
+          value: distanceFromMarketOrTradingPost,
+        },
+        { label: '(3.8) Irrigation Source', value: irrigationSource },
+        { label: '(3.9) Months Without Rain', value: monthsWithoutRain },
+        {
+          label: '(3.10) Position in the Landscape',
+          value: positionInTheLandscape,
+        },
+        { label: '(3.11) Location of Farm', value: locationOfFarm },
+        { label: '(3.12) Land Tenure', value: landTenure },
+        { label: '(3.13) Tenancy', value: tenancy },
+        { label: '(3.14) Land Holding', value: landHolding },
       ]
     },
   },

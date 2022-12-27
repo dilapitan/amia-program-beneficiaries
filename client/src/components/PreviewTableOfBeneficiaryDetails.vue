@@ -46,6 +46,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 4</p>
+      <v-data-table
+        :headers="headers"
+        :items="part4FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -61,6 +73,7 @@ export default {
     part1FormData: null,
     part2FormData: null,
     part3FormData: null,
+    part4FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -133,6 +146,27 @@ export default {
         landTenure,
         tenancy,
         landHolding,
+
+        // Part 4
+        agriculturalActivities,
+        cropsProduced,
+        landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture,
+        croppingPattern,
+        estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping,
+        cropCalendarWetSeasonLandPreparation,
+        cropCalendarWetSeasonPlanting,
+        cropCalendarWetSeasonGrowing,
+        cropCalendarWetSeasonHarvesting,
+        cropCalendarDrySeasonLandPreparation,
+        cropCalendarDrySeasonPlanting,
+        cropCalendarDrySeasonGrowing,
+        cropCalendarDrySeasonHarvesting,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -238,6 +272,81 @@ export default {
         { label: '(3.12) Land Tenure', value: landTenure },
         { label: '(3.13) Tenancy', value: tenancy },
         { label: '(3.14) Land Holding', value: landHolding },
+      ]
+
+      this.part4FormData = [
+        {
+          label: '(4.1) Agricultural Activities',
+          value: agriculturalActivities,
+        },
+        { label: '(4.2) Crops Produced', value: cropsProduced },
+        {
+          label: '(4.3) Land Area Devoted For Crop Production (ha)',
+          value: landAreaDevotedForCropProduction,
+        },
+        {
+          label: '(4.4) Livestock Raised/Produced',
+          value: livestockRaisedOrProduced,
+        },
+        {
+          label: '(4.5) Land Area Devoted For Livestock Production (ha)',
+          value: landAreaDevotedForLivestockProduction,
+        },
+        {
+          label: '(4.6) Species grown for Aquaculture',
+          value: speciesGrownForAquaculture,
+        },
+        {
+          label: '(4.7) Land Area Devoted for Aquaculture (ha)',
+          value: landAreaDevotedForAquaculture,
+        },
+        {
+          label: '(4.8) Source of Water for Aquaculture',
+          value: sourceOfWaterForAquaculture,
+        },
+        { label: '(4.9) Cropping Pattern', value: croppingPattern },
+        {
+          label: '(4.10) Crop Calendar (Wet Season) - Land Preparation',
+          value: cropCalendarWetSeasonLandPreparation,
+        },
+        {
+          label: '(4.10) Crop Calendar (Wet Season) - Planting',
+          value: cropCalendarWetSeasonPlanting,
+        },
+        {
+          label: '(4.10) Crop Calendar (Wet Season) - Growing',
+          value: cropCalendarWetSeasonGrowing,
+        },
+        {
+          label: '(4.10) Crop Calendar (Wet Season) - Harvesting',
+          value: cropCalendarWetSeasonHarvesting,
+        },
+        {
+          label: '(4.10) Crop Calendar (Dry Season) - Land Preparation',
+          value: cropCalendarDrySeasonLandPreparation,
+        },
+        {
+          label: '(4.10) Crop Calendar (Dry Season) - Planting',
+          value: cropCalendarDrySeasonPlanting,
+        },
+        {
+          label: '(4.10) Crop Calendar (Dry Season) - Growing',
+          value: cropCalendarDrySeasonGrowing,
+        },
+        {
+          label: '(4.10) Crop Calendar (Dry Season) - Harvesting',
+          value: cropCalendarDrySeasonHarvesting,
+        },
+        {
+          label:
+            '(4.11) Estimated Gross Income Per Cropping (PhP) - 1st Cropping',
+          value: estimatedGrossIncomePerCroppingFirstCropping,
+        },
+        {
+          label:
+            '(4.11) Estimated Gross Income Per Cropping (PhP) - 2nd Cropping',
+          value: estimatedGrossIncomePerCroppingSecondCropping,
+        },
       ]
     },
   },

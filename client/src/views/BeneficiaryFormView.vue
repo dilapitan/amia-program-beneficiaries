@@ -67,13 +67,13 @@
         <br />
 
         <!-- 4 Farm Activities -->
-        <!-- <Part4Form
+        <Part4Form
           ref="part4Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part4FormData="part4FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -193,7 +193,7 @@ import Part0Form from '@/components/forms/Part0Form.vue'
 import Part1Form from '@/components/forms/Part1Form.vue'
 import Part2Form from '@/components/forms/Part2Form.vue'
 import Part3Form from '@/components/forms/Part3Form.vue'
-// import Part4Form from '@/components/forms/Part4Form.vue'
+import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
 // import Part6Form from '@/components/forms/Part6Form.vue'
 // import Part7Form from '@/components/forms/Part7Form.vue'
@@ -209,7 +209,7 @@ export default {
     Part1Form,
     Part2Form,
     Part3Form,
-    // Part4Form,
+    Part4Form,
     // Part5Form,
     // Part6Form,
     // Part7Form,
@@ -744,7 +744,7 @@ export default {
       const part1FormData = this.getPart1FormData()
       const part2FormData = this.getPart2FormData()
       const part3FormData = this.getPart3FormData()
-      // const part4FormData = this.getPart4FormData()
+      const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
       // const part6FormData = this.getPart6FormData()
       // const part7FormData = this.getPart7FormData()
@@ -803,28 +803,28 @@ export default {
           landHolding,
         } = part3FormData
 
-        // // Part 4
-        // const {
-        //   agriculturalActivities,
-        //   cropsProduced,
-        //   landAreaDevotedForCropProduction,
-        //   livestockRaisedOrProduced,
-        //   landAreaDevotedForLivestockProduction,
-        //   speciesGrownForAquaculture,
-        //   landAreaDevotedForAquaculture,
-        //   sourceOfWaterForAquaculture,
-        //   croppingPattern,
-        //   estimatedGrossIncomePerCroppingFirstCropping,
-        //   estimatedGrossIncomePerCroppingSecondCropping,
-        //   cropCalendarWetSeasonLandPreparation,
-        //   cropCalendarWetSeasonPlanting,
-        //   cropCalendarWetSeasonGrowing,
-        //   cropCalendarWetSeasonHarvesting,
-        //   cropCalendarDrySeasonLandPreparation,
-        //   cropCalendarDrySeasonPlanting,
-        //   cropCalendarDrySeasonGrowing,
-        //   cropCalendarDrySeasonHarvesting,
-        // } = part4FormData
+        // Part 4
+        const {
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
+        } = part4FormData
 
         // // Part 5
         // const {
@@ -973,27 +973,27 @@ export default {
           landTenure,
           tenancy,
           landHolding,
-          // //
-          // // Part 4
-          // agriculturalActivities,
-          // cropsProduced,
-          // landAreaDevotedForCropProduction,
-          // livestockRaisedOrProduced,
-          // landAreaDevotedForLivestockProduction,
-          // speciesGrownForAquaculture,
-          // landAreaDevotedForAquaculture,
-          // sourceOfWaterForAquaculture,
-          // croppingPattern,
-          // estimatedGrossIncomePerCroppingFirstCropping,
-          // estimatedGrossIncomePerCroppingSecondCropping,
-          // cropCalendarWetSeasonLandPreparation,
-          // cropCalendarWetSeasonPlanting,
-          // cropCalendarWetSeasonGrowing,
-          // cropCalendarWetSeasonHarvesting,
-          // cropCalendarDrySeasonLandPreparation,
-          // cropCalendarDrySeasonPlanting,
-          // cropCalendarDrySeasonGrowing,
-          // cropCalendarDrySeasonHarvesting,
+
+          // Part 4
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
           // //
           // // Part 5
           // attendedAgriculturalRelatedTrainings,

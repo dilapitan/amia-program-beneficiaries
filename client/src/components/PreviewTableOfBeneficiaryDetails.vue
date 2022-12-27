@@ -2,7 +2,7 @@
   <div>
     <div v-if="loadedData">
       <v-data-table
-        :headers="part0FormHeaders"
+        :headers="headers"
         :items="part0FormData"
         disable-filtering
         disable-pagination
@@ -21,7 +21,7 @@ export default {
 
   data: () => ({
     part0FormData: null,
-    part0FormHeaders: [
+    headers: [
       { text: 'Label', value: 'label' },
       { text: 'Value', value: 'value' },
     ],

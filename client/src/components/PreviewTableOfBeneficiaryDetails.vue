@@ -70,6 +70,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 6</p>
+      <v-data-table
+        :headers="headers"
+        :items="part6FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -87,6 +99,7 @@ export default {
     part3FormData: null,
     part4FormData: null,
     part5FormData: null,
+    part6FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -233,6 +246,33 @@ export default {
         driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
         driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         driversOfChangeAndVulnerabilityOfOthers,
+
+        // Part 6
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived,
+        mostBeneficialSupportServices,
+        lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint,
+        otherConstraint,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -658,6 +698,112 @@ export default {
           label: '(5.11.5) Drivers of Change and Vulnerability of: Others',
           value: driversOfChangeAndVulnerabilityOfOthers,
         },
+      ]
+
+      this.part6FormData = [
+        {
+          label:
+            '(6.1) Made adjustments in Livelihood in Response to the Perceived Changes in Rainfall and Temperature over the last 10 years',
+          value:
+            madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        },
+        {
+          label:
+            '(6.2) Changes/Adjustments Made In Farming in Response to Long-term shifts in Temperature and Rainfall',
+          value:
+            changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        },
+        {
+          label:
+            '(6.3) Additional Adaptation Measures Being Considered in the Future',
+          value: additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        },
+        {
+          label: '(6.4) Receive Any External Support for Adaptation Measures',
+          value: receivedAnyExternalSupportForAdaptationMeasures,
+        },
+        {
+          label: '(6.5.1) Form of Financial Support received',
+          value: formOfFinancialSupportReceived,
+        },
+        {
+          label: '(6.5.2) Form of Material Support received',
+          value: formOfMaterialSupportReceived,
+        },
+        {
+          label: '(6.5.3) Form of Extension Services Support received',
+          value: formOfExtensionServicesSupportReceived,
+        },
+        {
+          label:
+            '(6.5.4) Form of Farming Fishing Advisories Based On Weather and Climate Support received',
+          value:
+            farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        },
+        {
+          label: '(6.5.5) Form of Infrastructure Support received',
+          value: formOfInfrastructureSupportReceived,
+        },
+        {
+          label: '(6.5.6) Form of Other Support received',
+          value: formOfOtherSupportReceived,
+        },
+        {
+          label: '(6.6) Most Beneficial Support Services',
+          value: mostBeneficialSupportServices,
+        },
+        {
+          label: '(6.7.1) Low Education Level Constraint **',
+          value: lowEducationLevelConstraint,
+        },
+        {
+          label: '(6.7.2) Limited Access to Information Constraint **',
+          value: limitedAccessToInformationConstraint,
+        },
+        {
+          label: '(6.7.3) Lack of Extension Services Constraint **',
+          value: lackOfExtensionServicesConstraint,
+        },
+        {
+          label:
+            '(6.7.4) CRA Options Not Compatible With Community Norms and Values Constraint **',
+          value: craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        },
+        {
+          label: '(6.7.5) Inadequate Capital Constraint **',
+          value: inadequateCapitalConstraint,
+        },
+        {
+          label: '(6.7.6) No Access to Water for Irrigation Constraint **',
+          value: noAccessToWaterForIrrigationConstraint,
+        },
+        {
+          label: '(6.7.7) No Access to Credit Constraint **',
+          value: noAccessToCreditConstraintConstraint,
+        },
+        {
+          label: '(6.7.8) Longer Time Required to See Results Constraint **',
+          value: longerTimeRequiredToSeeResultsConstraint,
+        },
+        { label: '(6.7.9) Old Age Constraint **', value: oldAgeConstraint },
+        {
+          label: '(6.7.10) Land Tenure/Land Ownership Issues Constraint **',
+          value: landTenureOrLandOwnershipIssuesConstraint,
+        },
+        {
+          label: '(6.7.11) Land Topography Not Suitable Constraint **',
+          value: landTopographyNotSuitableConstraint,
+        },
+        {
+          label:
+            '(6.7.12) Labor Intensive/Non-availability of Labor Constraint **',
+          value: laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        },
+        {
+          label: '(6.7.13) Infertile Soil Constraint **',
+          value: infertileSoilConstraint,
+        },
+        { label: '(6.7.14) Other Constraint **', value: otherConstraint },
       ]
     },
   },

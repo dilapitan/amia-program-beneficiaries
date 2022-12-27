@@ -569,7 +569,6 @@ export default {
 
     stringifyAgriculturalActivities() {
       let stringified = ''
-      console.log('this.agriculturalActivities:', this.agriculturalActivities)
       this.agriculturalActivities.map((source, index) => {
         stringified = stringified.concat(source.id)
 

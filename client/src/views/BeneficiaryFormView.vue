@@ -137,7 +137,7 @@
             v-if="mode !== 'VIEW'"
             :disabled="loading"
             :loading="loading"
-            @click.stop="confirmAddOrUpdateBeneficiary(currentBeneficiary)"
+            @click.stop="confirmAddOrUpdateBeneficiary()"
             color="primary"
           >
             {{ mode === 'EDIT' ? 'UPDATE' : 'SUBMIT' }}
@@ -154,6 +154,7 @@
 
           <v-card-text>
             <PreviewTableOfBeneficiaryDetails
+              :key="dialog"
               :beneficiaryDetails="newBeneficiary"
             />
           </v-card-text>
@@ -254,8 +255,8 @@ export default {
   },
 
   methods: {
-    confirmAddOrUpdateBeneficiary(toUpdatebeneficiary) {
-      const newBeneficiary = this.getFormData(toUpdatebeneficiary)
+    confirmAddOrUpdateBeneficiary() {
+      const newBeneficiary = this.getFormData(this.newBeneficiary)
       if (!newBeneficiary) return
 
       this.dialog = true
@@ -264,7 +265,6 @@ export default {
 
     closeAddOfUpdateBeneficiaryModal() {
       this.dialog = false
-      this.newBeneficiary = null
     },
 
     addBeneficiary() {

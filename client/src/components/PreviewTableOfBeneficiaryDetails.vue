@@ -106,6 +106,29 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <br />
+      <v-divider></v-divider>
+      <br />
+
+      <div>
+        <strong>Note:</strong>
+        <div>
+          <p>
+            <span class="ml-2 text-caption">
+              <strong>*</strong>
+              for the last 20-30 years</span
+            >
+          </p>
+          <p>
+            <span class="ml-2 text-caption">
+              <strong>**</strong>
+              Constraints/Difficulties in Changing Farming Ways</span
+            >
+          </p>
+        </div>
+      </div>
     </div>
 
     <p v-else>Loading data...</p>

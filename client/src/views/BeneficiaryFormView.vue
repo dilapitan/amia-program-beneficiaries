@@ -119,13 +119,13 @@
         <br />
 
         <!-- 8 Issues/Concerns/Problems in Farming -->
-        <!-- <Part8Form
+        <Part8Form
           ref="part8Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part8FormData="part8FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -198,7 +198,7 @@ import Part4Form from '@/components/forms/Part4Form.vue'
 import Part5Form from '@/components/forms/Part5Form.vue'
 import Part6Form from '@/components/forms/Part6Form.vue'
 import Part7Form from '@/components/forms/Part7Form.vue'
-// import Part8Form from '@/components/forms/Part8Form.vue'
+import Part8Form from '@/components/forms/Part8Form.vue'
 
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
@@ -214,7 +214,7 @@ export default {
     Part5Form,
     Part6Form,
     Part7Form,
-    // Part8Form,
+    Part8Form,
     PreviewTableOfBeneficiaryDetails,
   },
 
@@ -748,7 +748,7 @@ export default {
       const part5FormData = this.getPart5FormData()
       const part6FormData = this.getPart6FormData()
       const part7FormData = this.getPart7FormData()
-      // const part8FormData = this.getPart8FormData()
+      const part8FormData = this.getPart8FormData()
 
       // console.log('part8FormData:', part8FormData)
       if (valid) {
@@ -924,7 +924,7 @@ export default {
           others,
         } = part7FormData
 
-        // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
+        const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiary = {
           // Part 0
@@ -1087,9 +1087,9 @@ export default {
           irrigation,
           farmingEquipment,
           others,
-          // //
-          // // Part 8
-          // issuesOrConcernsOrProblemsInFarming,
+
+          // Part 8
+          issuesOrConcernsOrProblemsInFarming,
         }
 
         return newBeneficiary

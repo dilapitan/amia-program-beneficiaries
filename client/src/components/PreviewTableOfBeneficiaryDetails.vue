@@ -94,6 +94,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 8</p>
+      <v-data-table
+        :headers="headers"
+        :items="part8FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -113,6 +125,7 @@ export default {
     part5FormData: null,
     part6FormData: null,
     part7FormData: null,
+    part8FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -298,6 +311,9 @@ export default {
         irrigation,
         farmingEquipment,
         others,
+
+        // Part 8
+        issuesOrConcernsOrProblemsInFarming,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -855,6 +871,13 @@ export default {
         { label: '(7.8): Irrigation', value: irrigation },
         { label: '(7.9): Farming Equipment', value: farmingEquipment },
         { label: '(7.10): Others', value: others },
+      ]
+
+      this.part8FormData = [
+        {
+          label: '(8) Issues/Concerns/Problems in Farming',
+          value: issuesOrConcernsOrProblemsInFarming,
+        },
       ]
     },
   },

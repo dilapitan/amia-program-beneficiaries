@@ -471,7 +471,12 @@
 </template>
 
 <script>
-import { getParenthesisValue, parenthesize, stringifyMonths } from '@/helpers'
+import {
+  getParenthesisValue,
+  numberWithCommas,
+  parenthesize,
+  stringifyMonths,
+} from '@/helpers'
 
 export default {
   data: () => ({
@@ -631,6 +636,7 @@ export default {
         estimatedGrossIncomePerCroppingSecondCropping:
           this.estimatedGrossIncomePerCroppingSecondCropping,
       }
+
       return part4Data
     },
 
@@ -747,6 +753,29 @@ export default {
   watch: {
     croppingPattern() {
       if (this.croppingPattern !== 'Others') this.croppingPatternSpecify = null
+    },
+
+    estimatedGrossIncomePerCroppingFirstCropping() {
+      if (!this.estimatedGrossIncomePerCroppingFirstCropping) return
+
+      this.$nextTick(
+        () =>
+          (this.estimatedGrossIncomePerCroppingFirstCropping = numberWithCommas(
+            this.estimatedGrossIncomePerCroppingFirstCropping
+          ))
+      )
+    },
+
+    estimatedGrossIncomePerCroppingSecondCropping() {
+      if (!this.estimatedGrossIncomePerCroppingSecondCropping) return
+
+      this.$nextTick(
+        () =>
+          (this.estimatedGrossIncomePerCroppingSecondCropping =
+            numberWithCommas(
+              this.estimatedGrossIncomePerCroppingSecondCropping
+            ))
+      )
     },
   },
 }

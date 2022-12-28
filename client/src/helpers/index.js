@@ -98,3 +98,12 @@ export const stringSplitToObject = (string, props) => {
 
   return items
 }
+
+export const numberWithCommas = (x) => {
+  const noComma = x.replaceAll(',', '')
+
+  // Got this from: https://stackoverflow.com/a/2901298/9352807
+  var parts = noComma.toString().split('.')
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  return parts.join('.')
+}

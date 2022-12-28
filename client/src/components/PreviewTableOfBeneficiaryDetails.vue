@@ -82,6 +82,18 @@
         hide-default-footer
         dense
       ></v-data-table>
+
+      <br />
+      <p>Part 7</p>
+      <v-data-table
+        :headers="headers"
+        :items="part7FormData"
+        disable-filtering
+        disable-pagination
+        disable-sort
+        hide-default-footer
+        dense
+      ></v-data-table>
     </div>
 
     <p v-else>Loading data...</p>
@@ -100,6 +112,7 @@ export default {
     part4FormData: null,
     part5FormData: null,
     part6FormData: null,
+    part7FormData: null,
     headers: [
       { text: 'Label', value: 'label', width: '50%' },
       { text: 'Value', value: 'value', width: '50%' },
@@ -273,6 +286,18 @@ export default {
         laborIntensiveOrNonAvailabilityOfLaborConstraint,
         infertileSoilConstraint,
         otherConstraint,
+
+        // Part 7
+        accessToAgricultureOrFisheriesRnDInstitutions,
+        accessToCredit,
+        laboratoryFacilities,
+        educationAndHealthFacilities,
+        farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        marketingSystem,
+        presenceOfAgriculturalProcessingFacilities,
+        irrigation,
+        farmingEquipment,
+        others,
       } = beneficiaryDetails
 
       this.part0FormData = [
@@ -804,6 +829,32 @@ export default {
           value: infertileSoilConstraint,
         },
         { label: '(6.7.14) Other Constraint **', value: otherConstraint },
+      ]
+
+      this.part7FormData = [
+        {
+          label: '(7.1): Access to Agirculture/Fisheries R&D Institutions',
+          value: accessToAgricultureOrFisheriesRnDInstitutions,
+        },
+        { label: '(7.2): Access to Credit', value: accessToCredit },
+        { label: '(7.3): Laboratory Facilities', value: laboratoryFacilities },
+        {
+          label: '(7.4): Education and Health Facilities',
+          value: educationAndHealthFacilities,
+        },
+        {
+          label: `(7.5): Farmers' Groups, Associations, Cooperatives; Non-Government Organizations; Irrigator's Associations`,
+          value:
+            farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+        },
+        { label: '(7.6): Marketing System', value: marketingSystem },
+        {
+          label: '(7.7): Presence of Agricultural Processing Facilities',
+          value: presenceOfAgriculturalProcessingFacilities,
+        },
+        { label: '(7.8): Irrigation', value: irrigation },
+        { label: '(7.9): Farming Equipment', value: farmingEquipment },
+        { label: '(7.10): Others', value: others },
       ]
     },
   },

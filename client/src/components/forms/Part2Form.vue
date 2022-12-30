@@ -131,15 +131,14 @@
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="2">
-              <v-text-field
-                class="mr-4"
-                dense
-                clearable
+              <v-select
                 v-model="householdMember.gender"
-                label="Gender"
+                class="mr-4 middle-length-select"
+                :items="genderOptions"
+                label="Select option"
                 :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
-              ></v-text-field>
+              ></v-select>
             </v-col>
             <v-col cols="12" sm="3">
               <v-text-field

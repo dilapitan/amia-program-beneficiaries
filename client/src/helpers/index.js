@@ -91,7 +91,7 @@ export const stringSplitToObject = (string, props) => {
 
     let item = {}
     for (let i = 0; i < commaParsed.length; i++) {
-      item[props[i]] = commaParsed[i]
+      item[props[i]] = commaParsed[i].trim()
     }
     items.push(item)
   })

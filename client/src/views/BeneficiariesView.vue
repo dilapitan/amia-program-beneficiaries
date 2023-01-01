@@ -112,11 +112,19 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <SnackbarLayout />
   </div>
 </template>
 
 <script>
+import SnackbarLayout from '@/components/SnackbarLayout.vue'
+
 export default {
+  components: {
+    SnackbarLayout,
+  },
+
   data: () => ({
     headers: [
       { text: 'Actions', value: 'actions', sortable: false },
@@ -1249,6 +1257,12 @@ export default {
         'setBeneficiaryPerProvinceAction',
         this.updatedBeneficiariesPerProvince
       )
+
+      this.$store.dispatch('setSnackbarAction', true)
+      this.$store.dispatch('setSnackbarDetailsAction', {
+        color: 'success',
+        text: 'Successfully deleted beneficiary!',
+      })
 
       this.closeDelete()
     },

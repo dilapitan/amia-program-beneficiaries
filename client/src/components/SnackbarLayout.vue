@@ -30,7 +30,7 @@ export default {
   methods: {
     closeSnackbar() {
       this.$store.dispatch('setSnackbarAction', false)
-      this.$store.dispatch('setSnackbarActionDetails', null)
+      this.$store.dispatch('setSnackbarDetailsAction', null)
     },
   },
 }

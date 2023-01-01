@@ -7,6 +7,8 @@ import {
   SET_LOGIN,
   SET_BENEFICIARIES,
   SET_BENEFICIARY_PER_PROVINCE,
+  SET_SNACKBAR,
+  SET_SNACKBAR_DETAILS,
 } from './mutation-types'
 
 export default new Vuex.Store({
@@ -305,6 +307,8 @@ export default new Vuex.Store({
         beneficiaries: [],
       },
     ],
+    snackbar: false,
+    snackbarDetails: null,
 
     // UI data variables
     fivePointScale: [
@@ -374,6 +378,14 @@ export default new Vuex.Store({
         }
       })
     },
+
+    [SET_SNACKBAR](state, flag) {
+      state.snackbar = flag
+    },
+
+    [SET_SNACKBAR_DETAILS](state, snackbarDetails) {
+      state.snackbarDetails = snackbarDetails
+    },
   },
   actions: {
     setBeneficiariesAction({ commit }, payload) {
@@ -386,6 +398,14 @@ export default new Vuex.Store({
 
     setLoginAction({ commit }, payload) {
       commit('SET_LOGIN', payload)
+    },
+
+    setSnackbarAction({ commit }, payload) {
+      commit('SET_SNACKBAR', payload)
+    },
+
+    setSnackbarDetailsAction({ commit }, payload) {
+      commit('SET_SNACKBAR_DETAILS', payload)
     },
   },
   modules: {},

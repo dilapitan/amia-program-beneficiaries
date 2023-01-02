@@ -268,25 +268,35 @@ export default {
     },
 
     addBeneficiary() {
-      this.dialog = false
-      const newBeneficiaries = [...this.beneficiaries]
+      try {
+        this.dialog = false
+        const newBeneficiaries = [...this.beneficiaries]
 
-      newBeneficiaries.push(this.newBeneficiary)
+        newBeneficiaries.push(this.newBeneficiary)
 
-      this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-      this.$store.dispatch(
-        'setBeneficiaryPerProvinceAction',
-        this.newBeneficiary
-      )
-      this.loading = true
-      setTimeout(() => {
-        this.$router.push('/beneficiaries')
+        this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        this.$store.dispatch(
+          'setBeneficiaryPerProvinceAction',
+          this.newBeneficiary
+        )
+        this.loading = true
+        setTimeout(() => {
+          this.$router.push('/beneficiaries')
+          this.$store.dispatch('setSnackbarAction', true)
+          this.$store.dispatch('setSnackbarDetailsAction', {
+            color: 'success',
+            text: 'Successfully added a new beneficiary!',
+          })
+        }, 500)
+      } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
-          color: 'success',
-          text: 'Successfully added a new beneficiary!',
+          color: 'error',
+          text: 'Failed adding a new beneficiary! Please contact admin.',
         })
-      }, 500)
+        this.$router.push('/beneficiaries')
+        throw new Error(error)
+      }
     },
 
     updateBeneficiary() {

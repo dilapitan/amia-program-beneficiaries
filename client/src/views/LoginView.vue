@@ -1,7 +1,5 @@
 <template>
   <div class="about">
-    <h1 class="text-center">This is the Login</h1>
-
     <v-main>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">

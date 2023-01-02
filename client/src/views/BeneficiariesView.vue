@@ -1248,23 +1248,33 @@ export default {
     },
 
     deleteItemConfirm() {
-      const updatedBeneficiaries = this.beneficiaries.splice(
-        this.deletedIndex,
-        1
-      )
-      this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
-      this.$store.dispatch(
-        'setBeneficiaryPerProvinceAction',
-        this.updatedBeneficiariesPerProvince
-      )
+      try {
+        const updatedBeneficiaries = this.beneficiaries.splice(
+          this.deletedIndex,
+          1
+        )
+        this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
+        this.$store.dispatch(
+          'setBeneficiaryPerProvinceAction',
+          this.updatedBeneficiariesPerProvince
+        )
 
-      this.$store.dispatch('setSnackbarAction', true)
-      this.$store.dispatch('setSnackbarDetailsAction', {
-        color: 'success',
-        text: 'Successfully deleted beneficiary!',
-      })
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'success',
+          text: 'Successfully deleted beneficiary!',
+        })
 
-      this.closeDelete()
+        this.closeDelete()
+      } catch (error) {
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed deleting a beneficiary! Please contact admin.',
+        })
+        this.closeDelete()
+        throw new Error(error)
+      }
     },
 
     closeDelete() {

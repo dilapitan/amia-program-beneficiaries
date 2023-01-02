@@ -50,12 +50,18 @@
         </v-row>
       </v-container>
     </v-main>
+
+    <SnackbarLayout />
   </div>
 </template>
 
 <script>
+import SnackbarLayout from '@/components/SnackbarLayout.vue'
+
 export default {
   name: 'LoginView',
+
+  components: { SnackbarLayout },
 
   data: () => ({
     show: false,
@@ -75,7 +81,7 @@ export default {
       this.loading = true
 
       // TODO: LoginService
-      setTimeout(() => {
+      try {
         const TOKEN = 'sample_token'
         const credentials = {
           email: this.email,
@@ -91,7 +97,15 @@ export default {
         this.password = ''
         this.loading = false
         this.$router.push('/')
-      }, 1000)
+      } catch (error) {
+        this.loading = false
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to login! Please contact admin.',
+        })
+        throw new Error(error)
+      }
     },
   },
 }

@@ -291,28 +291,40 @@ export default {
 
     updateBeneficiary() {
       // TODO: reset current Beneficiary upon Confirmation modal used later
-      this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
-        this.currentBeneficiary
-      )
 
-      if (this.currentBeneficiaryIndex > -1) {
-        Object.assign(
-          this.beneficiaries[this.currentBeneficiaryIndex],
-          this.newBeneficiary
+      try {
+        this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
+          this.currentBeneficiary
         )
 
-        this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-      } else {
-        this.beneficiaries.push(this.newBeneficiary)
-        this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-      }
+        if (this.currentBeneficiaryIndex > -1) {
+          Object.assign(
+            this.beneficiaries[this.currentBeneficiaryIndex],
+            this.newBeneficiary
+          )
 
-      this.$store.dispatch('setSnackbarAction', true)
-      this.$store.dispatch('setSnackbarDetailsAction', {
-        color: 'success',
-        text: 'Successfully edited a beneficiary!',
-      })
-      this.$router.push('/beneficiaries')
+          this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
+        } else {
+          this.beneficiaries.push(this.newBeneficiary)
+          this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
+        }
+
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'success',
+          text: 'Successfully edited a beneficiary!',
+        })
+
+        this.$router.push('/beneficiaries')
+      } catch (error) {
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to edit beneficiary. Please contact admin.',
+        })
+        this.$router.push('/beneficiaries')
+        throw new Error(error)
+      }
     },
 
     setBeneficiary(surveyNo) {

@@ -19,7 +19,10 @@ export default {
         return this.$store.state.snackbar
       },
 
-      set() {},
+      set() {
+        this.$store.dispatch('setSnackbarAction', false)
+        this.$store.dispatch('setSnackbarDetailsAction', null)
+      },
     },
 
     snackbarDetails() {

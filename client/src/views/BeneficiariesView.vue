@@ -1191,7 +1191,17 @@ export default {
 
   methods: {
     initialize() {
-      this.beneficiaries = this.$store.state.beneficiaries
+      try {
+        this.beneficiaries = this.$store.state.beneficiaries
+      } catch (error) {
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to load data! Please contact admin.',
+        })
+
+        throw new Error(error)
+      }
     },
 
     viewBeneficiary(beneficiary) {

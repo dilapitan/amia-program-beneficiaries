@@ -307,6 +307,11 @@ export default {
         this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
       }
 
+      this.$store.dispatch('setSnackbarAction', true)
+      this.$store.dispatch('setSnackbarDetailsAction', {
+        color: 'success',
+        text: 'Successfully edited a beneficiary!',
+      })
       this.$router.push('/beneficiaries')
     },
 

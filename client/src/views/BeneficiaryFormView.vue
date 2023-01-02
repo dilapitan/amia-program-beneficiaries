@@ -338,24 +338,33 @@ export default {
     },
 
     setBeneficiary(surveyNo) {
-      // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
+      try {
+        // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
+        const currentBeneficiary = this.$store.state.beneficiaries.find(
+          (beneficiary) => beneficiary.surveyNo === +surveyNo
+        )
 
-      const currentBeneficiary = this.$store.state.beneficiaries.find(
-        (beneficiary) => beneficiary.surveyNo === +surveyNo
-      )
+        this.currentBeneficiary = currentBeneficiary
 
-      this.currentBeneficiary = currentBeneficiary
-
-      if (this.currentBeneficiary !== undefined) {
-        this.setPart0FormData(this.currentBeneficiary)
-        this.setPart1FormData(this.currentBeneficiary)
-        this.setPart2FormData(this.currentBeneficiary)
-        this.setPart3FormData(this.currentBeneficiary)
-        this.setPart4FormData(this.currentBeneficiary)
-        this.setPart5FormData(this.currentBeneficiary)
-        this.setPart6FormData(this.currentBeneficiary)
-        this.setPart7FormData(this.currentBeneficiary)
-        this.setPart8FormData(this.currentBeneficiary)
+        if (this.currentBeneficiary !== undefined) {
+          this.setPart0FormData(this.currentBeneficiary)
+          this.setPart1FormData(this.currentBeneficiary)
+          this.setPart2FormData(this.currentBeneficiary)
+          this.setPart3FormData(this.currentBeneficiary)
+          this.setPart4FormData(this.currentBeneficiary)
+          this.setPart5FormData(this.currentBeneficiary)
+          this.setPart6FormData(this.currentBeneficiary)
+          this.setPart7FormData(this.currentBeneficiary)
+          this.setPart8FormData(this.currentBeneficiary)
+        }
+      } catch (error) {
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to load beneficiary details. Please contact admin.',
+        })
+        this.$router.push('/beneficiaries')
+        throw new Error(error)
       }
     },
 

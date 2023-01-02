@@ -81,6 +81,23 @@ export default {
       // TODO: LoginService
       try {
         const TOKEN = 'sample_token'
+        const REGISTERED_EMAIL = 'baselineadmin@gmail.com'
+        const REGISTERED_PASSWORD = '2O23'
+
+        if (
+          this.email !== REGISTERED_EMAIL ||
+          this.password !== REGISTERED_PASSWORD
+        ) {
+          this.loading = false
+          this.$store.dispatch('setSnackbarAction', true)
+          this.$store.dispatch('setSnackbarDetailsAction', {
+            color: 'error',
+            text: 'Invalid credentials.',
+          })
+
+          return
+        }
+
         const credentials = {
           email: this.email,
           password: this.password,

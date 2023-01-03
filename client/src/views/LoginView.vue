@@ -80,38 +80,45 @@ export default {
 
       // TODO: LoginService
       try {
-        const TOKEN = 'sample_token'
-        const REGISTERED_EMAIL = 'baselineadmin@gmail.com'
-        const REGISTERED_PASSWORD = '2O23'
+        // const TOKEN = 'sample_token'
+        // const REGISTERED_EMAIL = 'baselineadmin@gmail.com'
+        // const REGISTERED_PASSWORD = '2O23'
 
-        if (
-          this.email !== REGISTERED_EMAIL ||
-          this.password !== REGISTERED_PASSWORD
-        ) {
-          this.loading = false
-          this.$store.dispatch('setSnackbarAction', true)
-          this.$store.dispatch('setSnackbarDetailsAction', {
-            color: 'error',
-            text: 'Invalid credentials.',
-          })
-
-          return
-        }
-
-        const credentials = {
+        this.$store.dispatch('setLoginAction', {
           email: this.email,
           password: this.password,
-          token: TOKEN,
-        }
+        })
 
-        this.$store.dispatch('setLoginAction', credentials)
+        return
 
-        localStorage.setItem('token', JSON.stringify(credentials))
+        // if (
+        //   this.email !== REGISTERED_EMAIL ||
+        //   this.password !== REGISTERED_PASSWORD
+        // ) {
+        //   this.loading = false
+        //   this.$store.dispatch('setSnackbarAction', true)
+        //   this.$store.dispatch('setSnackbarDetailsAction', {
+        //     color: 'error',
+        //     text: 'Invalid credentials.',
+        //   })
 
-        this.email = ''
-        this.password = ''
-        this.loading = false
-        this.$router.push('/')
+        //   return
+        // }
+
+        // const credentials = {
+        //   email: this.email,
+        //   password: this.password,
+        //   token: TOKEN,
+        // }
+
+        // this.$store.dispatch('setLoginAction', credentials)
+
+        // localStorage.setItem('token', JSON.stringify(credentials))
+
+        // this.email = ''
+        // this.password = ''
+        // this.loading = false
+        // this.$router.push('/')
       } catch (error) {
         this.loading = false
         this.$store.dispatch('setSnackbarAction', true)

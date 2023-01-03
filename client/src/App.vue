@@ -177,7 +177,8 @@ export default {
     },
 
     logout() {
-      this.$store.dispatch('setLoginAction', null)
+      //this.$store.dispatch('setLoginAction', null)
+      this.$store.dispatch('setLogoutAction', null)
       localStorage.removeItem('token')
       this.$router.push('/').catch(() => {})
     },

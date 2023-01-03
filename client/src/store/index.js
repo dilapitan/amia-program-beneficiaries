@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { auth } from '@/firebase/firebaseConfig'
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
+
 Vue.use(Vuex)
 
 import {
   SET_LOGIN,
+  SET_USER,
   SET_BENEFICIARIES,
   SET_BENEFICIARY_PER_PROVINCE,
   SET_SNACKBAR,
@@ -13,7 +17,10 @@ import {
 
 export default new Vuex.Store({
   state: {
-    user: null,
+    user: {
+      loggedIn: false,
+      data: null,
+    },
     beneficiaries: [
       // {
       //   surveyNo: 1,
@@ -359,8 +366,12 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    [SET_LOGIN](state, credentials) {
-      state.user = credentials
+    [SET_LOGIN](state, value) {
+      state.user.loggedIn = value
+    },
+
+    [SET_USER](state, payload) {
+      state.user.data = payload
     },
 
     [SET_BENEFICIARIES](state, beneficiaries) {
@@ -396,8 +407,33 @@ export default new Vuex.Store({
       commit('SET_BENEFICIARY_PER_PROVINCE', payload)
     },
 
-    setLoginAction({ commit }, payload) {
-      commit('SET_LOGIN', payload)
+    async setLoginAction({ commit }, { email, password }) {
+      const response = await signInWithEmailAndPassword(auth, email, password)
+      if (response) {
+        console.log('Successfully logged in!')
+        console.log('response:', response)
+        commit('SET_LOGIN', response.user)
+      } else {
+        throw new Error('Login failed')
+      }
+    },
+
+    async setLogoutAction({ commit }) {
+      await signOut(auth)
+      console.log('Signed out!')
+      commit('SET_USER', null)
+    },
+
+    async setUserAction({ commit }, user) {
+      commit('SET_LOGIN', user !== null)
+
+      if (user) {
+        commit('SET_USER', {
+          email: user.email,
+        })
+      } else {
+        commit('SET_USER', null)
+      }
     },
 
     setSnackbarAction({ commit }, payload) {

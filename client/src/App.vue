@@ -163,7 +163,7 @@ export default {
 
   computed: {
     isLoggedIn() {
-      return Boolean(this.$store.state.user)
+      return Boolean(this.$store.state.user.loggedIn)
     },
   },
 
@@ -177,7 +177,6 @@ export default {
     },
 
     logout() {
-      //this.$store.dispatch('setLoginAction', null)
       this.$store.dispatch('setLogoutAction', null)
       localStorage.removeItem('token')
       this.$router.push('/').catch(() => {})

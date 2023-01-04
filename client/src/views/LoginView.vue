@@ -83,7 +83,6 @@ export default {
     async login() {
       this.loading = true
 
-      // TODO: LoginService
       try {
         const response = await signInWithEmailAndPassword(
           auth,
@@ -97,35 +96,6 @@ export default {
           this.loading = false
           this.$router.push('/')
         }
-
-        // this.$store.dispatch('setLoginAction', {
-        //   email: this.email,
-        //   password: this.password,
-        // })
-
-        // if (
-        //   this.email !== REGISTERED_EMAIL ||
-        //   this.password !== REGISTERED_PASSWORD
-        // ) {
-        //   this.loading = false
-        //   this.$store.dispatch('setSnackbarAction', true)
-        //   this.$store.dispatch('setSnackbarDetailsAction', {
-        //     color: 'error',
-        //     text: 'Invalid credentials.',
-        //   })
-
-        //   return
-        // }
-
-        // const credentials = {
-        //   email: this.email,
-        //   password: this.password,
-        //   token: TOKEN,
-        // }
-
-        // this.$store.dispatch('setLoginAction', credentials)
-
-        // localStorage.setItem('token', JSON.stringify(credentials))
       } catch (error) {
         const errorMessage = getErrorMessage(error.code)
 

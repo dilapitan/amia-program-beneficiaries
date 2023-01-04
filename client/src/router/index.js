@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePageView from '../views/HomePageView.vue'
 
+import store from '@/store'
+
 Vue.use(VueRouter)
 
 function guardRoutes(to, from, next) {
@@ -11,6 +13,12 @@ function guardRoutes(to, from, next) {
     next()
   } else {
     next('/unauthorized')
+  }
+}
+
+function guardIfAlreadyLoggedIn(to, from, next) {
+  if (!store.state.user.isLoggedIn) {
+    next('/')
   }
 }
 
@@ -67,6 +75,7 @@ const routes = [
   {
     path: '/login',
     name: 'LoginView',
+    beforeEnter: guardIfAlreadyLoggedIn,
     component: () =>
       import(/* webpackChunkName: "Login" */ '../views/LoginView.vue'),
   },

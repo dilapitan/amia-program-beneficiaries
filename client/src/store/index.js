@@ -420,7 +420,7 @@ export default new Vuex.Store({
 
     async setLogoutAction({ commit }) {
       await signOut(auth)
-      console.log('Signed out!')
+      commit('SET_LOGIN', null)
       commit('SET_USER', null)
     },
 

@@ -80,10 +80,6 @@ export default {
 
       // TODO: LoginService
       try {
-        // const TOKEN = 'sample_token'
-        // const REGISTERED_EMAIL = 'baselineadmin@gmail.com'
-        // const REGISTERED_PASSWORD = '2O23'
-
         this.$store.dispatch('setLoginAction', {
           email: this.email,
           password: this.password,

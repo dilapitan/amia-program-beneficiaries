@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import { auth } from '@/firebase/firebaseConfig'
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { signOut } from 'firebase/auth'
 
 Vue.use(Vuex)
 
@@ -407,15 +407,8 @@ export default new Vuex.Store({
       commit('SET_BENEFICIARY_PER_PROVINCE', payload)
     },
 
-    async setLoginAction({ commit }, { email, password }) {
-      const response = await signInWithEmailAndPassword(auth, email, password)
-      if (response) {
-        console.log('Successfully logged in!')
-        console.log('response:', response)
-        commit('SET_LOGIN', response.user)
-      } else {
-        throw new Error('Login failed')
-      }
+    async setLoginAction({ commit }, user) {
+      commit('SET_LOGIN', user)
     },
 
     async setLogoutAction({ commit }) {

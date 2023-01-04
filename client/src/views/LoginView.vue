@@ -56,6 +56,11 @@
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
+import { getErrorMessage } from '@/helpers/auth'
+
+import { auth } from '@/firebase/firebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+
 export default {
   name: 'LoginView',
 
@@ -75,17 +80,28 @@ export default {
   }),
 
   methods: {
-    login() {
+    async login() {
       this.loading = true
 
       // TODO: LoginService
       try {
-        this.$store.dispatch('setLoginAction', {
-          email: this.email,
-          password: this.password,
-        })
+        const response = await signInWithEmailAndPassword(
+          auth,
+          this.email,
+          this.password
+        )
+        if (response) {
+          this.$store.dispatch('setLoginAction', response.user)
+          this.email = ''
+          this.password = ''
+          this.loading = false
+          this.$router.push('/')
+        }
 
-        return
+        // this.$store.dispatch('setLoginAction', {
+        //   email: this.email,
+        //   password: this.password,
+        // })
 
         // if (
         //   this.email !== REGISTERED_EMAIL ||
@@ -110,19 +126,15 @@ export default {
         // this.$store.dispatch('setLoginAction', credentials)
 
         // localStorage.setItem('token', JSON.stringify(credentials))
-
-        // this.email = ''
-        // this.password = ''
-        // this.loading = false
-        // this.$router.push('/')
       } catch (error) {
+        const errorMessage = getErrorMessage(error.code)
+
         this.loading = false
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
           color: 'error',
-          text: 'Failed to login! Please contact admin.',
+          text: errorMessage,
         })
-        throw new Error(error)
       }
     },
   },

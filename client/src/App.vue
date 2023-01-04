@@ -137,6 +137,8 @@
 </template>
 
 <script>
+import { auth } from '@/firebase/firebaseConfig'
+
 export default {
   name: 'App',
 
@@ -153,12 +155,9 @@ export default {
     if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
     else this.drawer = false
 
-    const token = localStorage.getItem('token')
-    const credentials = JSON.parse(token)
-
-    if (credentials !== null) {
-      this.$store.dispatch('setLoginAction', credentials)
-    }
+    auth.onAuthStateChanged((user) =>
+      this.$store.dispatch('setUserAction', user)
+    )
   },
 
   computed: {
@@ -178,7 +177,6 @@ export default {
 
     logout() {
       this.$store.dispatch('setLogoutAction', null)
-      localStorage.removeItem('token')
       this.$router.push('/').catch(() => {})
     },
 

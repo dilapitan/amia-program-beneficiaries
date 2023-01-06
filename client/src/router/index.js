@@ -31,6 +31,7 @@ const routes = [
   {
     path: '/beneficiaries',
     name: 'BeneficiariesView',
+    beforeEnter: guardRoutes,
     component: () =>
       import(
         /* webpackChunkName: "Beneficiaries" */ '../views/BeneficiariesView.vue'

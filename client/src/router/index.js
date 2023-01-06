@@ -7,9 +7,7 @@ import store from '@/store'
 Vue.use(VueRouter)
 
 function guardRoutes(to, from, next) {
-  let isLoggedIn = localStorage.getItem('token')
-
-  if (isLoggedIn) {
+  if (store.state.user.loggedIn) {
     next()
   } else {
     next('/unauthorized')

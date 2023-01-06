@@ -24,6 +24,7 @@
                   <v-text-field
                     v-model="password"
                     @click:append="show = !show"
+                    @keyup.enter="login()"
                     :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                     :rules="passwordRules"
                     :type="show ? 'text' : 'password'"

@@ -17,8 +17,10 @@ function guardRoutes(to, from, next) {
 }
 
 function guardIfAlreadyLoggedIn(to, from, next) {
-  if (!store.state.user.isLoggedIn) {
-    next('/')
+  if (to.name !== 'LoginView' && !store.state.user.loggedIn) {
+    next({ name: 'LoginView' })
+  } else {
+    next()
   }
 }
 

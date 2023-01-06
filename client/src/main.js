@@ -4,11 +4,20 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
+import { auth } from '@/firebase/firebaseConfig'
+
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: (h) => h(App),
-}).$mount('#app')
+let app
+auth.onAuthStateChanged((user) => {
+  store.dispatch('setUserAction', user).then(() => {
+    if (!app) {
+      app = new Vue({
+        router,
+        store,
+        vuetify,
+        render: (h) => h(App),
+      }).$mount('#app')
+    }
+  })
+})

@@ -137,8 +137,6 @@
 </template>
 
 <script>
-import { auth } from '@/firebase/firebaseConfig'
-
 export default {
   name: 'App',
 
@@ -154,10 +152,6 @@ export default {
     // Set the drawer Opened for Large screens immediately, Closed for medium and below.
     if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
     else this.drawer = false
-
-    auth.onAuthStateChanged((user) =>
-      this.$store.dispatch('setUserAction', user)
-    )
   },
 
   computed: {
@@ -168,7 +162,7 @@ export default {
 
   methods: {
     goHome() {
-      this.$router.push('/')
+      this.$router.push('/').catch(() => {})
     },
 
     goToLogin() {

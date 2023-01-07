@@ -104,20 +104,21 @@
         >
           LOGOUT
         </v-btn>
-        <v-btn v-else class="mr-5" color="white" text to="/login">ADMIN</v-btn>
+        <v-btn v-else class="mr-5" color="white" to="/login" outlined>
+          ADMIN
+        </v-btn>
 
         <v-btn
           @click="toggleTheme()"
           v-if="!$vuetify.theme.dark"
-          bottom
+          icon
           color="white"
-          outlined
         >
-          GO DARK THEME
+          <v-icon>mdi-lightbulb-off</v-icon>
         </v-btn>
 
-        <v-btn @click="toggleTheme()" v-else color="white" outlined>
-          GO LIGHT THEME
+        <v-btn icon @click="toggleTheme()" v-else color="white">
+          <v-icon>mdi-lightbulb-on-10</v-icon>
         </v-btn>
       </div>
     </v-app-bar>

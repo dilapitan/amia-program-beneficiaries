@@ -86,9 +86,14 @@
       <v-spacer></v-spacer>
 
       <div v-if="$vuetify.breakpoint.smAndUp">
-        <v-btn icon color="white">
-          <v-icon>mdi-help-circle-outline</v-icon>
-        </v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon color="white" v-bind="attrs" v-on="on">
+              <v-icon>mdi-help-circle-outline</v-icon>
+            </v-btn>
+          </template>
+          <span>About Baseline</span>
+        </v-tooltip>
 
         <v-btn
           v-if="isLoggedIn"

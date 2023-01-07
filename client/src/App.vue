@@ -96,18 +96,35 @@
         </v-tooltip>
 
         <span class="mr-5">
-          <v-btn
-            @click="toggleTheme()"
-            v-if="!$vuetify.theme.dark"
-            icon
-            color="white"
-          >
-            <v-icon>mdi-lightbulb-off</v-icon>
-          </v-btn>
+          <v-tooltip bottom v-if="!$vuetify.theme.dark">
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                @click="toggleTheme()"
+                icon
+                color="white"
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-lightbulb-off</v-icon>
+              </v-btn>
+            </template>
+            <span>Use Dark Theme</span>
+          </v-tooltip>
 
-          <v-btn icon @click="toggleTheme()" v-else color="white">
-            <v-icon>mdi-lightbulb-on-10</v-icon>
-          </v-btn>
+          <v-tooltip bottom v-else>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                icon
+                @click="toggleTheme()"
+                color="white"
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon>mdi-lightbulb-on-10</v-icon>
+              </v-btn>
+            </template>
+            <span>Use Light Theme</span>
+          </v-tooltip>
         </span>
 
         <v-btn

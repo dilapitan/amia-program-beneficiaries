@@ -86,7 +86,9 @@
       <v-spacer></v-spacer>
 
       <div v-if="$vuetify.breakpoint.smAndUp">
-        <v-btn color="white" text>ABOUT</v-btn>
+        <v-btn icon color="white">
+          <v-icon>mdi-help-circle-outline</v-icon>
+        </v-btn>
 
         <v-btn
           v-if="isLoggedIn"

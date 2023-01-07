@@ -95,6 +95,21 @@
           <span>About Baseline</span>
         </v-tooltip>
 
+        <span class="mr-5">
+          <v-btn
+            @click="toggleTheme()"
+            v-if="!$vuetify.theme.dark"
+            icon
+            color="white"
+          >
+            <v-icon>mdi-lightbulb-off</v-icon>
+          </v-btn>
+
+          <v-btn icon @click="toggleTheme()" v-else color="white">
+            <v-icon>mdi-lightbulb-on-10</v-icon>
+          </v-btn>
+        </span>
+
         <v-btn
           v-if="isLoggedIn"
           @click="logout()"
@@ -106,19 +121,6 @@
         </v-btn>
         <v-btn v-else class="mr-5" color="white" to="/login" outlined>
           ADMIN
-        </v-btn>
-
-        <v-btn
-          @click="toggleTheme()"
-          v-if="!$vuetify.theme.dark"
-          icon
-          color="white"
-        >
-          <v-icon>mdi-lightbulb-off</v-icon>
-        </v-btn>
-
-        <v-btn icon @click="toggleTheme()" v-else color="white">
-          <v-icon>mdi-lightbulb-on-10</v-icon>
         </v-btn>
       </div>
     </v-app-bar>

@@ -141,9 +141,21 @@
         >
           LOGOUT
         </v-btn>
-        <v-btn v-else class="mr-5" color="white" to="/login" outlined>
-          ADMIN
-        </v-btn>
+        <v-tooltip bottom v-else>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              v-bind="attrs"
+              v-on="on"
+              class="mr-5"
+              color="white"
+              to="/login"
+              outlined
+            >
+              ADMIN
+            </v-btn>
+          </template>
+          <span>Login as an Admin</span>
+        </v-tooltip>
       </div>
     </v-app-bar>
 

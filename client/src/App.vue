@@ -78,9 +78,14 @@
       </v-app-bar-nav-icon>
 
       <v-toolbar-title>
-        <v-btn text @click="goHome()">
-          <h1 class="white--text">AMIA</h1>
-        </v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn text @click="goHome()" v-bind="attrs" v-on="on">
+              <h1 class="white--text">AMIA</h1>
+            </v-btn>
+          </template>
+          <span>Go to Home Page</span>
+        </v-tooltip>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>

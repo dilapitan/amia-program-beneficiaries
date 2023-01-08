@@ -93,7 +93,7 @@
       <div v-if="$vuetify.breakpoint.smAndUp">
         <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn icon color="white" v-bind="attrs" v-on="on">
+            <v-btn icon color="white" v-bind="attrs" v-on="on" to="/about">
               <v-icon>mdi-help-circle-outline</v-icon>
             </v-btn>
           </template>

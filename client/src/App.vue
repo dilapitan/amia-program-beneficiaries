@@ -132,15 +132,22 @@
           </v-tooltip>
         </span>
 
-        <v-btn
-          v-if="isLoggedIn"
-          @click="logout()"
-          class="mr-5"
-          color="white"
-          text
-        >
-          LOGOUT
-        </v-btn>
+        <v-tooltip v-if="isLoggedIn" bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              v-bind="attrs"
+              v-on="on"
+              @click="logout()"
+              class="mr-5"
+              color="white"
+              text
+            >
+              LOGOUT
+            </v-btn>
+          </template>
+          <span>Logout as Admin</span>
+        </v-tooltip>
+
         <v-tooltip bottom v-else>
           <template v-slot:activator="{ on, attrs }">
             <v-btn

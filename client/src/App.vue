@@ -88,6 +88,10 @@
         </v-tooltip>
       </v-toolbar-title>
 
+      <v-chip v-if="isLoggedIn" color="white" small outlined>
+        <strong>ADMIN</strong>
+      </v-chip>
+
       <v-spacer></v-spacer>
 
       <div v-if="$vuetify.breakpoint.smAndUp">

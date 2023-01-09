@@ -1205,18 +1205,6 @@ export default {
       }
 
       console.log('Successful GET beneficiaries')
-
-      // try {
-      //   this.beneficiaries = this.$store.state.beneficiaries
-      // } catch (error) {
-      //   this.$store.dispatch('setSnackbarAction', true)
-      //   this.$store.dispatch('setSnackbarDetailsAction', {
-      //     color: 'error',
-      //     text: 'Failed to load data! Please contact admin.',
-      //   })
-
-      //   throw new Error(error)
-      // }
     },
 
     viewBeneficiary(beneficiary) {

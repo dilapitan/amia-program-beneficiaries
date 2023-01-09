@@ -119,6 +119,8 @@
 
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
+import { db } from '@/firebase/firebaseConfig'
+import { collection, getDocs } from 'firebase/firestore'
 
 export default {
   components: {
@@ -1190,9 +1192,12 @@ export default {
   },
 
   methods: {
-    initialize() {
+    async initialize() {
       try {
-        this.beneficiaries = this.$store.state.beneficiaries
+        const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, ' => ', doc.data())
+        })
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
@@ -1202,6 +1207,18 @@ export default {
 
         throw new Error(error)
       }
+
+      // try {
+      //   this.beneficiaries = this.$store.state.beneficiaries
+      // } catch (error) {
+      //   this.$store.dispatch('setSnackbarAction', true)
+      //   this.$store.dispatch('setSnackbarDetailsAction', {
+      //     color: 'error',
+      //     text: 'Failed to load data! Please contact admin.',
+      //   })
+
+      //   throw new Error(error)
+      // }
     },
 
     viewBeneficiary(beneficiary) {

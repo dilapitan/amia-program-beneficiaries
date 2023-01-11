@@ -1173,12 +1173,18 @@ export default {
         align: 'center',
       },
     ],
-    beneficiaries: [],
+    // beneficiaries: [],
     dialogDelete: false,
     deletedIndex: -1,
     deletedItem: {},
     updatedBeneficiariesPerProvince: [],
   }),
+
+  computed: {
+    beneficiaries() {
+      return this.$store.state.beneficiaries
+    },
+  },
 
   created() {
     this.initialize()
@@ -1193,7 +1199,8 @@ export default {
   methods: {
     async initialize() {
       const beneficiaries = await getBeneficiaries()
-      console.log('beneficiaries:', beneficiaries)
+
+      this.$store.dispatch('setBeneficiariesAction', beneficiaries)
 
       if (!beneficiaries) {
         this.$store.dispatch('setSnackbarAction', true)
@@ -1203,8 +1210,6 @@ export default {
         })
         return
       }
-
-      console.log('Successful GET beneficiaries')
     },
 
     viewBeneficiary(beneficiary) {

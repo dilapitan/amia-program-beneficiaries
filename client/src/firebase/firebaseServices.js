@@ -6,7 +6,16 @@ export const getBeneficiaries = async () => {
     const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
     const beneficiaries = []
     querySnapshot.forEach(async (doc) => {
-      beneficiaries.push(doc.data())
+      const { part0, part1, createdAt, userId } = doc.data()
+
+      const item = {
+        ...part0,
+        ...part1,
+        createdAt,
+        userId,
+      }
+
+      beneficiaries.push(item)
     })
 
     return beneficiaries

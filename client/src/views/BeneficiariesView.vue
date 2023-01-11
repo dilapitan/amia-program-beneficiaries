@@ -17,6 +17,23 @@
 
     <br />
 
+    <v-row>
+      <v-col cols="4">
+        <v-select
+          v-model="selectedProvince"
+          :items="provincesOfRegion5"
+          menu-props="auto"
+          label="Select a Province to filter"
+          prepend-icon="mdi-filter"
+          single-line
+          width="100"
+          clearable
+        ></v-select>
+      </v-col>
+    </v-row>
+
+    <br />
+
     <p v-if="isLoading" class="text-center">
       <v-progress-circular indeterminate color="primary" :size="50">
       </v-progress-circular>
@@ -127,6 +144,9 @@
 
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
+
+import { getProvincesOfRegion5 } from '@/helpers/locations'
+
 import { getBeneficiaries } from '@/firebase/firebaseServices'
 
 export default {
@@ -1187,11 +1207,17 @@ export default {
     deletedItem: {},
     isLoading: true,
     updatedBeneficiariesPerProvince: [],
+    selectedProvince: null,
   }),
 
   computed: {
     beneficiaries() {
       return this.$store.state.beneficiaries
+    },
+
+    provincesOfRegion5() {
+      const provincesOfRegion5WithAll = getProvincesOfRegion5()
+      return provincesOfRegion5WithAll
     },
   },
 
@@ -1202,6 +1228,10 @@ export default {
   watch: {
     dialogDelete(val) {
       val || this.closeDelete()
+    },
+
+    selectedProvince() {
+      console.log(this.selectedProvince)
     },
   },
 

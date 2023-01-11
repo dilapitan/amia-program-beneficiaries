@@ -1198,17 +1198,16 @@ export default {
 
   methods: {
     async initialize() {
-      const beneficiaries = await getBeneficiaries()
-
-      this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-
-      if (!beneficiaries) {
+      try {
+        const beneficiaries = await getBeneficiaries()
+        this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+      } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
           color: 'error',
           text: 'Failed to load data! Please contact admin.',
         })
-        return
+        this.$store.dispatch('setBeneficiariesAction', [])
       }
     },
 

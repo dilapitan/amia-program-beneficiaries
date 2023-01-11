@@ -1220,7 +1220,7 @@ export default {
   },
 
   created() {
-    this.initialize()
+    this.initialize(null)
   },
 
   watch: {
@@ -1229,13 +1229,15 @@ export default {
     },
 
     selectedProvince() {
-      console.log(this.selectedProvince)
+      this.initialize(this.selectedProvince)
     },
   },
 
   methods: {
-    async initialize() {
+    async initialize(province) {
       try {
+        console.log('province:', province)
+        this.isLoading = true
         const beneficiaries = await getBeneficiaries()
         this.$store.dispatch('setBeneficiariesAction', beneficiaries)
       } catch (error) {

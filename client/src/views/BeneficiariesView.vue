@@ -1201,7 +1201,6 @@ export default {
         align: 'center',
       },
     ],
-    // beneficiaries: [],
     dialogDelete: false,
     deletedIndex: -1,
     deletedItem: {},
@@ -1216,8 +1215,7 @@ export default {
     },
 
     provincesOfRegion5() {
-      const provincesOfRegion5WithAll = getProvincesOfRegion5()
-      return provincesOfRegion5WithAll
+      return getProvincesOfRegion5()
     },
   },
 

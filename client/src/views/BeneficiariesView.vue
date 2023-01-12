@@ -1236,9 +1236,8 @@ export default {
   methods: {
     async initialize(province) {
       try {
-        console.log('province:', province)
         this.isLoading = true
-        const beneficiaries = await getBeneficiaries()
+        const beneficiaries = await getBeneficiaries(province)
         this.$store.dispatch('setBeneficiariesAction', beneficiaries)
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)

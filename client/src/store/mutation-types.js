@@ -1,3 +1,4 @@
+export const SET_GLOBAL_LOADER = 'SET_GLOBAL_LOADER'
 export const SET_LOGIN = 'SET_LOGIN'
 export const SET_USER = 'SET_USER'
 export const SET_BENEFICIARIES = 'SET_BENEFICIARIES'

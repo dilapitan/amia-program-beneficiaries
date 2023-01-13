@@ -12,6 +12,7 @@ import {
   SET_USER,
   SET_BENEFICIARIES,
   SET_BENEFICIARY_PER_PROVINCE,
+  SET_PROVINCE_WITH_THEIR_BENEFICIARIES,
   SET_SNACKBAR,
   SET_SNACKBAR_DETAILS,
 } from './mutation-types'
@@ -274,47 +275,7 @@ export default new Vuex.Store({
           'Soil erosion, Soil siltation, Low crop production**(Palay)',
       },
     ],
-    beneficiariesPerProvince: [
-      {
-        province: 'ALBAY',
-        beneficiaries: [
-          // {
-          //   surveyNo: 1,
-          //   province: 'ALBAY',
-          //   cityOrMunicipality: 'Bacacay',
-          //   barangay: 'Brgy 1',
-          //   nameOfFarmer: 'Juan Magsasaka',
-          // },
-          {
-            surveyNo: 7,
-            province: 'ALBAY',
-            cityOrMunicipality: 'Bacacay',
-            barangay: 'Baranggay',
-            nameOfFarmer: 'Ani Magsika',
-          },
-        ],
-      },
-      {
-        province: 'CAMARINES NORTE',
-        beneficiaries: [],
-      },
-      {
-        province: 'CAMARINES SUR',
-        beneficiaries: [],
-      },
-      {
-        province: 'CATANDUANES',
-        beneficiaries: [],
-      },
-      {
-        province: 'MASBATE',
-        beneficiaries: [],
-      },
-      {
-        province: 'SORSOGON',
-        beneficiaries: [],
-      },
-    ],
+    provinceWithTheirBeneficiaries: [],
     isLoading: false,
     snackbar: false,
     snackbarDetails: null,
@@ -392,6 +353,13 @@ export default new Vuex.Store({
       state.beneficiaries = beneficiaries
     },
 
+    [SET_PROVINCE_WITH_THEIR_BENEFICIARIES](
+      state,
+      provinceWithTheirBeneficiaries
+    ) {
+      state.provinceWithTheirBeneficiaries = provinceWithTheirBeneficiaries
+    },
+
     [SET_BENEFICIARY_PER_PROVINCE](state, beneficiaryPerProvince) {
       const beneficiariesPerProvince = state.beneficiariesPerProvince
 
@@ -419,6 +387,10 @@ export default new Vuex.Store({
 
     setBeneficiaryPerProvinceAction({ commit }, payload) {
       commit('SET_BENEFICIARY_PER_PROVINCE', payload)
+    },
+
+    setProvinceWithTheirBeneficiariesAction({ commit }, payload) {
+      commit('SET_PROVINCE_WITH_THEIR_BENEFICIARIES', payload)
     },
 
     setGlobalLoaderAction({ commit }, payload) {

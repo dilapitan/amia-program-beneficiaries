@@ -1198,13 +1198,14 @@ export default {
     isLoading: true,
     updatedBeneficiariesPerProvince: [],
     selectedProvince: null,
+    beneficiaries: [],
   }),
 
-  computed: {
-    beneficiaries() {
-      return this.$store.state.beneficiaries
-    },
+  mounted() {
+    this.beneficiaries = this.$store.state.beneficiaries
+  },
 
+  computed: {
     provincesOfRegion5() {
       return getProvincesOfRegion5()
     },
@@ -1216,7 +1217,9 @@ export default {
     },
 
     selectedProvince() {
-      this.initialize(this.selectedProvince)
+      this.beneficiaries = this.$store.getters.beneficiariesPerProvince(
+        this.selectedProvince
+      )
     },
   },
 

@@ -88,9 +88,21 @@
         </v-tooltip>
       </v-toolbar-title>
 
-      <v-chip v-if="isLoggedIn" color="white" small outlined>
-        <strong>ADMIN</strong>
-      </v-chip>
+      <v-tooltip right>
+        <template v-slot:activator="{ on, attrs }">
+          <v-chip
+            v-if="isLoggedIn"
+            color="white"
+            small
+            outlined
+            v-bind="attrs"
+            v-on="on"
+          >
+            <strong>ADMIN</strong>
+          </v-chip>
+        </template>
+        <span>Logged as Admin</span>
+      </v-tooltip>
 
       <v-spacer></v-spacer>
 

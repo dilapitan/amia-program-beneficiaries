@@ -172,7 +172,11 @@
 
     <v-card color="background" flat height="100%">
       <v-main>
-        <router-view />
+        <p v-if="isLoading" class="text-center mt-10">
+          <v-progress-circular indeterminate color="primary" :size="50">
+          </v-progress-circular>
+        </p>
+        <router-view v-else />
       </v-main>
       <v-tooltip bottom>
         <template v-slot:activator="{ on, attrs }">
@@ -210,11 +214,16 @@ export default {
   created() {
     this.setTheme()
     this.setDrawer()
+    this.initialize()
   },
 
   computed: {
     isLoggedIn() {
       return Boolean(this.$store.state.user.loggedIn)
+    },
+
+    isLoading() {
+      return this.$store.state.isLoading
     },
   },
 
@@ -225,6 +234,14 @@ export default {
 
     goToLogin() {
       this.$router.push('/login')
+    },
+
+    initialize() {
+      // TODO: set Beneficiaries here and the Beneficiaries Per Province
+      this.$store.dispatch('setGlobalLoaderAction', true)
+      setTimeout(() => {
+        this.$store.dispatch('setGlobalLoaderAction', false)
+      }, 2000)
     },
 
     logout() {

@@ -315,7 +315,7 @@ export default new Vuex.Store({
         beneficiaries: [],
       },
     ],
-    globalLoader: false,
+    isLoading: false,
     snackbar: false,
     snackbarDetails: null,
 
@@ -369,7 +369,7 @@ export default new Vuex.Store({
 
   mutations: {
     [SET_GLOBAL_LOADER](state, value) {
-      state.globalLoader = value
+      state.isLoading = value
     },
 
     [SET_LOGIN](state, value) {

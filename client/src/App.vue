@@ -69,7 +69,7 @@
       >
       </v-app-bar-nav-icon>
 
-      <v-app-bar-nav-icon>
+      <v-app-bar-nav-icon disabled>
         <v-img
           max-height="50"
           max-width="50"

@@ -32,6 +32,10 @@
       </v-col>
     </v-row>
 
+    <span v-if="selectedProvince" class="text-caption">
+      Displaying beneficiaies under province: {{ selectedProvince }}
+    </span>
+
     <br />
 
     <div v-if="beneficiaries.length > 0">

@@ -1,16 +1,9 @@
 import { db } from '@/firebase/firebaseConfig'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 
-export const getBeneficiaries = async (province) => {
+export const getBeneficiaries = async () => {
   try {
-    const q = province
-      ? query(
-          collection(db, 'beneficiaries'),
-          where('part1.province', '==', province)
-        )
-      : collection(db, 'beneficiaries')
-
-    const querySnapshot = await getDocs(q)
+    const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
     const beneficiaries = []
     querySnapshot.forEach(async (doc) => {
       const { part0, part1, createdAt, userId } = doc.data()

@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth'
 Vue.use(Vuex)
 
 import {
+  SET_GLOBAL_LOADER,
   SET_LOGIN,
   SET_USER,
   SET_BENEFICIARIES,
@@ -314,6 +315,7 @@ export default new Vuex.Store({
         beneficiaries: [],
       },
     ],
+    globalLoader: false,
     snackbar: false,
     snackbarDetails: null,
 
@@ -366,6 +368,10 @@ export default new Vuex.Store({
   },
 
   mutations: {
+    [SET_GLOBAL_LOADER](state, value) {
+      state.globalLoader = value
+    },
+
     [SET_LOGIN](state, value) {
       state.user.loggedIn = value
     },
@@ -405,6 +411,10 @@ export default new Vuex.Store({
 
     setBeneficiaryPerProvinceAction({ commit }, payload) {
       commit('SET_BENEFICIARY_PER_PROVINCE', payload)
+    },
+
+    setGlobalLoaderAction({ commit }, payload) {
+      commit('SET_GLOBAL_LOADER', payload)
     },
 
     async setLoginAction({ commit }, user) {

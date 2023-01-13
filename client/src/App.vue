@@ -208,8 +208,7 @@ export default {
   }),
 
   created() {
-    const theme = localStorage.getItem('dark_theme')
-    this.$vuetify.theme.dark = theme === 'true' ? true : false
+    this.setTheme()
 
     // Set the drawer Opened for Large screens immediately, Closed for medium and below.
     if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
@@ -234,6 +233,11 @@ export default {
     logout() {
       this.$store.dispatch('setLogoutAction', null)
       this.$router.push('/').catch(() => {})
+    },
+
+    setTheme() {
+      const theme = localStorage.getItem('dark_theme')
+      this.$vuetify.theme.dark = theme === 'true' ? true : false
     },
 
     toggleTheme() {

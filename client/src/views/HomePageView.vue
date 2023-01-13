@@ -9,7 +9,10 @@
           flat
           :height="$vuetify.breakpoint.xs ? '60vh' : '80vh'"
         >
-          <div v-for="(item, index) in beneficiariesPerProvince" :key="index">
+          <div
+            v-for="(item, index) in provinceWithTheirBeneficiaries"
+            :key="index"
+          >
             <div class="mb-10">
               <h4>{{ item.province }}</h4>
               <BeneficiariesPerProvince :beneficiaries="item.beneficiaries" />
@@ -33,8 +36,8 @@ export default {
   },
 
   computed: {
-    beneficiariesPerProvince() {
-      return this.$store.state.beneficiariesPerProvince
+    provinceWithTheirBeneficiaries() {
+      return this.$store.state.provinceWithTheirBeneficiaries
     },
   },
 }

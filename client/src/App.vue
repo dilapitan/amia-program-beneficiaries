@@ -244,6 +244,8 @@ export default {
       try {
         const beneficiaries = await getBeneficiaries(province)
         this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+
+        this.setProvincesWithTheirBeneficiaries(beneficiaries)
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
@@ -264,6 +266,74 @@ export default {
       // Set the drawer Opened for Large screens immediately, Closed for medium and below.
       if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
       else this.drawer = false
+    },
+
+    setProvincesWithTheirBeneficiaries(beneficiaies) {
+      const ALBAY_INDEX = 0
+      const CAMARINES_NORTE_INDEX = 1
+      const CAMARINES_SUR_INDEX = 2
+      const CATANDUANES_INDEX = 3
+      const MASBATE_INDEX = 4
+      const SORSOGON_INDEX = 5
+      let PROVINCES_WITH_THEIR_BENEFICIARIES = [
+        {
+          province: 'ALBAY',
+          beneficiaries: [],
+        },
+        {
+          province: 'CAMARINES NORTE',
+          beneficiaries: [],
+        },
+        {
+          province: 'CAMARINES SUR',
+          beneficiaries: [],
+        },
+        {
+          province: 'CATANDUANES',
+          beneficiaries: [],
+        },
+        {
+          province: 'MASBATE',
+          beneficiaries: [],
+        },
+        {
+          province: 'SORSOGON',
+          beneficiaries: [],
+        },
+      ]
+
+      beneficiaies.forEach((item) => {
+        if (item.province === 'ALBAY') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[ALBAY_INDEX].beneficiaries.push(
+            item
+          )
+        } else if (item.province === 'CAMARINES NORTE') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[
+            CAMARINES_NORTE_INDEX
+          ].beneficiaries.push(item)
+        } else if (item.province === 'CAMARINES SUR') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[
+            CAMARINES_SUR_INDEX
+          ].beneficiaries.push(item)
+        } else if (item.province === 'CATANDUANES') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[
+            CATANDUANES_INDEX
+          ].beneficiaries.push(item)
+        } else if (item.province === 'MASBATE') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[MASBATE_INDEX].beneficiaries.push(
+            item
+          )
+        } else if (item.province === 'SORSOGON') {
+          PROVINCES_WITH_THEIR_BENEFICIARIES[SORSOGON_INDEX].beneficiaries.push(
+            item
+          )
+        }
+      })
+
+      this.$store.dispatch(
+        'setProvinceWithTheirBeneficiariesAction',
+        PROVINCES_WITH_THEIR_BENEFICIARIES
+      )
     },
 
     setTheme() {

@@ -140,8 +140,6 @@ import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 
-// import { getBeneficiaries } from '@/firebase/firebaseServices'
-
 export default {
   components: {
     SnackbarLayout,
@@ -1212,10 +1210,6 @@ export default {
     },
   },
 
-  // created() {
-  //   this.initialize(null)
-  // },
-
   watch: {
     dialogDelete(val) {
       val || this.closeDelete()
@@ -1227,22 +1221,6 @@ export default {
   },
 
   methods: {
-    // async initialize(province) {
-    //   try {
-    //     this.isLoading = true
-    //     const beneficiaries = await getBeneficiaries(province)
-    //     this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-    //   } catch (error) {
-    //     this.$store.dispatch('setSnackbarAction', true)
-    //     this.$store.dispatch('setSnackbarDetailsAction', {
-    //       color: 'error',
-    //       text: 'Failed to load data! Please contact admin.',
-    //     })
-    //     this.$store.dispatch('setBeneficiariesAction', [])
-    //   }
-    //   this.isLoading = false
-    // },
-
     viewBeneficiary(beneficiary) {
       this.$router.push({
         name: 'ViewBeneficiaryView',

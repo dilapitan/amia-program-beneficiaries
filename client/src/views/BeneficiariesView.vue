@@ -34,88 +34,81 @@
 
     <br />
 
-    <p v-if="isLoading" class="text-center">
-      <v-progress-circular indeterminate color="primary" :size="50">
-      </v-progress-circular>
-    </p>
+    <div v-if="beneficiaries.length > 0">
+      <v-data-table
+        :headers="headers"
+        :items="beneficiaries"
+        class="elevation-1"
+      >
+        <template v-slot:[`item.actions`]="{ item }">
+          <div class="d-flex align-baseline">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  @click="viewBeneficiary(item)"
+                  small
+                  class="mr-2"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-eye
+                </v-icon>
+              </template>
+              <span>View Beneficiary</span>
+            </v-tooltip>
 
-    <div v-else>
-      <div v-if="beneficiaries.length > 0">
-        <v-data-table
-          :headers="headers"
-          :items="beneficiaries"
-          class="elevation-1"
-        >
-          <template v-slot:[`item.actions`]="{ item }">
-            <div class="d-flex align-baseline">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    @click="viewBeneficiary(item)"
-                    small
-                    class="mr-2"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    mdi-eye
-                  </v-icon>
-                </template>
-                <span>View Beneficiary</span>
-              </v-tooltip>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  class="mr-2"
+                  @click="editBeneficiary(item)"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-pencil
+                </v-icon>
+              </template>
+              <span>Edit Beneficiary</span>
+            </v-tooltip>
 
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    small
-                    class="mr-2"
-                    @click="editBeneficiary(item)"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    mdi-pencil
-                  </v-icon>
-                </template>
-                <span>Edit Beneficiary</span>
-              </v-tooltip>
-
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-icon
-                    small
-                    @click="deleteItem(item)"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    mdi-delete
-                  </v-icon>
-                </template>
-                <span>Delete Beneficiary</span>
-              </v-tooltip>
-            </div>
-          </template>
-        </v-data-table>
-
-        <div>
-          <strong>Note:</strong>
-          <div>
-            <p>
-              <span class="ml-2 text-caption">
-                <strong>*</strong>
-                for the last 20-30 years</span
-              >
-            </p>
-            <p>
-              <span class="ml-2 text-caption">
-                <strong>**</strong>
-                Constraints/Difficulties in Changing Farming Ways</span
-              >
-            </p>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon
+                  small
+                  @click="deleteItem(item)"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  mdi-delete
+                </v-icon>
+              </template>
+              <span>Delete Beneficiary</span>
+            </v-tooltip>
           </div>
+        </template>
+      </v-data-table>
+
+      <div>
+        <strong>Note:</strong>
+        <div>
+          <p>
+            <span class="ml-2 text-caption">
+              <strong>*</strong>
+              for the last 20-30 years</span
+            >
+          </p>
+          <p>
+            <span class="ml-2 text-caption">
+              <strong>**</strong>
+              Constraints/Difficulties in Changing Farming Ways</span
+            >
+          </p>
         </div>
       </div>
-
-      <p v-else>No records found.</p>
     </div>
+
+    <p v-else>No records found.</p>
 
     <v-dialog v-model="dialogDelete" max-width="500px">
       <v-card>
@@ -147,7 +140,7 @@ import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 
-import { getBeneficiaries } from '@/firebase/firebaseServices'
+// import { getBeneficiaries } from '@/firebase/firebaseServices'
 
 export default {
   components: {
@@ -1219,9 +1212,9 @@ export default {
     },
   },
 
-  created() {
-    this.initialize(null)
-  },
+  // created() {
+  //   this.initialize(null)
+  // },
 
   watch: {
     dialogDelete(val) {
@@ -1234,21 +1227,21 @@ export default {
   },
 
   methods: {
-    async initialize(province) {
-      try {
-        this.isLoading = true
-        const beneficiaries = await getBeneficiaries(province)
-        this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-      } catch (error) {
-        this.$store.dispatch('setSnackbarAction', true)
-        this.$store.dispatch('setSnackbarDetailsAction', {
-          color: 'error',
-          text: 'Failed to load data! Please contact admin.',
-        })
-        this.$store.dispatch('setBeneficiariesAction', [])
-      }
-      this.isLoading = false
-    },
+    // async initialize(province) {
+    //   try {
+    //     this.isLoading = true
+    //     const beneficiaries = await getBeneficiaries(province)
+    //     this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+    //   } catch (error) {
+    //     this.$store.dispatch('setSnackbarAction', true)
+    //     this.$store.dispatch('setSnackbarDetailsAction', {
+    //       color: 'error',
+    //       text: 'Failed to load data! Please contact admin.',
+    //     })
+    //     this.$store.dispatch('setBeneficiariesAction', [])
+    //   }
+    //   this.isLoading = false
+    // },
 
     viewBeneficiary(beneficiary) {
       this.$router.push({

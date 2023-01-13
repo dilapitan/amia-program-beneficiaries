@@ -203,6 +203,8 @@
 </template>
 
 <script>
+import { getBeneficiaries } from '@/firebase/firebaseServices'
+
 export default {
   name: 'App',
 
@@ -236,12 +238,21 @@ export default {
       this.$router.push('/login')
     },
 
-    initialize() {
+    async initialize(province) {
       // TODO: set Beneficiaries here and the Beneficiaries Per Province
       this.$store.dispatch('setGlobalLoaderAction', true)
-      setTimeout(() => {
-        this.$store.dispatch('setGlobalLoaderAction', false)
-      }, 2000)
+      try {
+        const beneficiaries = await getBeneficiaries(province)
+        this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+      } catch (error) {
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to load data! Please contact admin.',
+        })
+        this.$store.dispatch('setBeneficiariesAction', [])
+      }
+      this.$store.dispatch('setGlobalLoaderAction', false)
     },
 
     logout() {

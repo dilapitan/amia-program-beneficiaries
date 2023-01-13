@@ -209,10 +209,7 @@ export default {
 
   created() {
     this.setTheme()
-
-    // Set the drawer Opened for Large screens immediately, Closed for medium and below.
-    if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
-    else this.drawer = false
+    this.setDrawer()
   },
 
   computed: {
@@ -233,6 +230,12 @@ export default {
     logout() {
       this.$store.dispatch('setLogoutAction', null)
       this.$router.push('/').catch(() => {})
+    },
+
+    setDrawer() {
+      // Set the drawer Opened for Large screens immediately, Closed for medium and below.
+      if (this.$vuetify.breakpoint.lgAndUp) this.drawer = true
+      else this.drawer = false
     },
 
     setTheme() {

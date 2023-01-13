@@ -367,6 +367,14 @@ export default new Vuex.Store({
     ],
   },
 
+  getters: {
+    beneficiariesPerProvince: (state) => (province) => {
+      if (!province) return state.beneficiaries
+
+      return state.beneficiaries.filter((item) => item.province === province)
+    },
+  },
+
   mutations: {
     [SET_GLOBAL_LOADER](state, value) {
       state.isLoading = value

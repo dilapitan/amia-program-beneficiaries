@@ -239,7 +239,6 @@ export default {
     },
 
     async initialize(province) {
-      // TODO: set Beneficiaries here and the Beneficiaries Per Province
       this.$store.dispatch('setGlobalLoaderAction', true)
       try {
         const beneficiaries = await getBeneficiaries(province)

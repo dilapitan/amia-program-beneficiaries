@@ -341,7 +341,7 @@ export default {
       try {
         // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
         const currentBeneficiary = this.$store.state.beneficiaries.find(
-          (beneficiary) => beneficiary.surveyNo === +surveyNo
+          (beneficiary) => beneficiary.surveyNo === surveyNo
         )
 
         this.currentBeneficiary = currentBeneficiary

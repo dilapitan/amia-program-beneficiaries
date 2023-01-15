@@ -11,7 +11,6 @@ import {
   SET_LOGIN,
   SET_USER,
   SET_BENEFICIARIES,
-  SET_BENEFICIARY_PER_PROVINCE,
   SET_PROVINCE_WITH_THEIR_BENEFICIARIES,
   SET_SNACKBAR,
   SET_SNACKBAR_DETAILS,
@@ -360,18 +359,6 @@ export default new Vuex.Store({
       state.provinceWithTheirBeneficiaries = provinceWithTheirBeneficiaries
     },
 
-    [SET_BENEFICIARY_PER_PROVINCE](state, beneficiaryPerProvince) {
-      const beneficiariesPerProvince = state.beneficiariesPerProvince
-
-      beneficiariesPerProvince.filter((_beneficiaryPerProvince) => {
-        if (
-          _beneficiaryPerProvince.province === beneficiaryPerProvince.province
-        ) {
-          _beneficiaryPerProvince.beneficiaries.push(beneficiaryPerProvince)
-        }
-      })
-    },
-
     [SET_SNACKBAR](state, flag) {
       state.snackbar = flag
     },
@@ -383,10 +370,6 @@ export default new Vuex.Store({
   actions: {
     setBeneficiariesAction({ commit }, payload) {
       commit('SET_BENEFICIARIES', payload)
-    },
-
-    setBeneficiaryPerProvinceAction({ commit }, payload) {
-      commit('SET_BENEFICIARY_PER_PROVINCE', payload)
     },
 
     setProvinceWithTheirBeneficiariesAction({ commit }, payload) {

@@ -1200,7 +1200,6 @@ export default {
     deletedIndex: -1,
     deletedItem: {},
     isLoading: true,
-    updatedBeneficiariesPerProvince: [],
     selectedProvince: null,
     beneficiaries: [],
   }),
@@ -1251,32 +1250,8 @@ export default {
     },
 
     deleteItem(item) {
-      // console.log('item:', item)
       this.deletedIndex = this.beneficiaries.indexOf(item)
       this.deletedItem = Object.assign({}, item)
-
-      // const provinceWithBeneficiaries =
-      //   this.$store.state.beneficiariesPerProvince.find(
-      //     (provinceWithBeneficiary) =>
-      //       provinceWithBeneficiary.province === item.province
-      //   )
-
-      // const filteredBeneficiaries =
-      //   provinceWithBeneficiaries.beneficiaries.filter((beneficiary) => {
-      //     if (beneficiary.surveyNo !== item.surveyNo) return beneficiary
-      //   })
-
-      // const _updatedBeneficiariesPerProvince =
-      //   this.$store.state.beneficiariesPerProvince.map(
-      //     (provinceWithBeneficiary) => {
-      //       if (provinceWithBeneficiary.province === item.province) {
-      //         provinceWithBeneficiary.beneficiaries = filteredBeneficiaries
-      //       }
-      //       return provinceWithBeneficiary
-      //     }
-      //   )
-
-      // this.updatedBeneficiariesPerProvince = _updatedBeneficiariesPerProvince
 
       this.dialogDelete = true
     },
@@ -1296,10 +1271,6 @@ export default {
           1
         )
         this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
-        // this.$store.dispatch(
-        //   'setBeneficiaryPerProvinceAction',
-        //   this.updatedBeneficiariesPerProvince
-        // )
 
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
@@ -1324,7 +1295,6 @@ export default {
       this.$nextTick(() => {
         this.deletedItem = Object.assign({}, {})
         this.deletedIndex = -1
-        this.updatedBeneficiariesPerProvince = []
       })
     },
   },

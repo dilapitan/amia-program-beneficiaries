@@ -1255,28 +1255,28 @@ export default {
       this.deletedIndex = this.beneficiaries.indexOf(item)
       this.deletedItem = Object.assign({}, item)
 
-      const provinceWithBeneficiaries =
-        this.$store.state.beneficiariesPerProvince.find(
-          (provinceWithBeneficiary) =>
-            provinceWithBeneficiary.province === item.province
-        )
+      // const provinceWithBeneficiaries =
+      //   this.$store.state.beneficiariesPerProvince.find(
+      //     (provinceWithBeneficiary) =>
+      //       provinceWithBeneficiary.province === item.province
+      //   )
 
-      const filteredBeneficiaries =
-        provinceWithBeneficiaries.beneficiaries.filter((beneficiary) => {
-          if (beneficiary.surveyNo !== item.surveyNo) return beneficiary
-        })
+      // const filteredBeneficiaries =
+      //   provinceWithBeneficiaries.beneficiaries.filter((beneficiary) => {
+      //     if (beneficiary.surveyNo !== item.surveyNo) return beneficiary
+      //   })
 
-      const _updatedBeneficiariesPerProvince =
-        this.$store.state.beneficiariesPerProvince.map(
-          (provinceWithBeneficiary) => {
-            if (provinceWithBeneficiary.province === item.province) {
-              provinceWithBeneficiary.beneficiaries = filteredBeneficiaries
-            }
-            return provinceWithBeneficiary
-          }
-        )
+      // const _updatedBeneficiariesPerProvince =
+      //   this.$store.state.beneficiariesPerProvince.map(
+      //     (provinceWithBeneficiary) => {
+      //       if (provinceWithBeneficiary.province === item.province) {
+      //         provinceWithBeneficiary.beneficiaries = filteredBeneficiaries
+      //       }
+      //       return provinceWithBeneficiary
+      //     }
+      //   )
 
-      this.updatedBeneficiariesPerProvince = _updatedBeneficiariesPerProvince
+      // this.updatedBeneficiariesPerProvince = _updatedBeneficiariesPerProvince
 
       this.dialogDelete = true
     },
@@ -1296,10 +1296,10 @@ export default {
           1
         )
         this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
-        this.$store.dispatch(
-          'setBeneficiaryPerProvinceAction',
-          this.updatedBeneficiariesPerProvince
-        )
+        // this.$store.dispatch(
+        //   'setBeneficiaryPerProvinceAction',
+        //   this.updatedBeneficiariesPerProvince
+        // )
 
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {

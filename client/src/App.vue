@@ -1,216 +1,222 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-if="isLoggedIn || $vuetify.breakpoint.xsOnly"
-      color="background"
-      v-model="drawer"
-      :clipped="$vuetify.breakpoint.lgAndUp"
-      app
-    >
-      <v-list :style="{ padding: 0 }" dense>
-        <v-list-item v-if="isLoggedIn" to="/beneficiaries">
-          <v-icon class="mr-2">mdi-account-group</v-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              <span class="text-button"> VIEW BENEFICIARIES </span>
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+    <template v-if="isUnderConstruction">
+      <UnderConstruction />
+    </template>
 
-        <div v-if="$vuetify.breakpoint.xsOnly">
-          <br />
-
-          <v-list-item v-if="isLoggedIn" @click="logout()" to="#">
-            <v-list-item-content>
-              <v-list-item-title>
-                <span class="text-button">LOGOUT</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item v-else to="/login">
-            <v-list-item-content>
-              <v-list-item-title>
-                <span class="text-button">ADMIN</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-list-item to="/about">
-            <v-list-item-content>
-              <v-list-item-title>
-                <span class="text-button">ABOUT</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-list-item @click="toggleTheme()">
-            <v-list-item-content>
-              <v-list-item-title>
-                <span v-if="!$vuetify.theme.dark" class="text-button">
-                  GO DARK THEME
-                </span>
-                <span v-else class="text-button">GO LIGHT THEME</span>
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </div>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      color="primary"
-      elevation="1"
-      app
-    >
-      <v-app-bar-nav-icon
+    <template v-else>
+      <v-navigation-drawer
         v-if="isLoggedIn || $vuetify.breakpoint.xsOnly"
-        @click.stop="drawer = !drawer"
+        color="background"
+        v-model="drawer"
+        :clipped="$vuetify.breakpoint.lgAndUp"
+        app
       >
-      </v-app-bar-nav-icon>
+        <v-list :style="{ padding: 0 }" dense>
+          <v-list-item v-if="isLoggedIn" to="/beneficiaries">
+            <v-icon class="mr-2">mdi-account-group</v-icon>
+            <v-list-item-content>
+              <v-list-item-title>
+                <span class="text-button"> VIEW BENEFICIARIES </span>
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
 
-      <v-app-bar-nav-icon disabled>
-        <v-img
-          max-height="50"
-          max-width="50"
-          src="./assets/da-amia.png"
-        ></v-img>
-      </v-app-bar-nav-icon>
+          <div v-if="$vuetify.breakpoint.xsOnly">
+            <br />
 
-      <v-toolbar-title>
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn text @click="goHome()" v-bind="attrs" v-on="on">
-              <h1 class="white--text">AMIA</h1>
-            </v-btn>
-          </template>
-          <span>Go to Home Page</span>
-        </v-tooltip>
-      </v-toolbar-title>
+            <v-list-item v-if="isLoggedIn" @click="logout()" to="#">
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span class="text-button">LOGOUT</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item v-else to="/login">
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span class="text-button">ADMIN</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
 
-      <v-tooltip right>
-        <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            v-if="isLoggedIn"
-            color="white"
-            small
-            outlined
-            v-bind="attrs"
-            v-on="on"
-          >
-            <strong>ADMIN</strong>
-          </v-chip>
-        </template>
-        <span>Logged as Admin</span>
-      </v-tooltip>
+            <v-list-item to="/about">
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span class="text-button">ABOUT</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
 
-      <v-spacer></v-spacer>
+            <v-list-item @click="toggleTheme()">
+              <v-list-item-content>
+                <v-list-item-title>
+                  <span v-if="!$vuetify.theme.dark" class="text-button">
+                    GO DARK THEME
+                  </span>
+                  <span v-else class="text-button">GO LIGHT THEME</span>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </div>
+        </v-list>
+      </v-navigation-drawer>
 
-      <div v-if="$vuetify.breakpoint.smAndUp">
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon color="white" v-bind="attrs" v-on="on" to="/about">
-              <v-icon>mdi-help-circle-outline</v-icon>
-            </v-btn>
-          </template>
-          <span>About Baseline</span>
-        </v-tooltip>
+      <v-app-bar
+        :clipped-left="$vuetify.breakpoint.lgAndUp"
+        color="primary"
+        elevation="1"
+        app
+      >
+        <v-app-bar-nav-icon
+          v-if="isLoggedIn || $vuetify.breakpoint.xsOnly"
+          @click.stop="drawer = !drawer"
+        >
+        </v-app-bar-nav-icon>
 
-        <span class="mr-5">
-          <v-tooltip bottom v-if="!$vuetify.theme.dark">
+        <v-app-bar-nav-icon disabled>
+          <v-img
+            max-height="50"
+            max-width="50"
+            src="./assets/da-amia.png"
+          ></v-img>
+        </v-app-bar-nav-icon>
+
+        <v-toolbar-title>
+          <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                @click="toggleTheme()"
-                icon
-                color="white"
-                v-bind="attrs"
-                v-on="on"
-              >
-                <v-icon>mdi-lightbulb-off</v-icon>
+              <v-btn text @click="goHome()" v-bind="attrs" v-on="on">
+                <h1 class="white--text">AMIA</h1>
               </v-btn>
             </template>
-            <span>Use Dark Theme</span>
+            <span>Go to Home Page</span>
+          </v-tooltip>
+        </v-toolbar-title>
+
+        <v-tooltip right>
+          <template v-slot:activator="{ on, attrs }">
+            <v-chip
+              v-if="isLoggedIn"
+              color="white"
+              small
+              outlined
+              v-bind="attrs"
+              v-on="on"
+            >
+              <strong>ADMIN</strong>
+            </v-chip>
+          </template>
+          <span>Logged as Admin</span>
+        </v-tooltip>
+
+        <v-spacer></v-spacer>
+
+        <div v-if="$vuetify.breakpoint.smAndUp">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn icon color="white" v-bind="attrs" v-on="on" to="/about">
+                <v-icon>mdi-help-circle-outline</v-icon>
+              </v-btn>
+            </template>
+            <span>About Baseline</span>
+          </v-tooltip>
+
+          <span class="mr-5">
+            <v-tooltip bottom v-if="!$vuetify.theme.dark">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  @click="toggleTheme()"
+                  icon
+                  color="white"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon>mdi-lightbulb-off</v-icon>
+                </v-btn>
+              </template>
+              <span>Use Dark Theme</span>
+            </v-tooltip>
+
+            <v-tooltip bottom v-else>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  icon
+                  @click="toggleTheme()"
+                  color="white"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  <v-icon>mdi-lightbulb-on-10</v-icon>
+                </v-btn>
+              </template>
+              <span>Use Light Theme</span>
+            </v-tooltip>
+          </span>
+
+          <v-tooltip v-if="isLoggedIn" bottom>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                v-bind="attrs"
+                v-on="on"
+                @click="logout()"
+                class="mr-5"
+                color="white"
+                text
+              >
+                LOGOUT
+              </v-btn>
+            </template>
+            <span>Logout as Admin</span>
           </v-tooltip>
 
           <v-tooltip bottom v-else>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
-                icon
-                @click="toggleTheme()"
-                color="white"
                 v-bind="attrs"
                 v-on="on"
+                class="mr-5"
+                color="white"
+                to="/login"
+                outlined
               >
-                <v-icon>mdi-lightbulb-on-10</v-icon>
+                ADMIN
               </v-btn>
             </template>
-            <span>Use Light Theme</span>
+            <span>Login as an Admin</span>
           </v-tooltip>
-        </span>
+        </div>
+      </v-app-bar>
 
-        <v-tooltip v-if="isLoggedIn" bottom>
+      <v-card color="background" flat height="100%">
+        <v-main>
+          <p v-if="isLoading" class="text-center mt-10">
+            <v-progress-circular indeterminate color="primary" :size="50">
+            </v-progress-circular>
+          </p>
+          <router-view v-else />
+        </v-main>
+        <v-tooltip bottom>
           <template v-slot:activator="{ on, attrs }">
             <v-btn
               v-bind="attrs"
               v-on="on"
-              @click="logout()"
-              class="mr-5"
-              color="white"
-              text
+              v-scroll="onScroll"
+              v-show="fab"
+              fab
+              dark
+              fixed
+              bottom
+              right
+              color="primary"
+              @click="toTop"
             >
-              LOGOUT
+              <v-icon>mdi-chevron-up</v-icon>
             </v-btn>
           </template>
-          <span>Logout as Admin</span>
+          <span>Go to Top of Page</span>
         </v-tooltip>
-
-        <v-tooltip bottom v-else>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn
-              v-bind="attrs"
-              v-on="on"
-              class="mr-5"
-              color="white"
-              to="/login"
-              outlined
-            >
-              ADMIN
-            </v-btn>
-          </template>
-          <span>Login as an Admin</span>
-        </v-tooltip>
-      </div>
-    </v-app-bar>
-
-    <v-card color="background" flat height="100%">
-      <v-main>
-        <p v-if="isLoading" class="text-center mt-10">
-          <v-progress-circular indeterminate color="primary" :size="50">
-          </v-progress-circular>
-        </p>
-        <router-view v-else />
-      </v-main>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            v-bind="attrs"
-            v-on="on"
-            v-scroll="onScroll"
-            v-show="fab"
-            fab
-            dark
-            fixed
-            bottom
-            right
-            color="primary"
-            @click="toTop"
-          >
-            <v-icon>mdi-chevron-up</v-icon>
-          </v-btn>
-        </template>
-        <span>Go to Top of Page</span>
-      </v-tooltip>
-    </v-card>
+      </v-card>
+    </template>
   </v-app>
 </template>
 
@@ -218,18 +224,29 @@
 import { getBeneficiaries } from '@/firebase/firebaseServices'
 import { BENEFICIARIES } from '@/static/dummy_data'
 
+import UnderConstruction from '@/components/UnderConstruction.vue'
+
 export default {
   name: 'App',
+
+  components: {
+    UnderConstruction,
+  },
 
   data: () => ({
     drawer: null,
     fab: false,
+    isUnderConstruction: false,
   }),
 
   created() {
-    this.setTheme()
-    this.setDrawer()
-    this.initialize()
+    if (!+process.env.VUE_APP_UNDER_CONSTRUCTION) {
+      this.setTheme()
+      this.setDrawer()
+      this.initialize()
+    } else {
+      this.isUnderConstruction = true
+    }
   },
 
   computed: {

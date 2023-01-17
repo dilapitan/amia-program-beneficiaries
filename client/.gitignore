@@ -26,4 +26,4 @@ pnpm-debug.log*
 src/firebase/firebaseConfig.js
 
 # Dummy data
-/src/static/dummy_data.json
+/src/static/dummy_data.js

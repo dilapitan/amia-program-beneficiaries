@@ -216,6 +216,7 @@
 
 <script>
 import { getBeneficiaries } from '@/firebase/firebaseServices'
+import { BENEFICIARIES } from '@/static/dummy_data'
 
 export default {
   name: 'App',
@@ -252,8 +253,15 @@ export default {
 
     async initialize(province) {
       this.$store.dispatch('setGlobalLoaderAction', true)
+
       try {
-        const beneficiaries = await getBeneficiaries(province)
+        let beneficiaries
+        if (+process.env.VUE_APP_USE_FIREBASE) {
+          beneficiaries = await getBeneficiaries(province)
+        } else {
+          beneficiaries = BENEFICIARIES
+        }
+
         this.$store.dispatch('setBeneficiariesAction', beneficiaries)
 
         this.setProvincesWithTheirBeneficiaries(beneficiaries)

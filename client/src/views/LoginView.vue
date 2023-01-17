@@ -83,20 +83,40 @@ export default {
   methods: {
     async login() {
       this.loading = true
+      const DUMMY_EMAIL = 'dummyemail@gmail.com'
+      const DUMMY_PASSWORD = '1111'
+
+      if (!+process.env.VUE_APP_USE_FIREBASE) {
+        if (this.email !== DUMMY_EMAIL || this.password !== DUMMY_PASSWORD) {
+          this.loading = false
+          this.$store.dispatch('setSnackbarAction', true)
+          this.$store.dispatch('setSnackbarDetailsAction', {
+            color: 'error',
+            text: 'Invalid credentials.',
+          })
+          throw 'Something went wrong.'
+        }
+      }
 
       try {
-        const response = await signInWithEmailAndPassword(
-          auth,
-          this.email,
-          this.password
-        )
-        if (response) {
-          this.$store.dispatch('setLoginAction', response.user)
-          this.email = ''
-          this.password = ''
-          this.loading = false
-          this.$router.push('/')
+        if (+process.env.VUE_APP_USE_FIREBASE) {
+          const response = await signInWithEmailAndPassword(
+            auth,
+            this.email,
+            this.password
+          )
+          if (response) {
+            this.$store.dispatch('setLoginAction', response.user)
+          }
+        } else {
+          this.$store.dispatch('setLoginAction', {
+            email: this.email,
+          })
         }
+        this.email = ''
+        this.password = ''
+        this.loading = false
+        this.$router.push('/')
       } catch (error) {
         const errorMessage = getErrorMessage(error.code)
 

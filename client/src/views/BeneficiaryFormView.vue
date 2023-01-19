@@ -967,6 +967,7 @@ export default {
 
         const newBeneficiary = {
           userId: this.$store.state.user.data.userId,
+          createdAt: new Date(), // also updatedAt for Edit?
 
           // Part 0
           part0: {

@@ -966,6 +966,8 @@ export default {
         // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiary = {
+          userId: this.$store.state.user.data.userId,
+
           // Part 0
           part0: {
             surveyNo: toUpdatebeneficiary

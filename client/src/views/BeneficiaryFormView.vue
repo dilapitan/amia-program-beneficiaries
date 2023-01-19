@@ -967,13 +967,16 @@ export default {
 
         const newBeneficiary = {
           // Part 0
-          surveyNo: toUpdatebeneficiary
-            ? toUpdatebeneficiary.surveyNo
-            : this.beneficiaries.length + 1,
-          date,
-          interviewStart,
-          interviewEnd,
-          nameOfInterviewer,
+          part0: {
+            surveyNo: toUpdatebeneficiary
+              ? toUpdatebeneficiary.surveyNo
+              : this.beneficiaries.length + 1,
+            date,
+            interviewStart,
+            interviewEnd,
+            nameOfInterviewer,
+          },
+
           // Part 1
           province,
           cityOrMunicipality,

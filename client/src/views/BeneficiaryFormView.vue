@@ -978,12 +978,14 @@ export default {
           },
 
           // Part 1
-          province,
-          cityOrMunicipality,
-          barangay,
-          nameOfFarmer,
-          contactNo,
-          farmersCodeNo,
+          part1: {
+            province,
+            cityOrMunicipality,
+            barangay,
+            nameOfFarmer,
+            contactNo,
+            farmersCodeNo,
+          },
 
           // // Part 2
           // age,

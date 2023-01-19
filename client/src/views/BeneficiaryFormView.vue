@@ -257,6 +257,7 @@ export default {
   methods: {
     confirmAddOrUpdateBeneficiary() {
       const newBeneficiary = this.getFormData(this.newBeneficiary)
+      console.log('newBeneficiary:', newBeneficiary)
       if (!newBeneficiary) return
 
       this.dialog = true
@@ -275,10 +276,7 @@ export default {
         newBeneficiaries.push(this.newBeneficiary)
 
         this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
-        this.$store.dispatch(
-          'setBeneficiaryPerProvinceAction',
-          this.newBeneficiary
-        )
+
         this.loading = true
         setTimeout(() => {
           this.$router.push('/beneficiaries')

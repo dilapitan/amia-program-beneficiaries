@@ -276,16 +276,25 @@ export default {
         if (+process.env.VUE_APP_USE_FIREBASE) {
           // Firebase service
         } else {
-          const { part0 } = this.newBeneficiary
+          const { part0, part1 } = this.newBeneficiary
           const beneficiaryForLocal = {
             // Part 0
             date: part0.date,
             interviewStart: part0.interviewStart,
             interviewEnd: part0.interviewEnd,
             nameOfInterviewer: part0.nameOfInterviewer,
+
+            // Part 1
+            province: part1.province,
+            cityOrMunicipality: part1.cityOrMunicipality,
+            barangay: part1.barangay,
+            nameOfFarmer: part1.nameOfFarmer,
+            contactNo: part1.contactNo,
+            farmersCodeNo: part1.farmersCodeNo,
+            // the Rest
             ...this.newBeneficiary,
           }
-          console.log('beneficiaryForLocal:', beneficiaryForLocal)
+          console.log('!!! beneficiaryForLocal:', beneficiaryForLocal)
           newBeneficiaries.push(beneficiaryForLocal)
           this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
         }

@@ -24,3 +24,5 @@ export const getBeneficiaries = async () => {
     return null
   }
 }
+
+export const addBeneficiary = async () => {}

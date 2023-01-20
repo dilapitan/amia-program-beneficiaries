@@ -23,11 +23,21 @@ if (+process.env.VUE_APP_USE_FIREBASE) {
     })
   })
 } else {
+  // TODO: test this more
   console.log('Using dummy data for ease of development.')
-  new Vue({
-    router,
-    store,
-    vuetify,
-    render: (h) => h(App),
-  }).$mount('#app')
+  let app
+  const user = {
+    email: 'dummyemail@gmail.com',
+    userId: '123',
+  }
+  store.dispatch('setUserAction', user).then(() => {
+    if (!app) {
+      app = new Vue({
+        router,
+        store,
+        vuetify,
+        render: (h) => h(App),
+      }).$mount('#app')
+    }
+  })
 }

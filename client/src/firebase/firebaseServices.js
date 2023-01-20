@@ -26,3 +26,7 @@ export const getBeneficiaries = async () => {
 }
 
 export const addBeneficiary = async () => {}
+
+export const editBeneficiary = async () => {}
+
+export const deleteBeneficiary = async () => {}

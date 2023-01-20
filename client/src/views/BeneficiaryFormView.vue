@@ -273,9 +273,22 @@ export default {
         this.dialog = false
         const newBeneficiaries = [...this.beneficiaries]
 
-        newBeneficiaries.push(this.newBeneficiary)
-
-        this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        if (+process.env.VUE_APP_USE_FIREBASE) {
+          // Firebase service
+        } else {
+          const { part0 } = this.newBeneficiary
+          const beneficiaryForLocal = {
+            // Part 0
+            date: part0.date,
+            interviewStart: part0.interviewStart,
+            interviewEnd: part0.interviewEnd,
+            nameOfInterviewer: part0.nameOfInterviewer,
+            ...this.newBeneficiary,
+          }
+          console.log('beneficiaryForLocal:', beneficiaryForLocal)
+          newBeneficiaries.push(beneficiaryForLocal)
+          this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
+        }
 
         this.loading = true
         setTimeout(() => {
@@ -966,7 +979,7 @@ export default {
         // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiary = {
-          userId: this.$store.state.user.data.userId,
+          userId: this.$store.state.user.data?.userId || null,
           createdAt: new Date(), // also updatedAt for Edit?
 
           // Part 0

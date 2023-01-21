@@ -1266,17 +1266,22 @@ export default {
          * in the App, on watch {} triggering the App to load the whole data again if
          * there's a delete based on toReloadFlag
          */
-        const updatedBeneficiaries = this.beneficiaries.splice(
-          this.deletedIndex,
-          1
-        )
-        this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
 
-        this.$store.dispatch('setSnackbarAction', true)
-        this.$store.dispatch('setSnackbarDetailsAction', {
-          color: 'success',
-          text: 'Successfully deleted beneficiary!',
-        })
+        if (+process.env.VUE_APP_USE_FIREBASE) {
+          // Use Firebase Service
+        } else {
+          const updatedBeneficiaries = this.beneficiaries.splice(
+            this.deletedIndex,
+            1
+          )
+          this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
+
+          this.$store.dispatch('setSnackbarAction', true)
+          this.$store.dispatch('setSnackbarDetailsAction', {
+            color: 'success',
+            text: 'Successfully deleted beneficiary!',
+          })
+        }
 
         this.closeDelete()
       } catch (error) {

@@ -294,7 +294,7 @@ export default {
             // the Rest
             ...this.newBeneficiary,
           }
-          console.log('!!! beneficiaryForLocal:', beneficiaryForLocal)
+
           newBeneficiaries.push(beneficiaryForLocal)
           this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
         }

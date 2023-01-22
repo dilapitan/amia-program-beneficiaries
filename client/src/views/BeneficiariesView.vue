@@ -142,6 +142,8 @@
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
+import { deleteBeneficiary } from '@/firebase/firebaseServices'
+
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 
 export default {
@@ -1251,7 +1253,7 @@ export default {
 
     deleteItem(item) {
       if (+process.env.VUE_APP_USE_FIREBASE) {
-        // Firebase
+        this.deletedItem = item
       } else {
         this.deletedIndex = this.beneficiaries.indexOf(item)
         this.deletedItem = Object.assign({}, item)
@@ -1260,7 +1262,7 @@ export default {
       this.dialogDelete = true
     },
 
-    deleteItemConfirm() {
+    async deleteItemConfirm() {
       try {
         /**
          * TODO thought: there's a toReloadFlag in the Store that's used for reloading
@@ -1273,19 +1275,21 @@ export default {
 
         if (+process.env.VUE_APP_USE_FIREBASE) {
           // Use Firebase Service
+          const response = await deleteBeneficiary(this.deletedItem)
+          if (response === null) throw 'Something went wrong.'
         } else {
           const updatedBeneficiaries = this.beneficiaries.splice(
             this.deletedIndex,
             1
           )
           this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
-
-          this.$store.dispatch('setSnackbarAction', true)
-          this.$store.dispatch('setSnackbarDetailsAction', {
-            color: 'success',
-            text: 'Successfully deleted beneficiary!',
-          })
         }
+
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'success',
+          text: 'Successfully deleted beneficiary!',
+        })
 
         this.closeDelete()
       } catch (error) {

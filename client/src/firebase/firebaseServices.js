@@ -1,5 +1,5 @@
 import { db } from '@/firebase/firebaseConfig'
-import { collection, getDocs } from 'firebase/firestore'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
 
 export const getBeneficiaries = async () => {
   try {
@@ -25,7 +25,18 @@ export const getBeneficiaries = async () => {
   }
 }
 
-export const addBeneficiary = async () => {}
+export const addBeneficiary = async (beneficiary) => {
+  try {
+    const docRef = await addDoc(collection(db, 'beneficiaries'), beneficiary)
+    if (docRef) {
+      console.log(docRef)
+      return docRef
+    }
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
 
 export const editBeneficiary = async () => {}
 

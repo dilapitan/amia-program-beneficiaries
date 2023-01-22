@@ -13,6 +13,7 @@ export const getBeneficiaries = async () => {
         ...part1,
         createdAt,
         userId,
+        beneficiaryId: doc.id,
       }
 
       beneficiaries.push(item)

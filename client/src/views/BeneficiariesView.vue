@@ -1250,8 +1250,12 @@ export default {
     },
 
     deleteItem(item) {
-      this.deletedIndex = this.beneficiaries.indexOf(item)
-      this.deletedItem = Object.assign({}, item)
+      if (+process.env.VUE_APP_USE_FIREBASE) {
+        // Firebase
+      } else {
+        this.deletedIndex = this.beneficiaries.indexOf(item)
+        this.deletedItem = Object.assign({}, item)
+      }
 
       this.dialogDelete = true
     },

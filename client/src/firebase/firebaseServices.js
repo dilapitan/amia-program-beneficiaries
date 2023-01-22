@@ -1,5 +1,5 @@
 import { db } from '@/firebase/firebaseConfig'
-import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDocs } from 'firebase/firestore'
 
 export const getBeneficiaries = async () => {
   try {
@@ -41,4 +41,11 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async () => {}
 
-export const deleteBeneficiary = async () => {}
+export const deleteBeneficiary = async (beneficiary) => {
+  try {
+    return await deleteDoc(doc(db, 'beneficiaries', beneficiary.beneficiaryId))
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}

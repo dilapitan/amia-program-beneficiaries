@@ -202,6 +202,8 @@ import Part1Form from '@/components/forms/Part1Form.vue'
 
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
+import { addBeneficiary } from '@/firebase/firebaseServices'
+
 export default {
   name: 'AddBeneficiaryView',
 
@@ -268,13 +270,15 @@ export default {
       this.dialog = false
     },
 
-    addBeneficiary() {
+    async addBeneficiary() {
       try {
         this.dialog = false
         const newBeneficiaries = [...this.beneficiaries]
 
         if (+process.env.VUE_APP_USE_FIREBASE) {
           // Firebase service
+          const response = await addBeneficiary(this.newBeneficiary)
+          console.log('response:', response)
         } else {
           const { part0, part1 } = this.newBeneficiary
           const beneficiaryForLocal = {

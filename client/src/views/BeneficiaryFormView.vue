@@ -304,14 +304,18 @@ export default {
         }
 
         this.loading = true
-        setTimeout(() => {
-          this.$router.push('/beneficiaries')
-          this.$store.dispatch('setSnackbarAction', true)
-          this.$store.dispatch('setSnackbarDetailsAction', {
-            color: 'success',
-            text: 'Successfully added a new beneficiary!',
-          })
-        }, 500)
+
+        this.$router.push({
+          name: 'BeneficiariesView',
+          params: {
+            reloadData: true,
+          },
+        })
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'success',
+          text: 'Successfully added a new beneficiary!',
+        })
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {

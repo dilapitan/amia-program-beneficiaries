@@ -268,14 +268,14 @@ export default {
       this.$router.push('/login')
     },
 
-    async initialize(province) {
+    async initialize() {
       console.log('From App Initializing...')
       this.$store.dispatch('setGlobalLoaderAction', true)
 
       try {
         let beneficiaries
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          beneficiaries = await getBeneficiaries(province)
+          beneficiaries = await getBeneficiaries()
         } else {
           beneficiaries = BENEFICIARIES
         }

@@ -269,6 +269,7 @@ export default {
     },
 
     async initialize(province) {
+      console.log('From App Initializing...')
       this.$store.dispatch('setGlobalLoaderAction', true)
 
       try {

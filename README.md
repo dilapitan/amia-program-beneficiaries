@@ -6,6 +6,8 @@
 
 ## Project setup
 
+## How to develop the Application
+
 ## How to use the Application
 
 ## Issues

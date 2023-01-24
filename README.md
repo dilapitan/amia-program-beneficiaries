@@ -4,6 +4,8 @@
 
 ## Project setup
 
+## How to use the Application
+
 ## Issues
 
 ## Libraries and Technologies used

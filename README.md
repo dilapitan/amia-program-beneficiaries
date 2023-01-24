@@ -5,3 +5,5 @@
 ## Project setup
 
 ## Issues
+
+## Libraries and Technologies used

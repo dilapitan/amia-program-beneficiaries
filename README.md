@@ -2,12 +2,12 @@
 
 ## What's in the App
 
+## Libraries and Technologies used
+
 ## Project setup
 
 ## How to use the Application
 
 ## Issues
-
-## Libraries and Technologies used
 
 ## Contact Information

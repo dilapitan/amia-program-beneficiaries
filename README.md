@@ -4,6 +4,8 @@
 
 ## Libraries and Technologies used
 
+[VueJS 2](https://vuejs.org/)
+
 ## Project setup
 
 ## How to develop the Application

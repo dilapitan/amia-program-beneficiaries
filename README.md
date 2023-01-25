@@ -5,6 +5,7 @@
 ## Libraries and Technologies used
 
 [VueJS 2](https://vuejs.org/)
+[Vuex](https://vuex.vuejs.org/)
 
 ## Project setup
 

@@ -8,6 +8,7 @@
 [Vuex](https://vuex.vuejs.org/)
 [Vue Router](https://router.vuejs.org/)
 [Vuetify](https://vuetifyjs.com/en/)
+[Firebase](https://firebase.google.com/)
 
 ## Project setup
 

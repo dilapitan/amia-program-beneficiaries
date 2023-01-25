@@ -7,6 +7,7 @@
 [VueJS 2](https://vuejs.org/)
 [Vuex](https://vuex.vuejs.org/)
 [Vue Router](https://router.vuejs.org/)
+[Vuetify](https://vuetifyjs.com/en/)
 
 ## Project setup
 

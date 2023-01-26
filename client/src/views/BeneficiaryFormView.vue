@@ -332,9 +332,6 @@ export default {
 
       try {
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          console.log('a')
-          // Firebase Service
-          //console.log('this.newBeneficiary:', this.newBeneficiary)
           const updatedBeneficiary = {
             beneficiaryId: this.currentBeneficiary.beneficiaryId,
             ...this.newBeneficiary,

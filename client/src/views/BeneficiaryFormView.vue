@@ -202,7 +202,7 @@ import Part1Form from '@/components/forms/Part1Form.vue'
 
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
-import { addBeneficiary } from '@/firebase/firebaseServices'
+import { addBeneficiary, editBeneficiary } from '@/firebase/firebaseServices'
 
 export default {
   name: 'AddBeneficiaryView',
@@ -259,7 +259,7 @@ export default {
   methods: {
     confirmAddOrUpdateBeneficiary() {
       const newBeneficiary = this.getFormData(this.newBeneficiary)
-      console.log('newBeneficiary:', newBeneficiary)
+
       if (!newBeneficiary) return
 
       this.dialog = true
@@ -327,12 +327,20 @@ export default {
       }
     },
 
-    updateBeneficiary() {
+    async updateBeneficiary() {
       // TODO: reset current Beneficiary upon Confirmation modal used later
 
       try {
         if (+process.env.VUE_APP_USE_FIREBASE) {
+          console.log('a')
           // Firebase Service
+          //console.log('this.newBeneficiary:', this.newBeneficiary)
+          const updatedBeneficiary = {
+            beneficiaryId: this.currentBeneficiary.beneficiaryId,
+            ...this.newBeneficiary,
+          }
+          const response = await editBeneficiary(updatedBeneficiary)
+          console.log('response:', response)
         } else {
           this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
             this.currentBeneficiary

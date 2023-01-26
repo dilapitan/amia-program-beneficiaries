@@ -328,8 +328,6 @@ export default {
     },
 
     async updateBeneficiary() {
-      // TODO: reset current Beneficiary upon Confirmation modal used later
-
       try {
         if (+process.env.VUE_APP_USE_FIREBASE) {
           const updatedBeneficiary = {
@@ -338,6 +336,7 @@ export default {
           }
           const response = await editBeneficiary(updatedBeneficiary)
           console.log('response:', response)
+          // TODO: reset current Beneficiary upon Confirmation modal used later
         } else {
           this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
             this.currentBeneficiary

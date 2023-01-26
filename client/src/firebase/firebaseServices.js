@@ -47,8 +47,6 @@ export const addBeneficiary = async (beneficiary) => {
 }
 
 export const editBeneficiary = async (beneficiary) => {
-  console.log('beneficiary:', beneficiary)
-
   try {
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {

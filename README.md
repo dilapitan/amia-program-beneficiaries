@@ -24,3 +24,5 @@ Vue handles the user interface while Firebase handles the backend services the U
 Having issues? Please contact the admin of this project.
 
 ## Contact Information
+
+Email at: domlapitan@gmail.com for more inquiries.

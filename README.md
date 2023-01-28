@@ -2,6 +2,9 @@
 
 ## What's in the App
 
+The application is build using Vue and Firebase.
+Vue handles the user interface while Firebase handles the backend services the UI needs.
+
 ## Libraries and Technologies used
 
 [VueJS 2](https://vuejs.org/)

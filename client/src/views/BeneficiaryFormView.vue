@@ -277,8 +277,7 @@ export default {
 
         if (+process.env.VUE_APP_USE_FIREBASE) {
           // Firebase service
-          const response = await addBeneficiary(this.newBeneficiary)
-          console.log('response:', response)
+          await addBeneficiary(this.newBeneficiary)
         } else {
           const { part0, part1 } = this.newBeneficiary
           const beneficiaryForLocal = {

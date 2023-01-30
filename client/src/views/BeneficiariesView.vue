@@ -1212,7 +1212,6 @@ export default {
 
   mounted() {
     this.beneficiaries = this.$store.state.beneficiaries
-    // console.log('hehe')
 
     if (this.$route.params?.reloadData) {
       console.log('reload')

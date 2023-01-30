@@ -334,9 +334,8 @@ export default {
             beneficiaryId: this.currentBeneficiary.beneficiaryId,
             ...this.newBeneficiary,
           }
-          const response = await editBeneficiary(updatedBeneficiary)
-          console.log('response:', response)
-          // TODO: reset current Beneficiary upon Confirmation modal used later
+
+          await editBeneficiary(updatedBeneficiary)
         } else {
           this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
             this.currentBeneficiary

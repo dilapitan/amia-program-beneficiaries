@@ -37,7 +37,6 @@ export const addBeneficiary = async (beneficiary) => {
   try {
     const docRef = await addDoc(collection(db, 'beneficiaries'), beneficiary)
     if (docRef) {
-      console.log(docRef)
       return docRef
     }
   } catch (error) {
@@ -69,7 +68,6 @@ export const editBeneficiary = async (beneficiary) => {
       userId: beneficiary.userId,
     })
     if (docRef) {
-      console.log(docRef)
       return docRef
     }
   } catch (error) {

@@ -279,7 +279,6 @@ export default {
           const q = query(collection(db, 'beneficiaries'))
           onSnapshot(q, (querySnapshot) => {
             let beneficiaries = []
-            console.log('querySnapshot:', querySnapshot)
 
             querySnapshot.forEach((doc) => {
               const { part0, part1, createdAt, userId } = doc.data()
@@ -297,8 +296,6 @@ export default {
             this.$store.dispatch('setBeneficiariesAction', beneficiaries)
             this.setProvincesWithTheirBeneficiaries(beneficiaries)
           })
-
-          // beneficiaries = await getBeneficiaries()
         } else {
           let beneficiaries
           beneficiaries = BENEFICIARIES

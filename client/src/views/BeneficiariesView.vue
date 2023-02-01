@@ -142,11 +142,7 @@
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
-import {
-  deleteBeneficiary,
-  getBeneficiaries,
-} from '@/firebase/firebaseServices'
-import { BENEFICIARIES } from '@/static/dummy_data'
+import { deleteBeneficiary } from '@/firebase/firebaseServices'
 
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 
@@ -1213,12 +1209,12 @@ export default {
   mounted() {
     this.beneficiaries = this.$store.state.beneficiaries
 
-    if (this.$route.params?.reloadData) {
-      console.log('reload')
-      this.reloadData()
-    } else {
-      console.log('chill')
-    }
+    // if (this.$route.params?.reloadData) {
+    //   console.log('reload')
+    //   this.reloadData()
+    // } else {
+    //   console.log('chill')
+    // }
   },
 
   computed: {
@@ -1322,26 +1318,26 @@ export default {
       })
     },
 
-    async reloadData() {
-      try {
-        let beneficiaries
-        if (+process.env.VUE_APP_USE_FIREBASE) {
-          beneficiaries = await getBeneficiaries()
-          console.log('after reload:', beneficiaries)
-        } else {
-          beneficiaries = BENEFICIARIES
-        }
+    // async reloadData() {
+    //   try {
+    //     let beneficiaries
+    //     if (+process.env.VUE_APP_USE_FIREBASE) {
+    //       beneficiaries = await getBeneficiaries()
+    //       console.log('after reload:', beneficiaries)
+    //     } else {
+    //       beneficiaries = BENEFICIARIES
+    //     }
 
-        this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-      } catch (error) {
-        this.$store.dispatch('setSnackbarAction', true)
-        this.$store.dispatch('setSnackbarDetailsAction', {
-          color: 'error',
-          text: 'Failed to load data! Please contact admin.',
-        })
-        this.$store.dispatch('setBeneficiariesAction', [])
-      }
-    },
+    //     this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+    //   } catch (error) {
+    //     this.$store.dispatch('setSnackbarAction', true)
+    //     this.$store.dispatch('setSnackbarDetailsAction', {
+    //       color: 'error',
+    //       text: 'Failed to load data! Please contact admin.',
+    //     })
+    //     this.$store.dispatch('setBeneficiariesAction', [])
+    //   }
+    // },
   },
 }
 </script>

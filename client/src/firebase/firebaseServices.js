@@ -4,58 +4,48 @@ import {
   collection,
   deleteDoc,
   doc,
-  getDocs,
+  // getDocs,
   onSnapshot,
-  query,
   updateDoc,
 } from 'firebase/firestore'
 
-export const watchBeneficiaries = () => {
-  const q = query(collection(db, 'beneficiaries'))
-  const updated = onSnapshot(q, (querySnapshot) => {
-    let beneficiaries = []
-
-    querySnapshot.forEach((doc) => {
-      const { part0, part1, createdAt, userId } = doc.data()
-      const item = {
-        ...part0,
-        ...part1,
-        createdAt,
-        userId,
-        beneficiaryId: doc.id,
-      }
-
-      console.log('item:', item)
-      beneficiaries.push(item)
-      return true
-    })
-
-    return beneficiaries
-  })
-  console.log('updated:', updated)
-
-  return updated
-}
-
-export const getBeneficiaries = async () => {
+export const getBeneficiaries = () => {
   try {
-    const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
-    const beneficiaries = []
-    querySnapshot.forEach(async (doc) => {
-      const { part0, part1, createdAt, userId } = doc.data()
+    // const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
+    // const beneficiaries = []
+    // querySnapshot.forEach(async (doc) => {
+    //   const { part0, part1, createdAt, userId } = doc.data()
 
-      const item = {
-        ...part0,
-        ...part1,
-        createdAt,
-        userId,
-        beneficiaryId: doc.id,
-      }
+    //   const item = {
+    //     ...part0,
+    //     ...part1,
+    //     createdAt,
+    //     userId,
+    //     beneficiaryId: doc.id,
+    //   }
 
-      beneficiaries.push(item)
+    //   beneficiaries.push(item)
+    // })
+    const a = onSnapshot(collection(db, 'beneficiaries'), (snapshot) => {
+      let beneficiaries = []
+      snapshot.docs.forEach((doc) => {
+        const { part0, part1, createdAt, userId } = doc.data()
+        const item = {
+          ...part0,
+          ...part1,
+          createdAt,
+          userId,
+          beneficiaryId: doc.id,
+        }
+
+        beneficiaries.push(item)
+      })
+      console.log('beneficiaries:', beneficiaries)
+      return beneficiaries
     })
 
-    return beneficiaries
+    console.log('a:', a)
+    return a
   } catch (error) {
     console.error(error)
     return null

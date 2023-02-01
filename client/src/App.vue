@@ -221,8 +221,10 @@
 </template>
 
 <script>
-import { getBeneficiaries } from '@/firebase/firebaseServices'
 import { BENEFICIARIES } from '@/static/dummy_data'
+
+import { db } from '@/firebase/firebaseConfig'
+import { collection, onSnapshot, query } from 'firebase/firestore'
 
 import UnderConstruction from '@/components/UnderConstruction.vue'
 
@@ -268,22 +270,43 @@ export default {
       this.$router.push('/login')
     },
 
-    async initialize() {
+    initialize() {
       console.log('From App Initializing...')
       this.$store.dispatch('setGlobalLoaderAction', true)
 
       try {
-        let beneficiaries
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          beneficiaries = await getBeneficiaries()
+          const q = query(collection(db, 'beneficiaries'))
+          onSnapshot(q, (querySnapshot) => {
+            let beneficiaries = []
+            console.log('querySnapshot:', querySnapshot)
+
+            querySnapshot.forEach((doc) => {
+              const { part0, part1, createdAt, userId } = doc.data()
+              const item = {
+                ...part0,
+                ...part1,
+                createdAt,
+                userId,
+                beneficiaryId: doc.id,
+              }
+
+              beneficiaries.push(item)
+            })
+
+            this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+            this.setProvincesWithTheirBeneficiaries(beneficiaries)
+          })
+
+          // beneficiaries = await getBeneficiaries()
         } else {
+          let beneficiaries
           beneficiaries = BENEFICIARIES
+          this.$store.dispatch('setBeneficiariesAction', beneficiaries)
+          this.setProvincesWithTheirBeneficiaries(beneficiaries)
         }
-
-        this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-
-        this.setProvincesWithTheirBeneficiaries(beneficiaries)
       } catch (error) {
+        console.log('error:', error)
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
           color: 'error',

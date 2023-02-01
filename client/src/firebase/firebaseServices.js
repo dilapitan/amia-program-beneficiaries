@@ -5,8 +5,39 @@ import {
   deleteDoc,
   doc,
   getDocs,
+  onSnapshot,
+  query,
   updateDoc,
 } from 'firebase/firestore'
+
+export const watchBeneficiaries = () => {
+  const q = query(collection(db, 'beneficiaries'))
+  const updated = onSnapshot(q, (querySnapshot) => {
+    let beneficiaries = []
+
+    querySnapshot.forEach((doc) => {
+      const { part0, part1, createdAt, userId } = doc.data()
+      const item = {
+        ...part0,
+        ...part1,
+        createdAt,
+        userId,
+        beneficiaryId: doc.id,
+      }
+
+      console.log('item:', item)
+      beneficiaries.push(item)
+      return true
+    })
+
+    return beneficiaries
+
+    // console.log('Current cities in CA: ', cities.join(', '))
+  })
+  console.log('updated:', updated)
+
+  return updated
+}
 
 export const getBeneficiaries = async () => {
   try {

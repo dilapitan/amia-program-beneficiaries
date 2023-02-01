@@ -142,7 +142,10 @@
 <script>
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
-import { deleteBeneficiary } from '@/firebase/firebaseServices'
+import {
+  deleteBeneficiary,
+  watchBeneficiaries,
+} from '@/firebase/firebaseServices'
 
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 
@@ -1284,6 +1287,8 @@ export default {
           // Use Firebase Service
           const response = await deleteBeneficiary(this.deletedItem)
           if (response === null) throw 'Something went wrong.'
+
+          watchBeneficiaries()
         } else {
           const updatedBeneficiaries = this.beneficiaries.splice(
             this.deletedIndex,

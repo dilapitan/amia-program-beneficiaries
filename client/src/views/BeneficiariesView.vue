@@ -1211,13 +1211,6 @@ export default {
 
   mounted() {
     this.beneficiaries = this.$store.state.beneficiaries
-
-    // if (this.$route.params?.reloadData) {
-    //   console.log('reload')
-    //   this.reloadData()
-    // } else {
-    //   console.log('chill')
-    // }
   },
 
   computed: {
@@ -1322,27 +1315,6 @@ export default {
         this.deletedIndex = -1
       })
     },
-
-    // async reloadData() {
-    //   try {
-    //     let beneficiaries
-    //     if (+process.env.VUE_APP_USE_FIREBASE) {
-    //       beneficiaries = await getBeneficiaries()
-    //       console.log('after reload:', beneficiaries)
-    //     } else {
-    //       beneficiaries = BENEFICIARIES
-    //     }
-
-    //     this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-    //   } catch (error) {
-    //     this.$store.dispatch('setSnackbarAction', true)
-    //     this.$store.dispatch('setSnackbarDetailsAction', {
-    //       color: 'error',
-    //       text: 'Failed to load data! Please contact admin.',
-    //     })
-    //     this.$store.dispatch('setBeneficiariesAction', [])
-    //   }
-    // },
   },
 }
 </script>

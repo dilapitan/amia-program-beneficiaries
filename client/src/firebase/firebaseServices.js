@@ -31,8 +31,6 @@ export const watchBeneficiaries = () => {
     })
 
     return beneficiaries
-
-    // console.log('Current cities in CA: ', cities.join(', '))
   })
   console.log('updated:', updated)
 

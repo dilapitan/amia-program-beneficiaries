@@ -4,53 +4,8 @@ import {
   collection,
   deleteDoc,
   doc,
-  // getDocs,
-  onSnapshot,
   updateDoc,
 } from 'firebase/firestore'
-
-export const getBeneficiaries = () => {
-  try {
-    // const querySnapshot = await getDocs(collection(db, 'beneficiaries'))
-    // const beneficiaries = []
-    // querySnapshot.forEach(async (doc) => {
-    //   const { part0, part1, createdAt, userId } = doc.data()
-
-    //   const item = {
-    //     ...part0,
-    //     ...part1,
-    //     createdAt,
-    //     userId,
-    //     beneficiaryId: doc.id,
-    //   }
-
-    //   beneficiaries.push(item)
-    // })
-    const a = onSnapshot(collection(db, 'beneficiaries'), (snapshot) => {
-      let beneficiaries = []
-      snapshot.docs.forEach((doc) => {
-        const { part0, part1, createdAt, userId } = doc.data()
-        const item = {
-          ...part0,
-          ...part1,
-          createdAt,
-          userId,
-          beneficiaryId: doc.id,
-        }
-
-        beneficiaries.push(item)
-      })
-      console.log('beneficiaries:', beneficiaries)
-      return beneficiaries
-    })
-
-    console.log('a:', a)
-    return a
-  } catch (error) {
-    console.error(error)
-    return null
-  }
-}
 
 export const addBeneficiary = async (beneficiary) => {
   try {

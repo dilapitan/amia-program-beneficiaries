@@ -118,7 +118,6 @@ export default new Vuex.Store({
   },
   actions: {
     setBeneficiariesAction({ commit }, payload) {
-      console.log('payload:', payload)
       commit('SET_BENEFICIARIES', payload)
     },
 

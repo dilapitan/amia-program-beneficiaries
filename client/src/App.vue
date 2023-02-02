@@ -382,27 +382,27 @@ export default {
       ]
 
       beneficiaies.forEach((item) => {
-        if (item.province === 'Albay') {
+        if (item.province === 'ALBAY') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[ALBAY_INDEX].beneficiaries.push(
             item
           )
-        } else if (item.province === 'Camarines Norte') {
+        } else if (item.province === 'CAMARINES NORTE') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CAMARINES_NORTE_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'Camarines Sur') {
+        } else if (item.province === 'CAMARINES SUR') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CAMARINES_SUR_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'Catanduanes') {
+        } else if (item.province === 'CATANDUANES') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CATANDUANES_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'Masbate') {
+        } else if (item.province === 'MASBATE') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[MASBATE_INDEX].beneficiaries.push(
             item
           )
-        } else if (item.province === 'Sorsogon') {
+        } else if (item.province === 'SORSOGON') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[SORSOGON_INDEX].beneficiaries.push(
             item
           )

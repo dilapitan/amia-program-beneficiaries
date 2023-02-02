@@ -271,12 +271,12 @@ export default {
     },
 
     initialize() {
-      console.log('From App Initializing...')
       this.$store.dispatch('setGlobalLoaderAction', true)
 
       try {
         if (+process.env.VUE_APP_USE_FIREBASE) {
           const q = query(collection(db, 'beneficiaries'))
+
           onSnapshot(q, (querySnapshot) => {
             let beneficiaries = []
 
@@ -303,7 +303,6 @@ export default {
           this.setProvincesWithTheirBeneficiaries(beneficiaries)
         }
       } catch (error) {
-        console.log('error:', error)
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
           color: 'error',

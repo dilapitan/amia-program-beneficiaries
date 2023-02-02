@@ -281,10 +281,30 @@ export default {
             let beneficiaries = []
 
             querySnapshot.forEach((doc) => {
-              const { part0, part1, createdAt, userId } = doc.data()
+              const {
+                part0,
+                part1,
+                part2,
+                part3,
+                part4,
+                part5,
+                part6,
+                part7,
+                part8,
+                createdAt,
+                userId,
+              } = doc.data()
+
               const item = {
                 ...part0,
                 ...part1,
+                ...part2,
+                ...part3,
+                ...part4,
+                ...part5,
+                ...part6,
+                ...part7,
+                ...part8,
                 createdAt,
                 userId,
                 beneficiaryId: doc.id,

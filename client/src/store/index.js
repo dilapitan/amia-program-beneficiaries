@@ -80,7 +80,9 @@ export default new Vuex.Store({
     beneficiariesPerProvince: (state) => (province) => {
       if (!province) return state.beneficiaries
 
-      return state.beneficiaries.filter((item) => item.province === province)
+      return state.beneficiaries.filter(
+        (item) => item.province.toLowerCase() === province.toLowerCase()
+      )
     },
   },
 

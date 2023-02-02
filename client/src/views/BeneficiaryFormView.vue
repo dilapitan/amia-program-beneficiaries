@@ -54,78 +54,78 @@
         <br />
 
         <!-- 3 Farm Description -->
-        <!-- <Part3Form
+        <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part3FormData="part3FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 4 Farm Activities -->
-        <!-- <Part4Form
+        <Part4Form
           ref="part4Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part4FormData="part4FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-        <!-- <Part5Form
+        <Part5Form
           ref="part5Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part5FormData="part5FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 6 Farmer's Adaptation Practices -->
-        <!-- <Part6Form
+        <Part6Form
           ref="part6Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part6FormData="part6FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 7 Institutional Characteristics -->
-        <!-- <Part7Form
+        <Part7Form
           ref="part7Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part7FormData="part7FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
         <br />
 
         <!-- 8 Issues/Concerns/Problems in Farming -->
-        <!-- <Part8Form
+        <Part8Form
           ref="part8Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part8FormData="part8FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -193,12 +193,12 @@
 import Part0Form from '@/components/forms/Part0Form.vue'
 import Part1Form from '@/components/forms/Part1Form.vue'
 import Part2Form from '@/components/forms/Part2Form.vue'
-// import Part3Form from '@/components/forms/Part3Form.vue'
-// import Part4Form from '@/components/forms/Part4Form.vue'
-// import Part5Form from '@/components/forms/Part5Form.vue'
-// import Part6Form from '@/components/forms/Part6Form.vue'
-// import Part7Form from '@/components/forms/Part7Form.vue'
-// import Part8Form from '@/components/forms/Part8Form.vue'
+import Part3Form from '@/components/forms/Part3Form.vue'
+import Part4Form from '@/components/forms/Part4Form.vue'
+import Part5Form from '@/components/forms/Part5Form.vue'
+import Part6Form from '@/components/forms/Part6Form.vue'
+import Part7Form from '@/components/forms/Part7Form.vue'
+import Part8Form from '@/components/forms/Part8Form.vue'
 
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
@@ -211,12 +211,12 @@ export default {
     Part0Form,
     Part1Form,
     Part2Form,
-    // Part3Form,
-    // Part4Form,
-    // Part5Form,
-    // Part6Form,
-    // Part7Form,
-    // Part8Form,
+    Part3Form,
+    Part4Form,
+    Part5Form,
+    Part6Form,
+    Part7Form,
+    Part8Form,
     PreviewTableOfBeneficiaryDetails,
   },
 
@@ -279,7 +279,17 @@ export default {
           // Firebase service
           await addBeneficiary(this.newBeneficiary)
         } else {
-          const { part0, part1, part2 } = this.newBeneficiary
+          const {
+            part0,
+            part1,
+            part2,
+            part3,
+            part4,
+            part5,
+            part6,
+            part7,
+            part8,
+          } = this.newBeneficiary
           const beneficiaryForLocal = {
             // Part 0
             date: part0.date,
@@ -314,6 +324,221 @@ export default {
               part2.membershipInAFarmerGroupOrAssociationOrOrganization,
             enrolledInRegistrySystemForBasicSectorsInAgriculture:
               part2.enrolledInRegistrySystemForBasicSectorsInAgriculture,
+
+            // Part 3
+            totalAreaOfAgriculturalLand: part3.totalAreaOfAgriculturalLand,
+            totalAreaOfForestryLand: part3.totalAreaOfForestryLand,
+            totalCultivatedArea: part3.totalCultivatedArea,
+            distanceFromHomeToFarm: part3.distanceFromHomeToFarm,
+            distanceFromLandToWaterSource: part3.distanceFromLandToWaterSource,
+            distanceFromMarketNearestPavedRoad:
+              part3.distanceFromMarketNearestPavedRoad,
+            distanceFromMarketOrTradingPost:
+              part3.distanceFromMarketOrTradingPost,
+            irrigationSource: part3.irrigationSource,
+            monthsWithoutRain: part3.monthsWithoutRain,
+            positionInTheLandscape: part3.positionInTheLandscape,
+            locationOfFarm: part3.locationOfFarm,
+            landTenure: part3.landTenure,
+            tenancy: part3.tenancy,
+            landHolding: part3.landHolding,
+
+            // Part 4
+            agriculturalActivities: part4.agriculturalActivities,
+            cropsProduced: part4.cropsProduced,
+            landAreaDevotedForCropProduction:
+              part4.landAreaDevotedForCropProduction,
+            livestockRaisedOrProduced: part4.livestockRaisedOrProduced,
+            landAreaDevotedForLivestockProduction:
+              part4.landAreaDevotedForLivestockProduction,
+            speciesGrownForAquaculture: part4.speciesGrownForAquaculture,
+            landAreaDevotedForAquaculture: part4.landAreaDevotedForAquaculture,
+            sourceOfWaterForAquaculture: part4.sourceOfWaterForAquaculture,
+            croppingPattern: part4.croppingPattern,
+            estimatedGrossIncomePerCroppingFirstCropping:
+              part4.estimatedGrossIncomePerCroppingFirstCropping,
+            estimatedGrossIncomePerCroppingSecondCropping:
+              part4.estimatedGrossIncomePerCroppingSecondCropping,
+            cropCalendarWetSeasonLandPreparation:
+              part4.cropCalendarWetSeasonLandPreparation,
+            cropCalendarWetSeasonPlanting: part4.cropCalendarWetSeasonPlanting,
+            cropCalendarWetSeasonGrowing: part4.cropCalendarWetSeasonGrowing,
+            cropCalendarWetSeasonHarvesting:
+              part4.cropCalendarWetSeasonHarvesting,
+            cropCalendarDrySeasonLandPreparation:
+              part4.cropCalendarDrySeasonLandPreparation,
+            cropCalendarDrySeasonPlanting: part4.cropCalendarDrySeasonPlanting,
+            cropCalendarDrySeasonGrowing: part4.cropCalendarDrySeasonGrowing,
+            cropCalendarDrySeasonHarvesting:
+              part4.cropCalendarDrySeasonHarvesting,
+
+            // Part 5
+            attendedAgriculturalRelatedTrainings:
+              part5.attendedAgriculturalRelatedTrainings,
+            totalNumberOfTrainingsAttended:
+              part5.totalNumberOfTrainingsAttended,
+            sourceOfInformationRelatedToImprovingAgriculturalProduction:
+              part5.sourceOfInformationRelatedToImprovingAgriculturalProduction,
+            sourceOfInformationRelatedToImprovingAgriculturalProductProcessing:
+              part5.sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+            sourceOfClimateAndWeatherInformation:
+              part5.sourceOfClimateAndWeatherInformation,
+            observedAnyLongTermChangesInClimate:
+              part5.observedAnyLongTermChangesInClimate,
+            changesInClimateForTemperature:
+              part5.changesInClimateForTemperature,
+            changesInClimateForAmountOfRainfaill:
+              part5.changesInClimateForAmountOfRainfaill,
+            changesInClimateForRainfallTiming:
+              part5.changesInClimateForRainfallTiming,
+            changesInClimateForRainfulIntensity:
+              part5.changesInClimateForRainfulIntensity,
+            changesInClimateForRainfallDuration:
+              part5.changesInClimateForRainfallDuration,
+            changesInClimateForNumberOfWeatherEvents:
+              part5.changesInClimateForNumberOfWeatherEvents,
+            changesInClimateForNumberOfHotDays:
+              part5.changesInClimateForNumberOfHotDays,
+            changesInClimateForNumberOfRainyDays:
+              part5.changesInClimateForNumberOfRainyDays,
+            changesInClimateForOccurenceOfPestsAndDiseasesInCrops:
+              part5.changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+            changesInClimateForOccurenceOfPestsAndDiseasesInLivestock:
+              part5.changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+            observedAnyChangeInTheOnsetOfDrySeason:
+              part5.observedAnyChangeInTheOnsetOfDrySeason,
+            observedAnyChangeInTheOnsetOfWetSeason:
+              part5.observedAnyChangeInTheOnsetOfWetSeason,
+            descriptionOfChangeInTemperature:
+              part5.descriptionOfChangeInTemperature,
+            descriptionOfChangeInRainfallDuration:
+              part5.descriptionOfChangeInRainfallDuration,
+            descriptionOfChangeInRainfallTiming:
+              part5.descriptionOfChangeInRainfallTiming,
+            descriptionOfChangeInRainfallIntensity:
+              part5.descriptionOfChangeInRainfallIntensity,
+            descriptionOfChangeInNumberOfWeatherEvents:
+              part5.descriptionOfChangeInNumberOfWeatherEvents,
+            perceivedEffectsOrImpactsOfChangeInTimingOfRains:
+              part5.perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+            perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason:
+              part5.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+            perceivedEffectsOrImpactsOfReducedCroppingSeason:
+              part5.perceivedEffectsOrImpactsOfReducedCroppingSeason,
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure:
+              part5.perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions:
+              part5.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+            perceivedEffectsOrImpactsOfPostharvestLosses:
+              part5.perceivedEffectsOrImpactsOfPostharvestLosses,
+            perceivedEffectsOrImpactsOfPestInvasion:
+              part5.perceivedEffectsOrImpactsOfPestInvasion,
+            perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases:
+              part5.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+            perceivedEffectsOrImpactsOfPovertyAndFoodShortages:
+              part5.perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+            perceivedEffectsOrImpactsOfLackOfPotableWater:
+              part5.perceivedEffectsOrImpactsOfLackOfPotableWater,
+            perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater:
+              part5.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+            perceivedEffectsOrImpactsOfErosions:
+              part5.perceivedEffectsOrImpactsOfErosions,
+            perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife:
+              part5.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+            perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties:
+              part5.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+            perceivedEffectsOrImpactsOfDeathOfLivestock:
+              part5.perceivedEffectsOrImpactsOfDeathOfLivestock,
+            perceivedEffectsOrImpactsOfDecreasedLivestockProduction:
+              part5.perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+            perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing:
+              part5.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+            perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes:
+              part5.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+            perceivedEffectsOrImpactsOfRuralUrbanMigration:
+              part5.perceivedEffectsOrImpactsOfRuralUrbanMigration,
+            perceivedEffectsOrImpactsOfSiltationOfWaterBodies:
+              part5.perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+            perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover:
+              part5.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+            perceivedEffectsOrImpactsOfOthers:
+              part5.perceivedEffectsOrImpactsOfOthers,
+            observedMainOpportunitiesOfLongTermChangesInClimate:
+              part5.observedMainOpportunitiesOfLongTermChangesInClimate,
+            driversOfChangeAndVulnerabilityOfLandDegredation:
+              part5.driversOfChangeAndVulnerabilityOfLandDegredation,
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices:
+              part5.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices:
+              part5.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+            driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
+              part5.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+            driversOfChangeAndVulnerabilityOfOthers:
+              part5.driversOfChangeAndVulnerabilityOfOthers,
+
+            // Part 6
+            madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
+              part6.madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+            changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
+              part6.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+            additionalAdaptationMeasuresBeingConsideredInTheFuture:
+              part6.additionalAdaptationMeasuresBeingConsideredInTheFuture,
+            receivedAnyExternalSupportForAdaptationMeasures:
+              part6.receivedAnyExternalSupportForAdaptationMeasures,
+            formOfFinancialSupportReceived:
+              part6.formOfFinancialSupportReceived,
+            formOfMaterialSupportReceived: part6.formOfMaterialSupportReceived,
+            formOfExtensionServicesSupportReceived:
+              part6.formOfExtensionServicesSupportReceived,
+            farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived:
+              part6.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+            formOfInfrastructureSupportReceived:
+              part6.formOfInfrastructureSupportReceived,
+            formOfOtherSupportReceived: part6.formOfOtherSupportReceived,
+            mostBeneficialSupportServices: part6.mostBeneficialSupportServices,
+            lowEducationLevelConstraint: part6.lowEducationLevelConstraint,
+            limitedAccessToInformationConstraint:
+              part6.limitedAccessToInformationConstraint,
+            lackOfExtensionServicesConstraint:
+              part6.lackOfExtensionServicesConstraint,
+            craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint:
+              part6.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+            inadequateCapitalConstraint: part6.inadequateCapitalConstraint,
+            noAccessToWaterForIrrigationConstraint:
+              part6.noAccessToWaterForIrrigationConstraint,
+            noAccessToCreditConstraintConstraint:
+              part6.noAccessToCreditConstraintConstraint,
+            longerTimeRequiredToSeeResultsConstraint:
+              part6.longerTimeRequiredToSeeResultsConstraint,
+            oldAgeConstraint: part6.oldAgeConstraint,
+            landTenureOrLandOwnershipIssuesConstraint:
+              part6.landTenureOrLandOwnershipIssuesConstraint,
+            landTopographyNotSuitableConstraint:
+              part6.landTopographyNotSuitableConstraint,
+            laborIntensiveOrNonAvailabilityOfLaborConstraint:
+              part6.laborIntensiveOrNonAvailabilityOfLaborConstraint,
+            infertileSoilConstraint: part6.infertileSoilConstraint,
+            otherConstraint: part6.otherConstraint,
+
+            // Part 7
+            accessToAgricultureOrFisheriesRnDInstitutions:
+              part7.accessToAgricultureOrFisheriesRnDInstitutions,
+            accessToCredit: part7.accessToCredit,
+            laboratoryFacilities: part7.laboratoryFacilities,
+            educationAndHealthFacilities: part7.educationAndHealthFacilities,
+            farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations:
+              part7.farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+            marketingSystem: part7.marketingSystem,
+            presenceOfAgriculturalProcessingFacilities:
+              part7.presenceOfAgriculturalProcessingFacilities,
+            irrigation: part7.irrigation,
+            farmingEquipment: part7.farmingEquipment,
+            others: part7.others,
+
+            // Part 8
+            issuesOrConcernsOrProblemsInFarming:
+              part8.issuesOrConcernsOrProblemsInFarming,
+
             // the Rest
             ...this.newBeneficiary,
           }
@@ -423,12 +648,12 @@ export default {
           this.setPart0FormData(this.currentBeneficiary)
           this.setPart1FormData(this.currentBeneficiary)
           this.setPart2FormData(this.currentBeneficiary)
-          // this.setPart3FormData(this.currentBeneficiary)
-          // this.setPart4FormData(this.currentBeneficiary)
-          // this.setPart5FormData(this.currentBeneficiary)
-          // this.setPart6FormData(this.currentBeneficiary)
-          // this.setPart7FormData(this.currentBeneficiary)
-          // this.setPart8FormData(this.currentBeneficiary)
+          this.setPart3FormData(this.currentBeneficiary)
+          this.setPart4FormData(this.currentBeneficiary)
+          this.setPart5FormData(this.currentBeneficiary)
+          this.setPart6FormData(this.currentBeneficiary)
+          this.setPart7FormData(this.currentBeneficiary)
+          this.setPart8FormData(this.currentBeneficiary)
         }
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
@@ -857,12 +1082,12 @@ export default {
       const part0FormData = this.getPart0FormData()
       const part1FormData = this.getPart1FormData()
       const part2FormData = this.getPart2FormData()
-      // const part3FormData = this.getPart3FormData()
-      // const part4FormData = this.getPart4FormData()
-      // const part5FormData = this.getPart5FormData()
-      // const part6FormData = this.getPart6FormData()
-      // const part7FormData = this.getPart7FormData()
-      // const part8FormData = this.getPart8FormData()
+      const part3FormData = this.getPart3FormData()
+      const part4FormData = this.getPart4FormData()
+      const part5FormData = this.getPart5FormData()
+      const part6FormData = this.getPart6FormData()
+      const part7FormData = this.getPart7FormData()
+      const part8FormData = this.getPart8FormData()
 
       // console.log('part8FormData:', part8FormData)
       if (valid) {
@@ -899,146 +1124,146 @@ export default {
           enrolledInRegistrySystemForBasicSectorsInAgriculture,
         } = part2FormData
 
-        // // Part 3
-        // const {
-        //   totalAreaOfAgriculturalLand,
-        //   totalAreaOfForestryLand,
-        //   totalCultivatedArea,
-        //   distanceFromHomeToFarm,
-        //   distanceFromLandToWaterSource,
-        //   distanceFromMarketNearestPavedRoad,
-        //   distanceFromMarketOrTradingPost,
-        //   irrigationSource,
-        //   monthsWithoutRain,
-        //   positionInTheLandscape,
-        //   locationOfFarm,
-        //   landTenure,
-        //   tenancy,
-        //   landHolding,
-        // } = part3FormData
+        // Part 3
+        const {
+          totalAreaOfAgriculturalLand,
+          totalAreaOfForestryLand,
+          totalCultivatedArea,
+          distanceFromHomeToFarm,
+          distanceFromLandToWaterSource,
+          distanceFromMarketNearestPavedRoad,
+          distanceFromMarketOrTradingPost,
+          irrigationSource,
+          monthsWithoutRain,
+          positionInTheLandscape,
+          locationOfFarm,
+          landTenure,
+          tenancy,
+          landHolding,
+        } = part3FormData
 
-        // // Part 4
-        // const {
-        //   agriculturalActivities,
-        //   cropsProduced,
-        //   landAreaDevotedForCropProduction,
-        //   livestockRaisedOrProduced,
-        //   landAreaDevotedForLivestockProduction,
-        //   speciesGrownForAquaculture,
-        //   landAreaDevotedForAquaculture,
-        //   sourceOfWaterForAquaculture,
-        //   croppingPattern,
-        //   estimatedGrossIncomePerCroppingFirstCropping,
-        //   estimatedGrossIncomePerCroppingSecondCropping,
-        //   cropCalendarWetSeasonLandPreparation,
-        //   cropCalendarWetSeasonPlanting,
-        //   cropCalendarWetSeasonGrowing,
-        //   cropCalendarWetSeasonHarvesting,
-        //   cropCalendarDrySeasonLandPreparation,
-        //   cropCalendarDrySeasonPlanting,
-        //   cropCalendarDrySeasonGrowing,
-        //   cropCalendarDrySeasonHarvesting,
-        // } = part4FormData
+        // Part 4
+        const {
+          agriculturalActivities,
+          cropsProduced,
+          landAreaDevotedForCropProduction,
+          livestockRaisedOrProduced,
+          landAreaDevotedForLivestockProduction,
+          speciesGrownForAquaculture,
+          landAreaDevotedForAquaculture,
+          sourceOfWaterForAquaculture,
+          croppingPattern,
+          estimatedGrossIncomePerCroppingFirstCropping,
+          estimatedGrossIncomePerCroppingSecondCropping,
+          cropCalendarWetSeasonLandPreparation,
+          cropCalendarWetSeasonPlanting,
+          cropCalendarWetSeasonGrowing,
+          cropCalendarWetSeasonHarvesting,
+          cropCalendarDrySeasonLandPreparation,
+          cropCalendarDrySeasonPlanting,
+          cropCalendarDrySeasonGrowing,
+          cropCalendarDrySeasonHarvesting,
+        } = part4FormData
 
-        // // Part 5
-        // const {
-        //   attendedAgriculturalRelatedTrainings,
-        //   totalNumberOfTrainingsAttended,
-        //   sourceOfInformationRelatedToImprovingAgriculturalProduction,
-        //   sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
-        //   sourceOfClimateAndWeatherInformation,
-        //   observedAnyLongTermChangesInClimate,
-        //   changesInClimateForTemperature,
-        //   changesInClimateForAmountOfRainfaill,
-        //   changesInClimateForRainfallTiming,
-        //   changesInClimateForRainfulIntensity,
-        //   changesInClimateForRainfallDuration,
-        //   changesInClimateForNumberOfWeatherEvents,
-        //   changesInClimateForNumberOfHotDays,
-        //   changesInClimateForNumberOfRainyDays,
-        //   changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
-        //   changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
-        //   observedAnyChangeInTheOnsetOfDrySeason,
-        //   observedAnyChangeInTheOnsetOfWetSeason,
-        //   descriptionOfChangeInTemperature,
-        //   descriptionOfChangeInRainfallDuration,
-        //   descriptionOfChangeInRainfallTiming,
-        //   descriptionOfChangeInRainfallIntensity,
-        //   descriptionOfChangeInNumberOfWeatherEvents,
-        //   perceivedEffectsOrImpactsOfChangeInTimingOfRains,
-        //   perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
-        //   perceivedEffectsOrImpactsOfReducedCroppingSeason,
-        //   perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
-        //   perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
-        //   perceivedEffectsOrImpactsOfPostharvestLosses,
-        //   perceivedEffectsOrImpactsOfPestInvasion,
-        //   perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
-        //   perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
-        //   perceivedEffectsOrImpactsOfLackOfPotableWater,
-        //   perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
-        //   perceivedEffectsOrImpactsOfErosions,
-        //   perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
-        //   perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
-        //   perceivedEffectsOrImpactsOfDeathOfLivestock,
-        //   perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
-        //   perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
-        //   perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
-        //   perceivedEffectsOrImpactsOfRuralUrbanMigration,
-        //   perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
-        //   perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-        //   perceivedEffectsOrImpactsOfOthers,
-        //   observedMainOpportunitiesOfLongTermChangesInClimate,
-        //   driversOfChangeAndVulnerabilityOfLandDegredation,
-        //   driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
-        //   driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
-        //   driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-        //   driversOfChangeAndVulnerabilityOfOthers,
-        // } = part5FormData
+        // Part 5
+        const {
+          attendedAgriculturalRelatedTrainings,
+          totalNumberOfTrainingsAttended,
+          sourceOfInformationRelatedToImprovingAgriculturalProduction,
+          sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+          sourceOfClimateAndWeatherInformation,
+          observedAnyLongTermChangesInClimate,
+          changesInClimateForTemperature,
+          changesInClimateForAmountOfRainfaill,
+          changesInClimateForRainfallTiming,
+          changesInClimateForRainfulIntensity,
+          changesInClimateForRainfallDuration,
+          changesInClimateForNumberOfWeatherEvents,
+          changesInClimateForNumberOfHotDays,
+          changesInClimateForNumberOfRainyDays,
+          changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+          changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+          observedAnyChangeInTheOnsetOfDrySeason,
+          observedAnyChangeInTheOnsetOfWetSeason,
+          descriptionOfChangeInTemperature,
+          descriptionOfChangeInRainfallDuration,
+          descriptionOfChangeInRainfallTiming,
+          descriptionOfChangeInRainfallIntensity,
+          descriptionOfChangeInNumberOfWeatherEvents,
+          perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+          perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+          perceivedEffectsOrImpactsOfReducedCroppingSeason,
+          perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+          perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+          perceivedEffectsOrImpactsOfPostharvestLosses,
+          perceivedEffectsOrImpactsOfPestInvasion,
+          perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+          perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+          perceivedEffectsOrImpactsOfLackOfPotableWater,
+          perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+          perceivedEffectsOrImpactsOfErosions,
+          perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+          perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+          perceivedEffectsOrImpactsOfDeathOfLivestock,
+          perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+          perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+          perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+          perceivedEffectsOrImpactsOfRuralUrbanMigration,
+          perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+          perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+          perceivedEffectsOrImpactsOfOthers,
+          observedMainOpportunitiesOfLongTermChangesInClimate,
+          driversOfChangeAndVulnerabilityOfLandDegredation,
+          driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+          driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+          driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+          driversOfChangeAndVulnerabilityOfOthers,
+        } = part5FormData
 
-        // // Part 6
-        // const {
-        //   madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
-        //   changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
-        //   additionalAdaptationMeasuresBeingConsideredInTheFuture,
-        //   receivedAnyExternalSupportForAdaptationMeasures,
-        //   formOfFinancialSupportReceived,
-        //   formOfMaterialSupportReceived,
-        //   formOfExtensionServicesSupportReceived,
-        //   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
-        //   formOfInfrastructureSupportReceived,
-        //   formOfOtherSupportReceived,
-        //   mostBeneficialSupportServices,
-        //   lowEducationLevelConstraint,
-        //   limitedAccessToInformationConstraint,
-        //   lackOfExtensionServicesConstraint,
-        //   craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
-        //   inadequateCapitalConstraint,
-        //   noAccessToWaterForIrrigationConstraint,
-        //   noAccessToCreditConstraintConstraint,
-        //   longerTimeRequiredToSeeResultsConstraint,
-        //   oldAgeConstraint,
-        //   landTenureOrLandOwnershipIssuesConstraint,
-        //   landTopographyNotSuitableConstraint,
-        //   laborIntensiveOrNonAvailabilityOfLaborConstraint,
-        //   infertileSoilConstraint,
-        //   otherConstraint,
-        // } = part6FormData
+        // Part 6
+        const {
+          madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+          changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+          additionalAdaptationMeasuresBeingConsideredInTheFuture,
+          receivedAnyExternalSupportForAdaptationMeasures,
+          formOfFinancialSupportReceived,
+          formOfMaterialSupportReceived,
+          formOfExtensionServicesSupportReceived,
+          farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+          formOfInfrastructureSupportReceived,
+          formOfOtherSupportReceived,
+          mostBeneficialSupportServices,
+          lowEducationLevelConstraint,
+          limitedAccessToInformationConstraint,
+          lackOfExtensionServicesConstraint,
+          craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+          inadequateCapitalConstraint,
+          noAccessToWaterForIrrigationConstraint,
+          noAccessToCreditConstraintConstraint,
+          longerTimeRequiredToSeeResultsConstraint,
+          oldAgeConstraint,
+          landTenureOrLandOwnershipIssuesConstraint,
+          landTopographyNotSuitableConstraint,
+          laborIntensiveOrNonAvailabilityOfLaborConstraint,
+          infertileSoilConstraint,
+          otherConstraint,
+        } = part6FormData
 
-        // // Part 7
-        // const {
-        //   accessToAgricultureOrFisheriesRnDInstitutions,
-        //   accessToCredit,
-        //   laboratoryFacilities,
-        //   educationAndHealthFacilities,
-        //   farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-        //   marketingSystem,
-        //   presenceOfAgriculturalProcessingFacilities,
-        //   irrigation,
-        //   farmingEquipment,
-        //   others,
-        // } = part7FormData
+        // Part 7
+        const {
+          accessToAgricultureOrFisheriesRnDInstitutions,
+          accessToCredit,
+          laboratoryFacilities,
+          educationAndHealthFacilities,
+          farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+          marketingSystem,
+          presenceOfAgriculturalProcessingFacilities,
+          irrigation,
+          farmingEquipment,
+          others,
+        } = part7FormData
 
-        // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
+        const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiary = {
           userId: this.$store.state.user.data?.userId || null,
@@ -1084,137 +1309,149 @@ export default {
             enrolledInRegistrySystemForBasicSectorsInAgriculture,
           },
 
-          // // Part 3
-          // totalAreaOfAgriculturalLand,
-          // totalAreaOfForestryLand,
-          // totalCultivatedArea,
-          // distanceFromHomeToFarm,
-          // distanceFromLandToWaterSource,
-          // distanceFromMarketNearestPavedRoad,
-          // distanceFromMarketOrTradingPost,
-          // irrigationSource,
-          // monthsWithoutRain,
-          // positionInTheLandscape,
-          // locationOfFarm,
-          // landTenure,
-          // tenancy,
-          // landHolding,
+          // Part 3
+          part3: {
+            totalAreaOfAgriculturalLand,
+            totalAreaOfForestryLand,
+            totalCultivatedArea,
+            distanceFromHomeToFarm,
+            distanceFromLandToWaterSource,
+            distanceFromMarketNearestPavedRoad,
+            distanceFromMarketOrTradingPost,
+            irrigationSource,
+            monthsWithoutRain,
+            positionInTheLandscape,
+            locationOfFarm,
+            landTenure,
+            tenancy,
+            landHolding,
+          },
 
-          // // Part 4
-          // agriculturalActivities,
-          // cropsProduced,
-          // landAreaDevotedForCropProduction,
-          // livestockRaisedOrProduced,
-          // landAreaDevotedForLivestockProduction,
-          // speciesGrownForAquaculture,
-          // landAreaDevotedForAquaculture,
-          // sourceOfWaterForAquaculture,
-          // croppingPattern,
-          // estimatedGrossIncomePerCroppingFirstCropping,
-          // estimatedGrossIncomePerCroppingSecondCropping,
-          // cropCalendarWetSeasonLandPreparation,
-          // cropCalendarWetSeasonPlanting,
-          // cropCalendarWetSeasonGrowing,
-          // cropCalendarWetSeasonHarvesting,
-          // cropCalendarDrySeasonLandPreparation,
-          // cropCalendarDrySeasonPlanting,
-          // cropCalendarDrySeasonGrowing,
-          // cropCalendarDrySeasonHarvesting,
+          // Part 4
+          part4: {
+            agriculturalActivities,
+            cropsProduced,
+            landAreaDevotedForCropProduction,
+            livestockRaisedOrProduced,
+            landAreaDevotedForLivestockProduction,
+            speciesGrownForAquaculture,
+            landAreaDevotedForAquaculture,
+            sourceOfWaterForAquaculture,
+            croppingPattern,
+            estimatedGrossIncomePerCroppingFirstCropping,
+            estimatedGrossIncomePerCroppingSecondCropping,
+            cropCalendarWetSeasonLandPreparation,
+            cropCalendarWetSeasonPlanting,
+            cropCalendarWetSeasonGrowing,
+            cropCalendarWetSeasonHarvesting,
+            cropCalendarDrySeasonLandPreparation,
+            cropCalendarDrySeasonPlanting,
+            cropCalendarDrySeasonGrowing,
+            cropCalendarDrySeasonHarvesting,
+          },
 
-          // // Part 5
-          // attendedAgriculturalRelatedTrainings,
-          // totalNumberOfTrainingsAttended,
-          // sourceOfInformationRelatedToImprovingAgriculturalProduction,
-          // sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
-          // sourceOfClimateAndWeatherInformation,
-          // observedAnyLongTermChangesInClimate,
-          // changesInClimateForTemperature,
-          // changesInClimateForAmountOfRainfaill,
-          // changesInClimateForRainfallTiming,
-          // changesInClimateForRainfulIntensity,
-          // changesInClimateForRainfallDuration,
-          // changesInClimateForNumberOfWeatherEvents,
-          // changesInClimateForNumberOfHotDays,
-          // changesInClimateForNumberOfRainyDays,
-          // changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
-          // changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
-          // observedAnyChangeInTheOnsetOfDrySeason,
-          // observedAnyChangeInTheOnsetOfWetSeason,
-          // descriptionOfChangeInTemperature,
-          // descriptionOfChangeInRainfallDuration,
-          // descriptionOfChangeInRainfallTiming,
-          // descriptionOfChangeInRainfallIntensity,
-          // descriptionOfChangeInNumberOfWeatherEvents,
-          // perceivedEffectsOrImpactsOfChangeInTimingOfRains,
-          // perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
-          // perceivedEffectsOrImpactsOfReducedCroppingSeason,
-          // perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
-          // perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
-          // perceivedEffectsOrImpactsOfPostharvestLosses,
-          // perceivedEffectsOrImpactsOfPestInvasion,
-          // perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
-          // perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
-          // perceivedEffectsOrImpactsOfLackOfPotableWater,
-          // perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
-          // perceivedEffectsOrImpactsOfErosions,
-          // perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
-          // perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
-          // perceivedEffectsOrImpactsOfDeathOfLivestock,
-          // perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
-          // perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
-          // perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
-          // perceivedEffectsOrImpactsOfRuralUrbanMigration,
-          // perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
-          // perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
-          // perceivedEffectsOrImpactsOfOthers,
-          // observedMainOpportunitiesOfLongTermChangesInClimate,
-          // driversOfChangeAndVulnerabilityOfLandDegredation,
-          // driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
-          // driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
-          // driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
-          // driversOfChangeAndVulnerabilityOfOthers,
+          // Part 5
+          part5: {
+            attendedAgriculturalRelatedTrainings,
+            totalNumberOfTrainingsAttended,
+            sourceOfInformationRelatedToImprovingAgriculturalProduction,
+            sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+            sourceOfClimateAndWeatherInformation,
+            observedAnyLongTermChangesInClimate,
+            changesInClimateForTemperature,
+            changesInClimateForAmountOfRainfaill,
+            changesInClimateForRainfallTiming,
+            changesInClimateForRainfulIntensity,
+            changesInClimateForRainfallDuration,
+            changesInClimateForNumberOfWeatherEvents,
+            changesInClimateForNumberOfHotDays,
+            changesInClimateForNumberOfRainyDays,
+            changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+            changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+            observedAnyChangeInTheOnsetOfDrySeason,
+            observedAnyChangeInTheOnsetOfWetSeason,
+            descriptionOfChangeInTemperature,
+            descriptionOfChangeInRainfallDuration,
+            descriptionOfChangeInRainfallTiming,
+            descriptionOfChangeInRainfallIntensity,
+            descriptionOfChangeInNumberOfWeatherEvents,
+            perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+            perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+            perceivedEffectsOrImpactsOfReducedCroppingSeason,
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+            perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+            perceivedEffectsOrImpactsOfPostharvestLosses,
+            perceivedEffectsOrImpactsOfPestInvasion,
+            perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+            perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+            perceivedEffectsOrImpactsOfLackOfPotableWater,
+            perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+            perceivedEffectsOrImpactsOfErosions,
+            perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+            perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+            perceivedEffectsOrImpactsOfDeathOfLivestock,
+            perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+            perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+            perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+            perceivedEffectsOrImpactsOfRuralUrbanMigration,
+            perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+            perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+            perceivedEffectsOrImpactsOfOthers,
+            observedMainOpportunitiesOfLongTermChangesInClimate,
+            driversOfChangeAndVulnerabilityOfLandDegredation,
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+            driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+            driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+            driversOfChangeAndVulnerabilityOfOthers,
+          },
 
-          // // Part 6
-          // madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
-          // changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
-          // additionalAdaptationMeasuresBeingConsideredInTheFuture,
-          // receivedAnyExternalSupportForAdaptationMeasures,
-          // formOfFinancialSupportReceived,
-          // formOfMaterialSupportReceived,
-          // formOfExtensionServicesSupportReceived,
-          // farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
-          // formOfInfrastructureSupportReceived,
-          // formOfOtherSupportReceived,
-          // mostBeneficialSupportServices,
-          // lowEducationLevelConstraint,
-          // limitedAccessToInformationConstraint,
-          // lackOfExtensionServicesConstraint,
-          // craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
-          // inadequateCapitalConstraint,
-          // noAccessToWaterForIrrigationConstraint,
-          // noAccessToCreditConstraintConstraint,
-          // longerTimeRequiredToSeeResultsConstraint,
-          // oldAgeConstraint,
-          // landTenureOrLandOwnershipIssuesConstraint,
-          // landTopographyNotSuitableConstraint,
-          // laborIntensiveOrNonAvailabilityOfLaborConstraint,
-          // infertileSoilConstraint,
-          // otherConstraint,
+          // Part 6
+          part6: {
+            madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+            changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+            additionalAdaptationMeasuresBeingConsideredInTheFuture,
+            receivedAnyExternalSupportForAdaptationMeasures,
+            formOfFinancialSupportReceived,
+            formOfMaterialSupportReceived,
+            formOfExtensionServicesSupportReceived,
+            farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+            formOfInfrastructureSupportReceived,
+            formOfOtherSupportReceived,
+            mostBeneficialSupportServices,
+            lowEducationLevelConstraint,
+            limitedAccessToInformationConstraint,
+            lackOfExtensionServicesConstraint,
+            craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+            inadequateCapitalConstraint,
+            noAccessToWaterForIrrigationConstraint,
+            noAccessToCreditConstraintConstraint,
+            longerTimeRequiredToSeeResultsConstraint,
+            oldAgeConstraint,
+            landTenureOrLandOwnershipIssuesConstraint,
+            landTopographyNotSuitableConstraint,
+            laborIntensiveOrNonAvailabilityOfLaborConstraint,
+            infertileSoilConstraint,
+            otherConstraint,
+          },
 
-          // // Part 7
-          // accessToAgricultureOrFisheriesRnDInstitutions,
-          // accessToCredit,
-          // laboratoryFacilities,
-          // educationAndHealthFacilities,
-          // farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
-          // marketingSystem,
-          // presenceOfAgriculturalProcessingFacilities,
-          // irrigation,
-          // farmingEquipment,
-          // others,
+          // Part 7
+          part7: {
+            accessToAgricultureOrFisheriesRnDInstitutions,
+            accessToCredit,
+            laboratoryFacilities,
+            educationAndHealthFacilities,
+            farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations,
+            marketingSystem,
+            presenceOfAgriculturalProcessingFacilities,
+            irrigation,
+            farmingEquipment,
+            others,
+          },
 
-          // // Part 8
-          // issuesOrConcernsOrProblemsInFarming,
+          // Part 8
+          part8: {
+            issuesOrConcernsOrProblemsInFarming,
+          },
         }
 
         return newBeneficiary

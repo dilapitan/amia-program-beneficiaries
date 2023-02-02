@@ -155,6 +155,7 @@ export default {
   },
 
   data: () => ({
+    // TODO: put the headers in a constant file
     headers: [
       { text: 'Actions', value: 'actions', sortable: false },
       {

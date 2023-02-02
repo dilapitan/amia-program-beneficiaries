@@ -146,12 +146,12 @@ const REGION_5 = [
 ]
 
 const PROVINCES_OF_REGION_5 = [
-  'ALBAY',
-  'CAMARINES NORTE',
-  'CAMARINES SUR',
-  'CATANDUANES',
-  'MASBATE',
-  'SORSOGON',
+  'Albay',
+  'Camarines Norte',
+  'Camarines Sur',
+  'Catanduanes',
+  'Masbate',
+  'Sorsogon',
 ]
 
 export const getRegion5 = () => {

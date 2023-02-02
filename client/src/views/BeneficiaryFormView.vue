@@ -41,13 +41,13 @@
         <br />
 
         <!-- 2 Socio-demographic Information -->
-        <!-- <Part2Form
+        <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
           :mode="mode"
           :part2FormData="part2FormData"
-        /> -->
+        />
 
         <br />
         <v-divider></v-divider>
@@ -192,7 +192,7 @@
 <script>
 import Part0Form from '@/components/forms/Part0Form.vue'
 import Part1Form from '@/components/forms/Part1Form.vue'
-// import Part2Form from '@/components/forms/Part2Form.vue'
+import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
 // import Part5Form from '@/components/forms/Part5Form.vue'
@@ -210,7 +210,7 @@ export default {
   components: {
     Part0Form,
     Part1Form,
-    // Part2Form,
+    Part2Form,
     // Part3Form,
     // Part4Form,
     // Part5Form,
@@ -279,7 +279,7 @@ export default {
           // Firebase service
           await addBeneficiary(this.newBeneficiary)
         } else {
-          const { part0, part1 } = this.newBeneficiary
+          const { part0, part1, part2 } = this.newBeneficiary
           const beneficiaryForLocal = {
             // Part 0
             date: part0.date,
@@ -294,6 +294,26 @@ export default {
             nameOfFarmer: part1.nameOfFarmer,
             contactNo: part1.contactNo,
             farmersCodeNo: part1.farmersCodeNo,
+
+            // Part 2
+            age: part2.age,
+            gender: part2.gender,
+            civilStatus: part2.civilStatus,
+            religion: part2.religion,
+            belongingTo: part2.belongingTo,
+            householdMembers: part2.householdMembers,
+            yearsOfFarmingExperience: part2.yearsOfFarmingExperience,
+            highestEducationalAttainment: part2.highestEducationalAttainment,
+            languagesOrDialectsSpoken: part2.languagesOrDialectsSpoken,
+            mainSourceOfIncome: part2.mainSourceOfIncome,
+            otherSourcesOfIncome: part2.otherSourcesOfIncome,
+            averageGrossMonthlyIncomeOfHousehold:
+              part2.averageGrossMonthlyIncomeOfHousehold,
+            averageGrossMonthlyFarmIncome: part2.averageGrossMonthlyFarmIncome,
+            membershipInAFarmerGroupOrAssociationOrOrganization:
+              part2.membershipInAFarmerGroupOrAssociationOrOrganization,
+            enrolledInRegistrySystemForBasicSectorsInAgriculture:
+              part2.enrolledInRegistrySystemForBasicSectorsInAgriculture,
             // the Rest
             ...this.newBeneficiary,
           }
@@ -402,7 +422,7 @@ export default {
         if (this.currentBeneficiary !== undefined) {
           this.setPart0FormData(this.currentBeneficiary)
           this.setPart1FormData(this.currentBeneficiary)
-          // this.setPart2FormData(this.currentBeneficiary)
+          this.setPart2FormData(this.currentBeneficiary)
           // this.setPart3FormData(this.currentBeneficiary)
           // this.setPart4FormData(this.currentBeneficiary)
           // this.setPart5FormData(this.currentBeneficiary)
@@ -836,7 +856,7 @@ export default {
       const valid = this.$refs.form.validate()
       const part0FormData = this.getPart0FormData()
       const part1FormData = this.getPart1FormData()
-      // const part2FormData = this.getPart2FormData()
+      const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
       // const part4FormData = this.getPart4FormData()
       // const part5FormData = this.getPart5FormData()
@@ -860,24 +880,24 @@ export default {
           farmersCodeNo,
         } = part1FormData
 
-        // // Part 2
-        // const {
-        //   age,
-        //   gender,
-        //   civilStatus,
-        //   religion,
-        //   belongingTo,
-        //   householdMembers,
-        //   yearsOfFarmingExperience,
-        //   highestEducationalAttainment,
-        //   languagesOrDialectsSpoken,
-        //   mainSourceOfIncome,
-        //   otherSourcesOfIncome,
-        //   averageGrossMonthlyIncomeOfHousehold,
-        //   averageGrossMonthlyFarmIncome,
-        //   membershipInAFarmerGroupOrAssociationOrOrganization,
-        //   enrolledInRegistrySystemForBasicSectorsInAgriculture,
-        // } = part2FormData
+        // Part 2
+        const {
+          age,
+          gender,
+          civilStatus,
+          religion,
+          belongingTo,
+          householdMembers,
+          yearsOfFarmingExperience,
+          highestEducationalAttainment,
+          languagesOrDialectsSpoken,
+          mainSourceOfIncome,
+          otherSourcesOfIncome,
+          averageGrossMonthlyIncomeOfHousehold,
+          averageGrossMonthlyFarmIncome,
+          membershipInAFarmerGroupOrAssociationOrOrganization,
+          enrolledInRegistrySystemForBasicSectorsInAgriculture,
+        } = part2FormData
 
         // // Part 3
         // const {
@@ -1045,22 +1065,24 @@ export default {
             farmersCodeNo,
           },
 
-          // // Part 2
-          // age,
-          // gender,
-          // civilStatus,
-          // religion,
-          // belongingTo,
-          // householdMembers,
-          // yearsOfFarmingExperience,
-          // highestEducationalAttainment,
-          // languagesOrDialectsSpoken,
-          // mainSourceOfIncome,
-          // otherSourcesOfIncome,
-          // averageGrossMonthlyIncomeOfHousehold,
-          // averageGrossMonthlyFarmIncome,
-          // membershipInAFarmerGroupOrAssociationOrOrganization,
-          // enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          // Part 2
+          part2: {
+            age,
+            gender,
+            civilStatus,
+            religion,
+            belongingTo,
+            householdMembers,
+            yearsOfFarmingExperience,
+            highestEducationalAttainment,
+            languagesOrDialectsSpoken,
+            mainSourceOfIncome,
+            otherSourcesOfIncome,
+            averageGrossMonthlyIncomeOfHousehold,
+            averageGrossMonthlyFarmIncome,
+            membershipInAFarmerGroupOrAssociationOrOrganization,
+            enrolledInRegistrySystemForBasicSectorsInAgriculture,
+          },
 
           // // Part 3
           // totalAreaOfAgriculturalLand,

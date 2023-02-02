@@ -224,7 +224,7 @@
 import { BENEFICIARIES } from '@/static/dummy_data'
 
 import { db } from '@/firebase/firebaseConfig'
-import { collection, onSnapshot, query } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 import UnderConstruction from '@/components/UnderConstruction.vue'
 
@@ -275,7 +275,10 @@ export default {
 
       try {
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          const q = query(collection(db, 'beneficiaries'))
+          const q = query(
+            collection(db, 'beneficiaries'),
+            orderBy('createdAt', 'desc')
+          )
 
           onSnapshot(q, (querySnapshot) => {
             let beneficiaries = []

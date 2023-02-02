@@ -143,7 +143,7 @@
 import SnackbarLayout from '@/components/SnackbarLayout.vue'
 
 import { db } from '@/firebase/firebaseConfig'
-import { collection, onSnapshot, query } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 import { deleteBeneficiary } from '@/firebase/firebaseServices'
 
@@ -1211,7 +1211,10 @@ export default {
   }),
 
   mounted() {
-    const q = query(collection(db, 'beneficiaries'))
+    const q = query(
+      collection(db, 'beneficiaries'),
+      orderBy('createdAt', 'desc')
+    )
     onSnapshot(q, (querySnapshot) => {
       let beneficiaries = []
 

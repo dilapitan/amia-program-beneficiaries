@@ -1089,7 +1089,6 @@ export default {
       const part7FormData = this.getPart7FormData()
       const part8FormData = this.getPart8FormData()
 
-      // console.log('part8FormData:', part8FormData)
       if (valid) {
         // Part 0
         const { date, interviewStart, interviewEnd, nameOfInterviewer } =

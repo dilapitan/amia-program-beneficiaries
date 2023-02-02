@@ -356,53 +356,53 @@ export default {
       const SORSOGON_INDEX = 5
       let PROVINCES_WITH_THEIR_BENEFICIARIES = [
         {
-          province: 'ALBAY',
+          province: 'Albay',
           beneficiaries: [],
         },
         {
-          province: 'CAMARINES NORTE',
+          province: 'Camarines Norte',
           beneficiaries: [],
         },
         {
-          province: 'CAMARINES SUR',
+          province: 'Camarines Sur',
           beneficiaries: [],
         },
         {
-          province: 'CATANDUANES',
+          province: 'Catanduanes',
           beneficiaries: [],
         },
         {
-          province: 'MASBATE',
+          province: 'Masbate',
           beneficiaries: [],
         },
         {
-          province: 'SORSOGON',
+          province: 'Sorsogon',
           beneficiaries: [],
         },
       ]
 
       beneficiaies.forEach((item) => {
-        if (item.province === 'ALBAY') {
+        if (item.province === 'Albay') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[ALBAY_INDEX].beneficiaries.push(
             item
           )
-        } else if (item.province === 'CAMARINES NORTE') {
+        } else if (item.province === 'Camarines Norte') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CAMARINES_NORTE_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'CAMARINES SUR') {
+        } else if (item.province === 'Camarines Sur') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CAMARINES_SUR_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'CATANDUANES') {
+        } else if (item.province === 'Catanduanes') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[
             CATANDUANES_INDEX
           ].beneficiaries.push(item)
-        } else if (item.province === 'MASBATE') {
+        } else if (item.province === 'Masbate') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[MASBATE_INDEX].beneficiaries.push(
             item
           )
-        } else if (item.province === 'SORSOGON') {
+        } else if (item.province === 'Sorsogon') {
           PROVINCES_WITH_THEIR_BENEFICIARIES[SORSOGON_INDEX].beneficiaries.push(
             item
           )

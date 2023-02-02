@@ -9,14 +9,22 @@
           flat
           :height="$vuetify.breakpoint.xs ? '60vh' : '80vh'"
         >
-          <div
-            v-for="(item, index) in provinceWithTheirBeneficiaries"
-            :key="index"
-          >
-            <div class="mb-10">
-              <h4>{{ item.province }}</h4>
-              <BeneficiariesPerProvince :beneficiaries="item.beneficiaries" />
-            </div>
+          <div>
+            <v-expansion-panels>
+              <v-expansion-panel
+                v-for="(item, index) in provinceWithTheirBeneficiaries"
+                :key="index"
+              >
+                <v-expansion-panel-header>
+                  {{ item.province }}
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  <BeneficiariesPerProvince
+                    :beneficiaries="item.beneficiaries"
+                  />
+                </v-expansion-panel-content>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </div>
         </v-card>
       </v-col>

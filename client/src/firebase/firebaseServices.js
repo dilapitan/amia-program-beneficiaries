@@ -21,7 +21,7 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2, part3, part4, part5, part6, part7 } =
+    const { part0, part1, part2, part3, part4, part5, part6, part7, part8 } =
       beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
@@ -265,6 +265,10 @@ export const editBeneficiary = async (beneficiary) => {
         irrigation: part7.irrigation,
         farmingEquipment: part7.farmingEquipment,
         others: part7.others,
+      },
+      part8: {
+        issuesOrConcernsOrProblemsInFarming:
+          part8.issuesOrConcernsOrProblemsInFarming,
       },
       userId: beneficiary.userId,
     })

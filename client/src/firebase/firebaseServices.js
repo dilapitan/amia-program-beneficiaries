@@ -21,7 +21,7 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2, part3, part4, part5 } = beneficiary
+    const { part0, part1, part2, part3, part4, part5, part6 } = beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
@@ -206,6 +206,49 @@ export const editBeneficiary = async (beneficiary) => {
           part5.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
         driversOfChangeAndVulnerabilityOfOthers:
           part5.driversOfChangeAndVulnerabilityOfOthers,
+      },
+      part6: {
+        madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years:
+          part6.madeAdjustmentsInLivelihoodInResponseToThePerceivedChangesInRainfallAndTemperatureOverTheLast10Years,
+        changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall:
+          part6.changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfall,
+        additionalAdaptationMeasuresBeingConsideredInTheFuture:
+          part6.additionalAdaptationMeasuresBeingConsideredInTheFuture,
+        receivedAnyExternalSupportForAdaptationMeasures:
+          part6.receivedAnyExternalSupportForAdaptationMeasures,
+        formOfFinancialSupportReceived: part6.formOfFinancialSupportReceived,
+        formOfMaterialSupportReceived: part6.formOfMaterialSupportReceived,
+        formOfExtensionServicesSupportReceived:
+          part6.formOfExtensionServicesSupportReceived,
+        farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived:
+          part6.farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived,
+        formOfInfrastructureSupportReceived:
+          part6.formOfInfrastructureSupportReceived,
+        formOfOtherSupportReceived: part6.formOfOtherSupportReceived,
+        mostBeneficialSupportServices: part6.mostBeneficialSupportServices,
+        lowEducationLevelConstraint: part6.lowEducationLevelConstraint,
+        limitedAccessToInformationConstraint:
+          part6.limitedAccessToInformationConstraint,
+        lackOfExtensionServicesConstraint:
+          part6.lackOfExtensionServicesConstraint,
+        craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint:
+          part6.craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint,
+        inadequateCapitalConstraint: part6.inadequateCapitalConstraint,
+        noAccessToWaterForIrrigationConstraint:
+          part6.noAccessToWaterForIrrigationConstraint,
+        noAccessToCreditConstraintConstraint:
+          part6.noAccessToCreditConstraintConstraint,
+        longerTimeRequiredToSeeResultsConstraint:
+          part6.longerTimeRequiredToSeeResultsConstraint,
+        oldAgeConstraint: part6.oldAgeConstraint,
+        landTenureOrLandOwnershipIssuesConstraint:
+          part6.landTenureOrLandOwnershipIssuesConstraint,
+        landTopographyNotSuitableConstraint:
+          part6.landTopographyNotSuitableConstraint,
+        laborIntensiveOrNonAvailabilityOfLaborConstraint:
+          part6.laborIntensiveOrNonAvailabilityOfLaborConstraint,
+        infertileSoilConstraint: part6.infertileSoilConstraint,
+        otherConstraint: part6.otherConstraint,
       },
       userId: beneficiary.userId,
     })

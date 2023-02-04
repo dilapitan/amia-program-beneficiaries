@@ -21,23 +21,25 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
+    const { part0, part1 } = beneficiary
+
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
       createdAt: beneficiary.createdAt,
       part0: {
-        date: beneficiary.part0.date,
-        interviewStart: beneficiary.part0.interviewStart,
-        interviewEnd: beneficiary.part0.interviewEnd,
-        nameOfInterviewer: beneficiary.part0.nameOfInterviewer,
-        surveyNo: beneficiary.part0.surveyNo,
+        date: part0.date,
+        interviewStart: part0.interviewStart,
+        interviewEnd: part0.interviewEnd,
+        nameOfInterviewer: part0.nameOfInterviewer,
+        surveyNo: part0.surveyNo,
       },
       part1: {
-        barangay: beneficiary.part1.barangay,
-        cityOrMunicipality: beneficiary.part1.cityOrMunicipality,
-        contactNo: beneficiary.part1.contactNo,
-        farmersCodeNo: beneficiary.part1.farmersCodeNo,
-        nameOfFarmer: beneficiary.part1.nameOfFarmer,
-        province: beneficiary.part1.province,
+        barangay: part1.barangay,
+        cityOrMunicipality: part1.cityOrMunicipality,
+        contactNo: part1.contactNo,
+        farmersCodeNo: part1.farmersCodeNo,
+        nameOfFarmer: part1.nameOfFarmer,
+        province: part1.province,
       },
       userId: beneficiary.userId,
     })

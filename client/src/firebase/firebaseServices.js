@@ -21,7 +21,7 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2, part3 } = beneficiary
+    const { part0, part1, part2, part3, part4 } = beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
@@ -77,6 +77,33 @@ export const editBeneficiary = async (beneficiary) => {
         landTenure: part3.landTenure,
         tenancy: part3.tenancy,
         landHolding: part3.landHolding,
+      },
+      part4: {
+        agriculturalActivities: part4.agriculturalActivities,
+        cropsProduced: part4.cropsProduced,
+        landAreaDevotedForCropProduction:
+          part4.landAreaDevotedForCropProduction,
+        livestockRaisedOrProduced: part4.livestockRaisedOrProduced,
+        landAreaDevotedForLivestockProduction:
+          part4.landAreaDevotedForLivestockProduction,
+        speciesGrownForAquaculture: part4.speciesGrownForAquaculture,
+        landAreaDevotedForAquaculture: part4.landAreaDevotedForAquaculture,
+        sourceOfWaterForAquaculture: part4.sourceOfWaterForAquaculture,
+        croppingPattern: part4.croppingPattern,
+        estimatedGrossIncomePerCroppingFirstCropping:
+          part4.estimatedGrossIncomePerCroppingFirstCropping,
+        estimatedGrossIncomePerCroppingSecondCropping:
+          part4.estimatedGrossIncomePerCroppingSecondCropping,
+        cropCalendarWetSeasonLandPreparation:
+          part4.cropCalendarWetSeasonLandPreparation,
+        cropCalendarWetSeasonPlanting: part4.cropCalendarWetSeasonPlanting,
+        cropCalendarWetSeasonGrowing: part4.cropCalendarWetSeasonGrowing,
+        cropCalendarWetSeasonHarvesting: part4.cropCalendarWetSeasonHarvesting,
+        cropCalendarDrySeasonLandPreparation:
+          part4.cropCalendarDrySeasonLandPreparation,
+        cropCalendarDrySeasonPlanting: part4.cropCalendarDrySeasonPlanting,
+        cropCalendarDrySeasonGrowing: part4.cropCalendarDrySeasonGrowing,
+        cropCalendarDrySeasonHarvesting: part4.cropCalendarDrySeasonHarvesting,
       },
       userId: beneficiary.userId,
     })

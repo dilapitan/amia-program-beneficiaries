@@ -21,7 +21,7 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2, part3, part4 } = beneficiary
+    const { part0, part1, part2, part3, part4, part5 } = beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
@@ -104,6 +104,108 @@ export const editBeneficiary = async (beneficiary) => {
         cropCalendarDrySeasonPlanting: part4.cropCalendarDrySeasonPlanting,
         cropCalendarDrySeasonGrowing: part4.cropCalendarDrySeasonGrowing,
         cropCalendarDrySeasonHarvesting: part4.cropCalendarDrySeasonHarvesting,
+      },
+      part5: {
+        attendedAgriculturalRelatedTrainings:
+          part5.attendedAgriculturalRelatedTrainings,
+        totalNumberOfTrainingsAttended: part5.totalNumberOfTrainingsAttended,
+        sourceOfInformationRelatedToImprovingAgriculturalProduction:
+          part5.sourceOfInformationRelatedToImprovingAgriculturalProduction,
+        sourceOfInformationRelatedToImprovingAgriculturalProductProcessing:
+          part5.sourceOfInformationRelatedToImprovingAgriculturalProductProcessing,
+        sourceOfClimateAndWeatherInformation:
+          part5.sourceOfClimateAndWeatherInformation,
+        observedAnyLongTermChangesInClimate:
+          part5.observedAnyLongTermChangesInClimate,
+        changesInClimateForTemperature: part5.changesInClimateForTemperature,
+        changesInClimateForAmountOfRainfaill:
+          part5.changesInClimateForAmountOfRainfaill,
+        changesInClimateForRainfallTiming:
+          part5.changesInClimateForRainfallTiming,
+        changesInClimateForRainfulIntensity:
+          part5.changesInClimateForRainfulIntensity,
+        changesInClimateForRainfallDuration:
+          part5.changesInClimateForRainfallDuration,
+        changesInClimateForNumberOfWeatherEvents:
+          part5.changesInClimateForNumberOfWeatherEvents,
+        changesInClimateForNumberOfHotDays:
+          part5.changesInClimateForNumberOfHotDays,
+        changesInClimateForNumberOfRainyDays:
+          part5.changesInClimateForNumberOfRainyDays,
+        changesInClimateForOccurenceOfPestsAndDiseasesInCrops:
+          part5.changesInClimateForOccurenceOfPestsAndDiseasesInCrops,
+        changesInClimateForOccurenceOfPestsAndDiseasesInLivestock:
+          part5.changesInClimateForOccurenceOfPestsAndDiseasesInLivestock,
+        observedAnyChangeInTheOnsetOfDrySeason:
+          part5.observedAnyChangeInTheOnsetOfDrySeason,
+        observedAnyChangeInTheOnsetOfWetSeason:
+          part5.observedAnyChangeInTheOnsetOfWetSeason,
+        descriptionOfChangeInTemperature:
+          part5.descriptionOfChangeInTemperature,
+        descriptionOfChangeInRainfallDuration:
+          part5.descriptionOfChangeInRainfallDuration,
+        descriptionOfChangeInRainfallTiming:
+          part5.descriptionOfChangeInRainfallTiming,
+        descriptionOfChangeInRainfallIntensity:
+          part5.descriptionOfChangeInRainfallIntensity,
+        descriptionOfChangeInNumberOfWeatherEvents:
+          part5.descriptionOfChangeInNumberOfWeatherEvents,
+        perceivedEffectsOrImpactsOfChangeInTimingOfRains:
+          part5.perceivedEffectsOrImpactsOfChangeInTimingOfRains,
+        perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason:
+          part5.perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason,
+        perceivedEffectsOrImpactsOfReducedCroppingSeason:
+          part5.perceivedEffectsOrImpactsOfReducedCroppingSeason,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure:
+          part5.perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure,
+        perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions:
+          part5.perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions,
+        perceivedEffectsOrImpactsOfPostharvestLosses:
+          part5.perceivedEffectsOrImpactsOfPostharvestLosses,
+        perceivedEffectsOrImpactsOfPestInvasion:
+          part5.perceivedEffectsOrImpactsOfPestInvasion,
+        perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases:
+          part5.perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases,
+        perceivedEffectsOrImpactsOfPovertyAndFoodShortages:
+          part5.perceivedEffectsOrImpactsOfPovertyAndFoodShortages,
+        perceivedEffectsOrImpactsOfLackOfPotableWater:
+          part5.perceivedEffectsOrImpactsOfLackOfPotableWater,
+        perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater:
+          part5.perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater,
+        perceivedEffectsOrImpactsOfErosions:
+          part5.perceivedEffectsOrImpactsOfErosions,
+        perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife:
+          part5.perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife,
+        perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties:
+          part5.perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties,
+        perceivedEffectsOrImpactsOfDeathOfLivestock:
+          part5.perceivedEffectsOrImpactsOfDeathOfLivestock,
+        perceivedEffectsOrImpactsOfDecreasedLivestockProduction:
+          part5.perceivedEffectsOrImpactsOfDecreasedLivestockProduction,
+        perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing:
+          part5.perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing,
+        perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes:
+          part5.perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes,
+        perceivedEffectsOrImpactsOfRuralUrbanMigration:
+          part5.perceivedEffectsOrImpactsOfRuralUrbanMigration,
+        perceivedEffectsOrImpactsOfSiltationOfWaterBodies:
+          part5.perceivedEffectsOrImpactsOfSiltationOfWaterBodies,
+        perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover:
+          part5.perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover,
+        perceivedEffectsOrImpactsOfOthers:
+          part5.perceivedEffectsOrImpactsOfOthers,
+        observedMainOpportunitiesOfLongTermChangesInClimate:
+          part5.observedMainOpportunitiesOfLongTermChangesInClimate,
+        driversOfChangeAndVulnerabilityOfLandDegredation:
+          part5.driversOfChangeAndVulnerabilityOfLandDegredation,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices:
+          part5.driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices,
+        driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices:
+          part5.driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices,
+        driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals:
+          part5.driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals,
+        driversOfChangeAndVulnerabilityOfOthers:
+          part5.driversOfChangeAndVulnerabilityOfOthers,
       },
       userId: beneficiary.userId,
     })

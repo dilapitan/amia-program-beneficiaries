@@ -21,7 +21,7 @@ export const addBeneficiary = async (beneficiary) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2 } = beneficiary
+    const { part0, part1, part2, part3 } = beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
@@ -60,6 +60,23 @@ export const editBeneficiary = async (beneficiary) => {
           part2.membershipInAFarmerGroupOrAssociationOrOrganization,
         enrolledInRegistrySystemForBasicSectorsInAgriculture:
           part2.enrolledInRegistrySystemForBasicSectorsInAgriculture,
+      },
+      part3: {
+        totalAreaOfAgriculturalLand: part3.totalAreaOfAgriculturalLand,
+        totalAreaOfForestryLand: part3.totalAreaOfForestryLand,
+        totalCultivatedArea: part3.totalCultivatedArea,
+        distanceFromHomeToFarm: part3.distanceFromHomeToFarm,
+        distanceFromLandToWaterSource: part3.distanceFromLandToWaterSource,
+        distanceFromMarketNearestPavedRoad:
+          part3.distanceFromMarketNearestPavedRoad,
+        distanceFromMarketOrTradingPost: part3.distanceFromMarketOrTradingPost,
+        irrigationSource: part3.irrigationSource,
+        monthsWithoutRain: part3.monthsWithoutRain,
+        positionInTheLandscape: part3.positionInTheLandscape,
+        locationOfFarm: part3.locationOfFarm,
+        landTenure: part3.landTenure,
+        tenancy: part3.tenancy,
+        landHolding: part3.landHolding,
       },
       userId: beneficiary.userId,
     })

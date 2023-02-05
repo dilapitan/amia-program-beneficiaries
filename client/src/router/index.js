@@ -65,7 +65,7 @@ const routes = [
       ),
   },
   {
-    path: '/edit/survey/:surveyNo',
+    path: '/edit/survey/:id',
     name: 'EditBeneficiaryView',
     beforeEnter: guardRoutes,
     component: () =>

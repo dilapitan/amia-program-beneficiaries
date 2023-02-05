@@ -129,8 +129,12 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="grey" text @click="closeDelete">Cancel</v-btn>
-          <v-btn color="error" @click="deleteItemConfirm">Delete</v-btn>
+          <v-btn :disabled="loading" color="grey" text @click="closeDelete">
+            Cancel
+          </v-btn>
+          <v-btn :disabled="loading" color="error" @click="deleteItemConfirm">
+            Delete
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -1205,7 +1209,7 @@ export default {
     dialogDelete: false,
     deletedIndex: -1,
     deletedItem: {},
-    isLoading: true,
+    loading: false,
     selectedProvince: null,
     beneficiaries: [],
   }),
@@ -1311,6 +1315,7 @@ export default {
 
     async deleteItemConfirm() {
       try {
+        this.loading = true
         if (+process.env.VUE_APP_USE_FIREBASE) {
           const response = await deleteBeneficiary(this.deletedItem)
           if (response === null) throw 'Something went wrong.'
@@ -1342,6 +1347,7 @@ export default {
 
     closeDelete() {
       this.dialogDelete = false
+      this.loading = false
       this.$nextTick(() => {
         this.deletedItem = Object.assign({}, {})
         this.deletedIndex = -1

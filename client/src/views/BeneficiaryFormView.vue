@@ -269,7 +269,7 @@ export default {
 
   methods: {
     confirmAddOrUpdateBeneficiary() {
-      const newBeneficiary = this.getFormData(this.newBeneficiary)
+      const newBeneficiary = this.getFormData(this.currentBeneficiary)
 
       if (!newBeneficiary) return
 
@@ -1282,9 +1282,10 @@ export default {
 
           // Part 0
           part0: {
-            surveyNo: toUpdatebeneficiary
-              ? toUpdatebeneficiary.surveyNo
-              : this.beneficiaries.length + 1,
+            surveyNo:
+              this.$route.params.mode === 'EDIT'
+                ? toUpdatebeneficiary.part0.surveyNo
+                : this.beneficiaries.length + 1,
             date,
             interviewStart,
             interviewEnd,

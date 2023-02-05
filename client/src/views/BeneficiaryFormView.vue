@@ -4,45 +4,49 @@
     <p class="mt-2 text-body-2">{{ setHeader(getMode()).subHeader }}</p>
     <br />
 
-    <div
-      v-if="
-        currentBeneficiary === undefined &&
-        this.$route.name !== 'AddBeneficiaryView'
-      "
-    >
-      <p>
-        <strong>No data found.</strong>
-      </p>
+    <div v-if="currentBeneficiary === null" class="text-center mt-10">
+      <v-progress-circular indeterminate color="primary" :size="50">
+      </v-progress-circular>
     </div>
 
-    <v-card v-else class="pa-5" color="middleground" flat height="100%">
-      <v-form ref="form" v-model="valid" lazy-validation>
-        <!-- 0 General -->
-        <Part0Form
-          ref="part0Form"
-          :mode="mode"
-          :requiredRule="requiredRule"
-          :part0FormData="part0FormData"
-        />
+    <div v-else>
+      <p
+        v-if="
+          currentBeneficiary === undefined &&
+          this.$route.name !== 'AddBeneficiaryView'
+        "
+      >
+        <strong>No data found.</strong>
+      </p>
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+      <v-card v-else class="pa-5" color="middleground" flat height="100%">
+        <v-form ref="form" v-model="valid" lazy-validation>
+          <!-- 0 General -->
+          <Part0Form
+            ref="part0Form"
+            :mode="mode"
+            :requiredRule="requiredRule"
+            :part0FormData="part0FormData"
+          />
 
-        <!-- 1 Farmer's Basic Information -->
-        <!-- <Part1Form
+          <br />
+          <v-divider></v-divider>
+          <br />
+
+          <!-- 1 Farmer's Basic Information -->
+          <!-- <Part1Form
           ref="part1Form"
           :mode="mode"
           :requiredRule="requiredRule"
           :part1FormData="part1FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 2 Socio-demographic Information -->
-        <!-- <Part2Form
+          <!-- 2 Socio-demographic Information -->
+          <!-- <Part2Form
           ref="part2Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -50,12 +54,12 @@
           :part2FormData="part2FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 3 Farm Description -->
-        <!-- <Part3Form
+          <!-- 3 Farm Description -->
+          <!-- <Part3Form
           ref="part3Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -63,12 +67,12 @@
           :part3FormData="part3FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 4 Farm Activities -->
-        <!-- <Part4Form
+          <!-- 4 Farm Activities -->
+          <!-- <Part4Form
           ref="part4Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -76,12 +80,12 @@
           :part4FormData="part4FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
-        <!-- <Part5Form
+          <!-- 5 Technical Knowledge/Perception of Climate Change and its Impacts -->
+          <!-- <Part5Form
           ref="part5Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -89,12 +93,12 @@
           :part5FormData="part5FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 6 Farmer's Adaptation Practices -->
-        <!-- <Part6Form
+          <!-- 6 Farmer's Adaptation Practices -->
+          <!-- <Part6Form
           ref="part6Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -102,12 +106,12 @@
           :part6FormData="part6FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 7 Institutional Characteristics -->
-        <!-- <Part7Form
+          <!-- 7 Institutional Characteristics -->
+          <!-- <Part7Form
           ref="part7Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -115,12 +119,12 @@
           :part7FormData="part7FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
+          <br />
+          <v-divider></v-divider>
+          <br />
 
-        <!-- 8 Issues/Concerns/Problems in Farming -->
-        <!-- <Part8Form
+          <!-- 8 Issues/Concerns/Problems in Farming -->
+          <!-- <Part8Form
           ref="part8Form"
           :requiredRule="requiredRule"
           :requiredRuleVComboBox="requiredRuleVComboBox"
@@ -128,65 +132,66 @@
           :part8FormData="part8FormData"
         /> -->
 
-        <br />
-        <v-divider></v-divider>
-        <br />
-
-        <v-overlay :value="loading"></v-overlay>
-        <div class="d-flex align-end flex-column">
-          <v-btn
-            v-if="mode !== 'VIEW'"
-            :disabled="loading"
-            :loading="loading"
-            @click.stop="confirmAddOrUpdateBeneficiary()"
-            color="primary"
-          >
-            {{ mode === 'EDIT' ? 'UPDATE' : 'SUBMIT' }}
-          </v-btn>
-          <v-btn v-else to="/beneficiaries" color="primary">
-            BACK TO LIST
-          </v-btn>
-        </div>
-      </v-form>
-
-      <v-dialog v-model="dialog" width="800" scrollable persistent>
-        <v-card>
-          <v-card-title> Preview of Beneficiary Details </v-card-title>
-
-          <v-card-text>
-            <PreviewTableOfBeneficiaryDetails
-              :key="dialog"
-              :beneficiaryDetails="newBeneficiary"
-            />
-          </v-card-text>
-
+          <br />
           <v-divider></v-divider>
+          <br />
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
+          <v-overlay :value="loading"></v-overlay>
+          <div class="d-flex align-end flex-column">
             <v-btn
+              v-if="mode !== 'VIEW'"
+              :disabled="loading"
+              :loading="loading"
+              @click.stop="confirmAddOrUpdateBeneficiary()"
               color="primary"
-              text
-              @click="closeAddOfUpdateBeneficiaryModal()"
             >
-              CLOSE
+              {{ mode === 'EDIT' ? 'UPDATE' : 'SUBMIT' }}
             </v-btn>
-            <v-btn
-              color="primary"
-              @click="
-                mode === 'EDIT'
-                  ? updateBeneficiary(currentBeneficiary)
-                  : addBeneficiary()
-              "
-            >
-              <v-icon left v-if="mode === 'EDIT'"> mdi-pencil </v-icon>
-              <v-icon left v-else> mdi-account-plus </v-icon>
-              CONFIRM {{ mode === 'EDIT' ? 'EDIT' : 'ADD' }}
+            <v-btn v-else to="/beneficiaries" color="primary">
+              BACK TO LIST
             </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-card>
+          </div>
+        </v-form>
+
+        <v-dialog v-model="dialog" width="800" scrollable persistent>
+          <v-card>
+            <v-card-title> Preview of Beneficiary Details </v-card-title>
+
+            <v-card-text>
+              <PreviewTableOfBeneficiaryDetails
+                :key="dialog"
+                :beneficiaryDetails="newBeneficiary"
+              />
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary"
+                text
+                @click="closeAddOfUpdateBeneficiaryModal()"
+              >
+                CLOSE
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="
+                  mode === 'EDIT'
+                    ? updateBeneficiary(currentBeneficiary)
+                    : addBeneficiary()
+                "
+              >
+                <v-icon left v-if="mode === 'EDIT'"> mdi-pencil </v-icon>
+                <v-icon left v-else> mdi-account-plus </v-icon>
+                CONFIRM {{ mode === 'EDIT' ? 'EDIT' : 'ADD' }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-card>
+    </div>
   </div>
 </template>
 
@@ -649,6 +654,7 @@ export default {
         // )
 
         this.currentBeneficiary = await getBeneficiary(id)
+        console.log('this.currentBeneficiary:', this.currentBeneficiary)
 
         if (this.currentBeneficiary !== undefined) {
           this.setPart0FormData(this.currentBeneficiary.part0)

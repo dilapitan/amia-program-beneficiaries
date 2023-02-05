@@ -296,6 +296,7 @@ export default {
                 part8,
                 createdAt,
                 userId,
+                id,
               } = doc.data()
 
               const item = {
@@ -310,6 +311,7 @@ export default {
                 ...part8,
                 createdAt,
                 userId,
+                id,
                 beneficiaryId: doc.id,
               }
 

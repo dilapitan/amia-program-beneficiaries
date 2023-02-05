@@ -5,12 +5,13 @@
     <br />
 
     <div
-      v-if="!currentBeneficiary && this.$route.name !== 'AddBeneficiaryView'"
+      v-if="
+        currentBeneficiary === undefined &&
+        this.$route.name !== 'AddBeneficiaryView'
+      "
     >
       <p>
         <strong>No data found.</strong>
-        To View/Edit a Beneficiary, please go to the List of Beneficiaries to
-        click the Action buttons.
       </p>
     </div>
 

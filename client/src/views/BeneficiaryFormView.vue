@@ -4,7 +4,13 @@
     <p class="mt-2 text-body-2">{{ setHeader(getMode()).subHeader }}</p>
     <br />
 
-    <div v-if="currentBeneficiary === null" class="text-center mt-10">
+    <div
+      v-if="
+        (currentBeneficiary === null) &
+        (this.$route.name !== 'AddBeneficiaryView')
+      "
+      class="text-center mt-10"
+    >
       <v-progress-circular indeterminate color="primary" :size="50">
       </v-progress-circular>
     </div>
@@ -257,7 +263,10 @@ export default {
   }),
 
   mounted() {
-    this.setBeneficiary(this.$route.params.id)
+    if (Object.entries(this.$route.params).length) {
+      this.setBeneficiary(this.$route.params.id)
+    }
+
     this.setMode(this.$route.name)
   },
 

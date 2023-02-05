@@ -202,7 +202,11 @@ import Part0Form from '@/components/forms/Part0Form.vue'
 
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
-import { addBeneficiary, editBeneficiary } from '@/firebase/firebaseServices'
+import {
+  addBeneficiary,
+  getBeneficiary,
+  editBeneficiary,
+} from '@/firebase/firebaseServices'
 import { v4 as uuidv4 } from 'uuid'
 
 export default {
@@ -636,17 +640,17 @@ export default {
       }
     },
 
-    setBeneficiary(id) {
+    async setBeneficiary(id) {
       try {
-        // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
-        const currentBeneficiary = this.$store.state.beneficiaries.find(
-          (beneficiary) => beneficiary.id === id
-        )
+        // TODO: Set up for local development without Firestore
+        // const currentBeneficiary = this.$store.state.beneficiaries.find(
+        //   (beneficiary) => beneficiary.id === id
+        // )
 
-        this.currentBeneficiary = currentBeneficiary
+        this.currentBeneficiary = await getBeneficiary(id)
 
         if (this.currentBeneficiary !== undefined) {
-          this.setPart0FormData(this.currentBeneficiary)
+          this.setPart0FormData(this.currentBeneficiary.part0)
           // this.setPart1FormData(this.currentBeneficiary)
           // this.setPart2FormData(this.currentBeneficiary)
           // this.setPart3FormData(this.currentBeneficiary)

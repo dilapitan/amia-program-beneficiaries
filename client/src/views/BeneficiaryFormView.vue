@@ -184,6 +184,7 @@
               </v-btn>
               <v-btn
                 :disabled="loading"
+                :loading="loading"
                 color="primary"
                 @click="
                   mode === 'EDIT'

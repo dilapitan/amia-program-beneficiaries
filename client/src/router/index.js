@@ -56,7 +56,7 @@ const routes = [
       ),
   },
   {
-    path: '/view/survey/:surveyNo',
+    path: '/view/survey/:id',
     name: 'ViewBeneficiaryView',
     beforeEnter: guardRoutes,
     component: () =>

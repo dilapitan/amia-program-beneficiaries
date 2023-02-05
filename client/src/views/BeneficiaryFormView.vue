@@ -175,6 +175,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
+                :disabled="loading"
                 color="primary"
                 text
                 @click="closeAddOfUpdateBeneficiaryModal()"
@@ -182,6 +183,7 @@
                 CLOSE
               </v-btn>
               <v-btn
+                :disabled="loading"
                 color="primary"
                 @click="
                   mode === 'EDIT'
@@ -292,6 +294,7 @@ export default {
 
     async addBeneficiary() {
       try {
+        this.loading = true
         this.dialog = false
         const newBeneficiaries = [...this.beneficiaries]
 
@@ -565,8 +568,6 @@ export default {
           newBeneficiaries.push(beneficiaryForLocal)
           this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
         }
-
-        this.loading = true
 
         this.$router.push({
           name: 'BeneficiariesView',

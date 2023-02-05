@@ -296,7 +296,6 @@ export default {
         const newBeneficiaries = [...this.beneficiaries]
 
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          // Firebase service
           await addBeneficiary(this.newBeneficiary)
         } else {
           const {

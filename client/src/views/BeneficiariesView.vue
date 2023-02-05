@@ -1311,17 +1311,7 @@ export default {
 
     async deleteItemConfirm() {
       try {
-        /**
-         * TODO thought: there's a toReloadFlag in the Store that's used for reloading
-         * the GET Beneficiaries.
-         *
-         * Whenever there's a delete, dispatch setToReloadFlagAction that will be triggered
-         * in the App, on watch {} triggering the App to load the whole data again if
-         * there's a delete based on toReloadFlag
-         */
-
         if (+process.env.VUE_APP_USE_FIREBASE) {
-          // Use Firebase Service
           const response = await deleteBeneficiary(this.deletedItem)
           if (response === null) throw 'Something went wrong.'
         } else {

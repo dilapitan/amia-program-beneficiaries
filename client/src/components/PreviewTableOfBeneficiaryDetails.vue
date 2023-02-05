@@ -202,8 +202,8 @@ export default {
         nameOfInterviewer,
       } = part0
 
+      // // Part 1
       // const {
-      //   // Part 1
       //   province,
       //   cityOrMunicipality,
       //   barangay,

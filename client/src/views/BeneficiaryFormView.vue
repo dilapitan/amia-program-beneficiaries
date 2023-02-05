@@ -203,6 +203,7 @@ import Part0Form from '@/components/forms/Part0Form.vue'
 import PreviewTableOfBeneficiaryDetails from '@/components/PreviewTableOfBeneficiaryDetails.vue'
 
 import { addBeneficiary, editBeneficiary } from '@/firebase/firebaseServices'
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'AddBeneficiaryView',
@@ -1265,6 +1266,7 @@ export default {
         // const { issuesOrConcernsOrProblemsInFarming } = part8FormData
 
         const newBeneficiary = {
+          id: uuidv4(),
           userId: this.$store.state.user.data?.userId || null,
           createdAt: new Date(), // also updatedAt for Edit?
 

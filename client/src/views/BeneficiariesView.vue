@@ -132,7 +132,12 @@
           <v-btn :disabled="loading" color="grey" text @click="closeDelete">
             Cancel
           </v-btn>
-          <v-btn :disabled="loading" color="error" @click="deleteItemConfirm">
+          <v-btn
+            :disabled="loading"
+            :loading="loading"
+            color="error"
+            @click="deleteItemConfirm"
+          >
             Delete
           </v-btn>
         </v-card-actions>

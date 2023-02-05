@@ -654,7 +654,6 @@ export default {
         // )
 
         this.currentBeneficiary = await getBeneficiary(id)
-        console.log('this.currentBeneficiary:', this.currentBeneficiary)
 
         if (this.currentBeneficiary !== undefined) {
           this.setPart0FormData(this.currentBeneficiary.part0)

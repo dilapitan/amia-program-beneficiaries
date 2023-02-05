@@ -570,12 +570,7 @@ export default {
           this.$store.dispatch('setBeneficiariesAction', newBeneficiaries)
         }
 
-        this.$router.push({
-          name: 'BeneficiariesView',
-          params: {
-            reloadData: true,
-          },
-        })
+        this.$router.push('/beneficiaries')
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {
           color: 'success',

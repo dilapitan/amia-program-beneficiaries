@@ -593,6 +593,9 @@ export default {
 
     async updateBeneficiary() {
       try {
+        this.loading = true
+        this.dialog = false
+
         if (+process.env.VUE_APP_USE_FIREBASE) {
           const updatedBeneficiary = {
             beneficiaryId: this.currentBeneficiary.beneficiaryId,

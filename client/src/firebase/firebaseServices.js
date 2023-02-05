@@ -4,7 +4,10 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDocs,
+  query,
   updateDoc,
+  where,
 } from 'firebase/firestore'
 
 export const addBeneficiary = async (beneficiary) => {
@@ -13,6 +16,23 @@ export const addBeneficiary = async (beneficiary) => {
     if (docRef) {
       return docRef
     }
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
+
+export const getBeneficiary = async (id) => {
+  try {
+    const q = query(collection(db, 'beneficiaries'), where('id', '==', id))
+    const querySnapshot = await getDocs(q)
+
+    let data = []
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data())
+    })
+
+    return data[0] // Always single value since 'id' is unique
   } catch (error) {
     console.error(error)
     return null

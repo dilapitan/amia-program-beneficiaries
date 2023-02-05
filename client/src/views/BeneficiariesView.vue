@@ -1293,7 +1293,7 @@ export default {
         params: {
           content: beneficiary,
           mode: 'EDIT',
-          surveyNo: beneficiary.surveyNo,
+          id: beneficiary.id,
         },
       })
     },

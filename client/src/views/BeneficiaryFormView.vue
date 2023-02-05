@@ -247,7 +247,7 @@ export default {
   }),
 
   mounted() {
-    this.setBeneficiary(this.$route.params.surveyNo)
+    this.setBeneficiary(this.$route.params.id)
     this.setMode(this.$route.name)
   },
 
@@ -636,11 +636,11 @@ export default {
       }
     },
 
-    setBeneficiary(surveyNo) {
+    setBeneficiary(id) {
       try {
         // TODO: change surveyNo to the id/uuid of the Beneficiary from Firestore
         const currentBeneficiary = this.$store.state.beneficiaries.find(
-          (beneficiary) => beneficiary.surveyNo === surveyNo
+          (beneficiary) => beneficiary.id === id
         )
 
         this.currentBeneficiary = currentBeneficiary

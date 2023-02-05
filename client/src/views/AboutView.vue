@@ -1,5 +1,9 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <v-container class="mt-5">
+      <p>
+        This application contains the list of Beneficiaries across Region 5.
+      </p>
+    </v-container>
   </div>
 </template>

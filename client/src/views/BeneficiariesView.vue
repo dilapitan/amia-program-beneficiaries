@@ -117,7 +117,7 @@
         </div>
       </div>
 
-      <p v-else>No records found.</p>
+      <p v-else class="mt-10">No records found.</p>
     </div>
 
     <v-dialog v-model="dialogDelete" max-width="500px">

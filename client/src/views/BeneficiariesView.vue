@@ -38,81 +38,87 @@
 
     <br />
 
-    <div v-if="beneficiaries.length > 0">
-      <v-data-table
-        :headers="headers"
-        :items="beneficiaries"
-        class="elevation-1"
-      >
-        <template v-slot:[`item.actions`]="{ item }">
-          <div class="d-flex align-baseline">
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon
-                  @click="viewBeneficiary(item)"
-                  small
-                  class="mr-2"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  mdi-eye
-                </v-icon>
-              </template>
-              <span>View Beneficiary</span>
-            </v-tooltip>
+    <div v-if="loading" class="text-center mt-10">
+      <v-progress-circular indeterminate color="primary" :size="50">
+      </v-progress-circular>
+    </div>
+    <div v-else>
+      <div v-if="beneficiaries.length > 0">
+        <v-data-table
+          :headers="headers"
+          :items="beneficiaries"
+          class="elevation-1"
+        >
+          <template v-slot:[`item.actions`]="{ item }">
+            <div class="d-flex align-baseline">
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    @click="viewBeneficiary(item)"
+                    small
+                    class="mr-2"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-eye
+                  </v-icon>
+                </template>
+                <span>View Beneficiary</span>
+              </v-tooltip>
 
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon
-                  small
-                  class="mr-2"
-                  @click="editBeneficiary(item)"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  mdi-pencil
-                </v-icon>
-              </template>
-              <span>Edit Beneficiary</span>
-            </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    class="mr-2"
+                    @click="editBeneficiary(item)"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-pencil
+                  </v-icon>
+                </template>
+                <span>Edit Beneficiary</span>
+              </v-tooltip>
 
-            <v-tooltip bottom>
-              <template v-slot:activator="{ on, attrs }">
-                <v-icon
-                  small
-                  @click="deleteItem(item)"
-                  v-bind="attrs"
-                  v-on="on"
-                >
-                  mdi-delete
-                </v-icon>
-              </template>
-              <span>Delete Beneficiary</span>
-            </v-tooltip>
-          </div>
-        </template>
-      </v-data-table>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-icon
+                    small
+                    @click="deleteItem(item)"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    mdi-delete
+                  </v-icon>
+                </template>
+                <span>Delete Beneficiary</span>
+              </v-tooltip>
+            </div>
+          </template>
+        </v-data-table>
 
-      <div>
-        <strong>Note:</strong>
         <div>
-          <p>
-            <span class="ml-2 text-caption">
-              <strong>*</strong>
-              for the last 20-30 years</span
-            >
-          </p>
-          <p>
-            <span class="ml-2 text-caption">
-              <strong>**</strong>
-              Constraints/Difficulties in Changing Farming Ways</span
-            >
-          </p>
+          <strong>Note:</strong>
+          <div>
+            <p>
+              <span class="ml-2 text-caption">
+                <strong>*</strong>
+                for the last 20-30 years</span
+              >
+            </p>
+            <p>
+              <span class="ml-2 text-caption">
+                <strong>**</strong>
+                Constraints/Difficulties in Changing Farming Ways</span
+              >
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <p v-else>No records found.</p>
+      <p v-else>No records found.</p>
+    </div>
 
     <v-dialog v-model="dialogDelete" max-width="500px">
       <v-card>
@@ -155,7 +161,7 @@ import { db } from '@/firebase/firebaseConfig'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 import { deleteBeneficiary } from '@/firebase/firebaseServices'
-
+import { BENEFICIARIES } from '@/static/dummy_data'
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 import { HEADERS } from '@/helpers/layout'
 export default {
@@ -175,50 +181,7 @@ export default {
   }),
 
   mounted() {
-    const q = query(
-      collection(db, 'beneficiaries'),
-      orderBy('createdAt', 'desc')
-    )
-    onSnapshot(q, (querySnapshot) => {
-      let beneficiaries = []
-
-      querySnapshot.forEach((doc) => {
-        const {
-          part0,
-          part1,
-          part2,
-          part3,
-          part4,
-          part5,
-          part6,
-          part7,
-          part8,
-          createdAt,
-          userId,
-          id,
-        } = doc.data()
-
-        const item = {
-          ...part0,
-          ...part1,
-          ...part2,
-          ...part3,
-          ...part4,
-          ...part5,
-          ...part6,
-          ...part7,
-          ...part8,
-          createdAt,
-          userId,
-          id,
-          beneficiaryId: doc.id,
-        }
-
-        beneficiaries.push(item)
-      })
-
-      this.beneficiaries = beneficiaries
-    })
+    this.initialize()
   },
 
   computed: {
@@ -240,6 +203,71 @@ export default {
   },
 
   methods: {
+    initialize() {
+      if (+process.env.VUE_APP_USE_FIREBASE) {
+        try {
+          this.loading = true
+          const q = query(
+            collection(db, 'beneficiaries'),
+            orderBy('createdAt', 'desc')
+          )
+          onSnapshot(q, (querySnapshot) => {
+            let beneficiaries = []
+
+            querySnapshot.forEach((doc) => {
+              const {
+                part0,
+                part1,
+                part2,
+                part3,
+                part4,
+                part5,
+                part6,
+                part7,
+                part8,
+                createdAt,
+                userId,
+                id,
+              } = doc.data()
+
+              const item = {
+                ...part0,
+                ...part1,
+                ...part2,
+                ...part3,
+                ...part4,
+                ...part5,
+                ...part6,
+                ...part7,
+                ...part8,
+                createdAt,
+                userId,
+                id,
+                beneficiaryId: doc.id,
+              }
+
+              beneficiaries.push(item)
+            })
+
+            this.beneficiaries = beneficiaries
+            this.loading = false
+          })
+        } catch (error) {
+          console.error(error)
+          this.$store.dispatch('setSnackbarAction', true)
+          this.$store.dispatch('setSnackbarDetailsAction', {
+            color: 'error',
+            text: 'Failed to load data! Please contact admin.',
+          })
+          this.loading = false
+          this.beneficiaries = []
+        }
+      } else {
+        this.loading = false
+        this.beneficiaries = BENEFICIARIES
+      }
+    },
+
     viewBeneficiary(beneficiary) {
       this.$router.push({
         name: 'ViewBeneficiaryView',

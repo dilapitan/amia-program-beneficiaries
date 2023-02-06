@@ -44,8 +44,18 @@ export const getBeneficiary = async (id) => {
 
 export const editBeneficiary = async (beneficiary) => {
   try {
-    const { part0, part1, part2, part3, part4, part5, part6, part7, part8 } =
-      beneficiary
+    const {
+      id,
+      part0,
+      part1,
+      part2,
+      part3,
+      part4,
+      part5,
+      part6,
+      part7,
+      part8,
+    } = beneficiary
 
     const beneficiaryRef = doc(db, 'beneficiaries', beneficiary.beneficiaryId)
     const docRef = await updateDoc(beneficiaryRef, {
@@ -294,7 +304,7 @@ export const editBeneficiary = async (beneficiary) => {
           part8.issuesOrConcernsOrProblemsInFarming,
       },
       userId: beneficiary.userId,
-      id: beneficiary.id,
+      id: id,
     })
     if (docRef) {
       return docRef

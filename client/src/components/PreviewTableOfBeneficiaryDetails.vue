@@ -131,7 +131,10 @@
       </div>
     </div>
 
-    <p v-else>Loading data...</p>
+    <p v-else class="text-center mt-10">
+      <v-progress-circular indeterminate color="primary" :size="50">
+      </v-progress-circular>
+    </p>
   </div>
 </template>
 

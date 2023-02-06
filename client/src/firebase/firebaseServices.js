@@ -47,7 +47,7 @@ export const editBeneficiary = async (beneficiary) => {
     const {
       part0,
       part1,
-      // part2,
+      part2,
       // part3,
       // part4,
       // part5,
@@ -74,26 +74,26 @@ export const editBeneficiary = async (beneficiary) => {
         nameOfFarmer: part1.nameOfFarmer,
         province: part1.province,
       },
-      // part2: {
-      //   age: part2.age,
-      //   gender: part2.gender,
-      //   civilStatus: part2.civilStatus,
-      //   religion: part2.religion,
-      //   belongingTo: part2.belongingTo,
-      //   householdMembers: part2.householdMembers,
-      //   yearsOfFarmingExperience: part2.yearsOfFarmingExperience,
-      //   highestEducationalAttainment: part2.highestEducationalAttainment,
-      //   languagesOrDialectsSpoken: part2.languagesOrDialectsSpoken,
-      //   mainSourceOfIncome: part2.mainSourceOfIncome,
-      //   otherSourcesOfIncome: part2.otherSourcesOfIncome,
-      //   averageGrossMonthlyIncomeOfHousehold:
-      //     part2.averageGrossMonthlyIncomeOfHousehold,
-      //   averageGrossMonthlyFarmIncome: part2.averageGrossMonthlyFarmIncome,
-      //   membershipInAFarmerGroupOrAssociationOrOrganization:
-      //     part2.membershipInAFarmerGroupOrAssociationOrOrganization,
-      //   enrolledInRegistrySystemForBasicSectorsInAgriculture:
-      //     part2.enrolledInRegistrySystemForBasicSectorsInAgriculture,
-      // },
+      part2: {
+        age: part2.age,
+        gender: part2.gender,
+        civilStatus: part2.civilStatus,
+        religion: part2.religion,
+        belongingTo: part2.belongingTo,
+        householdMembers: part2.householdMembers,
+        yearsOfFarmingExperience: part2.yearsOfFarmingExperience,
+        highestEducationalAttainment: part2.highestEducationalAttainment,
+        languagesOrDialectsSpoken: part2.languagesOrDialectsSpoken,
+        mainSourceOfIncome: part2.mainSourceOfIncome,
+        otherSourcesOfIncome: part2.otherSourcesOfIncome,
+        averageGrossMonthlyIncomeOfHousehold:
+          part2.averageGrossMonthlyIncomeOfHousehold,
+        averageGrossMonthlyFarmIncome: part2.averageGrossMonthlyFarmIncome,
+        membershipInAFarmerGroupOrAssociationOrOrganization:
+          part2.membershipInAFarmerGroupOrAssociationOrOrganization,
+        enrolledInRegistrySystemForBasicSectorsInAgriculture:
+          part2.enrolledInRegistrySystemForBasicSectorsInAgriculture,
+      },
       // part3: {
       //   totalAreaOfAgriculturalLand: part3.totalAreaOfAgriculturalLand,
       //   totalAreaOfForestryLand: part3.totalAreaOfForestryLand,

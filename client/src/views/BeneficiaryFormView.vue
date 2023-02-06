@@ -665,7 +665,7 @@ export default {
 
         if (this.currentBeneficiary !== undefined) {
           this.setPart0FormData(this.currentBeneficiary.part0)
-          // this.setPart1FormData(this.currentBeneficiary)
+          this.setPart1FormData(this.currentBeneficiary.part1)
           // this.setPart2FormData(this.currentBeneficiary)
           // this.setPart3FormData(this.currentBeneficiary)
           // this.setPart4FormData(this.currentBeneficiary)

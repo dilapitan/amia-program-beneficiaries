@@ -46,7 +46,7 @@ export const editBeneficiary = async (beneficiary) => {
   try {
     const {
       part0,
-      // part1,
+      part1,
       // part2,
       // part3,
       // part4,
@@ -66,14 +66,14 @@ export const editBeneficiary = async (beneficiary) => {
         nameOfInterviewer: part0.nameOfInterviewer,
         surveyNo: part0.surveyNo,
       },
-      // part1: {
-      //   barangay: part1.barangay,
-      //   cityOrMunicipality: part1.cityOrMunicipality,
-      //   contactNo: part1.contactNo,
-      //   farmersCodeNo: part1.farmersCodeNo,
-      //   nameOfFarmer: part1.nameOfFarmer,
-      //   province: part1.province,
-      // },
+      part1: {
+        barangay: part1.barangay,
+        cityOrMunicipality: part1.cityOrMunicipality,
+        contactNo: part1.contactNo,
+        farmersCodeNo: part1.farmersCodeNo,
+        nameOfFarmer: part1.nameOfFarmer,
+        province: part1.province,
+      },
       // part2: {
       //   age: part2.age,
       //   gender: part2.gender,

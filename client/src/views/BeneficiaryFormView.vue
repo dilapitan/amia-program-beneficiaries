@@ -40,12 +40,12 @@
           <br />
 
           <!-- 1 Farmer's Basic Information -->
-          <!-- <Part1Form
-          ref="part1Form"
-          :mode="mode"
-          :requiredRule="requiredRule"
-          :part1FormData="part1FormData"
-        /> -->
+          <Part1Form
+            ref="part1Form"
+            :mode="mode"
+            :requiredRule="requiredRule"
+            :part1FormData="part1FormData"
+          />
 
           <br />
           <v-divider></v-divider>
@@ -206,7 +206,7 @@
 
 <script>
 import Part0Form from '@/components/forms/Part0Form.vue'
-// import Part1Form from '@/components/forms/Part1Form.vue'
+import Part1Form from '@/components/forms/Part1Form.vue'
 // import Part2Form from '@/components/forms/Part2Form.vue'
 // import Part3Form from '@/components/forms/Part3Form.vue'
 // import Part4Form from '@/components/forms/Part4Form.vue'
@@ -229,7 +229,7 @@ export default {
 
   components: {
     Part0Form,
-    // Part1Form,
+    Part1Form,
     // Part2Form,
     // Part3Form,
     // Part4Form,
@@ -304,7 +304,7 @@ export default {
         } else {
           const {
             part0,
-            // part1,
+            part1,
             // part2,
             // part3,
             // part4,
@@ -320,13 +320,13 @@ export default {
             interviewEnd: part0.interviewEnd,
             nameOfInterviewer: part0.nameOfInterviewer,
 
-            // // Part 1
-            // province: part1.province,
-            // cityOrMunicipality: part1.cityOrMunicipality,
-            // barangay: part1.barangay,
-            // nameOfFarmer: part1.nameOfFarmer,
-            // contactNo: part1.contactNo,
-            // farmersCodeNo: part1.farmersCodeNo,
+            // Part 1
+            province: part1.province,
+            cityOrMunicipality: part1.cityOrMunicipality,
+            barangay: part1.barangay,
+            nameOfFarmer: part1.nameOfFarmer,
+            contactNo: part1.contactNo,
+            farmersCodeNo: part1.farmersCodeNo,
 
             // // Part 2
             // age: part2.age,
@@ -1099,7 +1099,7 @@ export default {
       // This is for adding the validation
       const valid = this.$refs.form.validate()
       const part0FormData = this.getPart0FormData()
-      // const part1FormData = this.getPart1FormData()
+      const part1FormData = this.getPart1FormData()
       // const part2FormData = this.getPart2FormData()
       // const part3FormData = this.getPart3FormData()
       // const part4FormData = this.getPart4FormData()
@@ -1113,15 +1113,15 @@ export default {
         const { date, interviewStart, interviewEnd, nameOfInterviewer } =
           part0FormData
 
-        // // Part 1
-        // const {
-        //   province,
-        //   cityOrMunicipality,
-        //   barangay,
-        //   nameOfFarmer,
-        //   contactNo,
-        //   farmersCodeNo,
-        // } = part1FormData
+        // Part 1
+        const {
+          province,
+          cityOrMunicipality,
+          barangay,
+          nameOfFarmer,
+          contactNo,
+          farmersCodeNo,
+        } = part1FormData
 
         // // Part 2
         // const {
@@ -1300,15 +1300,15 @@ export default {
             nameOfInterviewer,
           },
 
-          // // Part 1
-          // part1: {
-          //   province,
-          //   cityOrMunicipality,
-          //   barangay,
-          //   nameOfFarmer,
-          //   contactNo,
-          //   farmersCodeNo,
-          // },
+          // Part 1
+          part1: {
+            province,
+            cityOrMunicipality,
+            barangay,
+            nameOfFarmer,
+            contactNo,
+            farmersCodeNo,
+          },
 
           // // Part 2
           // part2: {

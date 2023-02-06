@@ -11,7 +11,7 @@
         dense
       ></v-data-table>
 
-      <!-- <br />
+      <br />
       <p>Part 1</p>
       <v-data-table
         :headers="headers"
@@ -23,7 +23,7 @@
         dense
       ></v-data-table>
 
-      <br />
+      <!-- <br />
       <p>Part 2</p>
       <v-data-table
         :headers="headers"
@@ -166,8 +166,7 @@ export default {
   computed: {
     loadedData() {
       return Boolean(
-        this.part0FormData
-        // this.part1FormData &&
+        this.part0FormData && this.part1FormData
         // this.part2FormData &&
         // this.part3FormData &&
         // this.part4FormData &&
@@ -183,7 +182,7 @@ export default {
     setData(beneficiaryDetails) {
       const {
         part0,
-        //  part1,
+        part1,
         //  part2,
         //  part3,
         //  part4,
@@ -202,15 +201,15 @@ export default {
         nameOfInterviewer,
       } = part0
 
-      // // Part 1
-      // const {
-      //   province,
-      //   cityOrMunicipality,
-      //   barangay,
-      //   nameOfFarmer,
-      //   contactNo,
-      //   farmersCodeNo,
-      // } = part1
+      // Part 1
+      const {
+        province,
+        cityOrMunicipality,
+        barangay,
+        nameOfFarmer,
+        contactNo,
+        farmersCodeNo,
+      } = part1
 
       // // Part 2
       // const {
@@ -381,14 +380,14 @@ export default {
         { label: 'Name of Interviewer', value: nameOfInterviewer },
       ]
 
-      // this.part1FormData = [
-      //   { label: '(1.1) Province', value: province },
-      //   { label: '(1.2) City/Municipality', value: cityOrMunicipality },
-      //   { label: '(1.3) Barangay', value: barangay },
-      //   { label: '(1.4) Name of Farmer', value: nameOfFarmer },
-      //   { label: '(1.5) Contact No.', value: contactNo },
-      //   { label: `(1.6) Farmer's Code No.`, value: farmersCodeNo },
-      // ]
+      this.part1FormData = [
+        { label: '(1.1) Province', value: province },
+        { label: '(1.2) City/Municipality', value: cityOrMunicipality },
+        { label: '(1.3) Barangay', value: barangay },
+        { label: '(1.4) Name of Farmer', value: nameOfFarmer },
+        { label: '(1.5) Contact No.', value: contactNo },
+        { label: `(1.6) Farmer's Code No.`, value: farmersCodeNo },
+      ]
 
       // this.part2FormData = [
       //   { label: '(2.1) Age', value: age },

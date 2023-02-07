@@ -8,28 +8,8 @@ import { auth } from '@/firebase/firebaseConfig'
 
 Vue.config.productionTip = false
 
-if (+process.env.VUE_APP_USE_FIREBASE) {
-  let app
-  auth.onAuthStateChanged((user) => {
-    store.dispatch('setUserAction', user).then(() => {
-      if (!app) {
-        app = new Vue({
-          router,
-          store,
-          vuetify,
-          render: (h) => h(App),
-        }).$mount('#app')
-      }
-    })
-  })
-} else {
-  // TODO: test this more
-  console.log('Using dummy data for ease of development.')
-  let app
-  const user = {
-    email: 'dummyemail@gmail.com',
-    userId: '123',
-  }
+let app
+auth.onAuthStateChanged((user) => {
   store.dispatch('setUserAction', user).then(() => {
     if (!app) {
       app = new Vue({
@@ -40,4 +20,4 @@ if (+process.env.VUE_APP_USE_FIREBASE) {
       }).$mount('#app')
     }
   })
-}
+})

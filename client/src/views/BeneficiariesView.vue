@@ -162,7 +162,7 @@ import { db } from '@/firebase/firebaseConfig'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
 import { deleteBeneficiary } from '@/firebase/firebaseServices'
-import { BENEFICIARIES } from '@/static/dummy_data'
+
 import { getProvincesOfRegion5 } from '@/helpers/locations'
 import { HEADERS } from '@/helpers/layout'
 export default {

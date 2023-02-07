@@ -300,16 +300,9 @@ export default {
     async deleteItemConfirm() {
       try {
         this.loading = true
-        if (+process.env.VUE_APP_USE_FIREBASE) {
-          const response = await deleteBeneficiary(this.deletedItem)
-          if (response === null) throw 'Something went wrong.'
-        } else {
-          const updatedBeneficiaries = this.beneficiaries.splice(
-            this.deletedIndex,
-            1
-          )
-          this.$store.dispatch('setBeneficiariesAction', updatedBeneficiaries)
-        }
+
+        const response = await deleteBeneficiary(this.deletedItem)
+        if (response === null) throw 'Something went wrong.'
 
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {

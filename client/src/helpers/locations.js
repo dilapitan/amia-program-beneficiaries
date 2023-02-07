@@ -84,6 +84,22 @@ const REGION_5 = [
   {
     province: 'CATANDUANES',
     municipalities: [
+      'Bagamanoc',
+      'Baras',
+      'Bato',
+      'Caramoran',
+      'Gigmoto',
+      'Pandan',
+      'Panganiban',
+      'San Andres',
+      'San Miguel',
+      'Viga',
+      'Virac',
+    ],
+  },
+  {
+    province: 'MASBATE',
+    municipalities: [
       'Aroroy',
       'Baleno',
       'Balud',
@@ -105,22 +121,6 @@ const REGION_5 = [
       'San Jacinto',
       'San Pascual',
       'Uson',
-    ],
-  },
-  {
-    province: 'MASBATE',
-    municipalities: [
-      'Bagamanoc',
-      'Baras',
-      'Bato',
-      'Caramoran',
-      'Gigmoto',
-      'Pandan',
-      'Panganiban',
-      'San Andres',
-      'San Miguel',
-      'Viga',
-      'Virac',
     ],
   },
   {

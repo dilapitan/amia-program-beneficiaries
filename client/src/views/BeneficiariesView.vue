@@ -205,67 +205,62 @@ export default {
 
   methods: {
     initialize() {
-      if (+process.env.VUE_APP_USE_FIREBASE) {
-        try {
-          this.loading = true
-          const q = query(
-            collection(db, 'beneficiaries'),
-            orderBy('createdAt', 'desc')
-          )
-          onSnapshot(q, (querySnapshot) => {
-            let beneficiaries = []
+      try {
+        this.loading = true
+        const q = query(
+          collection(db, 'beneficiaries'),
+          orderBy('createdAt', 'desc')
+        )
+        onSnapshot(q, (querySnapshot) => {
+          let beneficiaries = []
 
-            querySnapshot.forEach((doc) => {
-              const {
-                part0,
-                part1,
-                part2,
-                part3,
-                part4,
-                part5,
-                part6,
-                part7,
-                part8,
-                createdAt,
-                userId,
-                id,
-              } = doc.data()
+          querySnapshot.forEach((doc) => {
+            const {
+              part0,
+              part1,
+              part2,
+              part3,
+              part4,
+              part5,
+              part6,
+              part7,
+              part8,
+              createdAt,
+              userId,
+              id,
+            } = doc.data()
 
-              const item = {
-                ...part0,
-                ...part1,
-                ...part2,
-                ...part3,
-                ...part4,
-                ...part5,
-                ...part6,
-                ...part7,
-                ...part8,
-                createdAt,
-                userId,
-                id,
-                beneficiaryId: doc.id,
-              }
+            const item = {
+              ...part0,
+              ...part1,
+              ...part2,
+              ...part3,
+              ...part4,
+              ...part5,
+              ...part6,
+              ...part7,
+              ...part8,
+              createdAt,
+              userId,
+              id,
+              beneficiaryId: doc.id,
+            }
 
-              beneficiaries.push(item)
-            })
-
-            this.beneficiaries = beneficiaries
-            this.loading = false
+            beneficiaries.push(item)
           })
-        } catch (error) {
-          console.error(error)
-          this.$store.dispatch('setSnackbarAction', true)
-          this.$store.dispatch('setSnackbarDetailsAction', {
-            color: 'error',
-            text: 'Failed to load data! Please contact admin.',
-          })
+
+          this.beneficiaries = beneficiaries
           this.loading = false
-          this.beneficiaries = []
-        }
-      } else {
+        })
+      } catch (error) {
+        console.error(error)
+        this.$store.dispatch('setSnackbarAction', true)
+        this.$store.dispatch('setSnackbarDetailsAction', {
+          color: 'error',
+          text: 'Failed to load data! Please contact admin.',
+        })
         this.loading = false
-        this.beneficiaries = BENEFICIARIES
+        this.beneficiaries = []
       }
     },
 

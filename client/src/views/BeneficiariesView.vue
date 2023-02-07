@@ -292,12 +292,7 @@ export default {
     },
 
     deleteItem(item) {
-      if (+process.env.VUE_APP_USE_FIREBASE) {
-        this.deletedItem = item
-      } else {
-        this.deletedIndex = this.beneficiaries.indexOf(item)
-        this.deletedItem = Object.assign({}, item)
-      }
+      this.deletedItem = item
 
       this.dialogDelete = true
     },

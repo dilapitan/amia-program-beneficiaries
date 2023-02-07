@@ -221,8 +221,6 @@
 </template>
 
 <script>
-import { BENEFICIARIES } from '@/static/dummy_data'
-
 import { db } from '@/firebase/firebaseConfig'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 
@@ -274,59 +272,52 @@ export default {
       this.$store.dispatch('setGlobalLoaderAction', true)
 
       try {
-        if (+process.env.VUE_APP_USE_FIREBASE) {
-          const q = query(
-            collection(db, 'beneficiaries'),
-            orderBy('createdAt', 'desc')
-          )
+        const q = query(
+          collection(db, 'beneficiaries'),
+          orderBy('createdAt', 'desc')
+        )
 
-          onSnapshot(q, (querySnapshot) => {
-            let beneficiaries = []
+        onSnapshot(q, (querySnapshot) => {
+          let beneficiaries = []
 
-            querySnapshot.forEach((doc) => {
-              const {
-                part0,
-                part1,
-                part2,
-                part3,
-                part4,
-                part5,
-                part6,
-                part7,
-                part8,
-                createdAt,
-                userId,
-                id,
-              } = doc.data()
+          querySnapshot.forEach((doc) => {
+            const {
+              part0,
+              part1,
+              part2,
+              part3,
+              part4,
+              part5,
+              part6,
+              part7,
+              part8,
+              createdAt,
+              userId,
+              id,
+            } = doc.data()
 
-              const item = {
-                ...part0,
-                ...part1,
-                ...part2,
-                ...part3,
-                ...part4,
-                ...part5,
-                ...part6,
-                ...part7,
-                ...part8,
-                createdAt,
-                userId,
-                id,
-                beneficiaryId: doc.id,
-              }
+            const item = {
+              ...part0,
+              ...part1,
+              ...part2,
+              ...part3,
+              ...part4,
+              ...part5,
+              ...part6,
+              ...part7,
+              ...part8,
+              createdAt,
+              userId,
+              id,
+              beneficiaryId: doc.id,
+            }
 
-              beneficiaries.push(item)
-            })
-
-            this.$store.dispatch('setBeneficiariesAction', beneficiaries)
-            this.setProvincesWithTheirBeneficiaries(beneficiaries)
+            beneficiaries.push(item)
           })
-        } else {
-          let beneficiaries
-          beneficiaries = BENEFICIARIES
+
           this.$store.dispatch('setBeneficiariesAction', beneficiaries)
           this.setProvincesWithTheirBeneficiaries(beneficiaries)
-        }
+        })
       } catch (error) {
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {

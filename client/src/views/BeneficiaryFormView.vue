@@ -322,50 +322,13 @@ export default {
         this.loading = true
         this.dialog = false
 
-        if (+process.env.VUE_APP_USE_FIREBASE) {
-          const updatedBeneficiary = {
-            beneficiaryId: this.currentBeneficiary.beneficiaryId,
-            userId: this.currentBeneficiary.userId,
-            ...this.newBeneficiary,
-          }
-
-          await editBeneficiary(updatedBeneficiary)
-        } else {
-          this.currentBeneficiaryIndex = this.beneficiaries.indexOf(
-            this.currentBeneficiary
-          )
-
-          if (this.currentBeneficiaryIndex > -1) {
-            const { part0, part1 } = this.newBeneficiary
-            const beneficiaryForLocal = {
-              // Part 0
-              date: part0.date,
-              interviewStart: part0.interviewStart,
-              interviewEnd: part0.interviewEnd,
-              nameOfInterviewer: part0.nameOfInterviewer,
-
-              // Part 1
-              province: part1.province,
-              cityOrMunicipality: part1.cityOrMunicipality,
-              barangay: part1.barangay,
-              nameOfFarmer: part1.nameOfFarmer,
-              contactNo: part1.contactNo,
-              farmersCodeNo: part1.farmersCodeNo,
-              // the Rest
-              ...this.newBeneficiary,
-            }
-
-            Object.assign(
-              this.beneficiaries[this.currentBeneficiaryIndex],
-              beneficiaryForLocal
-            )
-
-            this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-          } else {
-            this.beneficiaries.push(this.newBeneficiary)
-            this.$store.dispatch('setBeneficiariesAction', this.beneficiaries)
-          }
+        const updatedBeneficiary = {
+          beneficiaryId: this.currentBeneficiary.beneficiaryId,
+          userId: this.currentBeneficiary.userId,
+          ...this.newBeneficiary,
         }
+
+        await editBeneficiary(updatedBeneficiary)
 
         this.$store.dispatch('setSnackbarAction', true)
         this.$store.dispatch('setSnackbarDetailsAction', {

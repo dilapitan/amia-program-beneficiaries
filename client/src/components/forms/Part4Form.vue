@@ -52,7 +52,6 @@
                     dense
                     clearable
                     v-model="cropsProduced"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -77,7 +76,6 @@
                     dense
                     clearable
                     v-model="landAreaDevotedForCropProduction"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -110,7 +108,6 @@
                     dense
                     clearable
                     v-model="livestockRaisedOrProduced"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -135,7 +132,6 @@
                     dense
                     clearable
                     v-model="landAreaDevotedForLivestockProduction"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -168,7 +164,6 @@
                     dense
                     clearable
                     v-model="speciesGrownForAquaculture"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -193,7 +188,6 @@
                     dense
                     clearable
                     v-model="landAreaDevotedForAquaculture"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -218,7 +212,6 @@
                     dense
                     clearable
                     v-model="sourceOfWaterForAquaculture"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Please specify"
                   ></v-text-field>
@@ -241,7 +234,6 @@
                   dense
                   clearable
                   v-model="agriBasedProductDevelopmentSpecify"
-                  :rules="requiredRule"
                   :disabled="mode === 'VIEW'"
                   label="Please specify"
                 ></v-text-field>
@@ -259,7 +251,6 @@
             :items="croppingPatternOptions"
             label="Select option"
             v-model="croppingPattern"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
@@ -300,7 +291,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarWetSeasonLandPreparation"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -317,7 +307,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarWetSeasonPlanting"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -334,7 +323,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarWetSeasonGrowing"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -351,7 +339,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarWetSeasonHarvesting"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -374,7 +361,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarDrySeasonLandPreparation"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -391,7 +377,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarDrySeasonPlanting"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -408,7 +393,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarDrySeasonGrowing"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -425,7 +409,6 @@
             <v-col class="ma-0 pa-0" cols="12" sm="4">
               <v-combobox
                 v-model="cropCalendarDrySeasonHarvesting"
-                :rules="[requiredRuleVComboBox]"
                 :items="months"
                 label="Select month(s)"
                 :disabled="mode === 'VIEW'"
@@ -450,7 +433,6 @@
               dense
               clearable
               v-model="estimatedGrossIncomePerCroppingFirstCropping"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
@@ -460,7 +442,6 @@
               dense
               clearable
               v-model="estimatedGrossIncomePerCroppingSecondCropping"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>

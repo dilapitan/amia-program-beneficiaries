@@ -30,7 +30,6 @@
             dense
             clearable
             v-model="totalNumberOfTrainingsAttended"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </v-col>
@@ -46,7 +45,6 @@
             v-model="
               sourceOfInformationRelatedToImprovingAgriculturalProduction
             "
-            :rules="[requiredRuleVComboBox]"
             :disabled="mode === 'VIEW'"
             :items="sourceOfInformationOptions"
             label="Select options"
@@ -69,7 +67,6 @@
             v-model="
               sourceOfInformationRelatedToImprovingAgriculturalProductionSpecify
             "
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
             label="Please specify"
           ></v-text-field>
@@ -87,7 +84,6 @@
             v-model="
               sourceOfInformationRelatedToImprovingAgriculturalProductProcessing
             "
-            :rules="[requiredRuleVComboBox]"
             :disabled="mode === 'VIEW'"
             :items="sourceOfInformationOptions"
             label="Select options"
@@ -110,7 +106,6 @@
             v-model="
               sourceOfInformationRelatedToImprovingAgriculturalProductProcessingSpecify
             "
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
             label="Please specify"
           ></v-text-field>
@@ -125,7 +120,6 @@
         <v-col class="ma-0 pa-0" cols="12" sm="4">
           <v-combobox
             v-model="sourceOfClimateAndWeatherInformation"
-            :rules="[requiredRuleVComboBox]"
             :disabled="mode === 'VIEW'"
             :items="sourceOfInformationOptions"
             label="Select options"
@@ -142,7 +136,6 @@
             dense
             clearable
             v-model="sourceOfClimateAndWeatherInformationSpecify"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
             label="Please specify"
           ></v-text-field>
@@ -160,7 +153,6 @@
             :items="generalThreeChoice"
             label="Select option"
             v-model="observedAnyLongTermChangesInClimate"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -338,7 +330,6 @@
             :items="generalThreeChoice"
             label="Select option"
             v-model="observedAnyChangeInTheOnsetOfDrySeason"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -354,7 +345,6 @@
             :items="generalThreeChoice"
             label="Select option"
             v-model="observedAnyChangeInTheOnsetOfWetSeason"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -370,7 +360,6 @@
             :items="descriptionOfChangesInClimateOptions"
             label="Select option"
             v-model="descriptionOfChangeInTemperature"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -386,7 +375,6 @@
             :items="descriptionOfChangesInClimateOptions"
             label="Select option"
             v-model="descriptionOfChangeInRainfallDuration"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -402,7 +390,6 @@
             :items="descriptionOfChangesInClimateOptions"
             label="Select option"
             v-model="descriptionOfChangeInRainfallTiming"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -418,7 +405,6 @@
             :items="descriptionOfChangesInClimateOptions"
             label="Select option"
             v-model="descriptionOfChangeInRainfallIntensity"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -434,7 +420,6 @@
             :items="descriptionOfChangesInClimateOptions"
             label="Select option"
             v-model="descriptionOfChangeInNumberOfWeatherEvents"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -466,7 +451,6 @@
               v-if="perceivedEffectsOrImpactsOfChangeInTimingOfRainsBool"
               dense
               v-model="perceivedEffectsOrImpactsOfChangeInTimingOfRains"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -493,7 +477,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfAbruptChangeInSeasonsOrChangesInGrowingSeason
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -514,7 +497,6 @@
               v-if="perceivedEffectsOrImpactsOfReducedCroppingSeasonBool"
               dense
               v-model="perceivedEffectsOrImpactsOfReducedCroppingSeason"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -541,7 +523,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfIncreasedFrequencyOfDroughtAndCropFailure
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -568,7 +549,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfIncreasedFrequencyOfFloodsAndFarmDestructions
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -589,7 +569,6 @@
               v-if="perceivedEffectsOrImpactsOfPostharvestLossesBool"
               dense
               v-model="perceivedEffectsOrImpactsOfPostharvestLosses"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -610,7 +589,6 @@
               v-if="perceivedEffectsOrImpactsOfPestInvasionBool"
               dense
               v-model="perceivedEffectsOrImpactsOfPestInvasion"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -633,7 +611,6 @@
               v-if="perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseasesBool"
               dense
               v-model="perceivedEffectsOrImpactsOfPrevalenceOfPestsAndDiseases"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -654,7 +631,6 @@
               v-if="perceivedEffectsOrImpactsOfPovertyAndFoodShortagesBool"
               dense
               v-model="perceivedEffectsOrImpactsOfPovertyAndFoodShortages"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -675,7 +651,6 @@
               v-if="perceivedEffectsOrImpactsOfLackOfPotableWaterBool"
               dense
               v-model="perceivedEffectsOrImpactsOfLackOfPotableWater"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -702,7 +677,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfReducedVolumeOfIrrigationWater
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -723,7 +697,6 @@
               v-if="perceivedEffectsOrImpactsOfErosionsBool"
               dense
               v-model="perceivedEffectsOrImpactsOfErosions"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -750,7 +723,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfExtinctionOfFishesAndAquaticLife
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -777,7 +749,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfExtinctionOfSomeCropsAndCropVarieties
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -798,7 +769,6 @@
               v-if="perceivedEffectsOrImpactsOfDeathOfLivestockBool"
               dense
               v-model="perceivedEffectsOrImpactsOfDeathOfLivestock"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -821,7 +791,6 @@
               v-if="perceivedEffectsOrImpactsOfDecreasedLivestockProductionBool"
               dense
               v-model="perceivedEffectsOrImpactsOfDecreasedLivestockProduction"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -846,7 +815,6 @@
               "
               dense
               v-model="perceivedEffectsOrImpactsOfRisingCostOfFarmingAndFishing"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -873,7 +841,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfDestructionOfFarmRoadsAndHomes
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -894,7 +861,6 @@
               v-if="perceivedEffectsOrImpactsOfRuralUrbanMigrationBool"
               dense
               v-model="perceivedEffectsOrImpactsOfRuralUrbanMigration"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -915,7 +881,6 @@
               v-if="perceivedEffectsOrImpactsOfSiltationOfWaterBodiesBool"
               dense
               v-model="perceivedEffectsOrImpactsOfSiltationOfWaterBodies"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -942,7 +907,6 @@
               v-model="
                 perceivedEffectsOrImpactsOfDisappearanceOfVegetationCover
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -973,7 +937,6 @@
                     dense
                     clearable
                     v-model="item.effectsOrImpact"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Effect or Impact"
                   ></v-text-field
@@ -983,7 +946,6 @@
                     :items="fivePointScale"
                     dense
                     v-model="item.rate"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Rate"
                   ></v-select>
@@ -1037,7 +999,6 @@
             filled
             clearable
             v-model="observedMainOpportunitiesOfLongTermChangesInClimate"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-textarea>
         </v-col>
@@ -1069,7 +1030,6 @@
               v-if="driversOfChangeAndVulnerabilityOfLandDegredationBool"
               dense
               v-model="driversOfChangeAndVulnerabilityOfLandDegredation"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -1096,7 +1056,6 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfUnexpectedChangesInInputPrices
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -1123,7 +1082,6 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfUnexpectedChangesInProductPrices
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -1150,7 +1108,6 @@
               v-model="
                 driversOfChangeAndVulnerabilityOfRisksForDiseasesAndPestsAffectingCropAndAnimals
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -1183,7 +1140,6 @@
                     dense
                     clearable
                     v-model="item.effectsOrImpact"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Effect or Impact"
                   ></v-text-field
@@ -1193,7 +1149,6 @@
                     :items="fivePointScale"
                     dense
                     v-model="item.rate"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Rate"
                   ></v-select>

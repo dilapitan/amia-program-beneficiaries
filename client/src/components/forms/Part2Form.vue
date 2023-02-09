@@ -14,7 +14,6 @@
             dense
             clearable
             v-model="age"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -28,7 +27,6 @@
             class="middle-length-select"
             :items="genderOptions"
             label="Select option"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
@@ -42,7 +40,6 @@
             class="middle-length-select"
             :items="civilStatusOptions"
             label="Select option"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
@@ -55,7 +52,6 @@
             dense
             clearable
             v-model="religion"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -70,7 +66,6 @@
             :items="belongingToOptions"
             label="Select option"
             v-model="belongingTo"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
@@ -88,7 +83,6 @@
               clearable
               v-model="belongingToSpecify"
               label="Please specify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
@@ -115,7 +109,6 @@
                 clearable
                 v-model="householdMember.name"
                 label="Name"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
               ></v-text-field
             ></v-col>
@@ -126,7 +119,6 @@
                 clearable
                 v-model="householdMember.age"
                 label="Age"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
               ></v-text-field>
             </v-col>
@@ -136,7 +128,6 @@
                 class="mr-4 middle-length-select"
                 :items="genderOptions"
                 label="Select option"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
               ></v-select>
             </v-col>
@@ -147,7 +138,6 @@
                 clearable
                 v-model="householdMember.relationToTheRespondent"
                 label="Relation to Respondent"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
               ></v-text-field>
             </v-col>
@@ -193,7 +183,6 @@
             dense
             clearable
             v-model="yearsOfFarmingExperience"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -209,7 +198,6 @@
             :items="highestEducationalAttainmentOptions"
             label="Select option"
             v-model="highestEducationalAttainment"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -227,7 +215,6 @@
               clearable
               v-model="highestEducationalAttainmentSpecify"
               label="Please specify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
             ></v-text-field>
           </div>
@@ -242,7 +229,6 @@
             dense
             clearable
             v-model="languagesOrDialectsSpoken"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -258,7 +244,6 @@
             :items="mainSourceOfIncomeOptions"
             label="Select option"
             v-model="mainSourceOfIncome"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -279,7 +264,6 @@
               dense
               clearable
               v-model="mainSourceOfIncomeSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -295,7 +279,6 @@
         <v-col cols="12" sm="6">
           <v-combobox
             v-model="otherSourcesOfIncome"
-            :rules="[requiredRuleVComboBox]"
             :items="otherSourcesOfIncomeList"
             label="Select options"
             multiple
@@ -317,7 +300,6 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeRegularJobSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify Regular Job"
             ></v-text-field>
@@ -330,7 +312,6 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeOwnBusinessSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify Own Business"
             ></v-text-field>
@@ -343,7 +324,6 @@
               dense
               clearable
               v-model="otherSourcesOfIncomeOthersSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify Other source of income"
             ></v-text-field>
@@ -361,7 +341,6 @@
             :items="averageGrossMonthlyIncomeOfHouseholdOptions"
             label="Select option"
             v-model="averageGrossMonthlyIncomeOfHousehold"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>
@@ -377,7 +356,6 @@
             :items="averageGrossMonthlyFarmIncomeOptions"
             label="Select option"
             v-model="averageGrossMonthlyFarmIncome"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </v-col>

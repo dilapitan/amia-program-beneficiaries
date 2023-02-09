@@ -15,7 +15,6 @@
         <v-col cols="12" sm="10">
           <v-combobox
             v-model="issuesOrConcernsOrProblemsInFarming"
-            :rules="[requiredRuleVComboBox]"
             :items="issuesOrConcernsOrProblemsInFarmingList"
             :disabled="mode === 'VIEW'"
             label="Select options"
@@ -45,7 +44,6 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingLowCropProductionSpecify
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify crops"
             ></v-text-field>
@@ -66,7 +64,6 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingLowLivestockProductionSpecify
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify livestock"
             ></v-text-field>
@@ -87,7 +84,6 @@
               v-model="
                 issuesOrConcernsOrProblemsInFarmingDroughtOrLackOfMoistureSpecify
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify season"
             ></v-select>
@@ -100,7 +96,6 @@
               dense
               clearable
               v-model="issuesOrConcernsOrProblemsInFarmingOthersSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify the other issue(s)"
             ></v-text-field>

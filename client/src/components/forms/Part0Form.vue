@@ -40,7 +40,6 @@
                 readonly
                 v-bind="attrs"
                 v-on="on"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
               ></v-text-field>
             </template>
@@ -68,7 +67,6 @@
             dense
             clearable
             v-model="interviewStart"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -85,7 +83,6 @@
             dense
             clearable
             v-model="interviewEnd"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -103,7 +100,6 @@
             dense
             clearable
             v-model="nameOfInterviewer"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>

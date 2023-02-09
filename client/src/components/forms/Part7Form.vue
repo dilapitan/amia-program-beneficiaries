@@ -31,7 +31,6 @@
               dense
               clearable
               v-model="accessToAgricultureOrFisheriesRnDInstitutions"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -52,7 +51,6 @@
               dense
               clearable
               v-model="accessToCredit"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -73,7 +71,6 @@
               dense
               clearable
               v-model="laboratoryFacilities"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -94,7 +91,6 @@
               dense
               clearable
               v-model="educationAndHealthFacilities"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -121,7 +117,6 @@
               v-model="
                 farmersGroupsAssociationsCooperativesNonGovernmentOrganizationsIrrigatorsAssociations
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -140,7 +135,6 @@
             <v-combobox
               v-if="marketingSystemBool"
               v-model="marketingSystem"
-              :rules="[requiredRuleVComboBox]"
               :disabled="mode === 'VIEW'"
               :items="marketingSystemList"
               label="Select options"
@@ -159,7 +153,6 @@
               dense
               clearable
               v-model="marketingSystemSpecify"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -180,7 +173,6 @@
               dense
               clearable
               v-model="presenceOfAgriculturalProcessingFacilities"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -201,7 +193,6 @@
               dense
               clearable
               v-model="irrigation"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -222,7 +213,6 @@
               dense
               clearable
               v-model="farmingEquipment"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>
@@ -243,7 +233,6 @@
               dense
               clearable
               v-model="others"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Please specify"
             ></v-text-field>

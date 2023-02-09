@@ -15,7 +15,6 @@
             item-text="province"
             label="Select a province"
             v-model="province"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-select>
         </div>
@@ -29,7 +28,6 @@
             :items="cityOrMunicipalityList"
             dense
             v-model="cityOrMunicipality"
-            :rules="requiredRule"
           ></v-select>
         </div>
       </div>
@@ -42,7 +40,6 @@
             dense
             clearable
             v-model="barangay"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -56,7 +53,6 @@
             dense
             clearable
             v-model="nameOfFarmer"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -69,7 +65,6 @@
             dense
             clearable
             v-model="contactNo"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>
@@ -82,7 +77,6 @@
             dense
             clearable
             v-model="farmersCodeNo"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-text-field>
         </div>

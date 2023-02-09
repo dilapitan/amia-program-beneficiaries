@@ -40,7 +40,6 @@
             :items="
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallList
             "
-            :rules="[requiredRuleVComboBox]"
             :disabled="mode === 'VIEW'"
             label="Select options"
             multiple
@@ -62,7 +61,6 @@
             v-model="
               changesOrAdjustmentsMadeInFarmingInResponseToLongTermShiftsInTemperatureAndRainfallSpecify
             "
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
             label="Please specify"
           ></v-text-field>
@@ -81,7 +79,6 @@
             filled
             clearable
             v-model="additionalAdaptationMeasuresBeingConsideredInTheFuture"
-            :rules="requiredRule"
             :disabled="mode === 'VIEW'"
           ></v-textarea>
         </v-col>
@@ -136,7 +133,6 @@
               <v-text-field
                 v-if="formOfFinancialSupportReceivedBool"
                 v-model="formOfFinancialSupportReceived"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 label="Please specify"
@@ -157,7 +153,6 @@
               <v-text-field
                 v-if="formOfMaterialSupportReceivedBool"
                 v-model="formOfMaterialSupportReceived"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 clearable
@@ -178,7 +173,6 @@
               <v-text-field
                 v-if="formOfExtensionServicesSupportReceivedBool"
                 v-model="formOfExtensionServicesSupportReceived"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 clearable
@@ -205,7 +199,6 @@
                 v-model="
                   farmingFishingAdvisoriesBasedOnWeatherAndClimateSupportReceived
                 "
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 clearable
@@ -226,7 +219,6 @@
               <v-text-field
                 v-if="formOfInfrastructureSupportReceivedBool"
                 v-model="formOfInfrastructureSupportReceived"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 clearable
@@ -247,7 +239,6 @@
               <v-text-field
                 v-if="formOfOtherSupportReceivedBool"
                 v-model="formOfOtherSupportReceived"
-                :rules="requiredRule"
                 :disabled="mode === 'VIEW'"
                 dense
                 clearable
@@ -283,7 +274,6 @@
                   dense
                   clearable
                   v-model="item.mostBeneficialSupportService"
-                  :rules="requiredRule"
                   :disabled="mode === 'VIEW'"
                   label="Support services considered as most beneficial"
                 ></v-text-field
@@ -294,7 +284,6 @@
                   dense
                   clearable
                   v-model="item.reasonWhyMostBeneficialSupportService"
-                  :rules="requiredRule"
                   :disabled="mode === 'VIEW'"
                   label="Reasons why support service is beneficial"
                 ></v-text-field
@@ -360,7 +349,6 @@
               v-if="lowEducationLevelConstraintBool"
               dense
               v-model="lowEducationLevelConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -381,7 +369,6 @@
               v-if="limitedAccessToInformationConstraintBool"
               dense
               v-model="limitedAccessToInformationConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -402,7 +389,6 @@
               v-if="lackOfExtensionServicesConstraintBool"
               dense
               v-model="lackOfExtensionServicesConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -429,7 +415,6 @@
               v-model="
                 craOptionsNotCompatibleWithCommunityNormsAndValuesConstraint
               "
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -450,7 +435,6 @@
               v-if="inadequateCapitalConstraintBool"
               dense
               v-model="inadequateCapitalConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -471,7 +455,6 @@
               v-if="noAccessToWaterForIrrigationConstraintBool"
               dense
               v-model="noAccessToWaterForIrrigationConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -492,7 +475,6 @@
               v-if="noAccessToCreditConstraintConstraintBool"
               dense
               v-model="noAccessToCreditConstraintConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -513,7 +495,6 @@
               v-if="longerTimeRequiredToSeeResultsConstraintBool"
               dense
               v-model="longerTimeRequiredToSeeResultsConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -534,7 +515,6 @@
               v-if="oldAgeConstraintBool"
               dense
               v-model="oldAgeConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -555,7 +535,6 @@
               v-if="landTenureOrLandOwnershipIssuesConstraintBool"
               dense
               v-model="landTenureOrLandOwnershipIssuesConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -576,7 +555,6 @@
               v-if="landTopographyNotSuitableConstraintBool"
               dense
               v-model="landTopographyNotSuitableConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -597,7 +575,6 @@
               v-if="laborIntensiveOrNonAvailabilityOfLaborConstraintBool"
               dense
               v-model="laborIntensiveOrNonAvailabilityOfLaborConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -618,7 +595,6 @@
               v-if="infertileSoilConstraintBool"
               dense
               v-model="infertileSoilConstraint"
-              :rules="requiredRule"
               :disabled="mode === 'VIEW'"
               label="Rate"
             ></v-select>
@@ -646,7 +622,6 @@
                     dense
                     clearable
                     v-model="item.mainConstraintsOrDifficulties"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Main Constraint/Difficulties"
                   ></v-text-field
@@ -656,7 +631,6 @@
                     :items="threePointScale"
                     dense
                     v-model="item.rate"
-                    :rules="requiredRule"
                     :disabled="mode === 'VIEW'"
                     label="Rate"
                   ></v-select>

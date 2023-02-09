@@ -450,6 +450,7 @@ export default {
       'Person with Disability',
       'Indigenous People',
       '4Ps beneficiary (including household members)',
+      'Not Applicable (N/A)',
     ],
     householdMembersList: [
       {

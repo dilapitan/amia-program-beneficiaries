@@ -126,23 +126,25 @@
         </v-col>
       </v-row>
 
-      <div class="d-flex align-baseline" cols="12" sm="12" md="6">
-        <div class="mr-2 text-body-2">(3.8) Irrigation Source:</div>
+      <div class="d-flex align-baseline mt-3" cols="12" sm="12" md="6">
+        <div class="mr- text-body-2">(3.8) Irrigation Source:</div>
 
         <div>
-          <v-select
+          <v-combobox
             :items="irrigationSourceOptions"
             label="Select option"
             v-model="irrigationSource"
+            multiple
+            dense
             :disabled="mode === 'VIEW'"
-          ></v-select>
+          ></v-combobox>
         </div>
       </div>
 
       <v-row
-        v-if="irrigationSource === 'Others'"
-        class="ml-3"
-        :class="{ 'mt-2': $vuetify.breakpoint.xsOnly }"
+        v-if="irrigationSource.includes('Others')"
+        class="ml-3 mt-2"
+        :class="{ 'mt-5': $vuetify.breakpoint.xsOnly }"
       >
         <v-col cols="12" sm="6" md="3">
           <div>
@@ -241,7 +243,7 @@
 </template>
 
 <script>
-import { getParenthesisValue, stringifyMonths } from '@/helpers'
+import { getParenthesisValue, parenthesize, stringifyMonths } from '@/helpers'
 
 export default {
   data: () => ({
@@ -253,7 +255,7 @@ export default {
     distanceFromLandToWaterSource: null,
     distanceFromMarketNearestPavedRoad: null,
     distanceFromMarketOrTradingPost: null,
-    irrigationSource: null,
+    irrigationSource: [],
     irrigationSourceOthersSpecify: null,
     monthsWithoutRain: [],
     positionInTheLandscape: null,
@@ -305,11 +307,27 @@ export default {
   },
 
   methods: {
-    passForm3Data() {
-      if (this.irrigationSourceOthersSpecify) {
-        this.irrigationSource = `${this.irrigationSource} (${this.irrigationSourceOthersSpecify})`
-      }
+    stringifyArray(array) {
+      let stringified = ''
 
+      array.map((source, index) => {
+        stringified = stringified.concat(source)
+
+        if (source === 'Others') {
+          stringified = stringified
+            .concat(' ')
+            .concat(parenthesize(this.irrigationSourceOthersSpecify))
+        }
+
+        if (index < array.length - 1) {
+          stringified = stringified.concat(', ')
+        }
+      })
+
+      return stringified
+    },
+
+    passForm3Data() {
       const part3Data = {
         totalAreaOfAgriculturalLand: this.totalAreaOfAgriculturalLand,
         totalAreaOfForestryLand: this.totalAreaOfForestryLand,
@@ -319,7 +337,7 @@ export default {
         distanceFromMarketNearestPavedRoad:
           this.distanceFromMarketNearestPavedRoad,
         distanceFromMarketOrTradingPost: this.distanceFromMarketOrTradingPost,
-        irrigationSource: this.irrigationSource,
+        irrigationSource: this.stringifyArray(this.irrigationSource),
         monthsWithoutRain: stringifyMonths(this.monthsWithoutRain),
         positionInTheLandscape: this.positionInTheLandscape,
         locationOfFarm: this.locationOfFarm,
@@ -357,13 +375,23 @@ export default {
       this.distanceFromMarketNearestPavedRoad =
         distanceFromMarketNearestPavedRoad
       this.distanceFromMarketOrTradingPost = distanceFromMarketOrTradingPost
-      this.irrigationSource = irrigationSource.includes('Others')
-        ? 'Others'
-        : irrigationSource
 
-      this.irrigationSourceOthersSpecify =
-        irrigationSource.includes('Others') &&
-        getParenthesisValue(irrigationSource).specificValue
+      const irrigationSourceParsed = irrigationSource.split(',')
+      const _irrigationSource = []
+      irrigationSourceParsed.map((item) => {
+        if (item.split('(').length > 1) {
+          const parsed = getParenthesisValue(item)
+          _irrigationSource.push(parsed.mainValue)
+
+          if (parsed.mainValue === 'Others') {
+            this.irrigationSourceOthersSpecify = parsed.specificValue
+          }
+        } else {
+          _irrigationSource.push(item)
+        }
+      })
+
+      this.irrigationSource = _irrigationSource
 
       this.monthsWithoutRain = monthsWithoutRain
         .split(',')
@@ -378,7 +406,7 @@ export default {
   },
   watch: {
     irrigationSource() {
-      if (this.irrigationSource !== 'Others')
+      if (!this.irrigationSource.includes('Others'))
         this.irrigationSourceOthersSpecify = null
     },
   },

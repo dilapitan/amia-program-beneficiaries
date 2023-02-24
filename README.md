@@ -15,6 +15,15 @@ Vue handles the user interface while Firebase handles the backend services the U
 
 ## Project setup
 
+The repository contains a **client** folder is the codebase for the user interface/front end.
+Since the application connects to a serverless backend using Firebase, there's no codebase for the backend.
+
+If in the future the application is to be extended and use a different architecture for the backend, that codebase can be placed on the level of the **client** folder.
+
+├── README.md\
+└── client
+└── (backend folder if chose a different architecture for the backend)
+
 ## How to develop the Application
 
 ## How to use the Application

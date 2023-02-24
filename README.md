@@ -7,7 +7,7 @@ Vue handles the user interface while Firebase handles the backend services the U
 
 ## Technologies Used
 
-- [VueJS 2](https://vuejs.org/)
+- [Vue 2](https://vuejs.org/)
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue Router](https://router.vuejs.org/)
 - [Vuetify](https://vuetifyjs.com/en/)

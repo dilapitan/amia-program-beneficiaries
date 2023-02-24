@@ -13,7 +13,7 @@ Vue handles the user interface while Firebase handles the backend services the U
 - [Vuetify](https://vuetifyjs.com/en/)
 - [Firebase](https://firebase.google.com/)
 
-## Project setup
+## What's in the repository
 
 The repository contains a **client** folder is the codebase for the user interface/front end.
 Since the application connects to a serverless backend using Firebase, there's no codebase for the backend.

@@ -50,6 +50,8 @@ yarn serve
 
 6. Open the application in http://localhost:8080/.
 
+> Note: For the developer to login into the application, please contact the admin or email me at domlapitan@gmail.com. The application uses Firestore, and only the admins in the Firestore can login into the application.
+
 ## How to use the Application
 
 ###### Public Usage

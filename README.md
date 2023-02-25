@@ -74,6 +74,10 @@ yarn serve
 
 - The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
 
+**LOGOUT**
+
+- The authenticated user can logout of the application.
+
 ## Issues
 
 Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.

@@ -74,6 +74,26 @@ yarn serve
 
 - The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
 
+**VIEW beneficiary**
+
+- The admin can view all the details of a selected beneficiary
+
+**VIEW beneficiaries**
+
+- The admin can view all the beneficiaries and their details in a tabular form
+
+**ADD beneficiary**
+
+- The admin can add a beneficiary to the system
+
+**EDIT beneficiary**
+
+- The admin can edit the details of a beneficiary
+
+**DELETE beneficiary**
+
+- The admin can delete a beneficiary in the system
+
 **LOGOUT**
 
 - The authenticated user can logout of the application.

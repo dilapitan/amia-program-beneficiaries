@@ -35,6 +35,8 @@ The application is developed using [Node](https://nodejs.org/en/) version v16.14
 yarn install
 ```
 
+Alternatively, you can use `npm i` for using [npm](https://www.npmjs.com/).
+
 ## How to use the Application
 
 ###### Public Usage

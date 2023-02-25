@@ -20,8 +20,10 @@ Since the application connects to a serverless backend using Firebase, there's n
 
 If in the future the application is to be extended and use a different architecture for the backend, that codebase can be placed on the level of the **client** folder.
 
-└── README.md\
+.\
+├── README.md\
 └── client\
+
 └── (backend folder if chose a different architecture for the backend)
 
 ## How to develop the Application

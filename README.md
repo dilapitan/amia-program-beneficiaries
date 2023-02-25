@@ -28,6 +28,13 @@ If in the future the application is to be extended and use a different architect
 
 The application is developed using [Node](https://nodejs.org/en/) version v16.14.2. Ran using [Yarn](https://yarnpkg.com/) version 1.22.4.
 
+1. Open terminal and pull the repository.
+2. Go to `client` folder and install the following command:
+
+```
+yarn install # npm i for using npm
+```
+
 ## How to use the Application
 
 ###### Public Usage

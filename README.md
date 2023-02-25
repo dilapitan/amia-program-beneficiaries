@@ -22,7 +22,7 @@ If in the future the application is to be extended and use a different architect
 
 .\
 ├── README.md\
-└── client\
+└── client
 
 └── (backend folder if chose a different architecture for the backend)
 

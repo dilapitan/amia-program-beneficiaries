@@ -37,6 +37,8 @@ yarn install
 
 > Alternatively, you can use `npm i` for using [npm](https://www.npmjs.com/).
 
+3. Create `.env` under the `client` folder, and copy the contents of the `env-example`.
+
 ## How to use the Application
 
 ###### Public Usage

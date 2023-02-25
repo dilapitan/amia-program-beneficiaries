@@ -37,7 +37,10 @@ yarn install
 ```
 
 3. Create `.env` under the `client` folder, and copy the contents of the `env-example`.
+
    > The `VUE_APP_UNDER_CONSTRUCTION` variable is just a variable that tells the Vue app if the application should be under maintenance.
+
+4. Create a file called `firebaseConfig.js` under the `client/src/firebase` and copy the contents of the `firebaseConfig.example.js`. And update the `firebaseConfig.js` with your Firebase details.
 
 ## How to use the Application
 

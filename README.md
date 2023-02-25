@@ -56,9 +56,11 @@ yarn serve
 
 ## How to use the Application
 
-###### Public Usage
+> _Public_ is where unauthenticated users can see and do in the application. _Admin_ is where the admin is logged in to the application with specific privileges.
 
-###### Admin Usage
+### Public Usage
+
+### Admin Usage
 
 ## Issues
 

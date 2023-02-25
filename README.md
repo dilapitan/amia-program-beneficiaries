@@ -60,7 +60,7 @@ yarn serve
 
 ## Issues
 
-Having issues? Please contact the admin of this project.
+Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.
 
 ## Contact Information
 

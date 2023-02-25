@@ -60,7 +60,15 @@ yarn serve
 
 ### Public Usage
 
+**VIEW** shallow list of beneficiaries
+
+- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
+
 ### Admin Usage
+
+**VIEW** shallow list of beneficiaries
+
+- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
 
 ## Issues
 

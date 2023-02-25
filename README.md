@@ -84,7 +84,7 @@ yarn serve
 
 **ADD beneficiary**
 
-- The admin can add a beneficiary to the system
+- The admin can add a new beneficiary to the system
 
 **EDIT beneficiary**
 

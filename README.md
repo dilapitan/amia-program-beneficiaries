@@ -32,7 +32,7 @@ The application is developed using [Node](https://nodejs.org/en/) version v16.14
 2. Go to `client` folder and install the following command:
 
 ```
-yarn install # npm i for using npm
+yarn install
 ```
 
 ## How to use the Application

@@ -42,6 +42,14 @@ yarn install
 
 4. Create a file called `firebaseConfig.js` under the `client/src/firebase` and copy the contents of the `firebaseConfig.example.js`. And update the `firebaseConfig.js` with your Firebase details.
 
+5. Under the `client` folder, ran the application using the command:
+
+```
+yarn serve
+```
+
+6. Open the application in http://localhost:8080/.
+
 ## How to use the Application
 
 ###### Public Usage

@@ -30,12 +30,11 @@ The application is developed using [Node](https://nodejs.org/en/) version v16.14
 
 1. Open terminal and pull the repository.
 2. Go to `client` folder and install the following command:
+   > Alternatively, you can use `npm i` for using [npm](https://www.npmjs.com/).
 
 ```
 yarn install
 ```
-
-> Alternatively, you can use `npm i` for using [npm](https://www.npmjs.com/).
 
 3. Create `.env` under the `client` folder, and copy the contents of the `env-example`.
    > The `VUE_APP_UNDER_CONSTRUCTION` variable is just a variable that tells the Vue app if the application should be under maintenance.

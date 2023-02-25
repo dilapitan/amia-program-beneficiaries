@@ -38,6 +38,7 @@ yarn install
 > Alternatively, you can use `npm i` for using [npm](https://www.npmjs.com/).
 
 3. Create `.env` under the `client` folder, and copy the contents of the `env-example`.
+   > The `VUE_APP_UNDER_CONSTRUCTION` variable is just a variable that tells the Vue app if the application should be under maintenance.
 
 ## How to use the Application
 

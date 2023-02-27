@@ -152,6 +152,11 @@ beneficiary {
 - Each `part` is an object that further contains attributes representing each field of the survey (e.g. `part0` has `date`, `interviewEnd`, `interviewStart`, etc.)
 - The `userId` attribute of the `beneficiary` document corresponds to the `User UID` of the admin user. Meaning to say an admin user can add many beneficiaries and we can track which admin created a beneficiary.
 
+**Rules**
+
+- Only admin users can write (`ADD`/`EDIT`/`DELETE`) a beneficiary document.
+- But anyone can `VIEW` the details of a beneficiary. But the application only publicly displays a shallow details of a beneficiary compared to admin users that can see all the details of a beneficiary.
+
 ## Issues
 
 Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.

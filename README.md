@@ -156,6 +156,7 @@ beneficiary {
 
 - Only admin users can write (`ADD`/`EDIT`/`DELETE`) a beneficiary document.
 - But anyone can `VIEW` the details of a beneficiary. But the application only publicly displays a shallow details of a beneficiary compared to admin users that can see all the details of a beneficiary.
+- These [rules](https://firebase.google.com/docs/firestore/security/get-started) are handled by Firebase in the Firebase console.
 
 ## Issues
 

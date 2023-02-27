@@ -1,5 +1,7 @@
 # Amia Program Beneficiaries
 
+The application was developed to help the users store the details of the AMIA Program beneficiaries. The admin can log in to the system and add a beneficiary, view or edit its details, or even delete it.
+
 ## What's in the App
 
 The application is build using Vue and Firebase.

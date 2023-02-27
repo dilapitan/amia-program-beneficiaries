@@ -108,6 +108,29 @@ yarn serve
 - The Sign-In method used is _email and password_ where the admin user is given an email and a password. No registration is needed.
 - The admin user has a `User UID` as their identifier that is later used for creating a `beneficiary`.
 
+**Beneficiary** (`beneficiaries` as a _collection_ in Firestore, `beneficiary` as a document of the _collection_)
+
+- This is a whole survey form that contains the details of a beneficiary.
+- The survey form has 9 parts. The number of parts starts with 0 and ends with 8, i.e. `part0`, `part1`, ... `part8`. In the Firestore, the `beneficiary` document have these `part` attribute.
+- Other attributes of the `beneficiary` document are `id`, `createdAt`, and `userId`.
+
+```
+beneficiary {
+  id
+  createdAt
+  userId
+  part0
+  part1
+  part2
+  part3
+  part4
+  part5
+  part6
+  part7
+  part8
+}
+```
+
 ## Issues
 
 Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.

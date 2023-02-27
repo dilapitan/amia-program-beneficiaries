@@ -100,6 +100,10 @@ yarn serve
 
 > Note: For the developer to login into the application, please contact the admin or email me at domlapitan@gmail.com. The application uses Firestore, and only the admins in the Firestore can login into the application.
 
+## Database: Firestore structure
+
+These are the details of the database architecture of the application:
+
 ## Issues
 
 Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.

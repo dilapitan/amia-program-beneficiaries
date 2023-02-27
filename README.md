@@ -2,6 +2,50 @@
 
 The application was developed to help the users store the details of the AMIA Program beneficiaries. The admin can log in to the system and add a beneficiary, view or edit its details, or even delete it.
 
+## How to use the Application
+
+> _Public_ is where unauthenticated users can see and do in the application. _Admin_ is where the admin is logged in to the application with specific privileges.
+
+### Public Usage
+
+**VIEW** shallow list of beneficiaries
+
+- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
+
+**LOGIN**
+
+- The user can use their admin credentials to login into the application.
+
+### Admin Usage
+
+**VIEW** shallow list of beneficiaries
+
+- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
+
+**VIEW beneficiary**
+
+- The admin can view all the details of a selected beneficiary
+
+**VIEW beneficiaries**
+
+- The admin can view all the beneficiaries and their details in a tabular form
+
+**ADD beneficiary**
+
+- The admin can add a new beneficiary to the system
+
+**EDIT beneficiary**
+
+- The admin can edit the details of a beneficiary
+
+**DELETE beneficiary**
+
+- The admin can delete a beneficiary in the system
+
+**LOGOUT**
+
+- The authenticated user can logout of the application.
+
 ## What's in the App
 
 The application is build using Vue and Firebase.
@@ -55,50 +99,6 @@ yarn serve
 6. Open the application in http://localhost:8080/.
 
 > Note: For the developer to login into the application, please contact the admin or email me at domlapitan@gmail.com. The application uses Firestore, and only the admins in the Firestore can login into the application.
-
-## How to use the Application
-
-> _Public_ is where unauthenticated users can see and do in the application. _Admin_ is where the admin is logged in to the application with specific privileges.
-
-### Public Usage
-
-**VIEW** shallow list of beneficiaries
-
-- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
-
-**LOGIN**
-
-- The user can use their admin credentials to login into the application.
-
-### Admin Usage
-
-**VIEW** shallow list of beneficiaries
-
-- The landing page in the application displays a public list of the Bicol region and its provinces with their corresponding beneficiaries.
-
-**VIEW beneficiary**
-
-- The admin can view all the details of a selected beneficiary
-
-**VIEW beneficiaries**
-
-- The admin can view all the beneficiaries and their details in a tabular form
-
-**ADD beneficiary**
-
-- The admin can add a new beneficiary to the system
-
-**EDIT beneficiary**
-
-- The admin can edit the details of a beneficiary
-
-**DELETE beneficiary**
-
-- The admin can delete a beneficiary in the system
-
-**LOGOUT**
-
-- The authenticated user can logout of the application.
 
 ## Issues
 

@@ -132,7 +132,7 @@ beneficiary {
 ```
 
 - Each `part` is an object that further contains attributes representing each field of the survey (e.g. `part0` has `date`, `interviewEnd`, `interviewStart`, etc.)
-- The `useId` attribute of the `beneficiary` document corresponds to the `User Id` of the admin user. Meaning to say an admin user can add many beneficiaries and we can track which admin created a beneficiary.
+- The `userId` attribute of the `beneficiary` document corresponds to the `User UID` of the admin user. Meaning to say an admin user can add many beneficiaries and we can track which admin created a beneficiary.
 
 ## Issues
 

@@ -131,6 +131,8 @@ beneficiary {
 }
 ```
 
+- Each `part` is an object that further contains attributes representing each field of the survey (e.g. `part0` has `date`, `interviewEnd`, `interviewStart`, etc.)
+
 ## Issues
 
 Having issues? Please contact the admin of this project or email me at domlapitan@gmail.com.

@@ -100,9 +100,13 @@ yarn serve
 
 > Note: For the developer to login into the application, please contact the admin or email me at domlapitan@gmail.com. The application uses Firestore, and only the admins in the Firestore can login into the application.
 
-## Database: Firestore structure
+## Database: Firebase Architecture of the Application
 
-These are the details of the database architecture of the application:
+**Admin User**
+
+- Manually created under [Authentication](https://firebase.google.com/docs/auth) of Firebase.
+- The Sign-In method used is _email and password_ where the admin user is given an email and a password. No registration is needed.
+- The admin user has a `User UID` as their identifier that is later used for creating a `beneficiary`.
 
 ## Issues
 

@@ -111,9 +111,21 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn v-if="isIronMan" icon color="white" @click="downloadData()">
-          <v-icon>mdi-cloud-download</v-icon>
-        </v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              v-if="isIronMan"
+              icon
+              color="white"
+              v-bind="attrs"
+              v-on="on"
+              @click="downloadData()"
+            >
+              <v-icon>mdi-cloud-download</v-icon>
+            </v-btn>
+          </template>
+          <span>Download Beneficiaries data</span>
+        </v-tooltip>
 
         <div v-if="$vuetify.breakpoint.smAndUp">
           <v-tooltip bottom>

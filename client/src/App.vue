@@ -111,7 +111,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn v-if="isIronMan" icon color="white">
+        <v-btn v-if="isIronMan" icon color="white" @click="downloadData()">
           <v-icon>mdi-cloud-download</v-icon>
         </v-btn>
 
@@ -272,6 +272,10 @@ export default {
   },
 
   methods: {
+    downloadData() {
+      console.log(this.$store.state.beneficiaries)
+    },
+
     goHome() {
       this.$router.push('/').catch(() => {})
     },

@@ -111,7 +111,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn icon color="white">
+        <v-btn v-if="isIronMan" icon color="white">
           <v-icon>mdi-cloud-download</v-icon>
         </v-btn>
 
@@ -254,8 +254,15 @@ export default {
   },
 
   computed: {
+    isIronMan() {
+      /**
+       * This is for only me, the creator of this app, so I can download the data manually
+       * and create a backup.
+       */
+      return this.$store.state.user.data?.email === 'domlapitan@gmail.com'
+    },
+
     isLoggedIn() {
-      //console.log('this.$store.state.user:', this.$store.state.user)
       return Boolean(this.$store.state.user.loggedIn)
     },
 

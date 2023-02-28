@@ -111,6 +111,10 @@
 
         <v-spacer></v-spacer>
 
+        <v-btn icon color="white">
+          <v-icon>mdi-cloud-download</v-icon>
+        </v-btn>
+
         <div v-if="$vuetify.breakpoint.smAndUp">
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
@@ -251,6 +255,7 @@ export default {
 
   computed: {
     isLoggedIn() {
+      //console.log('this.$store.state.user:', this.$store.state.user)
       return Boolean(this.$store.state.user.loggedIn)
     },
 

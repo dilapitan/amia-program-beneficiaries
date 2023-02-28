@@ -273,7 +273,7 @@ export default {
 
   methods: {
     downloadData() {
-      console.log(this.$store.state.beneficiaries)
+      // console.log(this.$store.state.beneficiaries)
     },
 
     goHome() {

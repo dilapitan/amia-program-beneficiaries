@@ -285,7 +285,17 @@ export default {
 
   methods: {
     downloadData() {
-      // console.log(this.$store.state.beneficiaries)
+      const beneficiaries = this.$store.state.beneficiaries
+      let csvContent =
+        'data:text/json;charset=utf-8,' + JSON.stringify(beneficiaries)
+
+      var encodedUri = encodeURI(csvContent)
+      var link = document.createElement('a')
+      link.setAttribute('href', encodedUri)
+      link.setAttribute('download', `${new Date()}_beneficiaries.json`)
+      document.body.appendChild(link) // Required for FF
+
+      link.click()
     },
 
     goHome() {
